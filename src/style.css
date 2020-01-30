@@ -1,0 +1,116 @@
+body {
+  background-color: rgb(243, 234, 234);
+}
+
+.post {
+  width: 420px;
+  border: 2px solid rgb(189, 189, 218);
+  padding: 0px 1px 0px 0;
+  margin: 5px 0 0 0;
+}
+
+.post-feed {
+  font-size: 11px;
+  background-color: rgb(214, 214, 235);
+  padding: 0px 5px 0px 5px;
+  height: 20px;
+}
+
+.post-writer {
+  color: rgb(50, 50, 192);
+  font-weight: bold;
+}
+
+.post-contents {
+  padding: 0 12px 20px 20px;
+  font-size: 14px;
+}
+
+.post-goodbar1 {
+  font-size: 12px;
+  color: blue;
+}
+.post-goodbar2 {
+  padding: 0 0 0 275px;
+  font-size: 12px;
+}
+.post-goodbar3 {
+  font-size: 12px;
+  padding: 0 0 0 10px;
+}
+
+.post-button-good {
+  width: 140px;
+  background-color: rgb(214, 214, 235);
+  border: 1px solid rgb(189, 189, 218);
+}
+
+.addpost {
+  font-size: 13px;
+  width: 420px;
+  border: 2px solid rgb(140, 140, 196);
+  padding: 0 1px 5px 0;
+  margin: 0 0 17px 0;
+}
+
+.addpost-title {
+  font-size: 11px;
+  font-weight: bold;
+  background-color: rgb(214, 214, 235);
+  padding: 0px 5px 0px 5px;
+  height: 20px;
+}
+
+.addpost-writer {
+  width: 100px;
+  height: 13px;
+  margin: 0 0 7px 0;
+}
+
+.addpost-inputcontents {
+  width: 360px;
+  height: 20px;
+  margin: 0 0 7px 43px;
+}
+
+.addpost-out {
+  margin: 0 0 0 366px;
+}
+
+.image {
+  margin: 5px 0px 0px 5px;
+}
+
+.comment {
+  width: 420px;
+  border: 2px solid rgb(189, 189, 218);
+  padding: 0px 1px 0px 0;
+  margin: -7px 0 0 0;
+}
+
+.comment-write {
+  padding: 6px 0 0 5px;
+}
+
+.comment-input {
+  padding: 5px 0 0 0;
+  margin: 0 0 0 5px;
+}
+
+.comment-contents {
+  padding: 6px 0 0 5px;
+  font-size: 13px;
+}
+
+.comment-thumb {
+  font-size: 9px;
+  margin: 0 0 5px 10px;
+  background-color: rgb(214, 214, 235);
+  border: 1px solid rgb(189, 189, 218);
+  padding: 0 0 0 0;
+}
+
+.comment-thumb-count {
+  font-size: 9px;
+  margin: 0 0 0 1px;
+}
