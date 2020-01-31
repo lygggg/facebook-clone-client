@@ -1,3 +1,4 @@
+// 게시글 추가 함수
 export const addPost = (poststate, temptId, temptContents) => {
   const { post } = poststate;
 
@@ -9,23 +10,32 @@ export const addPost = (poststate, temptId, temptContents) => {
         contents: temptContents,
         thumbCount: 0,
         sharingCount: 0,
-        commentCount: 0,
       },
     ],
   };
 };
 
-export const addComment = (commentState, postId, temptStatement) => {
-  console.log(`<addPost> id: postId, id=${postId} `);
+// 댓글 추가 함수
+export const addComment = (commentState, post, temptStatement) => {
   const { comment } = commentState;
   return {
     ...commentState,
     comment: [...comment,
       {
-        id: postId,
+        id: post.id,
         writer: 'Default Manager',
         statement: temptStatement,
       },
     ],
+  };
+};
+
+// 댓글이 추가되면 게시글의 "댓글n개"를 재설정해주는 함수
+export const plusCommentCount = (poststate) => {
+  const { commentCount } = poststate;
+
+  return {
+    ...poststate,
+    commentCount: commentCount + 1,
   };
 };

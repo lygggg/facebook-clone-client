@@ -5,33 +5,28 @@
 /* eslint-disable implicit-arrow-linebreak */
 import React, { useState } from 'react';
 import profile from './profile.jpeg';
-import { addComment } from './function';
+import { addComment, plusCommentCount } from './function';
 import Comment from './Comment';
 
 const initialComment = {
   temptStatement: '',
-  comment: [{
-    writer: 'Default Commenter 1',
-    statement: 'first comment',
-  },
-  {
-    writer: 'Default Commenter 2',
-    statement: 'second comment',
-  },
-  ],
+  comment: [],
 };
 
-function ShowPost({ poststate }) {
-  const { post } = poststate;
+function ShowPost({ poststate, setPostState }) {
+  const { post, commentCount } = poststate;
   const [commentState, setCommentState] = useState(initialComment);
-  const { comment, temptStatement } = commentState;
+  const { temptStatement } = commentState;
 
   const setCommentTemptStatement = (temptStatement) => {
     setCommentState({ ...commentState, temptStatement });
   };
 
-  const handleAddComment = (postId) => {
-    setCommentState({ ...addComment(commentState, postId, temptStatement) });
+  const handleAddComment = (post) => {
+    if (temptStatement.trim()) {
+      setCommentState({ ...addComment(commentState, post, temptStatement), temptStatement: '' });
+    }
+    setPostState({ ...plusCommentCount(poststate) });
   };
 
   return (
@@ -47,7 +42,7 @@ function ShowPost({ poststate }) {
               <br />
               <div className="post-contents">{p.contents}</div>
               <span className="post-goodbar1">좋아요{p.thumbCount}개</span>
-              <span className="post-goodbar2">댓글{p.commentCount}개</span>
+              <span className="post-goodbar2">댓글{commentCount}개</span>
               <span className="post-goodbar3">공유{p.sharingCount}개</span>
               <br />
               <button className="post-button-good" type="button">좋아요</button>
@@ -57,8 +52,9 @@ function ShowPost({ poststate }) {
           </div>
           <div className="comment">
             <div className="comment-write">
-              <input type="text" onChange={(e) => setCommentTemptStatement(e.target.value)} />
-              <button className="comment-input" type="button" onClick={() => handleAddComment(p.id)}>입력</button>
+              <span className="comment-datgle">댓글 </span>
+              <input type="text" value={temptStatement} onChange={(e) => setCommentTemptStatement(e.target.value)} />
+              <button className="comment-input" type="button" onClick={() => handleAddComment(p)}>입력</button>
             </div>
           </div>
           {/* post 배열을 쫙 순회하는 중에, 예를들어 post[2]를 map을 이용해 바꾸던 중 아래
