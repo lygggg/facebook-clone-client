@@ -11,25 +11,28 @@ import Comment from './Comment';
 const initialComment = {
   temptStatement: '',
   comment: [{
-    writer: 'das',
-    statement: 'ssss',
-  }],
+    writer: 'Default Commenter 1',
+    statement: 'first comment',
+  },
+  {
+    writer: 'Default Commenter 2',
+    statement: 'second comment',
+  },
+  ],
 };
 
 function ShowPost({ poststate }) {
   const { post } = poststate;
-  const [commentstate, setCommentState] = useState(initialComment);
-  const { comment, temptStatement } = commentstate;
+  const [commentState, setCommentState] = useState(initialComment);
+  const { comment, temptStatement } = commentState;
 
   const setCommentTemptStatement = (temptStatement) => {
-    setCommentState({ ...commentstate, temptStatement });
+    setCommentState({ ...commentState, temptStatement });
   };
 
   const handleAddComment = (postId) => {
-    setCommentState({ ...addComment(commentstate, postId, temptStatement) });
+    setCommentState({ ...addComment(commentState, postId, temptStatement) });
   };
-
-  // 댓글 입력 버튼까지 누르면 아주 잘 됨. comment 배열에 id랑 statement모두 잘 들어감. 문제는 그리는게 안됨.
 
   return (
     <div>
@@ -58,10 +61,13 @@ function ShowPost({ poststate }) {
               <button className="comment-input" type="button" onClick={() => handleAddComment(p.id)}>입력</button>
             </div>
           </div>
+          {/* post 배열을 쫙 순회하는 중에, 예를들어 post[2]를 map을 이용해 바꾸던 중 아래
+              comment 컴포넌트를 만나면, comment 컴포넌트가 post[2]의 id값을 보고 이 id에
+              해당하는 comment만 출력 */}
           <div>
             <Comment
-              post={post}
-              commentstate={commentstate}
+              post={p}
+              commentState={commentState}
             />
           </div>
         </>)}

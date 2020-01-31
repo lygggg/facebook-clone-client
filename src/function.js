@@ -1,5 +1,6 @@
 export const addPost = (poststate, temptId, temptContents) => {
   const { post } = poststate;
+
   return {
     ...poststate,
     post: [...post,
@@ -14,10 +15,11 @@ export const addPost = (poststate, temptId, temptContents) => {
   };
 };
 
-export const addComment = (commentstate, postId, temptStatement) => {
-  const { comment } = commentstate;
+export const addComment = (commentState, postId, temptStatement) => {
+  console.log(`<addPost> id: postId, id=${postId} `);
+  const { comment } = commentState;
   return {
-    ...commentstate,
+    ...commentState,
     comment: [...comment,
       {
         id: postId,
