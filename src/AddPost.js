@@ -15,7 +15,6 @@ const initialPost = {
       contents: '오늘은 날씨가 쌀쌀하니 좋아요 기능을 넣어보면 좋을 것 같다', // 게시글의 내용
       thumbCount: 0, // 좋아요 갯수
       sharingCount: 0, // 공유 횟수
-      comment: '',
     },
   ],
 };
@@ -41,6 +40,7 @@ function AddPost() {
 
   return (
     <>
+      <h1>Facebook</h1>
       <div className="addpost">
         <div className="addpost-title">게시물 만들기</div>
         <div>작성자: <input className="addpost-writer" type="text" value={temptId} onChange={(e) => setPostTemptId(e.target.value)} /></div>

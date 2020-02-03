@@ -3,31 +3,12 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable implicit-arrow-linebreak */
-import React, { useState } from 'react';
+import React from 'react';
 import profile from './profile.jpeg';
-import { addComment, plusCommentCount } from './function';
 import Comment from './Comment';
-
-const initialComment = {
-  temptStatement: '',
-  comment: [],
-};
 
 function ShowPost({ poststate, setPostState }) {
   const { post, commentCount } = poststate;
-  const [commentState, setCommentState] = useState(initialComment);
-  const { temptStatement } = commentState;
-
-  const setCommentTemptStatement = (temptStatement) => {
-    setCommentState({ ...commentState, temptStatement });
-  };
-
-  const handleAddComment = (post) => {
-    if (temptStatement.trim()) {
-      setCommentState({ ...addComment(commentState, post, temptStatement), temptStatement: '' });
-    }
-    setPostState({ ...plusCommentCount(poststate) });
-  };
 
   return (
     <div>
@@ -50,20 +31,11 @@ function ShowPost({ poststate, setPostState }) {
               <button className="post-button-good" type="button">공유하기</button>
             </div>
           </div>
-          <div className="comment">
-            <div className="comment-write">
-              <span className="comment-datgle">댓글 </span>
-              <input type="text" value={temptStatement} onChange={(e) => setCommentTemptStatement(e.target.value)} />
-              <button className="comment-input" type="button" onClick={() => handleAddComment(p)}>입력</button>
-            </div>
-          </div>
-          {/* post 배열을 쫙 순회하는 중에, 예를들어 post[2]를 map을 이용해 바꾸던 중 아래
-              comment 컴포넌트를 만나면, comment 컴포넌트가 post[2]의 id값을 보고 이 id에
-              해당하는 comment만 출력 */}
           <div>
             <Comment
               post={p}
-              commentState={commentState}
+              setPostState={setPostState}
+              poststate={poststate}
             />
           </div>
         </>)}
