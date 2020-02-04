@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -18,9 +19,9 @@ function ShowPost({ postState, setPostState }) {
 
   return (
     <div>
-      {post.map((p) =>
-        <>
-          <div key={p.id} className="post">
+      {post.map((p, index) =>
+        <div key={index}>
+          <div className="post">
             <div className="post-feed">
               {p.id} 님이 게시글을 업로드했습니다.
             </div>
@@ -44,7 +45,7 @@ function ShowPost({ postState, setPostState }) {
               postState={postState}
             />
           </div>
-        </>)}
+        </div>)}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 /* eslint-disable object-curly-newline */
 /* eslint-disable camelcase */
@@ -58,8 +59,8 @@ const Comment = ({ postState, specificPost, setPostState }) => { // 여기서 sp
         </div>
       </div>
       <div className="comment-contents">
-        {appropriateComment.map((v) =>
-          <div key={v.writer}>
+        {appropriateComment.map((v, index) =>
+          <div key={index}>
             <span className="comment-main">
               <img className="comment-image" src={profile} alt="" width="3.5%" />
               {v.writer} : {v.statement}

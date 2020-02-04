@@ -26,7 +26,7 @@ export const addComment = (commentState, post, temptStatement) => {
     ...commentState,
     comment: [...comment,
       {
-        id: post.id,
+        id: post.id, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
         writer: '관리자',
         statement: temptStatement,
         commentThumbCount: 0,
