@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-shadow */
@@ -7,8 +8,8 @@ import React from 'react';
 import profile from './profile.jpeg';
 import Comment from './Comment';
 
-function ShowPost({ poststate, setPostState }) {
-  const { post, commentCount } = poststate;
+function ShowPost({ postState, setPostState }) {
+  const { post } = postState;
 
   return (
     <div>
@@ -23,7 +24,7 @@ function ShowPost({ poststate, setPostState }) {
               <br />
               <div className="post-contents">{p.contents}</div>
               <span className="post-goodbar1">좋아요{p.thumbCount}개</span>
-              <span className="post-goodbar2">댓글{commentCount}개</span>
+              <span className="post-goodbar2">댓글{p.commentCount}개</span>
               <span className="post-goodbar3">공유{p.sharingCount}개</span>
               <br />
               <button className="post-button-good" type="button">좋아요</button>
@@ -33,9 +34,9 @@ function ShowPost({ poststate, setPostState }) {
           </div>
           <div>
             <Comment
-              post={p}
+              p_post={p}
               setPostState={setPostState}
-              poststate={poststate}
+              postState={postState}
             />
           </div>
         </>)}

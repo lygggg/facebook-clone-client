@@ -1,3 +1,5 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-alert */
 /* eslint-disable no-shadow */
@@ -8,31 +10,31 @@ import ShowPost from './ShowPost';
 const initialPost = {
   temptId: '',
   temptContents: '',
-  commentCount: 0, // 게시글의 댓글 갯수
   post: [
     {
-      id: '홍길동', // 작성자
-      contents: '오늘은 날씨가 쌀쌀하니 좋아요 기능을 넣어보면 좋을 것 같다', // 게시글의 내용
+      id: '전우민', // 작성자
+      contents: '여기는 게시글 내용이 작성되는 영역입니다. 위의 "게시글 만들기"에서 글을 입력하면 여기에 등록됩니다.', // 게시글의 내용
       thumbCount: 0, // 좋아요 갯수
       sharingCount: 0, // 공유 횟수
+      commentCount: 0, // 게시글의 댓글 갯수
     },
   ],
 };
 
 function AddPost() {
-  const [poststate, setPostState] = useState(initialPost);
-  const { temptId, temptContents } = poststate;
+  const [postState, setPostState] = useState(initialPost);
+  const { temptId, temptContents } = postState;
 
   const setPostTemptId = (temptId) => {
-    setPostState({ ...poststate, temptId });
+    setPostState({ ...postState, temptId });
   };
   const setPostTemptContents = (temptContents) => {
-    setPostState({ ...poststate, temptContents });
+    setPostState({ ...postState, temptContents });
   };
 
   const handleAddPost = () => {
     if (temptId.trim() && temptContents.trim()) {
-      setPostState({ ...addPost(poststate, temptId, temptContents), temptId: '', temptContents: '' });
+      setPostState({ ...addPost(postState, temptId, temptContents), temptId: '', temptContents: '' });
     } else {
       alert('내용을 입력해주세요');
     }
@@ -48,7 +50,7 @@ function AddPost() {
         <button className="addpost-out" type="button" onClick={handleAddPost}>게시</button>
       </div>
       <ShowPost
-        poststate={poststate}
+        postState={postState}
         setPostState={setPostState}
       />
     </>

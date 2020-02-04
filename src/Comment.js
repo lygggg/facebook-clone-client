@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable object-curly-newline */
+/* eslint-disable camelcase */
 /* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -12,7 +15,7 @@ const initialComment = {
   comment: [],
 };
 
-const Comment = ({ poststate, post, setPostState }) => { // 여기서 post는 특정 게시글을 의미함. p.map 한거
+const Comment = ({ postState, p_post, setPostState }) => { // 여기서 p_post는 특정 게시글을 의미함. p.map 한거
   const [commentState, setCommentState] = useState(initialComment);
   const { temptStatement, comment } = commentState;
   const appropriateComment = [];
@@ -21,18 +24,14 @@ const Comment = ({ poststate, post, setPostState }) => { // 여기서 post는 �
     setCommentState({ ...commentState, temptStatement });
   };
 
-  const handleAddComment = (post) => {
+  const handleAddComment = (p_post) => {
     if (temptStatement.trim()) {
-      setCommentState({ ...addComment(commentState, post, temptStatement), temptStatement: '' });
+      setCommentState({ ...addComment(commentState, p_post, temptStatement), temptStatement: '' });
+      setPostState(plusCommentCount(postState, p_post));
     }
-    setPostState({ ...plusCommentCount(poststate) });
   };
 
-  for (let i = 0; i < comment.length; i++) {
-    if (post.id === comment[i].id) {
-      appropriateComment.push(comment[i]);
-    }
-  }
+  comment.forEach((v) => (p_post.id === v.id ? appropriateComment.push(v) : v));
 
   return (
     <>
@@ -40,7 +39,7 @@ const Comment = ({ poststate, post, setPostState }) => { // 여기서 post는 �
         <div className="comment-write">
           <span className="comment-datgle">댓글 </span>
           <input type="text" value={temptStatement} onChange={(e) => setCommentTemptStatement(e.target.value)} />
-          <button className="comment-input" type="button" onClick={() => handleAddComment(post)}>입력</button>
+          <button className="comment-input" type="button" onClick={() => handleAddComment(p_post)}>입력</button>
         </div>
       </div>
       <div className="comment-contents">
