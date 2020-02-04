@@ -1,5 +1,5 @@
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable camelcase */
-/* eslint-disable max-len */
 
 // 게시글 추가 함수
 export const addPost = (postState, temptId, temptContents) => {
@@ -29,17 +29,41 @@ export const addComment = (commentState, post, temptStatement) => {
         id: post.id,
         writer: '관리자',
         statement: temptStatement,
+        commentThumbCount: 0,
       },
     ],
   };
 };
 
 // 댓글이 추가되면 게시글의 "댓글n개"를 재설정해주는 함수
-export const plusCommentCount = (postState, p_post) => {
+export const plusCommentCount = (postState, specificPost) => {
   const { post } = postState;
 
   return {
     ...postState,
-    post: post.map((p) => (p.id !== p_post.id ? p : { ...p, commentCount: p.commentCount + 1 })),
+    post: post.map((p) =>
+      (p !== specificPost ? p : { ...p, commentCount: p.commentCount + 1 })),
+  };
+};
+
+// 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1 되게 하는 함수
+export const plusThumbCount = (postState, specificPost) => {
+  const { post } = postState;
+
+  return {
+    ...postState,
+    post: post.map((p) =>
+      (p !== specificPost ? p : { ...p, thumbCount: p.thumbCount + 1 })),
+  };
+};
+
+export const plusCommentThumbCount = (commentState, specificComment) => {
+  const { comment } = commentState;
+
+  return {
+    ...commentState,
+    comment: comment.map((v) =>
+      (v !== specificComment ? v
+        : { ...v, commentThumbCount: specificComment.commentThumbCount + 1 })),
   };
 };

@@ -7,9 +7,14 @@
 import React from 'react';
 import profile from './profile.jpeg';
 import Comment from './Comment';
+import { plusThumbCount } from './function';
 
 function ShowPost({ postState, setPostState }) {
   const { post } = postState;
+
+  const handleThumbCount = (p) => {
+    setPostState(plusThumbCount(postState, p));
+  };
 
   return (
     <div>
@@ -27,14 +32,14 @@ function ShowPost({ postState, setPostState }) {
               <span className="post-goodbar2">댓글{p.commentCount}개</span>
               <span className="post-goodbar3">공유{p.sharingCount}개</span>
               <br />
-              <button className="post-button-good" type="button">좋아요</button>
+              <button className="post-button-good" type="button" onClick={() => handleThumbCount(p)}>좋아요</button>
               <button className="post-button-good" type="button">댓글</button>
               <button className="post-button-good" type="button">공유하기</button>
             </div>
           </div>
           <div>
             <Comment
-              p_post={p}
+              specificPost={p}
               setPostState={setPostState}
               postState={postState}
             />
