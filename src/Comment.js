@@ -16,9 +16,10 @@ const initialComment = {
   comment: [],
 };
 
-const Comment = ({ postState, specificPost, setPostState, userName }) => { // 여기서 specificPost는 특정 게시글을 의미함. p.map 한거
+const Comment = ({ postState, specificPost, setPostState, currentUserState }) => { // 여기서 specificPost는 특정 게시글을 의미함. p.map 한거
   const [commentState, setCommentState] = useState(initialComment);
   const { temptStatement, comment } = commentState;
+  const { userName } = currentUserState;
   const appropriateComment = [];
 
   const setCommentTemptStatement = (temptStatement) => {
