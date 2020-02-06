@@ -69,15 +69,20 @@ body {
   height: 20px;
 }
 
-.addpost-writer {
-  width: 100px;
-  height: 13px;
-  margin: 0 0 7px 0;
+.addpost-span {
+  font-weight: bold;
+  color: rgb(41, 41, 172);
+  font-size: 15px;
+}
+
+.addpost-notion {
+  font-size: 15px;
+  padding: 0 0 10px 5px; 
 }
 
 .addpost-inputcontents {
   width: 360px;
-  height: 20px;
+  height: 40px;
   margin: 0 0 7px 43px;
 }
 
@@ -106,7 +111,8 @@ body {
 }
 
 .comment-input {
-  padding: 1px 0 5px 0;
+  height: 22px;
+  padding: 0 0 5px 0;
   margin: 0 0 0 5px;
 }
 
@@ -135,3 +141,57 @@ body {
   padding: 3px 1px 0px 5px;
   margin: -3px 0 0 0;
 }
+
+.login {
+  width: 200px;
+  border: 2px solid rgb(140, 140, 196);
+  padding: 10px 0px 10px 10px;
+}
+
+.login-id-box {
+  width: 100px;
+  margin: 0 0 0 20px;
+}
+
+.login-pw-box {
+  width: 100px;
+  margin: 0 0 0 5.5px;
+}
+
+.login-button {
+  margin: 5px 0 0 120px;
+}
+
+.join-new {
+  width: 240px;
+  border: 2px solid red;
+  padding: 10px 0px 10px 10px;
+}
+
+.join-title {
+  color: red;
+  font-size: 22px;
+  margin: 0 0 10px 0;
+}
+
+.join-router {
+  margin: 0 0 0 290px
+}
+
+.join-new-name {
+  width: 65px;
+  margin: 0 0 0 34px;
+}
+.join-new-id {
+  width: 100px;
+  margin: 0 0 0 19.5px;
+}
+.join-new-pw {
+  width: 100px;
+  margin: 0 0 0 5px;
+}
+
+.join-new-button {
+  margin: 5px 0 0 180.5px;
+}
+

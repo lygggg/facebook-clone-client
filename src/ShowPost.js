@@ -10,7 +10,7 @@ import profile from './profile.jpeg';
 import Comment from './Comment';
 import { plusThumbCount } from './function';
 
-function ShowPost({ postState, setPostState }) {
+function ShowPost({ postState, setPostState, userName }) {
   const { post } = postState;
 
   const handleThumbCount = (p) => {
@@ -43,6 +43,7 @@ function ShowPost({ postState, setPostState }) {
               specificPost={p}
               setPostState={setPostState}
               postState={postState}
+              userName={userName}
             />
           </div>
         </div>)}

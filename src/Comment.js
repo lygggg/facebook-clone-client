@@ -16,7 +16,7 @@ const initialComment = {
   comment: [],
 };
 
-const Comment = ({ postState, specificPost, setPostState }) => { // 여기서 specificPost는 특정 게시글을 의미함. p.map 한거
+const Comment = ({ postState, specificPost, setPostState, userName }) => { // 여기서 specificPost는 특정 게시글을 의미함. p.map 한거
   const [commentState, setCommentState] = useState(initialComment);
   const { temptStatement, comment } = commentState;
   const appropriateComment = [];
@@ -25,9 +25,9 @@ const Comment = ({ postState, specificPost, setPostState }) => { // 여기서 sp
     setCommentState({ ...commentState, temptStatement });
   };
 
-  const handleAddComment = (specificPost) => {
+  const handleAddComment = (specificPost, userName) => {
     if (temptStatement.trim()) {
-      setCommentState({ ...addComment(commentState, specificPost, temptStatement), temptStatement: '' });
+      setCommentState({ ...addComment(commentState, specificPost, temptStatement, userName), temptStatement: '' });
       setPostState(plusCommentCount(postState, specificPost));
     }
   };
@@ -43,7 +43,7 @@ const Comment = ({ postState, specificPost, setPostState }) => { // 여기서 sp
     <>
       <div className="comment">
         <div className="comment-write">
-          <span className="comment-datgle">댓글 </span>
+          <span className="comment-datgle">댓글달기 </span>
           <input
             type="text"
             value={temptStatement}
@@ -52,7 +52,7 @@ const Comment = ({ postState, specificPost, setPostState }) => { // 여기서 sp
           <button
             className="comment-input"
             type="button"
-            onClick={() => handleAddComment(specificPost)}
+            onClick={() => handleAddComment(specificPost, userName)}
           >
           입력
           </button>

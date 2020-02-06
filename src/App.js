@@ -1,10 +1,10 @@
 import React from 'react';
-import AddPost from './AddPost';
+import Login from './Login';
 
 function App() {
   return (
     <>
-      <AddPost />
+      <Login />
     </>
   );
 }
