@@ -38,7 +38,7 @@ const Comment = ({ postState, specificPost, setPostState, currentUserState }) =>
   };
 
   comment.forEach((v) =>
-    (specificPost.id === v.id ? appropriateComment.push(v) : v));
+    (specificPost.name === v.id ? appropriateComment.push(v) : v));
 
   return (
     <>

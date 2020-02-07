@@ -3,18 +3,19 @@
 /* eslint-disable camelcase */
 
 // 게시글 추가 함수
-export const addPost = (postState, userName, temptContents) => {
+export const addPost = (postState, userName, userid, temptContents) => {
   const { post } = postState;
 
   return {
     ...postState,
     post: [...post,
       {
-        id: userName,
-        contents: temptContents,
-        thumbCount: [],
-        sharingCount: 0,
-        commentCount: 0,
+        id: userid, // 이 게시글을 누가 썼는지 식별 userid = currentUser.id
+        name: userName, // 이 게시글을 쓴 User의 이름
+        contents: temptContents, // 게시글의 내용
+        thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
+        sharingCount: 0, // 공유 개수를 출력
+        commentCount: 0, // 게시글에 달린 댓글 개수를 출력
       },
     ],
   };
@@ -27,10 +28,10 @@ export const addComment = (commentState, specificPost, temptStatement, userName)
     ...commentState,
     comment: [...comment,
       {
-        id: specificPost.id, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
-        writer: userName,
-        statement: temptStatement,
-        commentThumbCount: 0,
+        id: specificPost.name, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
+        writer: userName, // 댓글 쓰는 사람의 이름
+        statement: temptStatement, // 댓글 내용
+        commentThumbCount: 0, // 댓글의 좋아요 개수
       },
     ],
   };
@@ -47,7 +48,7 @@ export const plusCommentCount = (postState, specificPost) => {
   };
 };
 
-// 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1 되게 하는 함수
+// 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수
 export const plusThumbCount = (postState, specificPost, currentUserState) => {
   const { post } = postState;
   const { id } = currentUserState;
@@ -85,9 +86,9 @@ export const AddJoining = (loginState, temptJoiningId, temptJoiningPw, temptJoin
     ...loginState,
     users: [...users,
       {
-        id: temptJoiningId,
-        pw: temptJoiningPw,
-        userName: temptJoiningName,
+        id: temptJoiningId, // 고유 아이디. 중복 없음
+        pw: temptJoiningPw, // 패스워드
+        userName: temptJoiningName, // 이름. 중복 가능
       },
     ],
   };

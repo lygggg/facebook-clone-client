@@ -23,12 +23,12 @@ function ShowPost({ postState, setPostState, currentUserState }) {
         <div key={index}>
           <div className="post">
             <div className="post-feed">
-              {p.id} 님이 게시글을 업로드했습니다.
+              {p.name} 님이 게시글을 업로드했습니다.
             </div>
             <div className="post-main">
               <div className="post-writer">
                 <img className="image" src={profile} alt="" width="7%" />
-                {p.id}
+                {p.name}
               </div>
               <br />
               <div className="post-contents">{p.contents}</div>

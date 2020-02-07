@@ -11,7 +11,7 @@ const initialPost = {
   temptContents: '',
   post: [
     {
-      id: '낯선이',
+      name: '낯선이',
       contents: '여기는 게시글 내용이 작성되는 영역입니다. 위의 "게시글 만들기"에서 글을 입력하면 여기에 등록됩니다.', // 게시글의 내용
       thumbCount: [], // 좋아요 갯수
       sharingCount: 0, // 공유 횟수
@@ -23,7 +23,7 @@ const initialPost = {
 function Post({ currentUserState }) {
   const [postState, setPostState] = useState(initialPost);
   const { temptContents } = postState;
-  const { userName } = currentUserState;
+  const { userName, id } = currentUserState;
 
   const setPostTemptContents = (temptContents) => {
     setPostState({ ...postState, temptContents });
@@ -31,7 +31,7 @@ function Post({ currentUserState }) {
 
   const handleAddPost = () => {
     if (temptContents.trim()) {
-      setPostState({ ...addPost(postState, userName, temptContents), temptContents: '' });
+      setPostState({ ...addPost(postState, userName, id, temptContents), temptContents: '' });
     } else {
       alert('내용을 입력해주세요');
     }
