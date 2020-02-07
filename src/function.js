@@ -31,7 +31,7 @@ export const addComment = (commentState, specificPost, temptStatement, userName)
         id: specificPost.name, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
         writer: userName, // 댓글 쓰는 사람의 이름
         statement: temptStatement, // 댓글 내용
-        commentThumbCount: 0, // 댓글의 좋아요 개수
+        commentThumbCount: [], // 댓글의 좋아요 개수
       },
     ],
   };
@@ -48,7 +48,7 @@ export const plusCommentCount = (postState, specificPost) => {
   };
 };
 
-// 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수
+// 게시글: 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수
 export const plusThumbCount = (postState, specificPost, currentUserState) => {
   const { post } = postState;
   const { id } = currentUserState;
@@ -67,15 +67,17 @@ export const plusThumbCount = (postState, specificPost, currentUserState) => {
   };
 };
 
-// 댓글에 있는 좋아요 버튼이 눌리면 해당 댓글에 좋아요가 +1 되게 하는 함수
-export const plusCommentThumbCount = (commentState, specificComment) => {
+// 댓글: 좋아요 버튼이 눌리면 해당 댓글에 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수
+export const plusCommentThumbCount = (commentState, specificComment, currentUserState) => {
   const { comment } = commentState;
-
+  const { id } = currentUserState;
   return {
     ...commentState,
-    comment: comment.map((v) =>
-      (v !== specificComment ? v
-        : { ...v, commentThumbCount: specificComment.commentThumbCount + 1 })),
+    comment: comment.map((c) =>
+      (c !== specificComment ? c
+        : c.commentThumbCount.includes(id)
+          ? { ...c, commentThumbCount: c.commentThumbCount.filter((v) => v !== id) }
+          : { ...c, commentThumbCount: [...c.commentThumbCount, id] })),
   };
 };
 

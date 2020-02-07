@@ -34,7 +34,7 @@ const Comment = ({ postState, specificPost, setPostState, currentUserState }) =>
   };
 
   const handleCommentThumbCount = (specificComment) => {
-    setCommentState(plusCommentThumbCount(commentState, specificComment));
+    setCommentState(plusCommentThumbCount(commentState, specificComment, currentUserState));
   };
 
   comment.forEach((v) =>
@@ -72,7 +72,7 @@ const Comment = ({ postState, specificPost, setPostState, currentUserState }) =>
               onClick={() => handleCommentThumbCount(v)}
             >좋아요
             </button>
-            <span className="comment-thumb-count">{v.commentThumbCount}</span>
+            <span className="comment-thumb-count">{v.commentThumbCount.length}</span>
           </div>)}
       </div>
     </>
