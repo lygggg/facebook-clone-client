@@ -29,6 +29,10 @@ body {
   font-weight: bold;
 }
 
+.post-name {
+  margin: 0 0 0 5px;
+}
+
 .post-contents {
   padding: 0 12px 20px 20px;
   font-size: 14px;
@@ -164,12 +168,13 @@ body {
 
 .join-new {
   width: 240px;
-  border: 2px solid red;
+  border: 2px solid blue;
   padding: 10px 0px 10px 10px;
+  margin: 10px 0 0 167px;
 }
 
 .join-title {
-  color: red;
+  color: blue;
   font-size: 22px;
   margin: 0 0 10px 0;
 }
@@ -180,7 +185,7 @@ body {
 
 .join-new-name {
   width: 65px;
-  margin: 0 0 0 34px;
+  margin: 0 0 0 34.5px;
 }
 .join-new-id {
   width: 100px;

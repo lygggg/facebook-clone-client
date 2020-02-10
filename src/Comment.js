@@ -7,17 +7,19 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable implicit-arrow-linebreak */
-import React, { useState } from 'react';
+import React from 'react';
 import profile from './profile.jpeg';
 import { addComment, plusCommentCount, plusCommentThumbCount } from './function';
+import TailComment from './TailComment';
 
-const initialComment = {
-  temptStatement: '',
-  comment: [],
-};
-
-const Comment = ({ postState, specificPost, setPostState, currentUserState }) => { // 여기서 specificPost는 특정 게시글을 의미함. p.map 한거
-  const [commentState, setCommentState] = useState(initialComment);
+const Comment = ({
+  postState,
+  specificPost,
+  setPostState,
+  currentUserState,
+  commentState,
+  setCommentState,
+}) => { // 여기서 specificPost는 특정 게시글을 의미함. p.map 한거
   const { temptStatement, comment } = commentState;
   const { userName } = currentUserState;
   const appropriateComment = [];
@@ -67,12 +69,24 @@ const Comment = ({ postState, specificPost, setPostState, currentUserState }) =>
               {v.writer} : {v.statement}
             </span>
             <button
+              className="comment-thumb"
+              type="button"
+              onClick={() => handleAddTailComment(v)}
+            >
+            대댓글
+            </button>
+            <button
               type="button"
               className="comment-thumb"
               onClick={() => handleCommentThumbCount(v)}
             >좋아요
             </button>
             <span className="comment-thumb-count">{v.commentThumbCount.length}</span>
+            <div>
+              <TailComment
+                commentState={commentState}
+              />
+            </div>
           </div>)}
       </div>
     </>

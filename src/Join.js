@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
@@ -19,7 +20,12 @@ function Join({ loginState, setLoginState }) {
   };
 
   const handleAddJoining = () => {
-    setLoginState({ ...AddJoining(loginState, temptJoiningId, temptJoiningPw, temptJoiningName), temptJoiningId: '', temptJoiningPw: '', temptJoiningName: '' });
+    if (temptJoiningId.trim() && temptJoiningPw.trim() && temptJoiningName.trim()) {
+      setLoginState({ ...AddJoining(loginState, temptJoiningId, temptJoiningPw, temptJoiningName), temptJoiningId: '', temptJoiningPw: '', temptJoiningName: '' });
+      alert('회원가입이 완료되었습니다! 로그인을 해주세요');
+    } else {
+      alert('모든 항목을 입력해주세요');
+    }
   };
 
   return (

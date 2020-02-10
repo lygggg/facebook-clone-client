@@ -10,7 +10,7 @@ export const addPost = (postState, userName, userid, temptContents) => {
     ...postState,
     post: [...post,
       {
-        id: userid, // 이 게시글을 누가 썼는지 식별 userid = currentUser.id
+        id: userid, // 이 게시글을 누가 썼는지 식별 userid == currentUser.id ?
         name: userName, // 이 게시글을 쓴 User의 이름
         contents: temptContents, // 게시글의 내용
         thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
@@ -31,6 +31,7 @@ export const addComment = (commentState, specificPost, temptStatement, userName)
         id: specificPost.name, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
         writer: userName, // 댓글 쓰는 사람의 이름
         statement: temptStatement, // 댓글 내용
+        tailComment: [],
         commentThumbCount: [], // 댓글의 좋아요 개수
       },
     ],

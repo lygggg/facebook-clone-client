@@ -10,7 +10,13 @@ import profile from './profile.jpeg';
 import Comment from './Comment';
 import { plusThumbCount } from './function';
 
-function ShowPost({ postState, setPostState, currentUserState }) {
+function ShowPost({
+  postState,
+  setPostState,
+  currentUserState,
+  commentState,
+  setCommentState,
+}) {
   const { post } = postState;
 
   const handleThumbCount = (specificPost) => {
@@ -28,7 +34,7 @@ function ShowPost({ postState, setPostState, currentUserState }) {
             <div className="post-main">
               <div className="post-writer">
                 <img className="image" src={profile} alt="" width="7%" />
-                {p.name}
+                <span className="post-name">{p.name}</span>
               </div>
               <br />
               <div className="post-contents">{p.contents}</div>
@@ -53,6 +59,8 @@ function ShowPost({ postState, setPostState, currentUserState }) {
               setPostState={setPostState}
               postState={postState}
               currentUserState={currentUserState}
+              commentState={commentState}
+              setCommentState={setCommentState}
             />
           </div>
         </div>)}

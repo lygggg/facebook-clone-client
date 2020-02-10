@@ -1,29 +1,27 @@
+/* eslint-disable max-len */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-alert */
 /* eslint-disable no-shadow */
-import React, { useState } from 'react';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { addPost } from './function';
 import ShowPost from './ShowPost';
 
-const initialPost = {
-  temptContents: '',
-  post: [
-    {
-      name: '낯선이',
-      contents: '여기는 게시글 내용이 작성되는 영역입니다. 위의 "게시글 만들기"에서 글을 입력하면 여기에 등록됩니다.', // 게시글의 내용
-      thumbCount: [], // 좋아요 갯수
-      sharingCount: 0, // 공유 횟수
-      commentCount: 0, // 게시글의 댓글 갯수
-    },
-  ],
-};
-
-function Post({ currentUserState }) {
-  const [postState, setPostState] = useState(initialPost);
+function Post({
+  postState,
+  setPostState,
+  currentUserState,
+  setCurrentUserState,
+  loginState,
+  setLoginState,
+  commentState,
+  setCommentState,
+}) {
   const { temptContents } = postState;
   const { userName, id } = currentUserState;
+  const { isLoggedIn } = loginState;
 
   const setPostTemptContents = (temptContents) => {
     setPostState({ ...postState, temptContents });
@@ -37,9 +35,20 @@ function Post({ currentUserState }) {
     }
   };
 
+  const setIsLoggedInFalse = () => {
+    setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
+    setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '' });
+    alert('로그아웃 되었습니다');
+  };
+
+  if (isLoggedIn === false) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <>
       <h1>Facebook</h1>
+      <button type="button" onClick={setIsLoggedInFalse}>로그아웃</button>
       <div className="addpost">
         <div className="addpost-title">게시물 만들기</div>
         <div className="addpost-notion"><span className="addpost-span">{userName}</span>님, 무슨 생각을 하고 계신가요?</div>
@@ -51,6 +60,8 @@ function Post({ currentUserState }) {
         postState={postState}
         setPostState={setPostState}
         currentUserState={currentUserState}
+        commentState={commentState}
+        setCommentState={setCommentState}
       />
     </>
   );
