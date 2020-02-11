@@ -9,28 +9,28 @@
 /* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
 import profile from './profile.jpeg';
-import { addComment, plusCommentCount, plusCommentThumbCount } from './function';
-import TailComment from './TailComment';
+import { addComment, plusCommentCount, plusCommentThumbCount, addChildCommentBox } from './function';
+import ChildComment from './ChildComment';
 
 const Comment = ({
-  postState,
   specificPost,
+  postState,
   setPostState,
   currentUserState,
   commentState,
   setCommentState,
-}) => { // 여기서 specificPost는 특정 게시글을 의미함. p.map 한거
+}) => {
   const { temptStatement, comment } = commentState;
-  const { userName } = currentUserState;
+  const { userName, id } = currentUserState;
   const appropriateComment = [];
 
   const setCommentTemptStatement = (temptStatement) => {
     setCommentState({ ...commentState, temptStatement });
   };
 
-  const handleAddComment = (specificPost, userName) => {
+  const handleAddComment = (specificPost) => {
     if (temptStatement.trim()) {
-      setCommentState({ ...addComment(commentState, specificPost, temptStatement, userName), temptStatement: '' });
+      setCommentState({ ...addComment(commentState, specificPost, temptStatement, userName, id), temptStatement: '' });
       setPostState(plusCommentCount(postState, specificPost));
     }
   };
@@ -39,8 +39,16 @@ const Comment = ({
     setCommentState(plusCommentThumbCount(commentState, specificComment, currentUserState));
   };
 
+  const setIsChildCommentButtonTrue = (specificComment) => {
+    setCommentState(addChildCommentBox(commentState, specificComment));
+  };
+
   comment.forEach((v) =>
-    (specificPost.name === v.id ? appropriateComment.push(v) : v));
+    (specificPost.contents === v.id ? appropriateComment.push(v) : v));
+
+  // 여기에서 그리는 댓글에 있는 "대댓글 버튼"이 클릭되면 댓글입력창이 하나 더 나와야함.
+  // 그러기 위해서는 대댓글 버튼이 클릭되었을 때, v값을 가져와서 comment[i].statement === v.statement
+  // 를해서 true이면 ChildComment.js에서 조건부렌더링으로 댓글입력창을 보여주고, 아니면 안보여준다
 
   return (
     <>
@@ -71,7 +79,7 @@ const Comment = ({
             <button
               className="comment-thumb"
               type="button"
-              onClick={() => handleAddTailComment(v)}
+              onClick={() => setIsChildCommentButtonTrue(v)}
             >
             대댓글
             </button>
@@ -82,10 +90,22 @@ const Comment = ({
             >좋아요
             </button>
             <span className="comment-thumb-count">{v.commentThumbCount.length}</span>
+            {v.isChildCommentFunctionOn
+              ? (
+                <div>
+                  <ChildComment
+                    commentState={commentState}
+                    setCommentState={setCommentState}
+                    parentsComment={v}
+                    currentUserState={currentUserState}
+                  />
+                </div>
+              ) : <></>}
             <div>
-              <TailComment
-                commentState={commentState}
-              />
+              {v.childComment.map((k, index) =>
+                <div key={index} className="child-contents">
+                 └ {k.name} : {k.statement}
+                </div>)}
             </div>
           </div>)}
       </div>

@@ -3,14 +3,14 @@
 /* eslint-disable camelcase */
 
 // 게시글 추가 함수
-export const addPost = (postState, userName, userid, temptContents) => {
+export const addPost = (postState, userName, userID, temptContents) => {
   const { post } = postState;
 
   return {
     ...postState,
     post: [...post,
       {
-        id: userid, // 이 게시글을 누가 썼는지 식별 userid == currentUser.id ?
+        id: userID, // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
         name: userName, // 이 게시글을 쓴 User의 이름
         contents: temptContents, // 게시글의 내용
         thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
@@ -22,20 +22,53 @@ export const addPost = (postState, userName, userid, temptContents) => {
 };
 
 // 댓글 추가 함수
-export const addComment = (commentState, specificPost, temptStatement, userName) => {
+export const addComment = (commentState, specificPost, temptStatement, userName, userID) => {
   const { comment } = commentState;
+
   return {
     ...commentState,
     comment: [...comment,
       {
-        id: specificPost.name, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
+        id: specificPost.contents, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
+        writerID: userID, // 댓글 쓰는 사람의 ID
         writer: userName, // 댓글 쓰는 사람의 이름
         statement: temptStatement, // 댓글 내용
-        tailComment: [],
+        childComment: [],
+        isChildCommentFunctionOn: false,
         commentThumbCount: [], // 댓글의 좋아요 개수
       },
     ],
   };
+};
+
+// 대댓글 추가 함수
+export const addChildComment = (commentState, temptState, userID, userName, parentsComment) => {
+  const { comment } = commentState;
+  const { childComment } = parentsComment;
+
+  return {
+    ...commentState,
+    comment: comment.map((v) =>
+      (parentsComment.statement !== v.statement ? v
+        : {
+          ...v,
+          childComment: [...childComment,
+            { id: userID, name: userName, statement: temptState }],
+        })),
+  };
+};
+
+// 대댓글"창" 추가 함수
+export const addChildCommentBox = (commentState, specificComment) => {
+  const { comment } = commentState;
+
+  return (
+    {
+      ...commentState,
+      comment: comment.map((v) =>
+        (specificComment.statement !== v.statement ? v : { ...v, isChildCommentFunctionOn: true })),
+    }
+  );
 };
 
 // 댓글이 추가되면 게시글의 "댓글n개"를 재설정해주는 함수
@@ -82,6 +115,7 @@ export const plusCommentThumbCount = (commentState, specificComment, currentUser
   };
 };
 
+// 회원가입 함수
 export const AddJoining = (loginState, temptJoiningId, temptJoiningPw, temptJoiningName) => {
   const { users } = loginState;
 

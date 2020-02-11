@@ -146,6 +146,14 @@ body {
   margin: -3px 0 0 0;
 }
 
+.child-comment {
+  margin: -6px 0 0 40px;
+}
+
+.child-contents{
+  margin: -4px 0 0 40px;
+}
+
 .login {
   width: 200px;
   border: 2px solid rgb(140, 140, 196);

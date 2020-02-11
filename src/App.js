@@ -51,7 +51,7 @@ function App() {
   const [currentUserState, setCurrentUserState] = useState(currentUser);
   const [postState, setPostState] = useState(initialPost);
   const [commentState, setCommentState] = useState(initialComment);
-  
+
   return (
     <Router>
       <Switch>
