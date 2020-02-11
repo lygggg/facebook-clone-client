@@ -45,7 +45,7 @@ function Login({
       if (temptId === users[i].id && temptPw === users[i].pw) {
         setCurrentUserState({ ...currentUserState, id: users[i].id, pw: users[i].pw, userName: users[i].userName });
         setLoginState({ ...loginState, isLoggedIn: true });
-        setCommentState({
+        setCommentState({ // 대댓글창 모두 닫기
           ...commentState,
           comment: comment.map((v) => (justTrue ? { ...v, isChildCommentFunctionOn: false } : justTrue)),
         });

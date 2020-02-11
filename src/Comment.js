@@ -105,7 +105,7 @@ function Comment({
                     currentUserState={currentUserState}
                   />
                 </div>
-              ) : <span />}
+              ) : <></>}
             <div>
               {v.childComment.map((k, index) =>
                 <div key={index} className="child-contents">

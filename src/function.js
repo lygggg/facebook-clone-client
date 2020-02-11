@@ -18,6 +18,7 @@ export const addPost = (postState, userName, userID, temptContents) => {
         thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
         sharingCount: 0, // 공유 개수를 출력
         commentCount: 0, // 게시글에 달린 댓글 개수를 출력
+        isEditButtonClicked: false, // 수정버튼이 눌렸는가?
       },
     ],
   };

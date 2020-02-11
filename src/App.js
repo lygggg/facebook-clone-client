@@ -24,7 +24,6 @@ const initialLogin = {
 };
 
 const initialPost = {
-  isEditButtonClicked: false,
   post: [
     {
       name: '낯선이',
@@ -32,6 +31,7 @@ const initialPost = {
       thumbCount: [], // 좋아요 갯수
       sharingCount: 0, // 공유 횟수
       commentCount: 0, // 게시글의 댓글 갯수
+      isEditButtonClicked: false, // 수정버튼이 눌렸는가?
     },
   ],
 };

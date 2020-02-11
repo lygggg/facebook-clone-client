@@ -10,6 +10,7 @@ import React from 'react';
 import profile from './profile.jpeg';
 import Comment from './Comment';
 import { plusThumbCount } from './function';
+import PostEditBox from './PostEditBox';
 
 function ShowPost({
   postState,
@@ -18,7 +19,7 @@ function ShowPost({
   commentState,
   setCommentState,
 }) {
-  const { post, isEditButtonClicked } = postState;
+  const { post } = postState;
   const { id } = currentUserState;
 
   const handleThumbCount = (specificPost) => {
@@ -38,10 +39,18 @@ function ShowPost({
   };
 
   const handleEditPost = (specificPost) => {
-    if (specificPost.id === id) {
-      
+    if (specificPost.isEditButtonClicked === false) { // 수정창 열기
+      setPostState({
+        ...postState,
+        post: post.map((p) =>
+          (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: true })),
+      });
     } else {
-      alert('게시글은 해당 작성자만 수정할 수 있습니다');
+      setPostState({ // 수정창 닫기
+        ...postState,
+        post: post.map((p) =>
+          (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: false })),
+      });
     }
   };
 
@@ -63,7 +72,10 @@ function ShowPost({
                 ? (
                   <div>
                     <PostEditBox
-                      something
+                      specificPost={p}
+                      postState={postState}
+                      setPostState={setPostState}
+                      currentUserState={currentUserState}
                     />
                   </div>
                 ) : <></>}
