@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable camelcase */
+import Counter from './Counter';
 
 // 게시글 추가 함수
 export const addPost = (postState, userName, userID, temptContents) => {
@@ -10,6 +11,7 @@ export const addPost = (postState, userName, userID, temptContents) => {
     ...postState,
     post: [...post,
       {
+        uniqueKey: Counter(),
         id: userID, // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
         name: userName, // 이 게시글을 쓴 User의 이름
         contents: temptContents, // 게시글의 내용
@@ -22,17 +24,18 @@ export const addPost = (postState, userName, userID, temptContents) => {
 };
 
 // 댓글 추가 함수
-export const addComment = (commentState, specificPost, temptStatement, userName, userID) => {
+export const addComment = (commentState, specificPost, temptState, userName, userID) => {
   const { comment } = commentState;
 
   return {
     ...commentState,
     comment: [...comment,
       {
-        id: specificPost.contents, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
+        uniqueKey: Counter(),
+        id: specificPost.uniqueKey, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
         writerID: userID, // 댓글 쓰는 사람의 ID
         writer: userName, // 댓글 쓰는 사람의 이름
-        statement: temptStatement, // 댓글 내용
+        statement: temptState, // 댓글 내용
         childComment: [],
         isChildCommentFunctionOn: false,
         commentThumbCount: [], // 댓글의 좋아요 개수
@@ -49,7 +52,7 @@ export const addChildComment = (commentState, temptState, userID, userName, pare
   return {
     ...commentState,
     comment: comment.map((v) =>
-      (parentsComment.statement !== v.statement ? v
+      (parentsComment.uniqueKey !== v.uniqueKey ? v
         : {
           ...v,
           childComment: [...childComment,
@@ -66,7 +69,7 @@ export const addChildCommentBox = (commentState, specificComment) => {
     {
       ...commentState,
       comment: comment.map((v) =>
-        (specificComment.statement !== v.statement ? v : { ...v, isChildCommentFunctionOn: true })),
+        (specificComment.uniqueKey !== v.uniqueKey ? v : { ...v, isChildCommentFunctionOn: true })),
     }
   );
 };

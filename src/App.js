@@ -16,11 +16,6 @@ const currentUser = {
 
 const initialLogin = {
   isLoggedIn: false,
-  temptId: '',
-  temptPw: '',
-  temptJoiningId: '',
-  temptJoiningPw: '',
-  temptJoiningName: '',
   users: [{
     id: 'a',
     pw: 'a',
@@ -29,7 +24,6 @@ const initialLogin = {
 };
 
 const initialPost = {
-  temptContents: '',
   post: [
     {
       name: '낯선이',
@@ -42,7 +36,6 @@ const initialPost = {
 };
 
 const initialComment = {
-  temptStatement: '',
   comment: [],
 };
 
@@ -61,6 +54,8 @@ function App() {
             setLoginState={setLoginState}
             currentUserState={currentUserState}
             setCurrentUserState={setCurrentUserState}
+            commentState={commentState}
+            setCommentState={setCommentState}
           />
         </Route>
         <Route path="/join">

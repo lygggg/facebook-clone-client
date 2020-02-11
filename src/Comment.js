@@ -7,30 +7,32 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable implicit-arrow-linebreak */
-import React from 'react';
+import React, { useState } from 'react';
 import profile from './profile.jpeg';
 import { addComment, plusCommentCount, plusCommentThumbCount, addChildCommentBox } from './function';
-import ChildComment from './ChildComment';
+import ChildCommentBox from './ChildCommentBox';
 
-const Comment = ({
+function Comment({
   specificPost,
   postState,
   setPostState,
   currentUserState,
   commentState,
   setCommentState,
-}) => {
-  const { temptStatement, comment } = commentState;
+}) {
+  const { comment } = commentState;
   const { userName, id } = currentUserState;
+  const [temptState, setTemptState] = useState('');
   const appropriateComment = [];
 
-  const setCommentTemptStatement = (temptStatement) => {
-    setCommentState({ ...commentState, temptStatement });
+  const setCommentTemptStatement = (temptState) => {
+    setTemptState(temptState);
   };
 
   const handleAddComment = (specificPost) => {
-    if (temptStatement.trim()) {
-      setCommentState({ ...addComment(commentState, specificPost, temptStatement, userName, id), temptStatement: '' });
+    if (temptState.trim()) {
+      setCommentState(addComment(commentState, specificPost, temptState, userName, id));
+      setTemptState('');
       setPostState(plusCommentCount(postState, specificPost));
     }
   };
@@ -41,14 +43,17 @@ const Comment = ({
 
   const setIsChildCommentButtonTrue = (specificComment) => {
     setCommentState(addChildCommentBox(commentState, specificComment));
+    if (specificComment.isChildCommentFunctionOn === true) {
+      setCommentState({
+        ...commentState,
+        comment: comment.map((v) =>
+          (specificComment.uniqueKey !== v.uniqueKey ? v : { ...v, isChildCommentFunctionOn: false })),
+      });
+    }
   };
 
   comment.forEach((v) =>
-    (specificPost.contents === v.id ? appropriateComment.push(v) : v));
-
-  // 여기에서 그리는 댓글에 있는 "대댓글 버튼"이 클릭되면 댓글입력창이 하나 더 나와야함.
-  // 그러기 위해서는 대댓글 버튼이 클릭되었을 때, v값을 가져와서 comment[i].statement === v.statement
-  // 를해서 true이면 ChildComment.js에서 조건부렌더링으로 댓글입력창을 보여주고, 아니면 안보여준다
+    (specificPost.uniqueKey === v.id ? appropriateComment.push(v) : v));
 
   return (
     <>
@@ -57,7 +62,7 @@ const Comment = ({
           <span className="comment-datgle">댓글달기 </span>
           <input
             type="text"
-            value={temptStatement}
+            value={temptState}
             onChange={(e) => setCommentTemptStatement(e.target.value)}
           />
           <button
@@ -92,15 +97,15 @@ const Comment = ({
             <span className="comment-thumb-count">{v.commentThumbCount.length}</span>
             {v.isChildCommentFunctionOn
               ? (
-                <div>
-                  <ChildComment
+                <div className="child-comment-main">
+                  <ChildCommentBox
                     commentState={commentState}
                     setCommentState={setCommentState}
                     parentsComment={v}
                     currentUserState={currentUserState}
                   />
                 </div>
-              ) : <></>}
+              ) : <span />}
             <div>
               {v.childComment.map((k, index) =>
                 <div key={index} className="child-contents">
@@ -111,6 +116,6 @@ const Comment = ({
       </div>
     </>
   );
-};
+}
 
 export default Comment;

@@ -4,7 +4,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,19 +14,30 @@ import {
 } from 'react-router-dom';
 import Join from './Join';
 
+const initialTempt = {
+  temptId: '',
+  temptPw: '',
+};
+
 function Login({
   loginState,
   setLoginState,
   currentUserState,
   setCurrentUserState,
+  commentState,
+  setCommentState,
 }) {
-  const { users, temptId, temptPw, isLoggedIn } = loginState;
+  const { users, isLoggedIn } = loginState;
+  const { comment } = commentState;
+  const [temptState, setTemptState] = useState(initialTempt);
+  const { temptId, temptPw } = temptState;
+  const justTrue = true;
 
   const setLoginTemptId = (temptId) => {
-    setLoginState({ ...loginState, temptId });
+    setTemptState({ ...temptState, temptId });
   };
   const setLoginTemptPw = (temptPw) => {
-    setLoginState({ ...loginState, temptPw });
+    setTemptState({ ...temptState, temptPw });
   };
 
   const loginButtonClicked = () => {
@@ -34,6 +45,10 @@ function Login({
       if (temptId === users[i].id && temptPw === users[i].pw) {
         setCurrentUserState({ ...currentUserState, id: users[i].id, pw: users[i].pw, userName: users[i].userName });
         setLoginState({ ...loginState, isLoggedIn: true });
+        setCommentState({
+          ...commentState,
+          comment: comment.map((v) => (justTrue ? { ...v, isChildCommentFunctionOn: false } : justTrue)),
+        });
         alert('로그인 성공!');
       }
     }

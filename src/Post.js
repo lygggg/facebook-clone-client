@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-alert */
 /* eslint-disable no-shadow */
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { addPost } from './function';
 import ShowPost from './ShowPost';
@@ -19,17 +19,18 @@ function Post({
   commentState,
   setCommentState,
 }) {
-  const { temptContents } = postState;
+  const [temptState, setTemptState] = useState('');
   const { userName, id } = currentUserState;
   const { isLoggedIn } = loginState;
 
-  const setPostTemptContents = (temptContents) => {
-    setPostState({ ...postState, temptContents });
+  const setPostTemptContents = (temptState) => {
+    setTemptState(temptState);
   };
 
   const handleAddPost = () => {
-    if (temptContents.trim()) {
-      setPostState({ ...addPost(postState, userName, id, temptContents), temptContents: '' });
+    if (temptState.trim()) {
+      setPostState(addPost(postState, userName, id, temptState));
+      setTemptState('');
     } else {
       alert('내용을 입력해주세요');
     }
@@ -53,7 +54,7 @@ function Post({
         <div className="addpost-title">게시물 만들기</div>
         <div className="addpost-notion"><span className="addpost-span">{userName}</span>님, 무슨 생각을 하고 계신가요?</div>
         <div className="addpost-notion">생각을 게시글로 표현 해주세요</div>
-        <input className="addpost-inputcontents" type="text" value={temptContents} onChange={(e) => setPostTemptContents(e.target.value)} />
+        <input className="addpost-inputcontents" type="text" value={temptState} onChange={(e) => setPostTemptContents(e.target.value)} />
         <button className="addpost-out" type="button" onClick={handleAddPost}>게시</button>
       </div>
       <ShowPost

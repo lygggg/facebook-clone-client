@@ -4,18 +4,20 @@
 import React, { useState } from 'react';
 import { addChildComment } from './function';
 
-const ChildComment = ({
+function ChildCommentBox({
   commentState,
   setCommentState,
   parentsComment,
   currentUserState,
-}) => {
+}) {
   const { id, userName } = currentUserState;
   const [temptState, setTemptState] = useState('');
 
   const handleAddChildComment = () => {
-    setCommentState(addChildComment(commentState, temptState, id, userName, parentsComment));
-    setTemptState('');
+    if (temptState.trim()) {
+      setCommentState(addChildComment(commentState, temptState, id, userName, parentsComment));
+      setTemptState('');
+    }
   };
 
   return (
@@ -24,6 +26,6 @@ const ChildComment = ({
       <button type="button" className="comment-input" onClick={handleAddChildComment}>입력</button>
     </div>
   );
-};
+}
 
-export default ChildComment;
+export default ChildCommentBox;

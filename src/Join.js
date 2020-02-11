@@ -3,25 +3,33 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
+import React, { useState } from 'react';
 import { AddJoining } from './function';
 
+const initialTempt = {
+  temptJoiningId: '',
+  temptJoiningPw: '',
+  temptJoiningName: '',
+};
+
 function Join({ loginState, setLoginState }) {
-  const { temptJoiningId, temptJoiningPw, temptJoiningName } = loginState;
+  const [temptState, setTemptState] = useState(initialTempt);
+  const { temptJoiningId, temptJoiningPw, temptJoiningName } = temptState;
 
   const setJoinTemptName = (temptJoiningName) => {
-    setLoginState({ ...loginState, temptJoiningName });
+    setTemptState({ ...temptState, temptJoiningName });
   };
   const setJoinTemptId = (temptJoiningId) => {
-    setLoginState({ ...loginState, temptJoiningId });
+    setTemptState({ ...temptState, temptJoiningId });
   };
   const setJoinTemptPw = (temptJoiningPw) => {
-    setLoginState({ ...loginState, temptJoiningPw });
+    setTemptState({ ...temptState, temptJoiningPw });
   };
 
   const handleAddJoining = () => {
     if (temptJoiningId.trim() && temptJoiningPw.trim() && temptJoiningName.trim()) {
-      setLoginState({ ...AddJoining(loginState, temptJoiningId, temptJoiningPw, temptJoiningName), temptJoiningId: '', temptJoiningPw: '', temptJoiningName: '' });
+      setLoginState(AddJoining(loginState, temptJoiningId, temptJoiningPw, temptJoiningName));
+      setTemptState({ temptJoiningId: '', temptJoiningPw: '', temptJoiningName: '' });
       alert('회원가입이 완료되었습니다! 로그인을 해주세요');
     } else {
       alert('모든 항목을 입력해주세요');
