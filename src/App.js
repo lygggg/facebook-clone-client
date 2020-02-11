@@ -24,6 +24,7 @@ const initialLogin = {
 };
 
 const initialPost = {
+  isEditButtonClicked: false,
   post: [
     {
       name: '낯선이',

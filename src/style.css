@@ -24,6 +24,20 @@ body {
   height: 20px;
 }
 
+.post-edit {
+  font-size: 11px;
+  background-color: rgb(243, 234, 234);
+  margin: 5.5px 0 0 375px;
+  border: 1px solid black
+}
+
+.post-remove {
+  font-size: 11px;
+  background-color: rgb(243, 234, 234);
+  margin: -0.5px 0 0 375px;
+  border: 1px solid black
+}
+
 .post-writer {
   color: rgb(50, 50, 192);
   font-weight: bold;
