@@ -9,7 +9,12 @@
 /* eslint-disable implicit-arrow-linebreak */
 import React, { useState } from 'react';
 import profile from './profile.jpeg';
-import { addComment, plusCommentCount, plusCommentThumbCount, addChildCommentBox } from './function';
+import {
+  addComment,
+  plusCommentCount,
+  plusCommentThumbCount,
+  onOffChildCommentBox,
+} from './function';
 import ChildCommentBox from './ChildCommentBox';
 
 function Comment({
@@ -41,14 +46,10 @@ function Comment({
     setCommentState(plusCommentThumbCount(commentState, specificComment, currentUserState));
   };
 
-  const setIsChildCommentButtonTrue = (specificComment) => {
-    setCommentState(addChildCommentBox(commentState, specificComment));
+  const ChildCommentButtonClicked = (specificComment) => {
+    setCommentState(onOffChildCommentBox(commentState, specificComment, 1));
     if (specificComment.isChildCommentFunctionOn === true) {
-      setCommentState({
-        ...commentState,
-        comment: comment.map((v) =>
-          (specificComment.uniqueKey !== v.uniqueKey ? v : { ...v, isChildCommentFunctionOn: false })),
-      });
+      setCommentState(onOffChildCommentBox(commentState, specificComment, 0));
     }
   };
 
@@ -84,7 +85,7 @@ function Comment({
             <button
               className="comment-thumb"
               type="button"
-              onClick={() => setIsChildCommentButtonTrue(v)}
+              onClick={() => ChildCommentButtonClicked(v)}
             >
             대댓글
             </button>

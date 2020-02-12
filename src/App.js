@@ -16,11 +16,18 @@ const currentUser = {
 
 const initialLogin = {
   isLoggedIn: false,
-  users: [{
-    id: 'a',
-    pw: 'a',
-    userName: '전우민',
-  }],
+  users: [
+    {
+      id: 'a',
+      pw: 'a',
+      userName: '전우민',
+    },
+    {
+      id: 'ㅁ',
+      pw: 'ㅁ',
+      userName: '김첨지',
+    },
+  ],
 };
 
 const initialPost = {
@@ -57,6 +64,8 @@ function App() {
             setCurrentUserState={setCurrentUserState}
             commentState={commentState}
             setCommentState={setCommentState}
+            postState={postState}
+            setPostState={setPostState}
           />
         </Route>
         <Route path="/join">

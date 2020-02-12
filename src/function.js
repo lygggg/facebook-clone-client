@@ -24,6 +24,42 @@ export const addPost = (postState, userName, userID, temptContents) => {
   };
 };
 
+// 게시글 삭제 함수
+export const removePost = (postState, specificPost) => {
+  const { post } = postState;
+
+  return {
+    ...postState,
+    post: post.filter((p) => specificPost.uniqueKey !== p.uniqueKey),
+  };
+};
+
+// 게시글 수정 함수
+export const onOffPostEditBox = (postState, specificPost, num) => {
+  const { post } = postState;
+  let bool = false;
+
+  if (num === 1) {
+    bool = true;
+  }
+
+  return ({
+    ...postState,
+    post: post.map((p) =>
+      (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: bool })),
+  });
+};
+
+// 게시글 수정"창"을 모두 닫는 함수 (로그인 시에 사용)
+export const closeAllPostEditBox = (postState, justTrue) => {
+  const { post } = postState;
+
+  return ({
+    ...postState,
+    post: post.map((v) => (justTrue ? { ...v, isEditButtonClicked: false } : justTrue)),
+  });
+};
+
 // 댓글 추가 함수
 export const addComment = (commentState, specificPost, temptState, userName, userID) => {
   const { comment } = commentState;
@@ -62,15 +98,34 @@ export const addChildComment = (commentState, temptState, userID, userName, pare
   };
 };
 
-// 대댓글"창" 추가 함수
-export const addChildCommentBox = (commentState, specificComment) => {
+// 대댓글"창"을 열고 닫는 함수
+export const onOffChildCommentBox = (commentState, specificComment, num) => {
+  const { comment } = commentState;
+  let bool = false;
+
+  if (num === 1) {
+    bool = true;
+  }
+
+  return (
+    {
+      ...commentState,
+      comment: comment.map((v) =>
+        (specificComment.uniqueKey !== v.uniqueKey
+          ? v : { ...v, isChildCommentFunctionOn: bool })),
+    }
+  );
+};
+
+// 대댓글"창" 모두 닫는 함수 (로그인 시에 사용)
+export const closeAllChildCommentBox = (commentState, justTrue) => {
   const { comment } = commentState;
 
   return (
     {
       ...commentState,
       comment: comment.map((v) =>
-        (specificComment.uniqueKey !== v.uniqueKey ? v : { ...v, isChildCommentFunctionOn: true })),
+        (justTrue ? { ...v, isChildCommentFunctionOn: false } : justTrue)),
     }
   );
 };

@@ -31,6 +31,18 @@ body {
   border: 1px solid black
 }
 
+.post-edit-box {
+  margin: 4px 0 0px 229px;
+  height: 30px;
+}
+
+.post-edit-complete {
+  font-size: 11px;
+  background-color: rgb(243, 234, 234);
+  margin: 0px 0 3px 375px;
+  border: 1px solid black
+}
+
 .post-remove {
   font-size: 11px;
   background-color: rgb(243, 234, 234);
@@ -220,9 +232,4 @@ body {
 
 .join-new-button {
   margin: 5px 0 0 180.5px;
-}
-
-.post-edit-box {
-  margin: 2px 0 4px 229px;
-  height: 30px;
 }

@@ -9,7 +9,7 @@
 import React from 'react';
 import profile from './profile.jpeg';
 import Comment from './Comment';
-import { plusThumbCount } from './function';
+import { plusThumbCount, removePost, onOffPostEditBox } from './function';
 import PostEditBox from './PostEditBox';
 
 function ShowPost({
@@ -28,10 +28,7 @@ function ShowPost({
 
   const handleRemovePost = (specificPost) => {
     if (specificPost.id === id) {
-      setPostState({
-        ...postState,
-        post: post.filter((p) => specificPost.uniqueKey !== p.uniqueKey),
-      });
+      setPostState(removePost(postState, specificPost));
       alert('해당 게시글이 삭제되었습니다');
     } else {
       alert('게시글은 해당 작성자만 삭제할 수 있습니다');
@@ -39,18 +36,10 @@ function ShowPost({
   };
 
   const handleEditPost = (specificPost) => {
-    if (specificPost.isEditButtonClicked === false) { // 수정창 열기
-      setPostState({
-        ...postState,
-        post: post.map((p) =>
-          (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: true })),
-      });
+    if (specificPost.isEditButtonClicked === false) {
+      setPostState(onOffPostEditBox(postState, specificPost, 1));
     } else {
-      setPostState({ // 수정창 닫기
-        ...postState,
-        post: post.map((p) =>
-          (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: false })),
-      });
+      setPostState(onOffPostEditBox(postState, specificPost, 0));
     }
   };
 

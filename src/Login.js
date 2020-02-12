@@ -13,6 +13,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import Join from './Join';
+import { closeAllChildCommentBox, closeAllPostEditBox } from './function';
 
 const initialTempt = {
   temptId: '',
@@ -26,11 +27,12 @@ function Login({
   setCurrentUserState,
   commentState,
   setCommentState,
+  postState,
+  setPostState,
 }) {
-  const { users, isLoggedIn } = loginState;
-  const { comment } = commentState;
   const [temptState, setTemptState] = useState(initialTempt);
   const { temptId, temptPw } = temptState;
+  const { users, isLoggedIn } = loginState;
   const justTrue = true;
 
   const setLoginTemptId = (temptId) => {
@@ -43,18 +45,18 @@ function Login({
   const loginButtonClicked = () => {
     for (let i = 0; i < users.length; i += 1) {
       if (temptId === users[i].id && temptPw === users[i].pw) {
-        setCurrentUserState({ ...currentUserState, id: users[i].id, pw: users[i].pw, userName: users[i].userName });
-        setLoginState({ ...loginState, isLoggedIn: true });
-        setCommentState({ // 대댓글창 모두 닫기
-          ...commentState,
-          comment: comment.map((v) => (justTrue ? { ...v, isChildCommentFunctionOn: false } : justTrue)),
+        setCurrentUserState({
+          ...currentUserState, id: users[i].id, pw: users[i].pw, userName: users[i].userName,
         });
-        alert('로그인 성공!');
+        setLoginState({ ...loginState, isLoggedIn: true });
+        setCommentState(closeAllChildCommentBox(commentState, justTrue));
+        setPostState(closeAllPostEditBox(postState, justTrue));
       }
     }
   };
 
   if (isLoggedIn === true) {
+    alert('로그인 성공!');
     return <Redirect to="/post" />;
   }
 

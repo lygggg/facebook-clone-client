@@ -37,14 +37,14 @@ function PostEditBox({
 
   return (
     <div>
+      <input className="post-edit-box" type="text" onChange={(e) => setEditBox(e.target.value)} />
       <button
-        className="post-edit"
+        className="post-edit-complete"
         type="button"
         onClick={handleEditPostContents}
       >
       완료
       </button>
-      <input className="post-edit-box" type="text" onChange={(e) => setEditBox(e.target.value)} />
     </div>
   );
 }

@@ -36,7 +36,7 @@ function Post({
     }
   };
 
-  const setIsLoggedInFalse = () => {
+  const logoutButtonClicked = () => {
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
     setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '' });
     alert('로그아웃 되었습니다');
@@ -49,7 +49,7 @@ function Post({
   return (
     <>
       <h1>Facebook</h1>
-      <button type="button" onClick={setIsLoggedInFalse}>로그아웃</button>
+      <button type="button" onClick={logoutButtonClicked}>로그아웃</button>
       <div className="addpost">
         <div className="addpost-title">게시물 만들기</div>
         <div className="addpost-notion"><span className="addpost-span">{userName}</span>님, 무슨 생각을 하고 계신가요?</div>
