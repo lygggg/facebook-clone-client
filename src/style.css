@@ -242,3 +242,24 @@ body {
   background-color: rgb(227, 227, 236);
   border: 1px solid rgb(37, 37, 145);
 }
+
+.scrap-border {
+  width: 420px;
+  border: 2px solid rgb(235, 106, 106);
+  padding: 0px 1px 0px 0;
+  margin: 5px 0 0 0;
+}
+
+.scrap {
+  width: 380px;
+  border: 2px solid rgb(189, 189, 218);
+  padding: 0px 1px 0px 0;
+  margin: 10px 0 10px 18px;
+}
+
+.scrap-feed {
+  font-size: 13px;
+  background-color: rgb(241, 168, 168);
+  padding: 0px 5px 0px 5px;
+  height: 20px;
+}

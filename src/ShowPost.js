@@ -9,7 +9,7 @@
 import React from 'react';
 import profile from './profile.jpeg';
 import Comment from './Comment';
-import { plusThumbCount, removePost, onOffPostEditBox } from './function';
+import { plusThumbCount, removePost, onOffPostEditBox, scrapPost } from './function';
 import PostEditBox from './PostEditBox';
 
 function ShowPost({
@@ -47,9 +47,10 @@ function ShowPost({
     }
   };
 
-  // const scrapButtonClicked = (specificPost) => {
-  //   setPostState();
-  // };
+  const scrapButtonClicked = (specificPost) => {
+    setPostState(scrapPost(postState, specificPost, currentUserState));
+    alert('스크랩이 완료되었습니다! 마이페이지에서 확인하세요');
+  };
 
   return (
     <div>
@@ -105,7 +106,7 @@ function ShowPost({
               <button className="post-button-good" type="button">댓글</button>
               <button
                 className="post-button-good"
-                // onClick={() => scrapButtonClicked(p)}
+                onClick={() => scrapButtonClicked(p)}
                 type="button"
               >
               스크랩

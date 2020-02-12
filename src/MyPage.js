@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PostEditBox from './PostEditBox';
 import Comment from './Comment';
+import Scrap from './Scrap';
 import profile from './profile.jpeg';
 import { addPost, plusThumbCount, removePost, onOffPostEditBox } from './function';
 
@@ -169,6 +170,10 @@ function MyPage({
             </div>
           </div>)}
       </div>
+      <Scrap
+        postState={postState}
+        currentUserState={currentUserState}
+      />
     </>
   );
 }

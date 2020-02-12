@@ -24,28 +24,25 @@ export const addPost = (postState, userName, userID, temptContents) => {
   };
 };
 
-// // 게시글 스크랩 함수
-// export const scrapPost = (postState, specificPost, currentUserState) => {
-//   const { post } = postState;
-//   const { id } = currentUserState;
-//   const userID = id;
+// 게시글 스크랩 함수
+export const scrapPost = (postState, specificPost, currentUserState) => {
+  const { scrap } = postState;
+  const { id, userName } = currentUserState;
+  const userID = id;
 
-//   return {
-//     ...postState,
-//     post: [...post,
-//       {
-//         uniqueKey: Counter(),
-//         id: userID, // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
-//         name: specificPost.name, // 이 게시글을 쓴 User의 이름
-//         contents: specificPost.contents, // 게시글의 내용
-//         thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
-//         sharingCount: 0, // 공유 개수를 출력
-//         commentCount: 0, // 게시글에 달린 댓글 개수를 출력
-//         isEditButtonClicked: false, // 수정버튼이 눌렸는가?
-//       },
-//     ],
-//   };
-// };
+  return {
+    ...postState,
+    scrap: [...scrap,
+      {
+        uniqueKey: Counter(),
+        id: userID, // 스크랩 한 사람의 id
+        whoDid: userName, // 스크랩 한 사람의 name
+        name: specificPost.name, // 피게시글을 쓴 User의 이름
+        contents: specificPost.contents, // 피게시글의 내용
+      },
+    ],
+  };
+};
 
 // 게시글 삭제 함수
 export const removePost = (postState, specificPost) => {
