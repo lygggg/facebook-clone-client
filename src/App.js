@@ -7,6 +7,7 @@ import {
 import Login from './Login';
 import Join from './Join';
 import Post from './Post';
+import MyPage from './MyPage';
 
 const currentUser = {
   id: '',
@@ -41,6 +42,7 @@ const initialPost = {
       isEditButtonClicked: false, // 수정버튼이 눌렸는가?
     },
   ],
+  scrap: [],
 };
 
 const initialComment = {
@@ -76,6 +78,18 @@ function App() {
         </Route>
         <Route path="/post">
           <Post
+            postState={postState}
+            setPostState={setPostState}
+            currentUserState={currentUserState}
+            setCurrentUserState={setCurrentUserState}
+            loginState={loginState}
+            setLoginState={setLoginState}
+            commentState={commentState}
+            setCommentState={setCommentState}
+          />
+        </Route>
+        <Route path="/mypage">
+          <MyPage
             postState={postState}
             setPostState={setPostState}
             currentUserState={currentUserState}

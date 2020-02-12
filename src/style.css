@@ -32,7 +32,7 @@ body {
 }
 
 .post-edit-box {
-  margin: 4px 0 0px 229px;
+  margin: 4px 0 0px 228.55px;
   height: 30px;
 }
 
@@ -118,6 +118,8 @@ body {
 
 .addpost-out {
   margin: 0 0 0 366px;
+  background-color: rgb(243, 234, 234);
+  border: 1px solid black;
 }
 
 .image {
@@ -144,6 +146,8 @@ body {
   height: 22px;
   padding: 0 0 5px 0;
   margin: 0 0 0 5px;
+  background-color: rgb(243, 234, 234);
+  border: 1px solid black;
 }
 
 .comment-contents {
@@ -232,4 +236,9 @@ body {
 
 .join-new-button {
   margin: 5px 0 0 180.5px;
+}
+
+.page-header {
+  background-color: rgb(227, 227, 236);
+  border: 1px solid rgb(37, 37, 145);
 }

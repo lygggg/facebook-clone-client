@@ -26,6 +26,7 @@ function PostEditBox({
           post: post.map((p) =>
             (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, contents: temptState })),
         });
+        setTemptState('');
         alert('게시글이 수정되었습니다. "수정" 버튼을 눌러서 창을 닫아주세요');
       } else {
         alert('게시글은 해당 작성자만 수정 할 수 있습니다');
@@ -37,7 +38,12 @@ function PostEditBox({
 
   return (
     <div>
-      <input className="post-edit-box" type="text" onChange={(e) => setEditBox(e.target.value)} />
+      <input
+        className="post-edit-box"
+        type="text"
+        value={temptState}
+        onChange={(e) => setEditBox(e.target.value)}
+      />
       <button
         className="post-edit-complete"
         type="button"

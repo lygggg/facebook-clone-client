@@ -24,6 +24,29 @@ export const addPost = (postState, userName, userID, temptContents) => {
   };
 };
 
+// // 게시글 스크랩 함수
+// export const scrapPost = (postState, specificPost, currentUserState) => {
+//   const { post } = postState;
+//   const { id } = currentUserState;
+//   const userID = id;
+
+//   return {
+//     ...postState,
+//     post: [...post,
+//       {
+//         uniqueKey: Counter(),
+//         id: userID, // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
+//         name: specificPost.name, // 이 게시글을 쓴 User의 이름
+//         contents: specificPost.contents, // 게시글의 내용
+//         thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
+//         sharingCount: 0, // 공유 개수를 출력
+//         commentCount: 0, // 게시글에 달린 댓글 개수를 출력
+//         isEditButtonClicked: false, // 수정버튼이 눌렸는가?
+//       },
+//     ],
+//   };
+// };
+
 // 게시글 삭제 함수
 export const removePost = (postState, specificPost) => {
   const { post } = postState;
@@ -34,7 +57,7 @@ export const removePost = (postState, specificPost) => {
   };
 };
 
-// 게시글 수정 함수
+// 게시글 수정"창"을 열고 닫는 함수
 export const onOffPostEditBox = (postState, specificPost, num) => {
   const { post } = postState;
   let bool = false;

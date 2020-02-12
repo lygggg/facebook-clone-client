@@ -77,7 +77,7 @@ function Comment({
       </div>
       <div className="comment-contents">
         {appropriateComment.map((v, index) =>
-          <div key={index}>
+          <div key={`Comment${index}`}>
             <span className="comment-main">
               <img className="comment-image" src={profile} alt="" width="3.5%" />
               {v.writer} : {v.statement}

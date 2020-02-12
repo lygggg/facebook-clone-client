@@ -20,6 +20,7 @@ function Post({
   setCommentState,
 }) {
   const [temptState, setTemptState] = useState('');
+  const [myPageState, setMyPageState] = useState(false);
   const { userName, id } = currentUserState;
   const { isLoggedIn } = loginState;
 
@@ -42,6 +43,13 @@ function Post({
     alert('로그아웃 되었습니다');
   };
 
+  const moveToMyPage = () => {
+    setMyPageState(true);
+  };
+
+  if (myPageState === true) {
+    return <Redirect to="/mypage" />;
+  }
   if (isLoggedIn === false) {
     return <Redirect to="/" />;
   }
@@ -49,7 +57,13 @@ function Post({
   return (
     <>
       <h1>Facebook</h1>
-      <button type="button" onClick={logoutButtonClicked}>로그아웃</button>
+      <div>
+        <span>{userName}</span>{' '}
+        <button className="page-header" type="button">홈</button>{' '}
+        <button className="page-header" type="button" onClick={moveToMyPage}>마이페이지</button>{' '}
+        <button className="page-header" type="button" onClick={logoutButtonClicked}>로그아웃</button>
+      </div>
+      <br />
       <div className="addpost">
         <div className="addpost-title">게시물 만들기</div>
         <div className="addpost-notion"><span className="addpost-span">{userName}</span>님, 무슨 생각을 하고 계신가요?</div>

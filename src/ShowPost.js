@@ -37,11 +37,19 @@ function ShowPost({
 
   const handleEditPost = (specificPost) => {
     if (specificPost.isEditButtonClicked === false) {
-      setPostState(onOffPostEditBox(postState, specificPost, 1));
+      if (specificPost.id === id) {
+        setPostState(onOffPostEditBox(postState, specificPost, 1));
+      } else {
+        alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
+      }
     } else {
       setPostState(onOffPostEditBox(postState, specificPost, 0));
     }
   };
+
+  // const scrapButtonClicked = (specificPost) => {
+  //   setPostState();
+  // };
 
   return (
     <div>
@@ -95,7 +103,13 @@ function ShowPost({
               좋아요
               </button>
               <button className="post-button-good" type="button">댓글</button>
-              <button className="post-button-good" type="button">공유하기</button>
+              <button
+                className="post-button-good"
+                // onClick={() => scrapButtonClicked(p)}
+                type="button"
+              >
+              스크랩
+              </button>
             </div>
           </div>
           <div>
