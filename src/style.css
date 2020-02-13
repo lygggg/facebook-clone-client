@@ -56,7 +56,11 @@ body {
 }
 
 .post-name {
-  margin: 0 0 0 5px;
+  background-color: rgb(243, 234, 234);
+  border: 1px solid rgb(243, 234, 234);
+  color: rgb(41, 41, 172);
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .post-contents {

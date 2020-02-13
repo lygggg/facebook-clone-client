@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { addChildComment } from './function';
+import { addChildComment } from '../../function';
 
 function ChildCommentBox({
   commentState,

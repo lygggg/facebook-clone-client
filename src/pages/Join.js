@@ -4,7 +4,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
-import { AddJoining } from './function';
+import { AddJoining } from '../function';
 
 const initialTempt = {
   temptJoiningId: '',

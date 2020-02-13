@@ -4,10 +4,11 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import Login from './Login';
-import Join from './Join';
-import Post from './Post';
-import MyPage from './MyPage';
+import Login from './pages/Login';
+import Post from './pages/Post';
+import MyPage from './pages/MyPage';
+import OthersPage from './pages/OthersPage';
+import Join from './pages/Join';
 
 const currentUser = {
   id: '',
@@ -34,6 +35,8 @@ const initialLogin = {
 const initialPost = {
   post: [
     {
+      uniqueKey: 4231,
+      id: 'qwertyuiop', // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
       name: '낯선이',
       contents: '여기는 게시글 내용이 작성되는 영역입니다. 위의 "게시글 만들기"에서 글을 입력하면 여기에 등록됩니다.', // 게시글의 내용
       thumbCount: [], // 좋아요 갯수
@@ -50,6 +53,7 @@ const initialComment = {
 };
 
 function App() {
+  const [topLevelState, setTopLevelState] = useState('');
   const [loginState, setLoginState] = useState(initialLogin);
   const [currentUserState, setCurrentUserState] = useState(currentUser);
   const [postState, setPostState] = useState(initialPost);
@@ -86,6 +90,7 @@ function App() {
             setLoginState={setLoginState}
             commentState={commentState}
             setCommentState={setCommentState}
+            setTopLevelState={setTopLevelState}
           />
         </Route>
         <Route path="/mypage">
@@ -96,6 +101,20 @@ function App() {
             setCurrentUserState={setCurrentUserState}
             loginState={loginState}
             setLoginState={setLoginState}
+            commentState={commentState}
+            setCommentState={setCommentState}
+            setTopLevelState={setTopLevelState}
+          />
+        </Route>
+        <Route path="/otherspage">
+          <OthersPage
+            specificPost={topLevelState}
+            loginState={loginState}
+            setLoginState={setLoginState}
+            currentUserState={currentUserState}
+            setCurrentUserState={setCurrentUserState}
+            postState={postState}
+            setPostState={setPostState}
             commentState={commentState}
             setCommentState={setCommentState}
           />

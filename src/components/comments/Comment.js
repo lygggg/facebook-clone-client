@@ -8,13 +8,13 @@
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable implicit-arrow-linebreak */
 import React, { useState } from 'react';
-import profile from './profile.jpeg';
+import profile from '../../profile.jpeg';
 import {
   addComment,
   plusCommentCount,
   plusCommentThumbCount,
   onOffChildCommentBox,
-} from './function';
+} from '../../function';
 import ChildCommentBox from './ChildCommentBox';
 
 function Comment({

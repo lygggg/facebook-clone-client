@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable camelcase */
-import Counter from './Counter';
+import Counter from './components/Counter';
 
 // 게시글 추가 함수
 export const addPost = (postState, userName, userID, temptContents) => {

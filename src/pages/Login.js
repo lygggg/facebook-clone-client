@@ -13,7 +13,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import Join from './Join';
-import { closeAllChildCommentBox, closeAllPostEditBox } from './function';
+import { closeAllChildCommentBox, closeAllPostEditBox } from '../function';
 
 const initialTempt = {
   temptId: '',
@@ -68,10 +68,7 @@ function Login({
         비밀번호 <input type="text" className="login-pw-box" onChange={(e) => setLoginTemptPw(e.target.value)} /><br />
         <button onClick={loginButtonClicked} className="login-button" type="button">로그인</button>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+      <br /><br /><br /><br />
       <Router>
         <Link to="/join" className="join-router">회원이 아니신가요?</Link>
         <Switch>
