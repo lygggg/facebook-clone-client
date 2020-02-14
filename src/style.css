@@ -267,3 +267,20 @@ body {
   padding: 0px 5px 0px 5px;
   height: 20px;
 }
+
+.others-friend-add {
+  margin: 0 0 10px 360px;
+  background-color: rgb(227, 227, 236);
+  border: 1px solid rgb(37, 37, 145);
+}
+
+.others-friend-already {
+  background-color: rgb(227, 227, 236);
+  border: 1px solid rgb(37, 37, 145);
+  margin: 0 0 10px 0;
+}
+
+.other-friend-contents {
+  font-weight: bold;
+  margin: 0 0 0 200px;
+}

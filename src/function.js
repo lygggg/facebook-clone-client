@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable camelcase */
@@ -26,7 +27,7 @@ export const addPost = (postState, userName, userID, temptContents) => {
 
 // 게시글 스크랩 함수
 export const scrapPost = (postState, specificPost, currentUserState) => {
-  const { scrap } = postState;
+  const { scrap, post } = postState;
   const { id, userName } = currentUserState;
   const userID = id;
 
@@ -41,6 +42,8 @@ export const scrapPost = (postState, specificPost, currentUserState) => {
         contents: specificPost.contents, // 피게시글의 내용
       },
     ],
+    post: post.map((v) =>
+      (v.uniqueKey !== specificPost.uniqueKey ? v : { ...v, sharingCount: v.sharingCount + 1 })),
   };
 };
 
@@ -207,5 +210,27 @@ export const AddJoining = (loginState, temptJoiningId, temptJoiningPw, temptJoin
         userName: temptJoiningName, // 이름. 중복 가능
       },
     ],
+  };
+};
+
+// 친구 추가 함수
+export const addFriend = (currentUserState, specificId) => {
+  const { friends } = currentUserState;
+
+  return {
+    ...currentUserState,
+    friends: [...friends,
+      specificId,
+    ],
+  };
+};
+
+// 친구 해제 함수
+export const removeFriend = (currentUserState, specificId) => {
+  const { friends } = currentUserState;
+
+  return {
+    ...currentUserState,
+    friends: friends.filter((v) => v !== specificId),
   };
 };

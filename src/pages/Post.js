@@ -23,9 +23,20 @@ function Post({
 }) {
   const { isLoggedIn } = loginState;
   const { post } = postState;
+  const { id, friends } = currentUserState;
+  const appropriatePost = [];
 
   if (isLoggedIn === false) {
     return <Redirect to="/" />;
+  }
+
+  for (let i = 0; i < post.length; i += 1) {
+    if (post[i].id === id) {
+      appropriatePost.push(post[i]);
+    }
+    if (friends.includes(post[i].id)) {
+      appropriatePost.push(post[i]);
+    }
   }
 
   return (
@@ -43,7 +54,7 @@ function Post({
         setPostState={setPostState}
       />
       <div>
-        {post.map((p, index) => ( // 친구 게시글만 나오게 하려면 filter 이용
+        {appropriatePost.map((p, index) => (
           <div>
             <ShowPostHome
               postState={postState}

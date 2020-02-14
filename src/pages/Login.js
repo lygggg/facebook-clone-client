@@ -46,7 +46,11 @@ function Login({
     for (let i = 0; i < users.length; i += 1) {
       if (temptId === users[i].id && temptPw === users[i].pw) {
         setCurrentUserState({
-          ...currentUserState, id: users[i].id, pw: users[i].pw, userName: users[i].userName,
+          ...currentUserState,
+          id: users[i].id,
+          pw: users[i].pw,
+          userName: users[i].userName,
+          friends: users[i].friends,
         });
         setLoginState({ ...loginState, isLoggedIn: true });
         setCommentState(closeAllChildCommentBox(commentState, justTrue));

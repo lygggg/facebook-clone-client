@@ -53,9 +53,6 @@ function Comment({
     }
   };
 
-  comment.forEach((v) =>
-    (specificPost.uniqueKey === v.id ? appropriateComment.push(v) : v));
-
   return (
     <>
       <div className="comment">
@@ -76,7 +73,7 @@ function Comment({
         </div>
       </div>
       <div className="comment-contents">
-        {appropriateComment.map((v, index) =>
+        {comment.filter((v) => specificPost.uniqueKey === v.id).map((v, index) =>
           <div key={`Comment${index}`}>
             <span className="comment-main">
               <img className="comment-image" src={profile} alt="" width="3.5%" />

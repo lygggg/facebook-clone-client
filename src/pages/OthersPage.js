@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import ShowPost from '../components/posts/ShowPost';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
+import FriendsState from '../components/headers/FriendsState';
 
 function OthersPage({
   specificPost,
@@ -16,6 +18,9 @@ function OthersPage({
   setCommentState,
 }) {
   const { post } = postState;
+  const { id } = specificPost;
+  const userId = currentUserState.id;
+
   return (
     <>
       <HeaderOthersPage
@@ -24,7 +29,17 @@ function OthersPage({
         currentUserState={currentUserState}
         setCurrentUserState={setCurrentUserState}
       />
-      <h3>{specificPost.name} 님의 타임라인</h3>
+      {id === userId
+        ? (
+          <Redirect to="/mypage" />
+        )
+        : (
+          <FriendsState
+            specificPost={specificPost}
+            currentUserState={currentUserState}
+            setCurrentUserState={setCurrentUserState}
+          />
+        )}
       <div>
         {post.filter((v) => v.id === specificPost.id).map((p, index) => (
           <div>

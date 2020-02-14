@@ -14,6 +14,7 @@ const currentUser = {
   id: '',
   pw: '',
   userName: '',
+  friends: [],
 };
 
 const initialLogin = {
@@ -23,11 +24,13 @@ const initialLogin = {
       id: 'a',
       pw: 'a',
       userName: '전우민',
+      friends: ['qwertyuiop', 'ㅁ'],
     },
     {
       id: 'ㅁ',
       pw: 'ㅁ',
-      userName: '김첨지',
+      userName: '박재선',
+      friends: ['qwertyuiop', 'a'],
     },
   ],
 };
@@ -37,7 +40,7 @@ const initialPost = {
     {
       uniqueKey: 4231,
       id: 'qwertyuiop', // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
-      name: '낯선이',
+      name: '이민석',
       contents: '여기는 게시글 내용이 작성되는 영역입니다. 위의 "게시글 만들기"에서 글을 입력하면 여기에 등록됩니다.', // 게시글의 내용
       thumbCount: [], // 좋아요 갯수
       sharingCount: 0, // 공유 횟수
@@ -58,7 +61,6 @@ function App() {
   const [currentUserState, setCurrentUserState] = useState(currentUser);
   const [postState, setPostState] = useState(initialPost);
   const [commentState, setCommentState] = useState(initialComment);
-
   return (
     <Router>
       <Switch>
