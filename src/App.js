@@ -9,6 +9,7 @@ import Post from './pages/Post';
 import MyPage from './pages/MyPage';
 import OthersPage from './pages/OthersPage';
 import Join from './pages/Join';
+import FriendsReco from './pages/FriendsReco';
 
 const currentUser = {
   id: '',
@@ -24,13 +25,19 @@ const initialLogin = {
       id: 'a',
       pw: 'a',
       userName: '전우민',
-      friends: ['qwertyuiop', 'ㅁ'],
+      friends: ['ㅁ', 'ㅂ'],
     },
     {
       id: 'ㅁ',
       pw: 'ㅁ',
       userName: '박재선',
-      friends: ['qwertyuiop', 'a'],
+      friends: ['q', 'a'],
+    },
+    {
+      id: 'q',
+      pw: 'q',
+      userName: '정일구',
+      friends: [],
     },
   ],
 };
@@ -119,6 +126,14 @@ function App() {
             setPostState={setPostState}
             commentState={commentState}
             setCommentState={setCommentState}
+          />
+        </Route>
+        <Route path="/friendsreco">
+          <FriendsReco
+            currentUserState={currentUserState}
+            loginState={loginState}
+            topLevelState={topLevelState}
+            setTopLevelState={setTopLevelState}
           />
         </Route>
       </Switch>

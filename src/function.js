@@ -10,7 +10,7 @@ export const addPost = (postState, userName, userID, temptContents) => {
 
   return {
     ...postState,
-    post: [...post,
+    post: [
       {
         uniqueKey: Counter(),
         id: userID, // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
@@ -21,6 +21,7 @@ export const addPost = (postState, userName, userID, temptContents) => {
         commentCount: 0, // 게시글에 달린 댓글 개수를 출력
         isEditButtonClicked: false, // 수정버튼이 눌렸는가?
       },
+      ...post,
     ],
   };
 };
@@ -208,6 +209,7 @@ export const AddJoining = (loginState, temptJoiningId, temptJoiningPw, temptJoin
         id: temptJoiningId, // 고유 아이디. 중복 없음
         pw: temptJoiningPw, // 패스워드
         userName: temptJoiningName, // 이름. 중복 가능
+        friends: [], // 친구 목록
       },
     ],
   };

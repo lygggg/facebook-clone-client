@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 function HomeHeader({
   loginState,
@@ -39,6 +39,7 @@ function HomeHeader({
       <button className="page-header" type="button">홈</button>{' '}
       <button className="page-header" type="button" onClick={moveToMyPage}>마이페이지</button>{' '}
       <button className="page-header" type="button" onClick={logoutButtonClicked}>로그아웃</button>
+      <Link className="friends-recommendation" to="friendsreco">알 수도 있는 사람</Link>
       <br />
     </>
   );
