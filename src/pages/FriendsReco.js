@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
+import { changeIdToName } from '../function';
 
 function FriendsReco({
   currentUserState,
@@ -25,21 +26,13 @@ function FriendsReco({
     }
   }
 
-  // 친구추천에서 currentUser의 아이디는 지워줌
+  // 친구추천에서 currentUser의 아이디와 이미 친구인 사람은 지워줌
   friendsRecommendationArray.splice(friendsRecommendationArray.indexOf(id), 1);
-
-  // users.id를 users.userName으로 변경
-  const changeIdToName = (id) => {
-    let returnName = '';
-
-    for (let i = 0; i < users.length; i += 1) {
-      if (id === users[i].id) {
-        returnName = users[i].userName;
-      }
+  for (let i = 0; i < friends.length; i += 1) {
+    if (friendsRecommendationArray.includes(friends[i])) {
+      friendsRecommendationArray.splice(friendsRecommendationArray.indexOf(friends[i]), 1);
     }
-
-    return returnName;
-  };
+  }
 
   // user의 id를 받아와서 topLevelState의 형식에 맞춰서 넣어줌
   const findUserById = (id) => {
@@ -74,7 +67,7 @@ function FriendsReco({
             type="button"
             onClick={() => findUserById(v)}
           >
-            {changeIdToName(v)}
+            {changeIdToName(v, loginState)}
           </Link>
         ))}
       </div>

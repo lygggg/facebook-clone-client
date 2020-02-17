@@ -236,3 +236,16 @@ export const removeFriend = (currentUserState, specificId) => {
     friends: friends.filter((v) => v !== specificId),
   };
 };
+
+// users.id를 users.userName으로 변경해주는 함수
+export const changeIdToName = (id, loginState) => {
+  const { users } = loginState;
+  let returnName = '';
+
+  for (let i = 0; i < users.length; i += 1) {
+    if (id === users[i].id) {
+      returnName = users[i].userName;
+    }
+  }
+  return returnName;
+};
