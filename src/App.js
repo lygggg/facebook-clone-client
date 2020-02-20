@@ -20,41 +20,10 @@ const currentUser = {
 
 const initialLogin = {
   isLoggedIn: false,
-  users: [
-    {
-      id: 'a',
-      pw: 'a',
-      userName: '전우민',
-      friends: ['ㅁ', 'ㅂ'],
-    },
-    {
-      id: 'ㅁ',
-      pw: 'ㅁ',
-      userName: '박재선',
-      friends: ['q', 'a'],
-    },
-    {
-      id: 'q',
-      pw: 'q',
-      userName: '정일구',
-      friends: [],
-    },
-  ],
 };
 
 const initialPost = {
-  post: [
-    {
-      uniqueKey: 4231,
-      id: 'qwertyuiop', // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
-      name: '이민석',
-      contents: '여기는 게시글 내용이 작성되는 영역입니다. 위의 "게시글 만들기"에서 글을 입력하면 여기에 등록됩니다.', // 게시글의 내용
-      thumbCount: [], // 좋아요 갯수
-      sharingCount: 0, // 공유 횟수
-      commentCount: 0, // 게시글의 댓글 갯수
-      isEditButtonClicked: false, // 수정버튼이 눌렸는가?
-    },
-  ],
+  post: [],
   scrap: [],
 };
 

@@ -4,7 +4,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
-import { AddJoining } from '../function';
+import { addUser } from '../apis/service';
 
 const initialTempt = {
   temptJoiningId: '',
@@ -26,9 +26,10 @@ function Join({ loginState, setLoginState }) {
     setTemptState({ ...temptState, temptJoiningPw });
   };
 
-  const handleAddJoining = () => {
+  const handleAddJoining = async () => {
+    await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);
+
     if (temptJoiningId.trim() && temptJoiningPw.trim() && temptJoiningName.trim()) {
-      setLoginState(AddJoining(loginState, temptJoiningId, temptJoiningPw, temptJoiningName));
       setTemptState({ temptJoiningId: '', temptJoiningPw: '', temptJoiningName: '' });
       alert('회원가입이 완료되었습니다! 로그인을 해주세요');
     } else {

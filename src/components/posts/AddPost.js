@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
-import { addPost } from '../../function';
+import { addPost } from '../../apis/service';
 
 function AddPost({
   currentUserState,
@@ -16,9 +16,14 @@ function AddPost({
     setTemptState(temptState);
   };
 
-  const handleAddPost = () => {
+  const handleAddPost = async () => {
+    const { timeLinePosts } = await addPost(id, userName, temptState);
+    const { post } = timeLinePosts;
+    const apiPost = post;
+
+    console.log(apiPost);
     if (temptState.trim()) {
-      setPostState(addPost(postState, userName, id, temptState));
+      setPostState({ ...postState, post: [...apiPost]})
       setTemptState('');
     } else {
       alert('내용을 입력해주세요');

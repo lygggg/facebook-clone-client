@@ -3,28 +3,57 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable camelcase */
 import Counter from './components/Counter';
+/* ****************************************************** */
+import {
+  getUsers as apiGetUsers,
+  addUser as apiAddUser,
+  getPosts as apiGetPosts,
+  addPost as apiAddPost,
+} from './apis/service';
+
+// 유저 목록 불러오기
+export const getUsers = async () => {
+  return await apiGetUsers();
+}
+
+// 회원가입
+export const addUser = async (id, pw, userName) => {
+  return await apiAddUser(id, pw, userName);
+}
+
+// 게시글 목록 불러오기
+export const getPosts = async () => {
+  return await apiGetPosts();
+}
+
+// 게시글 추가
+export const addPost = async (id, name, contents) => {
+  return await apiAddPost(id, name, contents);
+}
+
+/* ****************************************************** */
 
 // 게시글 추가 함수
-export const addPost = (postState, userName, userID, temptContents) => {
-  const { post } = postState;
+// export const addPost = (postState, userName, userID, temptContents) => {
+//   const { post } = postState;
 
-  return {
-    ...postState,
-    post: [
-      {
-        uniqueKey: Counter(),
-        id: userID, // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
-        name: userName, // 이 게시글을 쓴 User의 이름
-        contents: temptContents, // 게시글의 내용
-        thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
-        sharingCount: 0, // 공유 개수를 출력
-        commentCount: 0, // 게시글에 달린 댓글 개수를 출력
-        isEditButtonClicked: false, // 수정버튼이 눌렸는가?
-      },
-      ...post,
-    ],
-  };
-};
+//   return {
+//     ...postState,
+//     post: [
+//       {
+//         uniqueKey: Counter(),
+//         id: userID, // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
+//         name: userName, // 이 게시글을 쓴 User의 이름
+//         contents: temptContents, // 게시글의 내용
+//         thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
+//         sharingCount: 0, // 공유 개수를 출력
+//         commentCount: 0, // 게시글에 달린 댓글 개수를 출력
+//         isEditButtonClicked: false, // 수정버튼이 눌렸는가?
+//       },
+//       ...post,
+//     ],
+//   };
+// };
 
 // 게시글 스크랩 함수
 export const scrapPost = (postState, specificPost, currentUserState) => {
@@ -195,23 +224,6 @@ export const plusCommentThumbCount = (commentState, specificComment, currentUser
         : c.commentThumbCount.includes(id)
           ? { ...c, commentThumbCount: c.commentThumbCount.filter((v) => v !== id) }
           : { ...c, commentThumbCount: [...c.commentThumbCount, id] })),
-  };
-};
-
-// 회원가입 함수
-export const AddJoining = (loginState, temptJoiningId, temptJoiningPw, temptJoiningName) => {
-  const { users } = loginState;
-
-  return {
-    ...loginState,
-    users: [...users,
-      {
-        id: temptJoiningId, // 고유 아이디. 중복 없음
-        pw: temptJoiningPw, // 패스워드
-        userName: temptJoiningName, // 이름. 중복 가능
-        friends: [], // 친구 목록
-      },
-    ],
   };
 };
 

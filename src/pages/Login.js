@@ -14,6 +14,7 @@ import {
 } from 'react-router-dom';
 import Join from './Join';
 import { closeAllChildCommentBox, closeAllPostEditBox } from '../function';
+import { getUsers } from '../apis/service';
 
 const initialTempt = {
   temptId: '',
@@ -32,7 +33,7 @@ function Login({
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
   const { temptId, temptPw } = temptState;
-  const { users, isLoggedIn } = loginState;
+  const { isLoggedIn } = loginState;
   const justTrue = true;
 
   const setLoginTemptId = (temptId) => {
@@ -42,7 +43,10 @@ function Login({
     setTemptState({ ...temptState, temptPw });
   };
 
-  const loginButtonClicked = () => {
+  const loginButtonClicked = async () => {
+    const { userStore } = await getUsers();
+    const { users } = userStore;
+
     for (let i = 0; i < users.length; i += 1) {
       if (temptId === users[i].id && temptPw === users[i].pw) {
         setCurrentUserState({

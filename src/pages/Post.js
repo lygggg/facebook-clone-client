@@ -4,11 +4,23 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-alert */
 /* eslint-disable no-shadow */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import AddPost from '../components/posts/AddPost';
 import ShowPostHome from '../components/posts/ShowPostHome';
 import HeaderHome from '../components/headers/HeaderHome';
+import { getPosts } from '../apis/service';
+
+const callAPI = async (postState, setPostState) => {
+  const { timeLinePosts } = await getPosts();
+  const { post } = timeLinePosts;
+  const apiPost = post;
+
+  setPostState({ 
+    ...postState, 
+    post: [...apiPost],
+  });
+}
 
 function Post({
   postState,
@@ -22,9 +34,14 @@ function Post({
   setTopLevelState,
 }) {
   const { isLoggedIn } = loginState;
-  const { post } = postState;
   const { id, friends } = currentUserState;
+  const { post } = postState;
+  const frontPost = post;
   const appropriatePost = [];
+
+  useEffect(() => {
+    callAPI(postState, setPostState);
+  }, []);
 
   if (isLoggedIn === false) {
     return <Redirect to="/" />;
