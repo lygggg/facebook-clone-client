@@ -17,13 +17,10 @@ function AddPost({
   };
 
   const handleAddPost = async () => {
-    const { timeLinePosts } = await addPost(id, userName, temptState);
-    const { post } = timeLinePosts;
-    const apiPost = post;
-
-    console.log(apiPost);
     if (temptState.trim()) {
-      setPostState({ ...postState, post: [...apiPost]})
+      const { timeLinePosts } = await addPost(id, userName, temptState);
+
+      setPostState({ ...postState, post: [...timeLinePosts.post]})
       setTemptState('');
     } else {
       alert('내용을 입력해주세요');

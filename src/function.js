@@ -1,7 +1,3 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable camelcase */
 import Counter from './components/Counter';
 /* ****************************************************** */
 import {
@@ -9,6 +5,8 @@ import {
   addUser as apiAddUser,
   getPosts as apiGetPosts,
   addPost as apiAddPost,
+  removePost as apiRemovePost,
+  editPost as apiEditPost,
 } from './apis/service';
 
 // 유저 목록 불러오기
@@ -31,29 +29,17 @@ export const addPost = async (id, name, contents) => {
   return await apiAddPost(id, name, contents);
 }
 
+// 게시글 삭제
+export const removePost = async (uniqueKey) => {
+  return await apiRemovePost(uniqueKey);
+}
+
+// 게시글 수정
+export const editPost = async (uniqueKey, temptState) => {
+  return await apiEditPost(uniqueKey, temptState);
+}
+
 /* ****************************************************** */
-
-// 게시글 추가 함수
-// export const addPost = (postState, userName, userID, temptContents) => {
-//   const { post } = postState;
-
-//   return {
-//     ...postState,
-//     post: [
-//       {
-//         uniqueKey: Counter(),
-//         id: userID, // 이 게시글을 누가 썼는지 식별 userID == currentUser.id ?
-//         name: userName, // 이 게시글을 쓴 User의 이름
-//         contents: temptContents, // 게시글의 내용
-//         thumbCount: [], // 좋아요 개수. 배열의 길이를 반환하여 출력
-//         sharingCount: 0, // 공유 개수를 출력
-//         commentCount: 0, // 게시글에 달린 댓글 개수를 출력
-//         isEditButtonClicked: false, // 수정버튼이 눌렸는가?
-//       },
-//       ...post,
-//     ],
-//   };
-// };
 
 // 게시글 스크랩 함수
 export const scrapPost = (postState, specificPost, currentUserState) => {
@@ -74,16 +60,6 @@ export const scrapPost = (postState, specificPost, currentUserState) => {
     ],
     post: post.map((v) =>
       (v.uniqueKey !== specificPost.uniqueKey ? v : { ...v, sharingCount: v.sharingCount + 1 })),
-  };
-};
-
-// 게시글 삭제 함수
-export const removePost = (postState, specificPost) => {
-  const { post } = postState;
-
-  return {
-    ...postState,
-    post: post.filter((p) => specificPost.uniqueKey !== p.uniqueKey),
   };
 };
 

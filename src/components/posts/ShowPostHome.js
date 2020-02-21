@@ -1,19 +1,12 @@
-/* eslint-disable no-alert */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-shadow */
-/* eslint-disable react/jsx-wrap-multilines */
-/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-import { plusThumbCount, removePost, onOffPostEditBox, scrapPost } from '../../function';
+import { plusThumbCount, onOffPostEditBox, scrapPost } from '../../function';
 import profile from '../../profile.jpeg';
+import { removePost } from '../../function';
 
-function ShowPost({
+function ShowPostHome({
   postState,
   setPostState,
   currentUserState,
@@ -29,9 +22,11 @@ function ShowPost({
     setPostState(plusThumbCount(postState, specificPost, currentUserState));
   };
 
-  const handleRemovePost = (specificPost) => {
+  const handleRemovePost = async (specificPost) => {
+    const { timeLinePosts } = await removePost(specificPost.uniqueKey);
+    
     if (specificPost.id === id) {
-      setPostState(removePost(postState, specificPost));
+      setPostState({ ...postState, post: [...timeLinePosts.post] });
       alert('해당 게시글이 삭제되었습니다');
     } else {
       alert('게시글은 해당 작성자만 삭제할 수 있습니다');
@@ -39,14 +34,10 @@ function ShowPost({
   };
 
   const handleEditPost = (specificPost) => {
-    if (specificPost.isEditButtonClicked === false) {
-      if (specificPost.id === id) {
-        setPostState(onOffPostEditBox(postState, specificPost, 1));
-      } else {
-        alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
-      }
+    if (specificPost.id === id) {
+      setPostState(onOffPostEditBox(postState, specificPost, 1));
     } else {
-      setPostState(onOffPostEditBox(postState, specificPost, 0));
+      alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
     }
   };
 
@@ -139,4 +130,4 @@ function ShowPost({
   );
 }
 
-export default ShowPost;
+export default ShowPostHome;

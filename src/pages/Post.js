@@ -13,12 +13,10 @@ import { getPosts } from '../apis/service';
 
 const callAPI = async (postState, setPostState) => {
   const { timeLinePosts } = await getPosts();
-  const { post } = timeLinePosts;
-  const apiPost = post;
 
   setPostState({ 
     ...postState, 
-    post: [...apiPost],
+    post: [...timeLinePosts.post],
   });
 }
 
@@ -72,7 +70,7 @@ function Post({
       />
       <div>
         {appropriatePost.map((p, index) => (
-          <div>
+          <div key={index}>
             <ShowPostHome
               postState={postState}
               setPostState={setPostState}

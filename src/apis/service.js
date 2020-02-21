@@ -22,3 +22,18 @@ export const addPost = async (id, name, contents) => {
   const { data } = await axios.post(POSTS_URL, { id, name, contents });
   return data;
 }
+
+export const removePost = async (uniqueKey) => {
+  const { data } = await axios.delete(`${POSTS_URL}/${uniqueKey}`);
+  return data;
+}
+
+export const editPost = async (uniqueKey, temptState) => {
+  const { data } = await axios.patch(POSTS_URL, { uniqueKey, temptState });
+  return data;
+}
+
+export const openEditBox = async (uniqueKey) => {
+  const { data } = await axios.patch(POSTS_URL, { uniqueKey });
+  return data;
+}

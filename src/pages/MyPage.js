@@ -42,7 +42,7 @@ function MyPage({
       />
       <div>
         {post.filter((v) => v.id === id).map((p, index) => (
-          <div>
+          <div key={index}>
             <ShowPost
               postState={postState}
               setPostState={setPostState}

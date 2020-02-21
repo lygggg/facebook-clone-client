@@ -44,7 +44,7 @@ function OthersPage({
         {post.filter((v) => v.id === specificPost.id).length === 0
           ? <div className="no-post">게시글이 없습니다</div>
           : post.filter((v) => v.id === specificPost.id).map((p, index) => (
-            <div>
+            <div key={index}>
               <ShowPost
                 postState={postState}
                 setPostState={setPostState}
