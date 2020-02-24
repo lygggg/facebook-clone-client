@@ -1,6 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { addChildComment } from '../../function';
 

@@ -1,8 +1,3 @@
-/* eslint-disable no-alert */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-shadow */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
 import { addUser } from '../apis/service';
 

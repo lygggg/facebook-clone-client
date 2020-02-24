@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-import { plusThumbCount, onOffPostEditBox, scrapPost } from '../../function';
+import { plusThumbCount, openPostEditBox } from '../../function';
 import profile from '../../profile.jpeg';
-import { removePost } from '../../function';
+import { removePost, addScrap, getPosts } from '../../function';
+
+const callAPI = async (postState, setPostState) => {
+  const { timeLinePosts } = await getPosts();
+
+  setPostState({ 
+    ...postState, 
+    post: [...timeLinePosts.post],
+  });
+}
 
 function ShowPostHome({
   postState,
@@ -13,10 +22,14 @@ function ShowPostHome({
   commentState,
   setCommentState,
   setTopLevelState,
-  p,
+  specificPost,
   index,
 }) {
   const { id } = currentUserState;
+
+  useEffect(() => {
+    callAPI(postState, setPostState);
+  }, [postState.scrap]);
 
   const handleThumbCount = (specificPost) => {
     setPostState(plusThumbCount(postState, specificPost, currentUserState));
@@ -33,9 +46,20 @@ function ShowPostHome({
     }
   };
 
+  const scrapButtonClicked = async (specificPost) => {
+    const { scrap } = postState;
+    const { id, userName } = currentUserState;
+    const { name, contents, uniqueKey } = specificPost;
+
+    const { timeLinePosts } = await addScrap(id, userName, name, contents, uniqueKey);
+
+    setPostState({ ...postState, scrap: [...timeLinePosts.scrap] });
+    alert('스크랩이 완료되었습니다! 마이페이지에서 확인하세요');
+  };
+
   const handleEditPost = (specificPost) => {
     if (specificPost.id === id) {
-      setPostState(onOffPostEditBox(postState, specificPost, 1));
+      setPostState(openPostEditBox(postState, specificPost));
     } else {
       alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
     }
@@ -45,28 +69,23 @@ function ShowPostHome({
     setTopLevelState(specificPost);
   };
 
-  const scrapButtonClicked = (specificPost) => {
-    setPostState(scrapPost(postState, specificPost, currentUserState));
-    alert('스크랩이 완료되었습니다! 마이페이지에서 확인하세요');
-  };
-
   return (
     <div key={index}>
       <div className="post">
         <div className="post-feed">
-          {p.name} 님이 게시글을 업로드했습니다.
+          {specificPost.name} 님이 게시글을 업로드했습니다.
           <button
             className="post-edit"
             type="button"
-            onClick={() => handleEditPost(p)}
+            onClick={() => handleEditPost(specificPost)}
           >
           수정
           </button>
-          {p.isEditButtonClicked
+          {specificPost.isEditButtonClicked
             ? (
               <div>
                 <PostEditBox
-                  specificPost={p}
+                  specificPost={specificPost}
                   postState={postState}
                   setPostState={setPostState}
                   currentUserState={currentUserState}
@@ -76,7 +95,7 @@ function ShowPostHome({
           <button
             className="post-remove"
             type="button"
-            onClick={() => handleRemovePost(p)}
+            onClick={() => handleRemovePost(specificPost)}
           >
           삭제
           </button>
@@ -88,28 +107,28 @@ function ShowPostHome({
               to="/otherspage"
               className="post-name"
               type="button"
-              onClick={() => postUserNameClicked(p)}
+              onClick={() => postUserNameClicked(specificPost)}
             >
-              {p.name}
+              {specificPost.name}
             </Link>
           </div>
           <br />
-          <div className="post-contents">{p.contents}</div>
-          <span className="post-goodbar1">좋아요{p.thumbCount.length}개</span>
-          <span className="post-goodbar2">댓글{p.commentCount}개</span>
-          <span className="post-goodbar3">공유{p.sharingCount}개</span>
+          <div className="post-contents">{specificPost.contents}</div>
+          <span className="post-goodbar1">좋아요{specificPost.thumbCount.length}개</span>
+          <span className="post-goodbar2">댓글{specificPost.commentCount}개</span>
+          <span className="post-goodbar3">공유{specificPost.sharingCount}개</span>
           <br />
           <button
             className="post-button-good"
             type="button"
-            onClick={() => handleThumbCount(p)}
+            onClick={() => handleThumbCount(specificPost)}
           >
           좋아요
           </button>
           <button className="post-button-good" type="button">댓글</button>
           <button
             className="post-button-good"
-            onClick={() => scrapButtonClicked(p)}
+            onClick={() => scrapButtonClicked(specificPost)}
             type="button"
           >
           스크랩
@@ -118,7 +137,7 @@ function ShowPostHome({
       </div>
       <div>
         <Comment
-          specificPost={p}
+          specificPost={specificPost}
           setPostState={setPostState}
           postState={postState}
           currentUserState={currentUserState}

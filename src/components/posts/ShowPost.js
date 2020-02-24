@@ -1,15 +1,7 @@
-/* eslint-disable no-alert */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-shadow */
-/* eslint-disable react/jsx-wrap-multilines */
-/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-import { plusThumbCount, removePost, onOffPostEditBox } from '../../function';
+import { plusThumbCount, openPostEditBox, removePost } from '../../function';
 import profile from '../../profile.jpeg';
 
 function ShowPostOthersPage({
@@ -27,9 +19,11 @@ function ShowPostOthersPage({
     setPostState(plusThumbCount(postState, specificPost, currentUserState));
   };
 
-  const handleRemovePost = (specificPost) => {
+  const handleRemovePost = async (specificPost) => {
+    const { timeLinePosts } = await removePost(specificPost.uniqueKey);
+    
     if (specificPost.id === id) {
-      setPostState(removePost(postState, specificPost));
+      setPostState({ ...postState, post: [...timeLinePosts.post] });
       alert('해당 게시글이 삭제되었습니다');
     } else {
       alert('게시글은 해당 작성자만 삭제할 수 있습니다');
@@ -37,14 +31,10 @@ function ShowPostOthersPage({
   };
 
   const handleEditPost = (specificPost) => {
-    if (specificPost.isEditButtonClicked === false) {
-      if (specificPost.id === id) {
-        setPostState(onOffPostEditBox(postState, specificPost, 1));
-      } else {
-        alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
-      }
+    if (specificPost.id === id) {
+      setPostState(openPostEditBox(postState, specificPost));
     } else {
-      setPostState(onOffPostEditBox(postState, specificPost, 0));
+      alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
     }
   };
 
@@ -62,16 +52,16 @@ function ShowPostOthersPage({
             수정
             </button>
             {p.isEditButtonClicked
-              ? (
-                <div>
-                  <PostEditBox
-                    specificPost={p}
-                    postState={postState}
-                    setPostState={setPostState}
-                    currentUserState={currentUserState}
-                  />
-                </div>
-              ) : <></>}
+            ? (
+              <div>
+                <PostEditBox
+                  specificPost={p}
+                  postState={postState}
+                  setPostState={setPostState}
+                  currentUserState={currentUserState}
+                />
+              </div>
+            ) : <></>}
             <button
               className="post-remove"
               type="button"

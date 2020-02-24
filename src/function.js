@@ -7,87 +7,46 @@ import {
   addPost as apiAddPost,
   removePost as apiRemovePost,
   editPost as apiEditPost,
+  openEditBox as apiOpenEditBox,
+  addScrap as apiAddScrap,
 } from './apis/service';
 
 // 유저 목록 불러오기
 export const getUsers = async () => {
   return await apiGetUsers();
-}
+};
 
 // 회원가입
 export const addUser = async (id, pw, userName) => {
   return await apiAddUser(id, pw, userName);
-}
+};
 
 // 게시글 목록 불러오기
 export const getPosts = async () => {
   return await apiGetPosts();
-}
+};
 
 // 게시글 추가
 export const addPost = async (id, name, contents) => {
   return await apiAddPost(id, name, contents);
-}
+};
 
 // 게시글 삭제
 export const removePost = async (uniqueKey) => {
   return await apiRemovePost(uniqueKey);
-}
+};
 
 // 게시글 수정
 export const editPost = async (uniqueKey, temptState) => {
   return await apiEditPost(uniqueKey, temptState);
-}
+};
+
+// 게시글 스크랩
+export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey) => {
+  return await apiAddScrap(whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey);
+};
 
 /* ****************************************************** */
-
-// 게시글 스크랩 함수
-export const scrapPost = (postState, specificPost, currentUserState) => {
-  const { scrap, post } = postState;
-  const { id, userName } = currentUserState;
-  const userID = id;
-
-  return {
-    ...postState,
-    scrap: [...scrap,
-      {
-        uniqueKey: Counter(),
-        id: userID, // 스크랩 한 사람의 id
-        whoDid: userName, // 스크랩 한 사람의 name
-        name: specificPost.name, // 피게시글을 쓴 User의 이름
-        contents: specificPost.contents, // 피게시글의 내용
-      },
-    ],
-    post: post.map((v) =>
-      (v.uniqueKey !== specificPost.uniqueKey ? v : { ...v, sharingCount: v.sharingCount + 1 })),
-  };
-};
-
-// 게시글 수정"창"을 열고 닫는 함수
-export const onOffPostEditBox = (postState, specificPost, num) => {
-  const { post } = postState;
-  let bool = false;
-
-  if (num === 1) {
-    bool = true;
-  }
-
-  return ({
-    ...postState,
-    post: post.map((p) =>
-      (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: bool })),
-  });
-};
-
-// 게시글 수정"창"을 모두 닫는 함수 (로그인 시에 사용)
-export const closeAllPostEditBox = (postState, justTrue) => {
-  const { post } = postState;
-
-  return ({
-    ...postState,
-    post: post.map((v) => (justTrue ? { ...v, isEditButtonClicked: false } : justTrue)),
-  });
-};
 
 // 댓글 추가 함수
 export const addComment = (commentState, specificPost, temptState, userName, userID) => {
@@ -236,4 +195,15 @@ export const changeIdToName = (id, loginState) => {
     }
   }
   return returnName;
+};
+
+// 게시글 수정"창"을 여는 함수
+export const openPostEditBox = (postState, specificPost) => {
+  const { post } = postState;
+
+  return ({
+    ...postState,
+    post: post.map((p) =>
+      (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: true })),
+  });
 };

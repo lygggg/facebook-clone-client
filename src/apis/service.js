@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const LOGIN_URL = 'http://localhost:3000/login';
 const POSTS_URL = 'http://localhost:3000/posts';
+const SCRAPS_URL = 'http://localhost:3000/scraps';
 
 export const getUsers = async () => {
   const { data } = await axios.get(LOGIN_URL);
@@ -33,7 +34,7 @@ export const editPost = async (uniqueKey, temptState) => {
   return data;
 }
 
-export const openEditBox = async (uniqueKey) => {
-  const { data } = await axios.patch(POSTS_URL, { uniqueKey });
+export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey) => {
+  const { data } = await axios.post(SCRAPS_URL, { whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey });
   return data;
 }

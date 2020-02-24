@@ -1,9 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable max-len */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-alert */
-/* eslint-disable no-shadow */
-/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -13,7 +7,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import Join from './Join';
-import { closeAllChildCommentBox, closeAllPostEditBox } from '../function';
+import { closeAllChildCommentBox } from '../function';
 import { getUsers } from '../apis/service';
 
 const initialTempt = {
@@ -58,7 +52,6 @@ function Login({
         });
         setLoginState({ ...loginState, isLoggedIn: true });
         setCommentState(closeAllChildCommentBox(commentState, justTrue));
-        setPostState(closeAllPostEditBox(postState, justTrue));
       }
     }
   };

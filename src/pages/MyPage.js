@@ -1,16 +1,18 @@
-/* eslint-disable no-alert */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-shadow */
-/* eslint-disable react/jsx-wrap-multilines */
-/* eslint-disable implicit-arrow-linebreak */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AddPost from '../components/posts/AddPost';
-import ShowPost from '../components/posts/ShowPost';
+import ShowPostOthersPage from '../components/posts/ShowPost';
 import Scrap from '../components/posts/Scrap';
 import HeaderMyPage from '../components/headers/HeaderMyPage';
+import { getPosts } from '../apis/service';
+
+const callAPI = async (postState, setPostState) => {
+  const { timeLinePosts } = await getPosts();
+
+  setPostState({ 
+    ...postState, 
+    scrap: [...timeLinePosts.scrap],
+  });
+}
 
 function MyPage({
   postState,
@@ -24,7 +26,11 @@ function MyPage({
   setTopLevelState,
 }) {
   const { id } = currentUserState;
-  const { post } = postState;
+  const { post, scrap } = postState;
+
+  useEffect(() => {
+    callAPI(postState, setPostState);
+  }, []);
 
   return (
     <>
@@ -43,7 +49,7 @@ function MyPage({
       <div>
         {post.filter((v) => v.id === id).map((p, index) => (
           <div key={index}>
-            <ShowPost
+            <ShowPostOthersPage
               postState={postState}
               setPostState={setPostState}
               currentUserState={currentUserState}
@@ -55,11 +61,19 @@ function MyPage({
           </div>
         ))}
       </div>
-      <Scrap
-        postState={postState}
-        currentUserState={currentUserState}
-        setTopLevelState={setTopLevelState}
-      />
+      <div>
+        {scrap.filter((v) => v.id === id).map((p, index) => (
+          <div key={index}>
+            <Scrap
+              postState={postState}
+              currentUserState={currentUserState}
+              setTopLevelState={setTopLevelState}
+              p={p}
+              index={index}
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 }

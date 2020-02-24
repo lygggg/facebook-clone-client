@@ -1,12 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable max-len */
-/* eslint-disable object-curly-newline */
-/* eslint-disable camelcase */
-/* eslint-disable no-shadow */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/jsx-wrap-multilines */
-/* eslint-disable implicit-arrow-linebreak */
 import React, { useState } from 'react';
 import profile from '../../profile.jpeg';
 import {

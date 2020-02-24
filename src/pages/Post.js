@@ -1,9 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-alert */
-/* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import AddPost from '../components/posts/AddPost';
@@ -78,7 +72,7 @@ function Post({
               commentState={commentState}
               setCommentState={setCommentState}
               setTopLevelState={setTopLevelState}
-              p={p}
+              specificPost={p}
               index={index}
             />
           </div>
