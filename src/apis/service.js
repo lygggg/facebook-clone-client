@@ -4,6 +4,7 @@ const LOGIN_URL = 'http://localhost:3000/login';
 const POSTS_URL = 'http://localhost:3000/posts';
 const SCRAPS_URL = 'http://localhost:3000/scraps';
 const COMMENTS_URL = 'http://localhost:3000/comments';
+const CHILDCOMMENTS_URL = 'http://localhost:3000/childcomments';
 
 export const getUsers = async () => {
   const { data } = await axios.get(LOGIN_URL);
@@ -40,6 +41,11 @@ export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByN
   return data;
 }
 
+export const getComments = async () => {
+  const { data } = await axios.get(COMMENTS_URL);
+  return data;
+}
+
 export const addComment = async (uniqueKey, currentUserID, currentUserName, commentContents) => {
   const { data } = await axios.post(COMMENTS_URL, { uniqueKey, currentUserID, currentUserName, commentContents });
   return data;
@@ -49,3 +55,9 @@ export const plusCommentCount = async (uniqueKey) => {
   const { data } = await axios.patch(COMMENTS_URL, { uniqueKey });
   return data;
 }
+
+export const addChildComment = async (uniqueKey, contents, currentUserID, currentUserName) => {
+  const { data } = await axios.post(CHILDCOMMENTS_URL, { uniqueKey, contents, currentUserID, currentUserName });
+  return data;
+}
+

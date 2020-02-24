@@ -9,8 +9,10 @@ import {
   editPost as apiEditPost,
   openEditBox as apiOpenEditBox,
   addScrap as apiAddScrap,
+  getComments as apiGetComments,
   addComment as apiAddComment,
   plusCommentCount as apiPlusCommentCount,
+  addChildComment as apiAddChildComment,
 } from './apis/service';
 
 // 유저 목록 불러오기
@@ -48,64 +50,27 @@ export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByN
   return await apiAddScrap(whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey);
 };
 
+// 댓글 목록 불러오기
+export const getComments = async () => {
+  return await apiGetComments();
+};
+
 // 댓글 추가
 export const addComment = async (uniqueKey, currentUserID, currentUserName, commentContents) => {
   return await apiAddComment(uniqueKey, currentUserID, currentUserName, commentContents);
 };
 
+// 댓글 추가시 댓글 개수 +1
 export const plusCommentCount = async (uniqueKey) => {
   return await apiPlusCommentCount(uniqueKey);
 }
+
+// 대댓글 추가
+export const addChildComment = async (uniqueKey, contents, currentUserID, currentUserName) => {
+  return await apiAddChildComment(uniqueKey, contents, currentUserID, currentUserName);
+}
+
 /* ****************************************************** */
-
-// 대댓글 추가 함수
-export const addChildComment = (commentState, temptState, userID, userName, parentsComment) => {
-  const { comment } = commentState;
-  const { childComment } = parentsComment;
-
-  return {
-    ...commentState,
-    comment: comment.map((v) =>
-      (parentsComment.uniqueKey !== v.uniqueKey ? v
-        : {
-          ...v,
-          childComment: [...childComment,
-            { id: userID, name: userName, statement: temptState }],
-        })),
-  };
-};
-
-// 대댓글"창"을 열고 닫는 함수
-export const onOffChildCommentBox = (commentState, specificComment, num) => {
-  const { comment } = commentState;
-  let bool = false;
-
-  if (num === 1) {
-    bool = true;
-  }
-
-  return (
-    {
-      ...commentState,
-      comment: comment.map((v) =>
-        (specificComment.uniqueKey !== v.uniqueKey
-          ? v : { ...v, isChildCommentFunctionOn: bool })),
-    }
-  );
-};
-
-// 대댓글"창" 모두 닫는 함수 (로그인 시에 사용)
-export const closeAllChildCommentBox = (commentState, justTrue) => {
-  const { comment } = commentState;
-
-  return (
-    {
-      ...commentState,
-      comment: comment.map((v) =>
-        (justTrue ? { ...v, isChildCommentFunctionOn: false } : justTrue)),
-    }
-  );
-};
 
 // 게시글: 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수
 export const plusThumbCount = (postState, specificPost, currentUserState) => {
@@ -184,4 +149,18 @@ export const openPostEditBox = (postState, specificPost) => {
     post: post.map((p) =>
       (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: true })),
   });
+};
+
+// 대댓글"창"을 여는 함수
+export const openChildCommentBox = (commentState, specificComment) => {
+  const { comment } = commentState;
+
+  return (
+    {
+      ...commentState,
+      comment: comment.map((v) =>
+        (specificComment.uniqueKey !== v.uniqueKey
+          ? v : { ...v, isChildCommentFunctionOn: true })),
+    }
+  );
 };

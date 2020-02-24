@@ -8,12 +8,14 @@ function ChildCommentBox({
   currentUserState,
 }) {
   const { id, userName } = currentUserState;
+  const { uniqueKey } = parentsComment;
   const [temptState, setTemptState] = useState('');
 
-  const handleAddChildComment = () => {
+  const handleAddChildComment = async () => {
     if (temptState.trim()) {
-      setCommentState(addChildComment(commentState, temptState, id, userName, parentsComment));
-      setTemptState('');
+      const { postComments } = await addChildComment(uniqueKey , temptState, id, userName);
+
+      setCommentState({ ...commentState, comment : [...postComments.comment]});
     }
   };
 

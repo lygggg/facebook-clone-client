@@ -28,7 +28,6 @@ function Login({
   const [temptState, setTemptState] = useState(initialTempt);
   const { temptId, temptPw } = temptState;
   const { isLoggedIn } = loginState;
-  const justTrue = true;
 
   const setLoginTemptId = (temptId) => {
     setTemptState({ ...temptState, temptId });
@@ -51,7 +50,6 @@ function Login({
           friends: users[i].friends,
         });
         setLoginState({ ...loginState, isLoggedIn: true });
-        setCommentState(closeAllChildCommentBox(commentState, justTrue));
       }
     }
   };

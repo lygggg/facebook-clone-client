@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import profile from '../../profile.jpeg';
 import {
+  getComments,
   addComment,
   plusCommentCount,
   plusCommentThumbCount,
-  onOffChildCommentBox,
+  openChildCommentBox,
 } from '../../function';
 import ChildCommentBox from './ChildCommentBox';
+
+const callAPI = async (commentState, setCommentState) => {
+  const { postComments } = await getComments();
+
+  setCommentState({ 
+    ...commentState, 
+    comment: [...postComments.comment],
+  });
+}
 
 function Comment({
   specificPost,
@@ -21,6 +31,10 @@ function Comment({
   const { uniqueKey } = specificPost;
   const [temptState, setTemptState] = useState('');
   const appropriateComment = [];
+
+  useEffect(() => {
+    callAPI(commentState, setCommentState);
+  }, []);
 
   const setCommentTemptStatement = (temptState) => {
     setTemptState(temptState);
@@ -42,10 +56,7 @@ function Comment({
   };
 
   const ChildCommentButtonClicked = (specificComment) => {
-    setCommentState(onOffChildCommentBox(commentState, specificComment, 1));
-    if (specificComment.isChildCommentFunctionOn === true) {
-      setCommentState(onOffChildCommentBox(commentState, specificComment, 0));
-    }
+    setCommentState(openChildCommentBox(commentState, specificComment));
   };
 
   return (
