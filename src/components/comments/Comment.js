@@ -18,6 +18,7 @@ function Comment({
 }) {
   const { comment } = commentState;
   const { userName, id } = currentUserState;
+  const { uniqueKey } = specificPost;
   const [temptState, setTemptState] = useState('');
   const appropriateComment = [];
 
@@ -25,11 +26,14 @@ function Comment({
     setTemptState(temptState);
   };
 
-  const handleAddComment = (specificPost) => {
+  const handleAddComment = async (specificPost) => {
     if (temptState.trim()) {
-      setCommentState(addComment(commentState, specificPost, temptState, userName, id));
+      const { postComments } = await addComment(uniqueKey, id, userName, temptState);
+      const { timeLinePosts } = await plusCommentCount(uniqueKey);
+
+      setCommentState({ ...comment, comment: [...postComments.comment] });
+      setPostState({ ...postState, post: [...timeLinePosts.post] });
       setTemptState('');
-      setPostState(plusCommentCount(postState, specificPost));
     }
   };
 

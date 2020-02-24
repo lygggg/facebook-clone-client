@@ -9,6 +9,8 @@ import {
   editPost as apiEditPost,
   openEditBox as apiOpenEditBox,
   addScrap as apiAddScrap,
+  addComment as apiAddComment,
+  plusCommentCount as apiPlusCommentCount,
 } from './apis/service';
 
 // 유저 목록 불러오기
@@ -46,28 +48,15 @@ export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByN
   return await apiAddScrap(whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey);
 };
 
-/* ****************************************************** */
-
-// 댓글 추가 함수
-export const addComment = (commentState, specificPost, temptState, userName, userID) => {
-  const { comment } = commentState;
-
-  return {
-    ...commentState,
-    comment: [...comment,
-      {
-        uniqueKey: Counter(),
-        id: specificPost.uniqueKey, // 어떤 게시글에 달린 댓글인지 확인하기 위한 것
-        writerID: userID, // 댓글 쓰는 사람의 ID
-        writer: userName, // 댓글 쓰는 사람의 이름
-        statement: temptState, // 댓글 내용
-        childComment: [],
-        isChildCommentFunctionOn: false,
-        commentThumbCount: [], // 댓글의 좋아요 개수
-      },
-    ],
-  };
+// 댓글 추가
+export const addComment = async (uniqueKey, currentUserID, currentUserName, commentContents) => {
+  return await apiAddComment(uniqueKey, currentUserID, currentUserName, commentContents);
 };
+
+export const plusCommentCount = async (uniqueKey) => {
+  return await apiPlusCommentCount(uniqueKey);
+}
+/* ****************************************************** */
 
 // 대댓글 추가 함수
 export const addChildComment = (commentState, temptState, userID, userName, parentsComment) => {
@@ -116,17 +105,6 @@ export const closeAllChildCommentBox = (commentState, justTrue) => {
         (justTrue ? { ...v, isChildCommentFunctionOn: false } : justTrue)),
     }
   );
-};
-
-// 댓글이 추가되면 게시글의 "댓글n개"를 재설정해주는 함수
-export const plusCommentCount = (postState, specificPost) => {
-  const { post } = postState;
-
-  return {
-    ...postState,
-    post: post.map((p) =>
-      (p !== specificPost ? p : { ...p, commentCount: p.commentCount + 1 })),
-  };
 };
 
 // 게시글: 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수

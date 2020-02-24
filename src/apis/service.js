@@ -3,6 +3,7 @@ import axios from 'axios';
 const LOGIN_URL = 'http://localhost:3000/login';
 const POSTS_URL = 'http://localhost:3000/posts';
 const SCRAPS_URL = 'http://localhost:3000/scraps';
+const COMMENTS_URL = 'http://localhost:3000/comments';
 
 export const getUsers = async () => {
   const { data } = await axios.get(LOGIN_URL);
@@ -36,5 +37,15 @@ export const editPost = async (uniqueKey, temptState) => {
 
 export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey) => {
   const { data } = await axios.post(SCRAPS_URL, { whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey });
+  return data;
+}
+
+export const addComment = async (uniqueKey, currentUserID, currentUserName, commentContents) => {
+  const { data } = await axios.post(COMMENTS_URL, { uniqueKey, currentUserID, currentUserName, commentContents });
+  return data;
+}
+
+export const plusCommentCount = async (uniqueKey) => {
+  const { data } = await axios.patch(COMMENTS_URL, { uniqueKey });
   return data;
 }
