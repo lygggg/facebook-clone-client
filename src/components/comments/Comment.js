@@ -45,14 +45,16 @@ function Comment({
       const { postComments } = await addComment(uniqueKey, id, userName, temptState);
       const { timeLinePosts } = await plusCommentCount(uniqueKey);
 
-      setCommentState({ ...comment, comment: [...postComments.comment] });
+      setCommentState({ ...commentState, comment: [...postComments.comment] });
       setPostState({ ...postState, post: [...timeLinePosts.post] });
       setTemptState('');
     }
   };
 
-  const handleCommentThumbCount = (specificComment) => {
-    setCommentState(plusCommentThumbCount(commentState, specificComment, currentUserState));
+  const handleCommentThumbCount = async (specificComment) => {
+    const { postComments } = await plusCommentThumbCount(specificComment.uniqueKey, currentUserState.id);
+
+    setCommentState({ ...commentState, comment: [...postComments.comment] });
   };
 
   const ChildCommentButtonClicked = (specificComment) => {

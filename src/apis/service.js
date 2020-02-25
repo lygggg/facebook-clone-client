@@ -6,6 +6,7 @@ const SCRAPS_URL = 'http://localhost:3000/scraps';
 const COMMENTS_URL = 'http://localhost:3000/comments';
 const CHILDCOMMENTS_URL = 'http://localhost:3000/childcomments';
 const LIKE_URL = 'http://localhost:3000/like';
+const COMMENTLIKE_URL = 'http://localhost:3000/commentlike';
 
 export const getUsers = async () => {
   const { data } = await axios.get(LOGIN_URL);
@@ -64,5 +65,10 @@ export const addChildComment = async (uniqueKey, contents, currentUserID, curren
 
 export const plusThumbCount = async (uniqueKey, currentUserID) => {
   const { data } = await axios.patch(LIKE_URL, { uniqueKey, currentUserID });
+  return data;
+}
+
+export const plusCommentThumbCount = async (uniqueKey, currentUserID) => {
+  const { data } = await axios.patch(COMMENTLIKE_URL, { uniqueKey, currentUserID });
   return data;
 }
