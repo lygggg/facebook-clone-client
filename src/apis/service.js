@@ -5,6 +5,7 @@ const POSTS_URL = 'http://localhost:3000/posts';
 const SCRAPS_URL = 'http://localhost:3000/scraps';
 const COMMENTS_URL = 'http://localhost:3000/comments';
 const CHILDCOMMENTS_URL = 'http://localhost:3000/childcomments';
+const LIKE_URL = 'http://localhost:3000/like';
 
 export const getUsers = async () => {
   const { data } = await axios.get(LOGIN_URL);
@@ -31,8 +32,8 @@ export const removePost = async (uniqueKey) => {
   return data;
 }
 
-export const editPost = async (uniqueKey, temptState) => {
-  const { data } = await axios.patch(POSTS_URL, { uniqueKey, temptState });
+export const editPost = async (uniqueKey, updatedContents) => {
+  const { data } = await axios.patch(POSTS_URL, { uniqueKey, updatedContents });
   return data;
 }
 
@@ -61,3 +62,7 @@ export const addChildComment = async (uniqueKey, contents, currentUserID, curren
   return data;
 }
 
+export const plusThumbCount = async (uniqueKey, currentUserID) => {
+  const { data } = await axios.patch(LIKE_URL, { uniqueKey, currentUserID });
+  return data;
+}

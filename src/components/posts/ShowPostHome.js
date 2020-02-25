@@ -2,9 +2,14 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-import { plusThumbCount, openPostEditBox } from '../../function';
 import profile from '../../profile.jpeg';
-import { removePost, addScrap, getPosts } from '../../function';
+import {
+  removePost,
+  addScrap,
+  getPosts,
+  plusThumbCount,
+  openPostEditBox
+} from '../../function';
 
 const callAPI = async (postState, setPostState) => {
   const { timeLinePosts } = await getPosts();
@@ -31,8 +36,10 @@ function ShowPostHome({
     callAPI(postState, setPostState);
   }, [postState.scrap]);
 
-  const handleThumbCount = (specificPost) => {
-    setPostState(plusThumbCount(postState, specificPost, currentUserState));
+  const handleThumbCount = async (specificPost) => {
+    const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id)
+
+    setPostState({ ...postState, post: [...timeLinePosts.post]});
   };
 
   const handleRemovePost = async (specificPost) => {

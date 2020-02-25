@@ -7,6 +7,7 @@ import {
   addPost as apiAddPost,
   removePost as apiRemovePost,
   editPost as apiEditPost,
+  plusThumbCount as apiPlusThumbCount,
   openEditBox as apiOpenEditBox,
   addScrap as apiAddScrap,
   getComments as apiGetComments,
@@ -41,9 +42,14 @@ export const removePost = async (uniqueKey) => {
 };
 
 // 게시글 수정
-export const editPost = async (uniqueKey, temptState) => {
-  return await apiEditPost(uniqueKey, temptState);
+export const editPost = async (uniqueKey, editedContents) => {
+  return await apiEditPost(uniqueKey, editedContents);
 };
+
+// 게시글 좋아요
+export const plusThumbCount = async (uniqueKey, userId) => {
+  return await apiPlusThumbCount(uniqueKey, userId);
+}
 
 // 게시글 스크랩
 export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey) => {
@@ -56,8 +62,8 @@ export const getComments = async () => {
 };
 
 // 댓글 추가
-export const addComment = async (uniqueKey, currentUserID, currentUserName, commentContents) => {
-  return await apiAddComment(uniqueKey, currentUserID, currentUserName, commentContents);
+export const addComment = async (id, userId, username, commentContents) => {
+  return await apiAddComment(id, userId, username, commentContents);
 };
 
 // 댓글 추가시 댓글 개수 +1
@@ -66,30 +72,30 @@ export const plusCommentCount = async (uniqueKey) => {
 }
 
 // 대댓글 추가
-export const addChildComment = async (uniqueKey, contents, currentUserID, currentUserName) => {
-  return await apiAddChildComment(uniqueKey, contents, currentUserID, currentUserName);
+export const addChildComment = async (uniqueKey, contents, userId, userName) => {
+  return await apiAddChildComment(uniqueKey, contents, userId, userName);
 }
 
 /* ****************************************************** */
 
-// 게시글: 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수
-export const plusThumbCount = (postState, specificPost, currentUserState) => {
-  const { post } = postState;
-  const { id } = currentUserState;
+// // 게시글: 좋아요 버튼이 눌리면 해당 게시글의 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수
+// export const plusThumbCount = (postState, specificPost, currentUserState) => {
+//   const { post } = postState;
+//   const { id } = currentUserState;
 
-  return {
-    ...postState,
-    post: post.map((p) =>
-      (p !== specificPost ? p
-        : p.thumbCount.includes(id)
-          ? { ...p, thumbCount: p.thumbCount.filter((v) => v !== id) }
-          : { ...p, thumbCount: [...p.thumbCount, id] })),
-    /* 함수가 호출되면 specificPost.thumbCount라는 배열에다가,
-       if(thumbCount 안에 "id"라는 원소가 존재한다?) 배열에서 "id"원소를 삭제
-       if(thumbCount 안에 "id"라는 원소가 없다?) 배열에 "id"원소를 삽입
-       이런식으로 해서 thumbCount의 배열 길이로 좋아요의 개수를 출력한다 */
-  };
-};
+//   return {
+//     ...postState,
+//     post: post.map((p) =>
+//       (p !== specificPost ? p
+//         : p.thumbCount.includes(id)
+//           ? { ...p, thumbCount: p.thumbCount.filter((v) => v !== id) }
+//           : { ...p, thumbCount: [...p.thumbCount, id] })),
+//     /* 함수가 호출되면 specificPost.thumbCount라는 배열에다가,
+//        if(thumbCount 안에 "id"라는 원소가 존재한다?) 배열에서 "id"원소를 삭제
+//        if(thumbCount 안에 "id"라는 원소가 없다?) 배열에 "id"원소를 삽입
+//        이런식으로 해서 thumbCount의 배열 길이로 좋아요의 개수를 출력한다 */
+//   };
+// };
 
 // 댓글: 좋아요 버튼이 눌리면 해당 댓글에 좋아요가 +1, 또 눌리면 -1(좋아요 취소)이 되게 하는 함수
 export const plusCommentThumbCount = (commentState, specificComment, currentUserState) => {
