@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
-import { changeIdToName } from '../function';
+import { changeIdToName, getUsers } from '../function';
+
+const callAPI = async (loginState, setLoginState) => {
+  const { userStore } = await getUsers();
+
+  setLoginState({
+    ...loginState,
+    users: [...userStore.users],
+  });
+};
 
 function FriendsReco({
   currentUserState,
+  setCurrentUserState,
   loginState,
   setLoginState,
-  setCurrentUserState,
   topLevelState,
   setTopLevelState,
 }) {
   let friendsRecommendationArray = [];
   const { friends, id } = currentUserState;
   const { users } = loginState;
+
+  useEffect(() => {
+    callAPI(loginState, setLoginState);
+  }, []);
 
   // currentUser의 friends의 friends ID값을 friendsRecommendationArray 배열에 다 넣어줌
   for (let i = 0; i < friends.length; i += 1) {
@@ -59,14 +72,17 @@ function FriendsReco({
       <h3>알 수도 있는 사람</h3>
       <div>
         {friendsRecommendationArray.map((v) => (
-          <Link
-            to="/otherspage"
-            className="post-name"
-            type="button"
-            onClick={() => findUserById(v)}
-          >
-            {changeIdToName(v, loginState)}
-          </Link>
+          <div>
+            <Link
+              to="/otherspage"
+              className="post-name"
+              type="button"
+              onClick={() => findUserById(v)}
+            >
+              {changeIdToName(v, loginState)}
+            </Link>
+            <br />
+          </div>
         ))}
       </div>
     </>

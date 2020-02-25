@@ -7,6 +7,7 @@ const COMMENTS_URL = 'http://localhost:3000/comments';
 const CHILDCOMMENTS_URL = 'http://localhost:3000/childcomments';
 const LIKE_URL = 'http://localhost:3000/like';
 const COMMENTLIKE_URL = 'http://localhost:3000/commentlike';
+const FRIENDS_URL = 'http://localhost:3000/friends';
 
 export const getUsers = async () => {
   const { data } = await axios.get(LOGIN_URL);
@@ -70,5 +71,15 @@ export const plusThumbCount = async (uniqueKey, currentUserID) => {
 
 export const plusCommentThumbCount = async (uniqueKey, currentUserID) => {
   const { data } = await axios.patch(COMMENTLIKE_URL, { uniqueKey, currentUserID });
+  return data;
+}
+
+export const addFriend = async (currentUserID, friendID) => {
+  const { data } = await axios.post(FRIENDS_URL, { currentUserID, friendID });
+  return data;
+}
+
+export const removeFriend = async (currentUserID, friendID) => {
+  const { data } = await axios.patch(FRIENDS_URL, { currentUserID, friendID });
   return data;
 }

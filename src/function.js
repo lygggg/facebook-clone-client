@@ -15,6 +15,8 @@ import {
   plusCommentCount as apiPlusCommentCount,
   plusCommentThumbCount as apiPlusCommentThumbCount,
   addChildComment as apiAddChildComment,
+  addFriend as apiAddFriend,
+  removeFriend as apiRemoveFriend,
 } from './apis/service';
 
 // 유저 목록 불러오기
@@ -82,29 +84,17 @@ export const addChildComment = async (uniqueKey, contents, userId, userName) => 
   return await apiAddChildComment(uniqueKey, contents, userId, userName);
 }
 
+// 친구 추가
+export const addFriend = async (currentUserID, friendID) => {
+  return await apiAddFriend(currentUserID, friendID);
+}
+
+// 친구 해제
+export const removeFriend = async (currentUserID, friendID) => {
+  return await apiRemoveFriend(currentUserID, friendID);
+}
+
 /* ****************************************************** */
-
-// 친구 추가 함수
-export const addFriend = (currentUserState, specificId) => {
-  const { friends } = currentUserState;
-
-  return {
-    ...currentUserState,
-    friends: [...friends,
-      specificId,
-    ],
-  };
-};
-
-// 친구 해제 함수
-export const removeFriend = (currentUserState, specificId) => {
-  const { friends } = currentUserState;
-
-  return {
-    ...currentUserState,
-    friends: friends.filter((v) => v !== specificId),
-  };
-};
 
 // users.id를 users.userName으로 변경해주는 함수
 export const changeIdToName = (id, loginState) => {

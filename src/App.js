@@ -19,6 +19,7 @@ const currentUser = {
 };
 
 const initialLogin = {
+  users: [],
   isLoggedIn: false,
 };
 
@@ -100,7 +101,9 @@ function App() {
         <Route path="/friendsreco">
           <FriendsReco
             currentUserState={currentUserState}
+            setCurrentUserState={setCurrentUserState}
             loginState={loginState}
+            setLoginState={setLoginState}
             topLevelState={topLevelState}
             setTopLevelState={setTopLevelState}
           />

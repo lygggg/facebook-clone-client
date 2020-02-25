@@ -36,6 +36,8 @@ function OthersPage({
             specificPost={specificPost}
             currentUserState={currentUserState}
             setCurrentUserState={setCurrentUserState}
+            loginState={loginState}
+            setLoginState={setLoginState}
           />
         )}
       <div>
