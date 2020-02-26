@@ -71,8 +71,8 @@ function FriendsReco({
       <br />
       <h3>알 수도 있는 사람</h3>
       <div>
-        {friendsRecommendationArray.map((v) => (
-          <div>
+        {friendsRecommendationArray.map((v, index) => (
+          <div key={index}>
             <Link
               to="/otherspage"
               className="post-name"

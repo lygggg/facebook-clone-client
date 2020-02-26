@@ -8,7 +8,7 @@ import { getPosts } from '../apis/service';
 const callAPI = async (postState, setPostState) => {
   const { timeLinePosts } = await getPosts();
 
-  setPostState({ 
+  setPostState({
     ...postState, 
     post: [...timeLinePosts.post],
   });
