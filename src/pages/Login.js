@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,6 +9,12 @@ import {
 import Join from './Join';
 import { closeAllChildCommentBox } from '../function';
 import { getUsers } from '../apis/service';
+
+const callAPI = async (loginState, setLoginState) => {
+  const { userStore } = await getUsers();
+
+  setLoginState({ ...loginState, users: [...userStore.users] });
+};
 
 const initialTempt = {
   temptId: '',
@@ -26,8 +32,13 @@ function Login({
   setPostState,
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
+  const [joiningPageState, setJoiningPageState] = useState(false);
   const { temptId, temptPw } = temptState;
   const { isLoggedIn } = loginState;
+
+  useEffect(() => {
+    callAPI(loginState, setLoginState);
+  }, []);
 
   const setLoginTemptId = (temptId) => {
     setTemptState({ ...temptState, temptId });
@@ -53,6 +64,14 @@ function Login({
       }
     }
   };
+  
+  const MoveToJoiningPage = () => {
+    setJoiningPageState(true);
+  }
+
+  if (joiningPageState === true) {
+    return <Redirect to="/join" />;
+  }
 
   if (isLoggedIn === true) {
     alert('로그인 성공!');
@@ -69,7 +88,13 @@ function Login({
       </div>
       <br /><br /><br /><br />
       <Router>
-        <Link to="/join" className="join-router">회원이 아니신가요?</Link>
+        <button
+          to="/join"
+          className="join-router"
+          onClick={MoveToJoiningPage}
+        >
+        회원이 아니신가요?
+        </button>
         <Switch>
           <Route path="/join">
             <Join

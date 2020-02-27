@@ -73,7 +73,7 @@ function FriendsState({
                 type="button"
                 onClick={friendRemoveButtonClicked}
               >
-              친구해제
+              팔로우 해제
               </button>
             </div>
           ) : (
@@ -82,7 +82,7 @@ function FriendsState({
               type="button"
               onClick={friendAddButtonClicked}
             >
-            친구추가
+            팔로우
             </button>
           )}
       </div>

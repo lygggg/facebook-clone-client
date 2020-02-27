@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
-import { changeIdToName, getUsers } from '../function';
+import { getUsers } from '../function';
 
 const callAPI = async (loginState, setLoginState) => {
   const { userStore } = await getUsers();
@@ -67,6 +67,19 @@ function FriendsReco({
         });
       }
     }
+  };
+
+  // users.id를 users.userName으로 변경해주는 함수
+  const changeIdToName = (id, loginState) => {
+    const { users } = loginState;
+    let returnName = '';
+
+    for (let i = 0; i < users.length; i += 1) {
+      if (id === users[i].id) {
+        returnName = users[i].userName;
+      }
+    }
+    return returnName;
   };
 
   return (

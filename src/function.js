@@ -1,5 +1,3 @@
-import Counter from './components/Counter';
-/* ****************************************************** */
 import {
   getUsers as apiGetUsers,
   addUser as apiAddUser,
@@ -94,20 +92,10 @@ export const removeFriend = async (currentUserID, friendID) => {
   return await apiRemoveFriend(currentUserID, friendID);
 }
 
-/* ****************************************************** */
-
-// users.id를 users.userName으로 변경해주는 함수
-export const changeIdToName = (id, loginState) => {
-  const { users } = loginState;
-  let returnName = '';
-
-  for (let i = 0; i < users.length; i += 1) {
-    if (id === users[i].id) {
-      returnName = users[i].userName;
-    }
-  }
-  return returnName;
-};
+/*
+---------------------------------------------------------------
+여기부터는 Frontend 함수들 ↓
+*/
 
 // 게시글 수정"창"을 여는 함수
 export const openPostEditBox = (postState, specificPost) => {

@@ -10,6 +10,7 @@ import MyPage from './pages/MyPage';
 import OthersPage from './pages/OthersPage';
 import Join from './pages/Join';
 import FriendsReco from './pages/FriendsReco';
+import JoinFollow from './pages/JoinFollow';
 
 const currentUser = {
   id: '',
@@ -57,6 +58,8 @@ function App() {
           <Join
             loginState={loginState}
             setLoginState={setLoginState}
+            currentUserState={currentUserState}
+            setCurrentUserState={setCurrentUserState}
           />
         </Route>
         <Route path="/post">
@@ -106,6 +109,16 @@ function App() {
             setLoginState={setLoginState}
             topLevelState={topLevelState}
             setTopLevelState={setTopLevelState}
+          />
+        </Route>
+        <Route path="/joinfollow">
+          <JoinFollow
+            loginState={loginState}
+            setLoginState={setLoginState}
+            topLevelState={topLevelState}
+            setTopLevelState={setTopLevelState}
+            currentUserState={currentUserState}
+            setCurrentUserState={setCurrentUserState}
           />
         </Route>
       </Switch>

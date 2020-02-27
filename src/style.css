@@ -209,37 +209,56 @@ body {
 }
 
 .join-new {
-  width: 240px;
-  border: 2px solid blue;
+  width: 412px;
+  border: 2px solid rgb(140, 140, 196);
   padding: 10px 0px 10px 10px;
-  margin: 10px 0 0 167px;
 }
 
 .join-title {
-  color: blue;
   font-size: 22px;
   margin: 0 0 10px 0;
+  font-weight: bold;
+  padding: 10px 0 10px;
 }
 
 .join-router {
-  margin: 0 0 0 290px
+  margin: 0 0 0 290px;
+  border: 1px solid blue;
+  background-color: rgb(243, 234, 234);
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .join-new-name {
   width: 65px;
-  margin: 0 0 0 34.5px;
+  margin: 0 0 0 70px;
 }
 .join-new-id {
   width: 100px;
-  margin: 0 0 0 19.5px;
+  margin: 0 0 0 55.5px;
 }
 .join-new-pw {
   width: 100px;
-  margin: 0 0 0 5px;
+  margin: 0 0 0 40.5px;
 }
 
 .join-new-button {
-  margin: 5px 0 0 180.5px;
+  margin: 5px 0 0 360.5px;
+  border: 1px solid blue;
+  background-color: rgb(243, 234, 234);
+}
+
+.joining-round {
+  border: 2px solid rgb(140, 140, 196);
+  width: 401px;
+  padding: 20px 10px 10px 10px;
+}
+
+.joining-complete {
+  margin: 20px 0 0 309.7px;
+  border: 1px solid blue;
+  background-color: rgb(243, 234, 234);
 }
 
 .page-header {
@@ -269,7 +288,7 @@ body {
 }
 
 .others-friend-add {
-  margin: 0 0 10px 360px;
+  margin: 0 0 10px 373px;
   background-color: rgb(227, 227, 236);
   border: 1px solid rgb(37, 37, 145);
 }
@@ -282,7 +301,7 @@ body {
 
 .other-friend-contents {
   font-weight: bold;
-  margin: 0 0 0 200px;
+  margin: 0 0 0 184px;
 }
 
 .friends-recommendation {
