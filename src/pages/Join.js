@@ -15,8 +15,10 @@ function Join({
   setCurrentUserState,
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
+  const [isDuplicated, setIsDuplicated] = useState('');
   const [joinFollowState, setJoinFollowState] = useState(false);
   const { temptJoiningId, temptJoiningPw, temptJoiningName } = temptState;
+  const { users } = loginState;
 
   const setJoinTemptName = (temptJoiningName) => {
     setTemptState({ ...temptState, temptJoiningName });
@@ -28,21 +30,38 @@ function Join({
     setTemptState({ ...temptState, temptJoiningPw });
   };
 
-  const handleAddJoining = async () => {
-    if (temptJoiningId.trim() && temptJoiningPw.trim() && temptJoiningName.trim()) {
-      await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);      
-      setCurrentUserState({
-        ...currentUserState,
-        id: temptJoiningId,
-        pw: temptJoiningPw,
-        userName: temptJoiningName,
-        friends: [],
-      })
-      setTemptState({ temptJoiningId: '', temptJoiningPw: '', temptJoiningName: '' });
-      setJoinFollowState(true);
-    } else {
-      alert('모든 항목을 입력해주세요');
+  const checkDuplication = () => {
+    for (let i = 0; i < users.length; i++) {
+      if (temptJoiningId === users[i].id) {
+        setIsDuplicated(true);
+        return;
+      }
     }
+    
+    setIsDuplicated(false);
+  };
+
+  const handleMoveNext = async () => {
+    if (isDuplicated !== false) {
+       alert('아이디 중복을 확인해주세요');
+       return;
+    }
+    
+    if (!temptJoiningId.trim() || !temptJoiningPw.trim() || !temptJoiningName.trim()) {
+      alert('모든 항목을 입력해주세요');
+      return;
+    }
+    
+    await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);      
+    setCurrentUserState({
+      ...currentUserState,
+      id: temptJoiningId,
+      pw: temptJoiningPw,
+      userName: temptJoiningName,
+      friends: [],
+    })
+    setTemptState({ temptJoiningId: '', temptJoiningPw: '', temptJoiningName: '' });
+    setJoinFollowState(true);
   };
 
   if (joinFollowState === true) {
@@ -53,10 +72,18 @@ function Join({
     <>
       <h1>Facebook 회원가입 하기</h1>
       <div className="join-new">
-        새로운 이름 <input className="join-new-name" type="text" value={temptJoiningName} onChange={(e) => setJoinTemptName(e.target.value)} /> <br />
-        새로운 아이디 <input className="join-new-id" type="text" value={temptJoiningId} onChange={(e) => setJoinTemptId(e.target.value)} /> <br />
-        새로운 비밀번호 <input className="join-new-pw" type="text" value={temptJoiningPw} onChange={(e) => setJoinTemptPw(e.target.value)} /> <br />
-        <button className="join-new-button" type="button" onClick={handleAddJoining}>다음</button>
+        새로운 아이디 <input className="join-new-id" type="text" value={temptJoiningId} onChange={(e) => setJoinTemptId(e.target.value)} />
+        <button type="button" onClick={checkDuplication}>중복 확인</button>
+        {isDuplicated === true
+        ? <div>해당 아이디는 이미 존재합니다</div>
+        : isDuplicated === ''
+          ? <div></div>
+          : <div>사용하실 수 있는 아이디입니다</div>}
+        <br />
+        새로운 비밀번호 <input className="join-new-pw" type="password" value={temptJoiningPw} onChange={(e) => setJoinTemptPw(e.target.value)} /> <br />
+        <br />
+        이름 <input className="join-new-name" type="text" value={temptJoiningName} onChange={(e) => setJoinTemptName(e.target.value)} /> <br />
+        <button className="join-new-button" type="button" onClick={handleMoveNext}>다음</button>
       </div>
     </>
   );

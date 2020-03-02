@@ -83,7 +83,7 @@ function Login({
       <h1>Facebook 로그인 하기</h1>
       <div className="login">
         아이디 <input type="text" className="login-id-box" onChange={(e) => setLoginTemptId(e.target.value)} /><br />
-        비밀번호 <input type="text" className="login-pw-box" onChange={(e) => setLoginTemptPw(e.target.value)} /><br />
+        비밀번호 <input type="password" className="login-pw-box" onChange={(e) => setLoginTemptPw(e.target.value)} /><br />
         <button onClick={loginButtonClicked} className="login-button" type="button">로그인</button>
       </div>
       <br /><br /><br /><br />
