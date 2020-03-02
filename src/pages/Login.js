@@ -61,8 +61,11 @@ function Login({
           friends: users[i].friends,
         });
         setLoginState({ ...loginState, isLoggedIn: true });
+        return;
       }
     }
+
+    alert('아이디 혹은 비밀번호가 올바르지 않습니다');
   };
   
   const MoveToJoiningPage = () => {

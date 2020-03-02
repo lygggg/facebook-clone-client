@@ -19,77 +19,137 @@ import {
 
 // 유저 목록 불러오기
 export const getUsers = async () => {
-  return await apiGetUsers();
+  try {
+    return await apiGetUsers();
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 회원가입
 export const addUser = async (id, pw, userName) => {
-  return await apiAddUser(id, pw, userName);
+  try {
+    return await apiAddUser(id, pw, userName);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 게시글 목록 불러오기
 export const getPosts = async () => {
-  return await apiGetPosts();
+  try {
+    return await apiGetPosts();
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 게시글 추가
 export const addPost = async (id, name, contents) => {
-  return await apiAddPost(id, name, contents);
+  try {
+    return await apiAddPost(id, name, contents);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 게시글 삭제
 export const removePost = async (uniqueKey) => {
-  return await apiRemovePost(uniqueKey);
+  try {
+    return await apiRemovePost(uniqueKey);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 게시글 수정
 export const editPost = async (uniqueKey, editedContents) => {
-  return await apiEditPost(uniqueKey, editedContents);
+  try {
+    return await apiEditPost(uniqueKey, editedContents);   
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 게시글 좋아요
 export const plusThumbCount = async (uniqueKey, userId) => {
-  return await apiPlusThumbCount(uniqueKey, userId);
+  try {
+    return await apiPlusThumbCount(uniqueKey, userId); 
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 // 게시글 스크랩
 export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey) => {
-  return await apiAddScrap(whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey);
+  try {
+    return await apiAddScrap(whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey); 
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 댓글 목록 불러오기
 export const getComments = async () => {
-  return await apiGetComments();
+  try {   
+    return await apiGetComments();
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 댓글 추가
 export const addComment = async (id, userId, username, commentContents) => {
-  return await apiAddComment(id, userId, username, commentContents);
+  try {   
+    return await apiAddComment(id, userId, username, commentContents);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // 댓글 추가시 댓글 개수 +1
 export const plusCommentCount = async (uniqueKey) => {
-  return await apiPlusCommentCount(uniqueKey);
+  try {  
+    return await apiPlusCommentCount(uniqueKey);
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 // 댓글 좋아요
 export const plusCommentThumbCount = async (uniqueKey, userId) => {
-  return await apiPlusCommentThumbCount(uniqueKey, userId);
+  try {  
+    return await apiPlusCommentThumbCount(uniqueKey, userId);
+  } catch (e) {
+    console.error(e);
+  }  
 }
 
 // 대댓글 추가
 export const addChildComment = async (uniqueKey, contents, userId, userName) => {
-  return await apiAddChildComment(uniqueKey, contents, userId, userName);
+  try {
+    return await apiAddChildComment(uniqueKey, contents, userId, userName);  
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 // 친구 추가
 export const addFriend = async (currentUserID, friendID) => {
-  return await apiAddFriend(currentUserID, friendID);
+  try {  
+    return await apiAddFriend(currentUserID, friendID);
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 // 친구 해제
 export const removeFriend = async (currentUserID, friendID) => {
-  return await apiRemoveFriend(currentUserID, friendID);
+  try {  
+    return await apiRemoveFriend(currentUserID, friendID);
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 /*

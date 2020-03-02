@@ -52,8 +52,8 @@ function Join({
 
   const handleMoveNext = async () => {
     if (isDuplicated !== false) {
-       alert('아이디 중복을 확인해주세요');
-       return;
+      alert('아이디 중복을 확인해주세요');
+      return;
     }
     
     if (isSamePassword !== true) {
