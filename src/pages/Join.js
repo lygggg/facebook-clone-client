@@ -16,6 +16,7 @@ function Join({
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
   const [isDuplicated, setIsDuplicated] = useState('');
+  const [isSamePassword, setIsSamePassword] = useState('');
   const [joinFollowState, setJoinFollowState] = useState(false);
   const { temptJoiningId, temptJoiningPw, temptJoiningName } = temptState;
   const { users } = loginState;
@@ -41,12 +42,25 @@ function Join({
     setIsDuplicated(false);
   };
 
+  const passwordCheck = (passwordForCheck) => {
+    if (temptJoiningPw === passwordForCheck) {
+      setIsSamePassword(true);
+    } else {
+      setIsSamePassword(false);
+    }
+  }
+
   const handleMoveNext = async () => {
     if (isDuplicated !== false) {
        alert('아이디 중복을 확인해주세요');
        return;
     }
     
+    if (isSamePassword !== true) {
+      alert('비밀번호를 다시 확인해주세요');
+      return;
+    }
+
     if (!temptJoiningId.trim() || !temptJoiningPw.trim() || !temptJoiningName.trim()) {
       alert('모든 항목을 입력해주세요');
       return;
@@ -60,7 +74,6 @@ function Join({
       userName: temptJoiningName,
       friends: [],
     })
-    setTemptState({ temptJoiningId: '', temptJoiningPw: '', temptJoiningName: '' });
     setJoinFollowState(true);
   };
 
@@ -80,7 +93,13 @@ function Join({
           ? <div></div>
           : <div>사용하실 수 있는 아이디입니다</div>}
         <br />
-        새로운 비밀번호 <input className="join-new-pw" type="password" value={temptJoiningPw} onChange={(e) => setJoinTemptPw(e.target.value)} /> <br />
+        새로운 비밀번호 <input className="join-new-pw" type="password" onChange={(e) => setJoinTemptPw(e.target.value)} /> <br />
+        비밀번호 확인 <input className="join-new-pw" type="password" onChange={(e) => passwordCheck(e.target.value)} /> <br />
+        {isSamePassword
+        ? <div>비밀번호가 일치합니다</div>
+        : isSamePassword === ''
+          ? <div></div>
+          : <div>비밀번호가 일치하지 않습니다</div>}
         <br />
         이름 <input className="join-new-name" type="text" value={temptJoiningName} onChange={(e) => setJoinTemptName(e.target.value)} /> <br />
         <button className="join-new-button" type="button" onClick={handleMoveNext}>다음</button>
