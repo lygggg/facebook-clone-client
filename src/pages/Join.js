@@ -8,6 +8,11 @@ const initialTempt = {
   temptJoiningName: '',
 };
 
+const errors = {
+  id: '',
+  ps: '',
+};
+
 function Join({
   loginState,
   setLoginState,
@@ -15,8 +20,7 @@ function Join({
   setCurrentUserState,
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
-  const [isDuplicated, setIsDuplicated] = useState('');
-  const [isSamePassword, setIsSamePassword] = useState('');
+  const [errorState, setErrorState] = useState(errors);
   const [joinFollowState, setJoinFollowState] = useState(false);
   const { temptJoiningId, temptJoiningPw, temptJoiningName } = temptState;
   const { users } = loginState;
@@ -34,29 +38,29 @@ function Join({
   const checkDuplication = () => {
     for (let i = 0; i < users.length; i++) {
       if (temptJoiningId === users[i].id) {
-        setIsDuplicated(true);
+        setErrorState({ ...errorState, id: '이미 존재하는 아이디입니다'});
         return;
       }
     }
     
-    setIsDuplicated(false);
+    setErrorState({ ...errorState, id: '사용할 수 있습니다' });
   };
 
   const passwordCheck = (passwordForCheck) => {
     if (temptJoiningPw === passwordForCheck) {
-      setIsSamePassword(true);
+      setErrorState({ ...errorState, pw: '비밀번호가 일치합니다' });
     } else {
-      setIsSamePassword(false);
+      setErrorState({ ...errorState, pw: '비밀번호가 서로 일치하지 않습니다'});
     }
   }
 
   const handleMoveNext = async () => {
-    if (isDuplicated !== false) {
+    if (errorState.id !== '사용할 수 있습니다') {
       alert('아이디 중복을 확인해주세요');
       return;
     }
     
-    if (isSamePassword !== true) {
+    if (errorState.pw !== '비밀번호가 일치합니다') {
       alert('비밀번호를 다시 확인해주세요');
       return;
     }
@@ -86,20 +90,12 @@ function Join({
       <h1>Facebook 회원가입 하기</h1>
       <div className="join-new">
         새로운 아이디 <input className="join-new-id" type="text" value={temptJoiningId} onChange={(e) => setJoinTemptId(e.target.value)} />
-        <button type="button" onClick={checkDuplication}>중복 확인</button>
-        {isDuplicated === true
-        ? <div>해당 아이디는 이미 존재합니다</div>
-        : isDuplicated === ''
-          ? <div></div>
-          : <div>사용하실 수 있는 아이디입니다</div>}
+        <button type="button" onClick={checkDuplication}>중복 확인</button> <br />
+        {errorState.id}
         <br />
         새로운 비밀번호 <input className="join-new-pw" type="password" onChange={(e) => setJoinTemptPw(e.target.value)} /> <br />
         비밀번호 확인 <input className="join-new-pw" type="password" onChange={(e) => passwordCheck(e.target.value)} /> <br />
-        {isSamePassword
-        ? <div>비밀번호가 일치합니다</div>
-        : isSamePassword === ''
-          ? <div></div>
-          : <div>비밀번호가 일치하지 않습니다</div>}
+        {errorState.pw}
         <br />
         이름 <input className="join-new-name" type="text" value={temptJoiningName} onChange={(e) => setJoinTemptName(e.target.value)} /> <br />
         <button className="join-new-button" type="button" onClick={handleMoveNext}>다음</button>
