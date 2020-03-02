@@ -89,7 +89,7 @@ function Join({
     <>
       <h1>Facebook 회원가입 하기</h1>
       <div className="join-new">
-        새로운 아이디 <input className="join-new-id" type="text" value={temptJoiningId} onChange={(e) => setJoinTemptId(e.target.value)} />
+        새로운 아이디 <input className="join-new-id" type="text" onChange={(e) => setJoinTemptId(e.target.value)} />
         <button type="button" onClick={checkDuplication}>중복 확인</button> <br />
         {errorState.id}
         <br />
@@ -97,7 +97,7 @@ function Join({
         비밀번호 확인 <input className="join-new-pw" type="password" onChange={(e) => passwordCheck(e.target.value)} /> <br />
         {errorState.pw}
         <br />
-        이름 <input className="join-new-name" type="text" value={temptJoiningName} onChange={(e) => setJoinTemptName(e.target.value)} /> <br />
+        이름 <input className="join-new-name" type="text" onChange={(e) => setJoinTemptName(e.target.value)} /> <br />
         <button className="join-new-button" type="button" onClick={handleMoveNext}>다음</button>
       </div>
     </>
