@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const LOGIN_URL = 'http://localhost:3000/login';
+const LOGIN_URL = '/login';
 const POSTS_URL = 'http://localhost:3000/posts';
 const SCRAPS_URL = 'http://localhost:3000/scraps';
 const COMMENTS_URL = 'http://localhost:3000/comments';

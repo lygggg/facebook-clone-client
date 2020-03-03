@@ -28,6 +28,10 @@ module.exports = {
   devServer: {
     inline: true,
     historyApiFallback: true,
+    proxy: [{
+      context: ['/login'],
+      target: 'http://localhost:3000',
+    }],
   },
   plugins: [
     new HtmlWebPackPlugin({

@@ -11,8 +11,7 @@ import { closeAllChildCommentBox } from '../function';
 import { getUsers } from '../apis/service';
 
 const callAPI = async (loginState, setLoginState) => {
-  const { userStore } = await getUsers();
-
+  const { userStore, session } = await getUsers();
   setLoginState({ ...loginState, users: [...userStore.users] });
 };
 
@@ -34,7 +33,7 @@ function Login({
   const [temptState, setTemptState] = useState(initialTempt);
   const [joiningPageState, setJoiningPageState] = useState(false);
   const { temptId, temptPw } = temptState;
-  const { isLoggedIn } = loginState;
+  const { isLoggedIn, users } = loginState;
 
   useEffect(() => {
     callAPI(loginState, setLoginState);
@@ -47,10 +46,16 @@ function Login({
     setTemptState({ ...temptState, temptPw });
   };
 
-  const loginButtonClicked = async () => {
-    const { userStore } = await getUsers();
-    const { users } = userStore;
-
+  // 로그인 버튼이 눌리면, temptId와 temptPw가 users와 일치하는지
+  // 확인하고, 일치하면, users[i].id,pw,userName,friends를 서버에
+  // currentUserStore에다가 저장한다. 그리고 이 값을 
+  // setCurrentUserState 해가지구 다시 클라이언트에도 저장한다.
+  // 만약 다시 들어오면, 세션ID를 확인해서 일치하면 서버에있는
+  // currentUserStore에서 일치하는 세션ID를 찾아서 이 userID를
+  // 클라이언트에 다시 송신해준 후 /post로 리다이렉트 시켜준다. 
+  // 일치하지 않으면 로그인 화면에서 로그인 해야지 뭐. 아무것도
+  // 안하면 될듯.
+  const loginButtonClicked = () => {
     for (let i = 0; i < users.length; i += 1) {
       if (temptId === users[i].id && temptPw === users[i].pw) {
         setCurrentUserState({
