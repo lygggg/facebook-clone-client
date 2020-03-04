@@ -15,7 +15,17 @@ import {
   addChildComment as apiAddChildComment,
   addFriend as apiAddFriend,
   removeFriend as apiRemoveFriend,
+  performLogin as apiPerformLogin,
 } from './apis/service';
+
+// 로그인
+export const performLogin = async (userID, userPW) => {
+  try {
+    return await apiPerformLogin(userID, userPW);
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 // 유저 목록 불러오기
 export const getUsers = async () => {

@@ -29,7 +29,7 @@ module.exports = {
     inline: true,
     historyApiFallback: true,
     proxy: [{
-      context: ['/login'],
+      context: ['/session'],
       target: 'http://localhost:3000',
     }],
   },

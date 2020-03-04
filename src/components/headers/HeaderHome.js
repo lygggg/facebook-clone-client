@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import { performLogin } from '../../function';
 
 function HomeHeader({
   loginState,
@@ -15,7 +16,9 @@ function HomeHeader({
     setMyPageState(true);
   };
 
-  const logoutButtonClicked = () => {
+  const logoutButtonClicked = async () => {
+    // 세션삭제
+    await performLogin('session', 'destroy');
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
     setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '' });
     alert('로그아웃 되었습니다');
