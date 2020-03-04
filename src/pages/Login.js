@@ -7,11 +7,16 @@ import {
   Redirect,
 } from 'react-router-dom';
 import Join from './Join';
-import { closeAllChildCommentBox } from '../function';
-import { getUsers, performLogin } from '../apis/service';
+import {
+  closeAllChildCommentBox,
+  performLogin,
+  checkSessionExist,
+  getUsers,
+} from '../function';
 
 const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState) => {
-  const { sending } = await performLogin();
+  const { sending } = await checkSessionExist();
+  const { userStore } = await getUsers();
 
   setCurrentUserState({
     ...currentUserState,
@@ -19,7 +24,8 @@ const callAPI = async (currentUserState, setCurrentUserState, loginState, setLog
     userName: sending[1],
     friends: sending[2],
   });
-  setLoginState({ ...loginState, isLoggedIn: true });
+
+  setLoginState({ ...loginState, users: [...userStore.users], isLoggedIn: true })  
 };
 
 const initialTempt = {
@@ -54,9 +60,9 @@ function Login({
   };
 
   const loginButtonClicked = async () => {
-    const { userInformation, state, redirect } = await performLogin(temptId, temptPw);
+    const { userInformation, state } = await performLogin(temptId, temptPw);
 
-    if (state === 0) {
+    if (state === 'fail') {
       alert('아이디와 비밀번호를 다시 확인해주세요');
       return;
     }

@@ -16,7 +16,27 @@ import {
   addFriend as apiAddFriend,
   removeFriend as apiRemoveFriend,
   performLogin as apiPerformLogin,
+  destroySession as apiDistroySession,
+  checkSessionExist as apiCheckSessionExist,
 } from './apis/service';
+
+// 세션이 이미 있는지 확인
+export const checkSessionExist = async () => {
+  try {
+    return await apiCheckSessionExist();
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+// 세션 제거
+export const destroySession = async () => {
+  try {
+    return await apiDistroySession();
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 // 로그인
 export const performLogin = async (userID, userPW) => {

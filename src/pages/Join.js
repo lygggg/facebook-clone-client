@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { addUser } from '../apis/service';
+import { addUser, getUsers } from '../function';
 
 const initialTempt = {
   temptJoiningId: '',
@@ -37,8 +37,13 @@ function Join({
 
   const checkDuplication = () => {
     for (let i = 0; i < users.length; i++) {
+      if (!temptJoiningId.trim()) {
+        setErrorState({ ...errorState, id: '새로운 아이디를 입력해주세요' });
+        return
+      }
+
       if (temptJoiningId === users[i].id) {
-        setErrorState({ ...errorState, id: '이미 존재하는 아이디입니다'});
+        setErrorState({ ...errorState, id: '이미 존재하는 아이디입니다' });
         return;
       }
     }
@@ -69,6 +74,9 @@ function Join({
       alert('모든 항목을 입력해주세요');
       return;
     }
+    
+    const { userStore } = await getUsers();
+    setLoginState({ ...loginState, users: [...userStore.users] });
     
     await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);      
     setCurrentUserState({

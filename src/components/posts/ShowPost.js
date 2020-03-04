@@ -15,8 +15,10 @@ function ShowPostOthersPage({
 }) {
   const { id } = currentUserState;
 
-  const handleThumbCount = (specificPost) => {
-    setPostState(plusThumbCount(postState, specificPost, currentUserState));
+  const handleThumbCount = async (specificPost) => {
+    const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id)
+
+    setPostState({ ...postState, post: [...timeLinePosts.post]});
   };
 
   const handleRemovePost = async (specificPost) => {

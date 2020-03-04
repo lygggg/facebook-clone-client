@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { addFriend } from '../function';
+import { addFriend, getUsers } from '../function';
+
+const callAPI = async (setUsers, loginState, setLoginState) => {
+  setUsers(
+    loginState.users.map(user => ({
+      ...user,
+      checked: false,
+    }))
+  );
+}
 
 function JoinFollow({
   loginState,
@@ -13,12 +22,7 @@ function JoinFollow({
   const { id } = currentUserState;
 
   useEffect(() =>{
-    setUsers(
-      loginState.users.map(user => ({
-        ...user,
-        checked: false,
-      }))
-    );
+    callAPI(setUsers, loginState, setLoginState);
   }, []);
 
   const checkUser = (userID) => {

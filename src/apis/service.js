@@ -10,6 +10,16 @@ const LIKE_URL = 'http://localhost:3000/like';
 const COMMENTLIKE_URL = 'http://localhost:3000/commentlike';
 const FRIENDS_URL = 'http://localhost:3000/friends';
 
+export const checkSessionExist = async () => {
+  const { data } = await axios.get(SESSION_URL);
+  return data;
+};
+
+export const destroySession = async () => {
+  const { data } = await axios.patch(SESSION_URL);
+  return data;
+}
+
 export const performLogin = async (userID, userPW) => {
   const { data } = await axios.post(SESSION_URL, { userID, userPW });
   return data;
