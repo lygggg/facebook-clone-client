@@ -15,7 +15,7 @@ import {
   addChildComment as apiAddChildComment,
   addFriend as apiAddFriend,
   removeFriend as apiRemoveFriend,
-  performLogin as apiPerformLogin,
+  login as apiLogin,
   destroySession as apiDistroySession,
   checkSessionExist as apiCheckSessionExist,
 } from './apis/service';
@@ -39,9 +39,9 @@ export const destroySession = async () => {
 };
 
 // 로그인
-export const performLogin = async (userID, userPW) => {
+export const login = async (userID, userPW) => {
   try {
-    return await apiPerformLogin(userID, userPW);
+    return await apiLogin(userID, userPW);
   } catch (e) {
     console.error(e);
   }

@@ -9,20 +9,20 @@ import {
 import Join from './Join';
 import {
   closeAllChildCommentBox,
-  performLogin,
+  login,
   checkSessionExist,
   getUsers,
 } from '../function';
 
 const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState) => {
-  const { sending } = await checkSessionExist();
+  const { user } = await checkSessionExist();
   const { userStore } = await getUsers();
 
   setCurrentUserState({
     ...currentUserState,
-    id: sending[0],
-    userName: sending[1],
-    friends: sending[2],
+    id: user.id,
+    userName: user.userName,
+    friends: user.friends,
   });
 
   setLoginState({ ...loginState, users: [...userStore.users], isLoggedIn: true })  
@@ -60,18 +60,18 @@ function Login({
   };
 
   const loginButtonClicked = async () => {
-    const { userInformation, state } = await performLogin(temptId, temptPw);
+    const { user, status } = await login(temptId, temptPw);
 
-    if (state === 'fail') {
+    if (status === 400) {
       alert('아이디와 비밀번호를 다시 확인해주세요');
       return;
     }
 
     setCurrentUserState({
       ...currentUserState,
-      id: userInformation.id,
-      userName: userInformation.userName,
-      friends: userInformation.friends,
+      id: user.id,
+      userName: user.userName,
+      friends: user.friends,
     });
     
     setLoginState({ ...loginState, isLoggedIn: true });

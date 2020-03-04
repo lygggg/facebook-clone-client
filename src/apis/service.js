@@ -20,7 +20,7 @@ export const destroySession = async () => {
   return data;
 }
 
-export const performLogin = async (userID, userPW) => {
+export const login = async (userID, userPW) => {
   const { data } = await axios.post(SESSION_URL, { userID, userPW });
   return data;
 }
