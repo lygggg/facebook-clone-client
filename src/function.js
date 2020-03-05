@@ -6,7 +6,6 @@ import {
   removePost as apiRemovePost,
   editPost as apiEditPost,
   plusThumbCount as apiPlusThumbCount,
-  openEditBox as apiOpenEditBox,
   addScrap as apiAddScrap,
   getComments as apiGetComments,
   addComment as apiAddComment,
@@ -95,7 +94,7 @@ export const removePost = async (uniqueKey) => {
 // 게시글 수정
 export const editPost = async (uniqueKey, editedContents) => {
   try {
-    return await apiEditPost(uniqueKey, editedContents);   
+    return await apiEditPost(uniqueKey, editedContents);
   } catch (e) {
     console.error(e);
   }
@@ -104,16 +103,29 @@ export const editPost = async (uniqueKey, editedContents) => {
 // 게시글 좋아요
 export const plusThumbCount = async (uniqueKey, userId) => {
   try {
-    return await apiPlusThumbCount(uniqueKey, userId); 
+    return await apiPlusThumbCount(uniqueKey, userId);
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 // 게시글 스크랩
-export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey) => {
+export const addScrap = async (
+  whoScrapedByID,
+  whoScrapedByName,
+  whoWritePostByName,
+  ScrapedPostContents,
+  uniqueKey,
+
+) => {
   try {
-    return await apiAddScrap(whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey); 
+    return await apiAddScrap(
+      whoScrapedByID,
+      whoScrapedByName,
+      whoWritePostByName,
+      ScrapedPostContents,
+      uniqueKey,
+    );
   } catch (e) {
     console.error(e);
   }
@@ -121,7 +133,7 @@ export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByN
 
 // 댓글 목록 불러오기
 export const getComments = async () => {
-  try {   
+  try {
     return await apiGetComments();
   } catch (e) {
     console.error(e);
@@ -130,7 +142,7 @@ export const getComments = async () => {
 
 // 댓글 추가
 export const addComment = async (id, userId, username, commentContents) => {
-  try {   
+  try {
     return await apiAddComment(id, userId, username, commentContents);
   } catch (e) {
     console.error(e);
@@ -139,48 +151,48 @@ export const addComment = async (id, userId, username, commentContents) => {
 
 // 댓글 추가시 댓글 개수 +1
 export const plusCommentCount = async (uniqueKey) => {
-  try {  
+  try {
     return await apiPlusCommentCount(uniqueKey);
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 // 댓글 좋아요
 export const plusCommentThumbCount = async (uniqueKey, userId) => {
-  try {  
+  try {
     return await apiPlusCommentThumbCount(uniqueKey, userId);
   } catch (e) {
     console.error(e);
-  }  
-}
+  }
+};
 
 // 대댓글 추가
 export const addChildComment = async (uniqueKey, contents, userId, userName) => {
   try {
-    return await apiAddChildComment(uniqueKey, contents, userId, userName);  
+    return await apiAddChildComment(uniqueKey, contents, userId, userName);
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 // 친구 추가
 export const addFriend = async (currentUserID, friendID) => {
-  try {  
+  try {
     return await apiAddFriend(currentUserID, friendID);
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 // 친구 해제
 export const removeFriend = async (currentUserID, friendID) => {
-  try {  
+  try {
     return await apiRemoveFriend(currentUserID, friendID);
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 /*
 ---------------------------------------------------------------
@@ -193,8 +205,8 @@ export const openPostEditBox = (postState, specificPost) => {
 
   return ({
     ...postState,
-    post: post.map((p) =>
-      (p.uniqueKey !== specificPost.uniqueKey ? p : { ...p, isEditButtonClicked: true })),
+    post: post.map((p) => (p.uniqueKey !== specificPost.uniqueKey
+      ? p : { ...p, isEditButtonClicked: true })),
   });
 };
 
@@ -205,9 +217,8 @@ export const openChildCommentBox = (commentState, specificComment) => {
   return (
     {
       ...commentState,
-      comment: comment.map((v) =>
-        (specificComment.uniqueKey !== v.uniqueKey
-          ? v : { ...v, isChildCommentFunctionOn: true })),
+      comment: comment.map((v) => (specificComment.uniqueKey !== v.uniqueKey
+        ? v : { ...v, isChildCommentFunctionOn: true })),
     }
   );
 };
