@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addPost } from '../../apis/service';
+import { addPost, getPosts } from '../../function';
 
 function AddPost({
   currentUserState,
@@ -17,7 +17,7 @@ function AddPost({
     if (temptState.trim()) {
       const { timeLinePosts } = await addPost(id, userName, temptState);
 
-      setPostState({ ...postState, post: [...timeLinePosts.post]})
+      setPostState({ ...postState, post: [...timeLinePosts] });
       setTemptState('');
     } else {
       alert('내용을 입력해주세요');

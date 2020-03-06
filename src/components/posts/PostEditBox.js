@@ -18,7 +18,7 @@ function PostEditBox({
 
   const clickedEditSuccess = async () => {
     const { uniqueKey } = specificPost;
-    
+
     if (!temptState.trim()) {
       alert('수정사항을 입력해주세요');
       return;
@@ -30,7 +30,7 @@ function PostEditBox({
     }
 
     const { timeLinePosts } = await editPost(uniqueKey, temptState);
-    setPostState({ ...postState, post: [...timeLinePosts.post] });
+    setPostState({ ...postState, post: [...timeLinePosts] });
     alert('게시글이 수정되었습니다');
   };
 

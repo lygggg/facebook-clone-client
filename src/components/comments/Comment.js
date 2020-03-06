@@ -12,9 +12,9 @@ import ChildCommentBox from './ChildCommentBox';
 const callAPI = async (commentState, setCommentState) => {
   const { postComments } = await getComments();
 
-  setCommentState({ 
-    ...commentState, 
-    comment: [...postComments.comment],
+  setCommentState({
+    ...commentState,
+    comment: [...postComments],
   });
 }
 
@@ -45,8 +45,8 @@ function Comment({
       const { postComments } = await addComment(uniqueKey, id, userName, temptState);
       const { timeLinePosts } = await plusCommentCount(uniqueKey);
 
-      setCommentState({ ...commentState, comment: [...postComments.comment] });
-      setPostState({ ...postState, post: [...timeLinePosts.post] });
+      setCommentState({ ...commentState, comment: [...postComments] });
+      setPostState({ ...postState, post: [...timeLinePosts] });
       setTemptState('');
     }
   };
@@ -54,7 +54,7 @@ function Comment({
   const handleCommentThumbCount = async (specificComment) => {
     const { postComments } = await plusCommentThumbCount(specificComment.uniqueKey, currentUserState.id);
 
-    setCommentState({ ...commentState, comment: [...postComments.comment] });
+    setCommentState({ ...commentState, comment: [...postComments] });
   };
 
   const ChildCommentButtonClicked = (specificComment) => {

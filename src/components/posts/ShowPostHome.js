@@ -14,9 +14,9 @@ import {
 const callAPI = async (postState, setPostState) => {
   const { timeLinePosts } = await getPosts();
 
-  setPostState({ 
-    ...postState, 
-    post: [...timeLinePosts.post],
+  setPostState({
+    ...postState,
+    post: [...timeLinePosts],
   });
 }
 
@@ -39,14 +39,14 @@ function ShowPostHome({
   const handleThumbCount = async (specificPost) => {
     const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id)
 
-    setPostState({ ...postState, post: [...timeLinePosts.post]});
+    setPostState({ ...postState, post: [...timeLinePosts]});
   };
 
   const handleRemovePost = async (specificPost) => {
     const { timeLinePosts } = await removePost(specificPost.uniqueKey);
-    
+
     if (specificPost.id === id) {
-      setPostState({ ...postState, post: [...timeLinePosts.post] });
+      setPostState({ ...postState, post: [...timeLinePosts] });
       alert('해당 게시글이 삭제되었습니다');
     } else {
       alert('게시글은 해당 작성자만 삭제할 수 있습니다');
