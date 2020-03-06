@@ -47,7 +47,7 @@ function Join({
         return;
       }
     }
-    
+
     setErrorState({ ...errorState, id: '사용할 수 있습니다' });
   };
 
@@ -64,7 +64,7 @@ function Join({
       alert('아이디 중복을 확인해주세요');
       return;
     }
-    
+
     if (errorState.pw !== '비밀번호가 일치합니다') {
       alert('비밀번호를 다시 확인해주세요');
       return;
@@ -74,23 +74,23 @@ function Join({
       alert('모든 항목을 입력해주세요');
       return;
     }
-    
+
     const { userStore } = await getUsers();
     setLoginState({ ...loginState, users: [...userStore.users] });
-    
-    await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);      
-    setCurrentUserState({
-      ...currentUserState,
-      id: temptJoiningId,
-      pw: temptJoiningPw,
-      userName: temptJoiningName,
-      friends: [],
-    })
+
+    await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);
+    // setCurrentUserState({
+    //   ...currentUserState,
+    //   id: temptJoiningId,
+    //   pw: temptJoiningPw,
+    //   userName: temptJoiningName,
+    //   friends: [],
+    // })
     setJoinFollowState(true);
   };
 
   if (joinFollowState === true) {
-    return <Redirect to='joinfollow' />;
+    return <Redirect to="joinfollow" />;
   }
 
   return (
