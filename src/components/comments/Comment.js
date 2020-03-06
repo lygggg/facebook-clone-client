@@ -40,7 +40,7 @@ function Comment({
     setTemptState(temptState);
   };
 
-  const handleAddComment = async (specificPost) => {
+  const handleAddComment = async () => {
     if (temptState.trim()) {
       const { postComments } = await addComment(uniqueKey, id, userName, temptState);
       const { timeLinePosts } = await plusCommentCount(uniqueKey);
@@ -52,7 +52,10 @@ function Comment({
   };
 
   const handleCommentThumbCount = async (specificComment) => {
-    const { postComments } = await plusCommentThumbCount(specificComment.uniqueKey, currentUserState.id);
+    const { postComments } = await plusCommentThumbCount(
+      specificComment.uniqueKey,
+      currentUserState.id,
+    );
 
     setCommentState({ ...commentState, comment: [...postComments] });
   };
@@ -74,7 +77,7 @@ function Comment({
           <button
             className="comment-input"
             type="button"
-            onClick={() => handleAddComment(specificPost, userName)}
+            onClick={() => handleAddComment()}
           >
           입력
           </button>
@@ -92,13 +95,14 @@ function Comment({
               type="button"
               onClick={() => ChildCommentButtonClicked(v)}
             >
-            대댓글
+              대댓글
             </button>
             <button
               type="button"
               className="comment-thumb"
               onClick={() => handleCommentThumbCount(v)}
-            >좋아요
+            >
+              좋아요
             </button>
             <span className="comment-thumb-count">{v.commentThumbCount.length}</span>
             {v.isChildCommentFunctionOn
