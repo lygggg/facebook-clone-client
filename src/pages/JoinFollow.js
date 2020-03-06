@@ -46,7 +46,7 @@ function JoinFollow({
     )
 
     alert('회원가입이 완료되었습니다! 다시 로그인 해주세요');
-    location.href = "/"
+    location.href = '/';
   };
 
   return (

@@ -9,7 +9,7 @@ const callAPI = async (postState, setPostState) => {
   const { timeLinePosts } = await getPosts();
 
   setPostState({
-    ...postState, 
+    ...postState,
     post: [...timeLinePosts.post],
   });
 }

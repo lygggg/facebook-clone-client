@@ -3,12 +3,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
 } from 'react-router-dom';
 import Join from './Join';
 import {
-  closeAllChildCommentBox,
   login,
   checkSessionExist,
   getUsers,
@@ -24,8 +22,7 @@ const callAPI = async (currentUserState, setCurrentUserState, loginState, setLog
     userName: user.userName,
     friends: user.friends,
   });
-
-  setLoginState({ ...loginState, users: [...userStore.users], isLoggedIn: true })  
+  setLoginState({ ...loginState, users: [...userStore], isLoggedIn: true })
 };
 
 const initialTempt = {
@@ -38,15 +35,11 @@ function Login({
   setLoginState,
   currentUserState,
   setCurrentUserState,
-  commentState,
-  setCommentState,
-  postState,
-  setPostState,
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
   const [joiningPageState, setJoiningPageState] = useState(false);
   const { temptId, temptPw } = temptState;
-  const { isLoggedIn, users } = loginState;
+  const { isLoggedIn } = loginState;
 
   useEffect(() => {
     callAPI(currentUserState, setCurrentUserState, loginState, setLoginState);
@@ -73,13 +66,13 @@ function Login({
       userName: user.userName,
       friends: user.friends,
     });
-    
+
     setLoginState({ ...loginState, isLoggedIn: true });
   };
-  
+
   const MoveToJoiningPage = () => {
     setJoiningPageState(true);
-  }
+  };
 
   if (joiningPageState === true) {
     return <Redirect to="/join" />;

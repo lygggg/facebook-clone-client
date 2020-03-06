@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { addUser, getUsers } from '../function';
 
@@ -13,17 +13,25 @@ const errors = {
   ps: '',
 };
 
+const callAPI = async (loginState, setLoginState) => {
+  const { userStore } = await getUsers();
+
+  setLoginState({ ...loginState, users: [...userStore] });
+};
+
 function Join({
   loginState,
   setLoginState,
-  currentUserState,
-  setCurrentUserState,
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
   const [errorState, setErrorState] = useState(errors);
   const [joinFollowState, setJoinFollowState] = useState(false);
   const { temptJoiningId, temptJoiningPw, temptJoiningName } = temptState;
   const { users } = loginState;
+
+  useEffect(() => {
+    callAPI(loginState, setLoginState);
+  }, []);
 
   const setJoinTemptName = (temptJoiningName) => {
     setTemptState({ ...temptState, temptJoiningName });
@@ -39,7 +47,7 @@ function Join({
     for (let i = 0; i < users.length; i++) {
       if (!temptJoiningId.trim()) {
         setErrorState({ ...errorState, id: '새로운 아이디를 입력해주세요' });
-        return
+        return;
       }
 
       if (temptJoiningId === users[i].id) {
@@ -76,16 +84,10 @@ function Join({
     }
 
     const { userStore } = await getUsers();
-    setLoginState({ ...loginState, users: [...userStore.users] });
+
+    setLoginState({ ...loginState, users: [...userStore] });
 
     await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);
-    // setCurrentUserState({
-    //   ...currentUserState,
-    //   id: temptJoiningId,
-    //   pw: temptJoiningPw,
-    //   userName: temptJoiningName,
-    //   friends: [],
-    // })
     setJoinFollowState(true);
   };
 

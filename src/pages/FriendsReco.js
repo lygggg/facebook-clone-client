@@ -9,7 +9,7 @@ const callAPI = async (loginState, setLoginState) => {
 
   setLoginState({
     ...loginState,
-    users: [...userStore.users],
+    users: [...userStore],
   });
 };
 
@@ -54,7 +54,7 @@ function FriendsReco({
     ? friendsRecoArray[i] = '중복이므로 제거 대상'
     : ''
   }
-  friendsRecoArray = friendsRecoArray.filter(v => v != '중복이므로 제거 대상');
+  friendsRecoArray = friendsRecoArray.filter(v => v !== '중복이므로 제거 대상');
 
   // user의 id를 받아와서 topLevelState의 형식에 맞춰서 넣어줌
   const findUserById = (id) => {

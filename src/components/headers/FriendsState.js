@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { addFriend, removeFriend, getUsers } from '../../function';
+import { addFriend, removeFriend } from '../../function';
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
-  const { userStore } = await getUsers();
+  // const { userStore } = await getUsers();
   const { users } = loginState;
 
   users.forEach((user, i) => {
     currentUserState.id === users[i].id
-    ? setCurrentUserState({
+      ? setCurrentUserState({
         ...currentUserState,
         friends: users[i].friends,
       })
-    : user
+      : user;
   });
 }
 
@@ -25,30 +25,30 @@ function FriendsState({
   const { id, name } = specificPost;
   const { friends } = currentUserState;
   const { users } = loginState;
-  
+
   useEffect(() => {
     callAPI(loginState, setLoginState, currentUserState, setCurrentUserState);
   }, [loginState]);
 
   const friendAddButtonClicked = async () => {
     const { userStore } = await addFriend(currentUserState.id, id);
-   
-    setLoginState({ ...loginState, users: [...userStore.users] });
+
+    setLoginState({ ...loginState, users: [...userStore] });
 
     users.forEach((user, i) => {
       currentUserState.id === users[i].id
-      ? setCurrentUserState({
+        ? setCurrentUserState({
           ...currentUserState,
           friends: users[i].friends,
         })
-      : user
+        : user;
     });
   };
 
   const friendRemoveButtonClicked = async () => {
     const { userStore } = await removeFriend(currentUserState.id, id);
-    
-    setLoginState({ ...loginState, users: [...userStore.users] });
+
+    setLoginState({ ...loginState, users: [...userStore] });
 
     users.forEach((user, i) => {
       currentUserState.id === users[i].id
