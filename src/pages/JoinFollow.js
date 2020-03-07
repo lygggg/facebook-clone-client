@@ -6,7 +6,7 @@ const callAPI = async (setUsers, loginState, setLoginState) => {
     loginState.users.map(user => ({
       ...user,
       checked: false,
-    }))
+    })),
   );
 }
 
@@ -29,20 +29,19 @@ function JoinFollow({
     setUsers(
       users.map(user =>
         user.id === userID
-        ? {
-          ...user,
-          checked: !user.checked,
-        }
-        : user
-      )
-    )
+          ? {
+            ...user,
+            checked: !user.checked,
+          }
+          : user),
+    );
   };
 
   const completeJoining = async () => {
     await Promise.all(
       users
-        .filter(user => user.checked)
-        .map(user => addFriend(id, user.id))
+        .filter((user) => user.checked)
+        .map((user) => addFriend(id, user.id)),
     )
 
     alert('회원가입이 완료되었습니다! 다시 로그인 해주세요');

@@ -22,6 +22,8 @@ const callAPI = async (loginState, setLoginState) => {
 function Join({
   loginState,
   setLoginState,
+  currentUserState,
+  setCurrentUserState,
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
   const [errorState, setErrorState] = useState(errors);
@@ -88,6 +90,12 @@ function Join({
     setLoginState({ ...loginState, users: [...userStore] });
 
     await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);
+    setCurrentUserState({
+      ...currentUserState,
+      id: temptJoiningId,
+      pw: temptJoiningName,
+      userName: temptJoiningName,
+    });
     setJoinFollowState(true);
   };
 
