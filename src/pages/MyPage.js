@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AddPost from '../components/posts/AddPost';
 import ShowPostOthersPage from '../components/posts/ShowPost';
 import Scrap from '../components/posts/Scrap';
 import HeaderMyPage from '../components/headers/HeaderMyPage';
-import { getPosts } from '../apis/service';
-
-const callAPI = async (postState, setPostState) => {
-  const { timeLinePosts } = await getPosts();
-
-  setPostState({ 
-    ...postState, 
-    scrap: [...timeLinePosts.scrap],
-  });
-}
 
 function MyPage({
   postState,
@@ -27,10 +17,6 @@ function MyPage({
 }) {
   const { id } = currentUserState;
   const { post, scrap } = postState;
-
-  useEffect(() => {
-    callAPI(postState, setPostState);
-  }, []);
 
   return (
     <>

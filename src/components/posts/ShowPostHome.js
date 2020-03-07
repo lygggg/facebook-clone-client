@@ -59,8 +59,8 @@ function ShowPostHome({
     const { name, contents, uniqueKey } = specificPost;
 
     const { timeLinePosts } = await addScrap(id, userName, name, contents, uniqueKey);
-
-    setPostState({ ...postState, scrap: [...timeLinePosts.scrap] });
+console.log(timeLinePosts)
+    setPostState({ ...postState, scrap: [...timeLinePosts] });
     alert('스크랩이 완료되었습니다! 마이페이지에서 확인하세요');
   };
 
@@ -138,7 +138,7 @@ function ShowPostHome({
             onClick={() => scrapButtonClicked(specificPost)}
             type="button"
           >
-          스크랩
+            스크랩
           </button>
         </div>
       </div>
