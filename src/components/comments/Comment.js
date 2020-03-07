@@ -63,7 +63,6 @@ function Comment({
   const ChildCommentButtonClicked = (specificComment) => {
     setCommentState(openChildCommentBox(commentState, specificComment));
   };
-
   return (
     <>
       <div className="comment">
@@ -79,7 +78,7 @@ function Comment({
             type="button"
             onClick={() => handleAddComment()}
           >
-          입력
+            입력
           </button>
         </div>
       </div>
