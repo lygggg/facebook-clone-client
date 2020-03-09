@@ -7,6 +7,9 @@ const initialTempt = {
   temptJoiningId: '',
   temptJoiningPw: '',
   temptJoiningName: '',
+  temptJoiningBirth: 'xxxx-xx-xx',
+  temptJoiningLocation: '',
+  temptJoiningEmail: '',
 };
 
 const errors = {
@@ -29,7 +32,14 @@ function Join({
   const [temptState, setTemptState] = useState(initialTempt);
   const [errorState, setErrorState] = useState(errors);
   const [joinProfileImage, setJoinProfileImageState] = useState(false);
-  const { temptJoiningId, temptJoiningPw, temptJoiningName } = temptState;
+  const {
+    temptJoiningId,
+    temptJoiningPw,
+    temptJoiningName,
+    temptJoiningBirth,
+    temptJoiningLocation,
+    temptJoiningEmail,
+  } = temptState;
   const { users } = loginState;
 
   useEffect(() => {
@@ -45,6 +55,16 @@ function Join({
   const setJoinTemptPw = (temptJoiningPw) => {
     setTemptState({ ...temptState, temptJoiningPw });
   };
+  const setJoinTemptBirth = (temptJoiningBirth) => {
+    setTemptState({ ...temptState, temptJoiningBirth });
+  };
+  const setJoinTemptLocation = (temptJoiningLocation) => {
+    setTemptState({ ...temptState, temptJoiningLocation});
+  };
+  const setJoinTemptEmail = (temptJoiningEmail) => {
+    setTemptState({ ...temptState, temptJoiningEmail});
+  }
+
 
   const checkDuplication = () => {
     for (let i = 0; i < users.length; i++) {
@@ -90,12 +110,22 @@ function Join({
 
     setLoginState({ ...loginState, users: [...userStore] });
 
-    await addUser(temptJoiningId, temptJoiningPw, temptJoiningName);
+    await addUser(
+      temptJoiningId,
+      temptJoiningPw,
+      temptJoiningName,
+      temptJoiningBirth,
+      temptJoiningLocation,
+      temptJoiningEmail,
+    );
     setCurrentUserState({
       ...currentUserState,
       id: temptJoiningId,
       pw: temptJoiningName,
       userName: temptJoiningName,
+      birth: temptJoiningBirth,
+      location: temptJoiningLocation,
+      email: temptJoiningEmail,
     });
     setJoinProfileImageState(true);
   };
@@ -117,6 +147,11 @@ function Join({
         {errorState.pw}
         <br />
         이름 <input className="join-new-name" type="text" onChange={(e) => setJoinTemptName(e.target.value)} /> <br />
+        생년월일 <input type="text" value={temptJoiningBirth} onChange={(e) => setJoinTemptBirth(e.target.value)} />
+        <br />
+        거주지 <input type="text" onChange={(e) => setJoinTemptLocation(e.target.value)} />
+        <br />
+        이메일 <input type="text" onChange={(e) => setJoinTemptEmail(e.target.value)} />
         <button className="join-new-button" type="button" onClick={handleMoveNext}>다음</button>
       </div>
     </>

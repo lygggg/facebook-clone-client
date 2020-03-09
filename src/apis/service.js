@@ -11,12 +11,6 @@ const COMMENTLIKE_URL = 'http://localhost:3000/commentlike';
 const FRIENDS_URL = 'http://localhost:3000/friends';
 const PROFILE_URL = 'http://localhost:3000/profile';
 const UPLOAD_URL = 'http://localhost:3000/upload';
-// const POSTIMAGE_URL = 'http://localhost:3000/postimage';
-
-// export const addPostImage = async (userId, filePath) => {
-//   const { data } = await axios.patch(POSTIMAGE_URL, { userId, filePath });
-//   return data;
-// }
 
 export const fileUpload = async (formData) => {
   const { data } = await axios.post(UPLOAD_URL, formData, {
@@ -52,8 +46,8 @@ export const getUsers = async () => {
   return data;
 };
 
-export const addUser = async (id, pw, userName) => {
-  const { data } = await axios.post(LOGIN_URL, { id, pw, userName });
+export const addUser = async (id, pw, userName, birth, location, email) => {
+  const { data } = await axios.post(LOGIN_URL, { id, pw, userName, birth, location, email });
   return data;
 }
 

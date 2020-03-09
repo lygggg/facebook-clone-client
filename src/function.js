@@ -19,17 +19,7 @@ import {
   checkSessionExist as apiCheckSessionExist,
   addProfileImage as apiAddProfileImage,
   fileUpload as apiFileUpload,
-  // addPostImage as apiAddPostImage,
 } from './apis/service';
-
-// // 게시글 사진 추가
-// export const addPostImage = async (userId, filePath) => {
-//   try {
-//     return await apiAddPostImage(userId, filePath);
-//   } catch (e) {
-//     console.error(e);
-//   }
-// }
 
 // 파일 업로드
 export const fileUpload = async (formData) => {
@@ -86,9 +76,9 @@ export const getUsers = async () => {
 };
 
 // 회원가입
-export const addUser = async (id, pw, userName) => {
+export const addUser = async (id, pw, userName, birth, location, email) => {
   try {
-    return await apiAddUser(id, pw, userName);
+    return await apiAddUser(id, pw, userName, birth, location, email);
   } catch (e) {
     console.error(e);
   }
