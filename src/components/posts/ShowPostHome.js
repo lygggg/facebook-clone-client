@@ -8,7 +8,7 @@ import {
   addScrap,
   getPosts,
   plusThumbCount,
-  openPostEditBox
+  openPostEditBox,
 } from '../../function';
 
 const callAPI = async (postState, setPostState) => {
@@ -16,7 +16,7 @@ const callAPI = async (postState, setPostState) => {
 
   setPostState({
     ...postState,
-    post: [...timeLinePosts],
+    post: [...timeLinePosts.reverse()],
   });
 }
 
@@ -39,14 +39,14 @@ function ShowPostHome({
   const handleThumbCount = async (specificPost) => {
     const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id)
 
-    setPostState({ ...postState, post: [...timeLinePosts]});
+    setPostState({ ...postState, post: [...timeLinePosts.reverse()]});
   };
 
   const handleRemovePost = async (specificPost) => {
     const { timeLinePosts } = await removePost(specificPost.uniqueKey);
 
     if (specificPost.id === id) {
-      setPostState({ ...postState, post: [...timeLinePosts] });
+      setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
       alert('해당 게시글이 삭제되었습니다');
     } else {
       alert('게시글은 해당 작성자만 삭제할 수 있습니다');
@@ -60,7 +60,7 @@ function ShowPostHome({
 
     const { timeLinePosts } = await addScrap(id, userName, name, contents, uniqueKey, profile);
 
-    setPostState({ ...postState, scrap: [...timeLinePosts] });
+    setPostState({ ...postState, scrap: [...timeLinePosts.reverse()] });
     alert('스크랩이 완료되었습니다! 마이페이지에서 확인하세요');
   };
 

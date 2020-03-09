@@ -30,7 +30,7 @@ function PostEditBox({
     }
 
     const { timeLinePosts } = await editPost(uniqueKey, temptState);
-    setPostState({ ...postState, post: [...timeLinePosts] });
+    setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
     alert('게시글이 수정되었습니다');
   };
 

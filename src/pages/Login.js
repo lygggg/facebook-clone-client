@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
+  useHistory,
 } from 'react-router-dom';
 import Join from './Join';
 import {
@@ -12,7 +12,7 @@ import {
   getUsers,
 } from '../function';
 
-const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState) => {
+const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState, history) => {
   const { user } = await checkSessionExist();
   const { userStore } = await getUsers();
 
@@ -24,6 +24,10 @@ const callAPI = async (currentUserState, setCurrentUserState, loginState, setLog
     profile: user.profile,
   });
   setLoginState({ ...loginState, users: [...userStore], isLoggedIn: true })
+
+  if (user) {
+    history.push('/post');
+  }
 };
 
 const initialTempt = {
@@ -38,12 +42,11 @@ function Login({
   setCurrentUserState,
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
-  const [joiningPageState, setJoiningPageState] = useState(false);
   const { temptId, temptPw } = temptState;
-  const { isLoggedIn } = loginState;
+  const history = useHistory();
 
   useEffect(() => {
-    callAPI(currentUserState, setCurrentUserState, loginState, setLoginState);
+    callAPI(currentUserState, setCurrentUserState, loginState, setLoginState, history);
   }, []);
 
   const setLoginTemptId = (temptId) => {
@@ -70,19 +73,12 @@ function Login({
     });
 
     setLoginState({ ...loginState, isLoggedIn: true });
+    history.push('/post');
   };
 
   const MoveToJoiningPage = () => {
-    setJoiningPageState(true);
+    history.push('/join');
   };
-
-  if (joiningPageState === true) {
-    return <Redirect to="/join" />;
-  }
-
-  if (isLoggedIn === true) {
-    return <Redirect to="/post" />;
-  }
 
   return (
     <>

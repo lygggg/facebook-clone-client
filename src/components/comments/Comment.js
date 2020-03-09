@@ -46,7 +46,7 @@ function Comment({
       const { timeLinePosts } = await plusCommentCount(uniqueKey);
 
       setCommentState({ ...commentState, comment: [...postComments] });
-      setPostState({ ...postState, post: [...timeLinePosts] });
+      setPostState({ ...postState, post: [...r] });
       setTemptState('');
     }
   };

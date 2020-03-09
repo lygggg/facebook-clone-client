@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {addPost, fileUpload} from '../../function';
+import { addPost, fileUpload } from '../../function';
 
 function AddPost({
   currentUserState,
@@ -19,7 +19,7 @@ function AddPost({
     if (temptState.trim()) {
       const { timeLinePosts } = await addPost(id, userName, temptState, profile, imagePath);
 
-      setPostState({ ...postState, post: [...timeLinePosts] });
+      setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
       setTemptState('');
     } else {
       alert('내용을 입력해주세요');

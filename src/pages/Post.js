@@ -3,14 +3,14 @@ import { Redirect } from 'react-router-dom';
 import AddPost from '../components/posts/AddPost';
 import ShowPostHome from '../components/posts/ShowPostHome';
 import HeaderHome from '../components/headers/HeaderHome';
-import { getPosts } from '../apis/service';
+import { getPosts } from '../function';
 
 const callAPI = async (postState, setPostState) => {
   const { timeLinePosts } = await getPosts();
 
   setPostState({
     ...postState,
-    post: [...timeLinePosts],
+    post: [...timeLinePosts.reverse()],
   });
 }
 
@@ -28,8 +28,7 @@ function Post({
   const { isLoggedIn } = loginState;
   const { id, friends } = currentUserState;
   const { post } = postState;
-  const frontPost = post;
-  const appropriatePost = [];
+  let appropriatePost = [];
 
   useEffect(() => {
     callAPI(postState, setPostState);

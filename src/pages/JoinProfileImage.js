@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
 import { addProfileImage, fileUpload } from '../function';
 
 function JoinProfileImage({
@@ -8,7 +9,7 @@ function JoinProfileImage({
 }) {
   const [file, setFile] = useState('');
   const [uploadedFile, setUploadedFile] = useState({});
-  const [moveNext, setMoveNext] = useState(false);
+  const history = useHistory();
 
   const { id } = currentUserState;
   const onChange = (e) => {
@@ -17,6 +18,7 @@ function JoinProfileImage({
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append('file', file);
     const { fileName, filePath } = await fileUpload(formData);
@@ -30,12 +32,9 @@ function JoinProfileImage({
   };
 
   const moveNextPage = () => {
-    setMoveNext(true);
+    history.push('/joinfollow');
   };
 
-  if (moveNext === true) {
-    return <Redirect to='joinfollow' />;
-  }
 
   return (
     <>

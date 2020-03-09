@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { destroySession } from '../../function';
 
 function HomeHeader({
@@ -8,12 +8,11 @@ function HomeHeader({
   currentUserState,
   setCurrentUserState,
 }) {
-  const [myPageState, setMyPageState] = useState(false);
-  const { isLoggedIn } = loginState;
   const { userName, profile } = currentUserState;
+  const history = useHistory();
 
   const moveToMyPage = () => {
-    setMyPageState(true);
+    history.push('/mypage');
   };
 
   const logoutButtonClicked = async () => {
@@ -21,14 +20,8 @@ function HomeHeader({
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
     setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '', profile: '' });
     alert('로그아웃 되었습니다');
+    history.push('/');
   };
-
-  if (myPageState === true) {
-    return <Redirect to="/mypage" />;
-  }
-  if (isLoggedIn === false) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <>

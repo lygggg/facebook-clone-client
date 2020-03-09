@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { destroySession } from '../../function';
 
 function HomeHeader({
   loginState,
@@ -7,34 +8,24 @@ function HomeHeader({
   currentUserState,
   setCurrentUserState,
 }) {
-  const [myPageState, setMyPageState] = useState(false);
-  const [timelinePageState, setTimelinePageState] = useState(false);
-  const { isLoggedIn } = loginState;
   const { userName } = currentUserState;
+  const history = useHistory();
 
   const moveToTimelinePage = () => {
-    setTimelinePageState(true);
+    history.push('/post');
   };
 
   const moveToMyPage = () => {
-    setMyPageState(true);
+    history.push('/mypage');
   };
 
-  const logoutButtonClicked = () => {
+  const logoutButtonClicked = async () => {
+    await destroySession();
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
     setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '', profile: '' });
     alert('로그아웃 되었습니다');
+    history.push('/');
   };
-
-  if (timelinePageState === true) {
-    return <Redirect to="/post" />;
-  }
-  if (myPageState === true) {
-    return <Redirect to="/mypage" />;
-  }
-  if (isLoggedIn === false) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <>

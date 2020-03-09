@@ -1,7 +1,7 @@
 import React from 'react';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-import { plusThumbCount, openPostEditBox, removePost } from '../../function';
+import {plusThumbCount, openPostEditBox, removePost } from '../../function';
 import profile from '../../profile.jpeg';
 
 function ShowPostOthersPage({
@@ -18,14 +18,14 @@ function ShowPostOthersPage({
   const handleThumbCount = async (specificPost) => {
     const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id)
 
-    setPostState({ ...postState, post: [...timeLinePosts]});
+    setPostState({ ...postState, post: [...timeLinePosts.reverse()]});
   };
 
   const handleRemovePost = async (specificPost) => {
     const { timeLinePosts } = await removePost(specificPost.uniqueKey);
 
     if (specificPost.id === id) {
-      setPostState({ ...postState, post: [...timeLinePosts] });
+      setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
       alert('해당 게시글이 삭제되었습니다');
     } else {
       alert('게시글은 해당 작성자만 삭제할 수 있습니다');
