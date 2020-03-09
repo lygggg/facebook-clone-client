@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
-import { addProfileImage } from '../function';
+import { addProfileImage, fileUpload } from '../function';
 
 function JoinProfileImage({
   currentUserState,
@@ -18,18 +17,9 @@ function JoinProfileImage({
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
-
     formData.append('file', file);
-
-    const res = await axios.post('http://localhost:3000/upload', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-    const { fileName, filePath } = res.data;
-
+    const { fileName, filePath } = await fileUpload(formData);
     await addProfileImage(id, filePath);
 
     setCurrentUserState({

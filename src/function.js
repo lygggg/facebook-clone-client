@@ -18,7 +18,27 @@ import {
   destroySession as apiDistroySession,
   checkSessionExist as apiCheckSessionExist,
   addProfileImage as apiAddProfileImage,
+  fileUpload as apiFileUpload,
+  // addPostImage as apiAddPostImage,
 } from './apis/service';
+
+// // 게시글 사진 추가
+// export const addPostImage = async (userId, filePath) => {
+//   try {
+//     return await apiAddPostImage(userId, filePath);
+//   } catch (e) {
+//     console.error(e);
+//   }
+// }
+
+// 파일 업로드
+export const fileUpload = async (formData) => {
+  try {
+    return await apiFileUpload(formData);
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 // 프로필 사진 추가
 export const addProfileImage = async (userId, filePath) => {
@@ -84,9 +104,9 @@ export const getPosts = async () => {
 };
 
 // 게시글 추가
-export const addPost = async (id, name, contents, profile) => {
+export const addPost = async (id, name, contents, profile, imagePath) => {
   try {
-    return await apiAddPost(id, name, contents, profile);
+    return await apiAddPost(id, name, contents, profile, imagePath);
   } catch (e) {
     console.error(e);
   }

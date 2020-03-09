@@ -10,9 +10,25 @@ const LIKE_URL = 'http://localhost:3000/like';
 const COMMENTLIKE_URL = 'http://localhost:3000/commentlike';
 const FRIENDS_URL = 'http://localhost:3000/friends';
 const PROFILE_URL = 'http://localhost:3000/profile';
+const UPLOAD_URL = 'http://localhost:3000/upload';
+// const POSTIMAGE_URL = 'http://localhost:3000/postimage';
+
+// export const addPostImage = async (userId, filePath) => {
+//   const { data } = await axios.patch(POSTIMAGE_URL, { userId, filePath });
+//   return data;
+// }
+
+export const fileUpload = async (formData) => {
+  const { data } = await axios.post(UPLOAD_URL, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  return data;
+};
 
 export const addProfileImage = async (userId, filePath) => {
-  const { data} = await axios.patch(PROFILE_URL, { userId, filePath });
+  const { data } = await axios.patch(PROFILE_URL, { userId, filePath });
   return data;
 };
 
@@ -46,8 +62,8 @@ export const getPosts = async () => {
   return data;
 }
 
-export const addPost = async (id, name, contents, profile) => {
-  const { data } = await axios.post(POSTS_URL, { id, name, contents, profile });
+export const addPost = async (id, name, contents, profile, imagePath) => {
+  const { data } = await axios.post(POSTS_URL, { id, name, contents, profile, imagePath });
   return data;
 }
 

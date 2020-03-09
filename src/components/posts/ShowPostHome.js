@@ -121,6 +121,7 @@ function ShowPostHome({
           </div>
           <br />
           <div className="post-contents">{specificPost.contents}</div>
+          <img style={{ width: '100%' }} src={specificPost.image} alt="" />
           <span className="post-goodbar1">좋아요{specificPost.thumbCount.length}개</span>
           <span className="post-goodbar2">댓글{specificPost.commentCount}개</span>
           <span className="post-goodbar3">공유{specificPost.sharingCount}개</span>

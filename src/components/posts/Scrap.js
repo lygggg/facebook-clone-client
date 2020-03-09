@@ -35,6 +35,7 @@ function Scrap({
                 </div>
                 <br />
                 <div className="post-contents">{p.contents}</div>
+                <img style={{ width: '100%' }} src={p.image} alt="" />
               </div>
             </div>
           </div>

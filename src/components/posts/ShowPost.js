@@ -79,6 +79,7 @@ function ShowPostOthersPage({
             </div>
             <br />
             <div className="post-contents">{p.contents}</div>
+            <img style={{ width: '100%' }} src={p.image} alt="" />
             <span className="post-goodbar1">좋아요{p.thumbCount.length}개</span>
             <span className="post-goodbar2">댓글{p.commentCount}개</span>
             <span className="post-goodbar3">공유{p.sharingCount}개</span>
