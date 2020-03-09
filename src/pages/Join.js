@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { addUser, getUsers } from '../function';
 
+
 const initialTempt = {
   temptJoiningId: '',
   temptJoiningPw: '',
@@ -27,7 +28,7 @@ function Join({
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
   const [errorState, setErrorState] = useState(errors);
-  const [joinFollowState, setJoinFollowState] = useState(false);
+  const [joinProfileImage, setJoinProfileImageState] = useState(false);
   const { temptJoiningId, temptJoiningPw, temptJoiningName } = temptState;
   const { users } = loginState;
 
@@ -67,7 +68,7 @@ function Join({
     } else {
       setErrorState({ ...errorState, pw: '비밀번호가 서로 일치하지 않습니다'});
     }
-  }
+  };
 
   const handleMoveNext = async () => {
     if (errorState.id !== '사용할 수 있습니다') {
@@ -96,11 +97,11 @@ function Join({
       pw: temptJoiningName,
       userName: temptJoiningName,
     });
-    setJoinFollowState(true);
+    setJoinProfileImageState(true);
   };
 
-  if (joinFollowState === true) {
-    return <Redirect to="joinfollow" />;
+  if (joinProfileImage === true) {
+    return <Redirect to="/joinprofileimage" />;
   }
 
   return (

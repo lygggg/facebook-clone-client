@@ -11,6 +11,7 @@ import OthersPage from './pages/OthersPage';
 import Join from './pages/Join';
 import FriendsReco from './pages/FriendsReco';
 import JoinFollow from './pages/JoinFollow';
+import JoinProfileImage from './pages/JoinProfileImage';
 
 const currentUser = {
   id: '',
@@ -119,6 +120,11 @@ function App() {
             setTopLevelState={setTopLevelState}
             currentUserState={currentUserState}
             setCurrentUserState={setCurrentUserState}
+          />
+        </Route>
+        <Route path="/joinprofileimage">
+          <JoinProfileImage
+            currentUserState={currentUserState}
           />
         </Route>
       </Switch>
