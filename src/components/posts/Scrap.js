@@ -25,7 +25,7 @@ function Scrap({
               </div>
               <div className="post-main">
                 <div className="post-writer">
-                  <img className="image" src={profile} alt="" width="7%" />
+                  <img className="image" src={p.profile} alt="" width="7%" />
                   <span
                     className="post-name"
                     type="button"

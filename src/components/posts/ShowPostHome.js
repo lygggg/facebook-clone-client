@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-import profile from '../../profile.jpeg';
+
 import {
   removePost,
   addScrap,
@@ -56,10 +56,10 @@ function ShowPostHome({
   const scrapButtonClicked = async (specificPost) => {
     const { scrap } = postState;
     const { id, userName } = currentUserState;
-    const { name, contents, uniqueKey } = specificPost;
+    const { name, contents, uniqueKey, profile } = specificPost;
 
-    const { timeLinePosts } = await addScrap(id, userName, name, contents, uniqueKey);
-console.log(timeLinePosts)
+    const { timeLinePosts } = await addScrap(id, userName, name, contents, uniqueKey, profile);
+
     setPostState({ ...postState, scrap: [...timeLinePosts] });
     alert('스크랩이 완료되었습니다! 마이페이지에서 확인하세요');
   };
@@ -109,7 +109,7 @@ console.log(timeLinePosts)
         </div>
         <div className="post-main">
           <div className="post-writer">
-            <img className="image" src={profile} alt="" width="7%" />
+            <img className="image" src={specificPost.profile} alt="" width="7%" />
             <Link
               to="/otherspage"
               className="post-name"

@@ -21,6 +21,7 @@ const callAPI = async (currentUserState, setCurrentUserState, loginState, setLog
     id: user.id,
     userName: user.userName,
     friends: user.friends,
+    profile: user.profile,
   });
   setLoginState({ ...loginState, users: [...userStore], isLoggedIn: true })
 };
@@ -65,6 +66,7 @@ function Login({
       id: user.id,
       userName: user.userName,
       friends: user.friends,
+      profile: user.profile,
     });
 
     setLoginState({ ...loginState, isLoggedIn: true });

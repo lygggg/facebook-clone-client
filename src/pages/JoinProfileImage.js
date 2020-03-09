@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import { addProfileImage } from '../function';
 
 function JoinProfileImage({
   currentUserState,
+  setCurrentUserState,
 }) {
   const [file, setFile] = useState('');
   const [uploadedFile, setUploadedFile] = useState({});
@@ -28,12 +30,18 @@ function JoinProfileImage({
     });
     const { fileName, filePath } = res.data;
 
+    await addProfileImage(id, filePath);
+
+    setCurrentUserState({
+      ...currentUserState,
+      profileImage: filePath,
+    });
     setUploadedFile({ fileName, filePath });
   };
 
   const moveNextPage = () => {
     setMoveNext(true);
-  }
+  };
 
   if (moveNext === true) {
     return <Redirect to='joinfollow' />;

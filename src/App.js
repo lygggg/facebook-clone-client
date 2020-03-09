@@ -125,6 +125,7 @@ function App() {
         <Route path="/joinprofileimage">
           <JoinProfileImage
             currentUserState={currentUserState}
+            setCurrentUserState={setCurrentUserState}
           />
         </Route>
       </Switch>

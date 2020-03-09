@@ -10,7 +10,7 @@ function HomeHeader({
 }) {
   const [myPageState, setMyPageState] = useState(false);
   const { isLoggedIn } = loginState;
-  const { userName } = currentUserState;
+  const { userName, profile } = currentUserState;
 
   const moveToMyPage = () => {
     setMyPageState(true);
@@ -19,7 +19,7 @@ function HomeHeader({
   const logoutButtonClicked = async () => {
     await destroySession();
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
-    setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '' });
+    setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '', profile: '' });
     alert('로그아웃 되었습니다');
   };
 
@@ -33,6 +33,7 @@ function HomeHeader({
   return (
     <>
       <h1>Facebook</h1>
+      <img style={{ width: '5%' }} src={profile} alt="" />
       <span>{userName}{' '}</span>
       <button className="page-header" type="button">홈</button>{' '}
       <button className="page-header" type="button" onClick={moveToMyPage}>마이페이지</button>{' '}

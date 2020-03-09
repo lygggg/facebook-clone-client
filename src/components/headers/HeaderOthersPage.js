@@ -22,7 +22,7 @@ function HomeHeader({
 
   const logoutButtonClicked = () => {
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
-    setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '' });
+    setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '', profile: '' });
     alert('로그아웃 되었습니다');
   };
 

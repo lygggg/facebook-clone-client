@@ -7,7 +7,7 @@ function AddPost({
   setPostState,
 }) {
   const [temptState, setTemptState] = useState('');
-  const { userName, id } = currentUserState;
+  const { userName, id, profile } = currentUserState;
 
   const setPostTemptContents = (temptState) => {
     setTemptState(temptState);
@@ -15,7 +15,7 @@ function AddPost({
 
   const handleAddPost = async () => {
     if (temptState.trim()) {
-      const { timeLinePosts } = await addPost(id, userName, temptState);
+      const { timeLinePosts } = await addPost(id, userName, temptState, profile);
 
       setPostState({ ...postState, post: [...timeLinePosts] });
       setTemptState('');
@@ -28,6 +28,7 @@ function AddPost({
     <div className="addpost">
       <div className="addpost-title">게시물 만들기</div>
       <div className="addpost-notion">
+        <img style={{ width: '10%' }} src={profile} alt="" />
         <span className="addpost-span">
           {userName}
         </span>

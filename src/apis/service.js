@@ -9,6 +9,12 @@ const CHILDCOMMENTS_URL = 'http://localhost:3000/childcomments';
 const LIKE_URL = 'http://localhost:3000/like';
 const COMMENTLIKE_URL = 'http://localhost:3000/commentlike';
 const FRIENDS_URL = 'http://localhost:3000/friends';
+const PROFILE_URL = 'http://localhost:3000/profile';
+
+export const addProfileImage = async (userId, filePath) => {
+  const { data} = await axios.patch(PROFILE_URL, { userId, filePath });
+  return data;
+};
 
 export const checkSessionExist = async () => {
   const { data } = await axios.get(SESSION_URL);
@@ -40,8 +46,8 @@ export const getPosts = async () => {
   return data;
 }
 
-export const addPost = async (id, name, contents) => {
-  const { data } = await axios.post(POSTS_URL, { id, name, contents });
+export const addPost = async (id, name, contents, profile) => {
+  const { data } = await axios.post(POSTS_URL, { id, name, contents, profile });
   return data;
 }
 
@@ -55,8 +61,8 @@ export const editPost = async (uniqueKey, updatedContents) => {
   return data;
 }
 
-export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey) => {
-  const { data } = await axios.post(SCRAPS_URL, { whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey });
+export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey, profile) => {
+  const { data } = await axios.post(SCRAPS_URL, { whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey, profile });
   return data;
 }
 

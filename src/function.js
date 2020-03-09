@@ -17,7 +17,17 @@ import {
   login as apiLogin,
   destroySession as apiDistroySession,
   checkSessionExist as apiCheckSessionExist,
+  addProfileImage as apiAddProfileImage,
 } from './apis/service';
+
+// 프로필 사진 추가
+export const addProfileImage = async (userId, filePath) => {
+  try {
+    return await apiAddProfileImage(userId, filePath);
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 // 세션이 이미 있는지 확인
 export const checkSessionExist = async () => {
@@ -74,9 +84,9 @@ export const getPosts = async () => {
 };
 
 // 게시글 추가
-export const addPost = async (id, name, contents) => {
+export const addPost = async (id, name, contents, profile) => {
   try {
-    return await apiAddPost(id, name, contents);
+    return await apiAddPost(id, name, contents, profile);
   } catch (e) {
     console.error(e);
   }
@@ -116,7 +126,7 @@ export const addScrap = async (
   whoWritePostByName,
   ScrapedPostContents,
   uniqueKey,
-
+  profile,
 ) => {
   try {
     return await apiAddScrap(
@@ -125,6 +135,7 @@ export const addScrap = async (
       whoWritePostByName,
       ScrapedPostContents,
       uniqueKey,
+      profile,
     );
   } catch (e) {
     console.error(e);
