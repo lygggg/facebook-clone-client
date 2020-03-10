@@ -12,6 +12,7 @@ import Join from './pages/Join';
 import FriendsReco from './pages/FriendsReco';
 import JoinFollow from './pages/JoinFollow';
 import JoinProfileImage from './pages/JoinProfileImage';
+import Search from './pages/Search';
 
 const currentUser = {
   id: '',
@@ -34,8 +35,14 @@ const initialComment = {
   comment: [],
 };
 
+const initialSearch = {
+  contents: [],
+  exist: false,
+}
+
 function App() {
   const [topLevelState, setTopLevelState] = useState('');
+  const [searchState, setSearchState] = useState(initialSearch);
   const [loginState, setLoginState] = useState(initialLogin);
   const [currentUserState, setCurrentUserState] = useState(currentUser);
   const [postState, setPostState] = useState(initialPost);
@@ -74,6 +81,7 @@ function App() {
             commentState={commentState}
             setCommentState={setCommentState}
             setTopLevelState={setTopLevelState}
+            setSearchState={setSearchState}
           />
         </Route>
         <Route path="/mypage">
@@ -87,6 +95,7 @@ function App() {
             commentState={commentState}
             setCommentState={setCommentState}
             setTopLevelState={setTopLevelState}
+            setSearchState={setSearchState}
           />
         </Route>
         <Route path="/otherspage">
@@ -100,6 +109,7 @@ function App() {
             setPostState={setPostState}
             commentState={commentState}
             setCommentState={setCommentState}
+            setSearchState={setSearchState}
           />
         </Route>
         <Route path="/friendsreco">
@@ -110,6 +120,7 @@ function App() {
             setLoginState={setLoginState}
             topLevelState={topLevelState}
             setTopLevelState={setTopLevelState}
+            setSearchState={setSearchState}
           />
         </Route>
         <Route path="/joinfollow">
@@ -124,6 +135,18 @@ function App() {
         </Route>
         <Route path="/joinprofileimage">
           <JoinProfileImage
+            currentUserState={currentUserState}
+            setCurrentUserState={setCurrentUserState}
+          />
+        </Route>
+        <Route path="/search">
+          <Search
+            searchState={searchState}
+            setSearchState={setSearchState}
+            topLevelState={topLevelState}
+            setTopLevelState={setTopLevelState}
+            loginState={loginState}
+            setLoginState={setLoginState}
             currentUserState={currentUserState}
             setCurrentUserState={setCurrentUserState}
           />

@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import AddPost from '../components/posts/AddPost';
 import ShowPostHome from '../components/posts/ShowPostHome';
 import HeaderHome from '../components/headers/HeaderHome';
+import SearchBox from '../components/headers/SearchBox';
 import { getPosts } from '../function';
 
 const callAPI = async (postState, setPostState) => {
@@ -24,6 +25,7 @@ function Post({
   commentState,
   setCommentState,
   setTopLevelState,
+  setSearchState,
 }) {
   const { isLoggedIn } = loginState;
   const { id, friends } = currentUserState;
@@ -49,6 +51,11 @@ function Post({
 
   return (
     <>
+      <SearchBox
+        loginState={loginState}
+        setLoginState={setLoginState}
+        setSearchState={setSearchState}
+      />
       <HeaderHome
         loginState={loginState}
         setLoginState={setLoginState}

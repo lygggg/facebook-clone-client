@@ -8,7 +8,7 @@ function HomeHeader({
   currentUserState,
   setCurrentUserState,
 }) {
-  const { userName } = currentUserState;
+  const { userName, profile } = currentUserState;
   const history = useHistory();
 
   const moveToTimelinePage = () => {
@@ -30,6 +30,7 @@ function HomeHeader({
   return (
     <>
       <h1>Facebook</h1>
+      <img style={{ width: '5%' }} src={profile} alt="" />
       <span>{userName}{' '}</span>
       <button className="page-header" type="button" onClick={moveToTimelinePage}>홈</button>{' '}
       <button className="page-header" type="button" onClick={moveToMyPage}>마이페이지</button>{' '}

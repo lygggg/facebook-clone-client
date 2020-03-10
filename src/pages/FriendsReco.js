@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
 import { checkSessionExist, getUsers } from '../function';
+import SearchBox from "../components/headers/SearchBox";
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
   const { userStore } = await getUsers();
@@ -28,6 +29,7 @@ function FriendsReco({
   setLoginState,
   topLevelState,
   setTopLevelState,
+  setSearchState,
 }) {
   let friendsRecoArray = [];
   const { friends, id } = currentUserState;
@@ -93,6 +95,11 @@ function FriendsReco({
 
   return (
     <>
+      <SearchBox
+        loginState={loginState}
+        setLoginState={setLoginState}
+        setSearchState={setSearchState}
+      />
       <HeaderOthersPage
         loginState={loginState}
         setLoginState={setLoginState}

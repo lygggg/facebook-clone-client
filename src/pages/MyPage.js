@@ -4,6 +4,7 @@ import ShowPostOthersPage from '../components/posts/ShowPost';
 import Scrap from '../components/posts/Scrap';
 import HeaderMyPage from '../components/headers/HeaderMyPage';
 import {checkSessionExist, getPosts} from '../function';
+import SearchBox from '../components/headers/SearchBox';
 
 const callAPI = async (postState, setPostState, currentUserState, setCurrentUserState) => {
   const { user } = await checkSessionExist();
@@ -33,16 +34,22 @@ function MyPage({
   commentState,
   setCommentState,
   setTopLevelState,
+  setSearchState,
 }) {
   const { id } = currentUserState;
   const { post, scrap } = postState;
 
   useEffect(() => {
     callAPI(postState, setPostState, currentUserState, setCurrentUserState);
-  });
+  }, []);
 
   return (
     <>
+      <SearchBox
+        loginState={loginState}
+        setLoginState={setLoginState}
+        setSearchState={setSearchState}
+      />
       <HeaderMyPage
         loginState={loginState}
         setLoginState={setLoginState}

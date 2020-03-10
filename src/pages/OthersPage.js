@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import ShowPost from '../components/posts/ShowPost';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
 import FriendsState from '../components/headers/FriendsState';
+import SearchBox from '../components/headers/SearchBox';
+import { checkSessionExist } from '../function';
+
+const callAPI = async (currentUserState, setCurrentUserState) => {
+  const { user } = await checkSessionExist();
+
+  setCurrentUserState({
+    ...currentUserState,
+    id: user.id,
+    userName: user.userName,
+    friends: user.friends,
+    profile: user.profile,
+  });
+};
 
 function OthersPage({
   specificPost,
@@ -14,13 +28,23 @@ function OthersPage({
   setPostState,
   commentState,
   setCommentState,
+  setSearchState,
 }) {
   const { post } = postState;
   const { id } = specificPost;
   const userId = currentUserState.id;
 
+  useEffect(() => {
+    callAPI(currentUserState, setCurrentUserState);
+  }, []);
+
   return (
     <>
+      <SearchBox
+        loginState={loginState}
+        setLoginState={setLoginState}
+        setSearchState={setSearchState}
+      />
       <HeaderOthersPage
         loginState={loginState}
         setLoginState={setLoginState}
