@@ -14,7 +14,7 @@ const callAPI = async (commentState, setCommentState) => {
 
   setCommentState({
     ...commentState,
-    comment: [...postComments],
+    comment: [...postComments.reverse()],
   });
 }
 
@@ -45,8 +45,8 @@ function Comment({
       const { postComments } = await addComment(uniqueKey, id, userName, temptState);
       const { timeLinePosts } = await plusCommentCount(uniqueKey);
 
-      setCommentState({ ...commentState, comment: [...postComments] });
-      setPostState({ ...postState, post: [...r] });
+      setCommentState({ ...commentState, comment: [...postComments.reverse()] });
+      setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
       setTemptState('');
     }
   };
@@ -57,7 +57,7 @@ function Comment({
       currentUserState.id,
     );
 
-    setCommentState({ ...commentState, comment: [...postComments] });
+    setCommentState({ ...commentState, comment: [...postComments.reverse()] });
   };
 
   const ChildCommentButtonClicked = (specificComment) => {

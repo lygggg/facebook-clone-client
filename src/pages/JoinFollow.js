@@ -52,7 +52,15 @@ function JoinFollow({
           {users.map((v, index) => (
             <div key={index}>
               <label>
-                <input type="checkbox" onChange={() => checkUser(v.id)} /> {v.userName}
+                <input type="checkbox" onChange={() => checkUser(v.id)} />
+                <div>
+                  <img style={{ width: '16%' }} src={v.profile} alt="" />
+                  {v.userName}
+                  <br />
+                  <span>{v.birth}</span> <br />
+                  <span>{v.location}</span> <br />
+                  <span>{v.email}</span> <br />
+                </div>
               </label>
               <br />
             </div>

@@ -15,7 +15,7 @@ function ChildCommentBox({
     if (temptState.trim()) {
       const { postComments } = await addChildComment(uniqueKey , temptState, id, userName);
 
-      setCommentState({ ...commentState, comment : [...postComments]});
+      setCommentState({ ...commentState, comment: [...postComments.reverse()]});
     }
   };
 

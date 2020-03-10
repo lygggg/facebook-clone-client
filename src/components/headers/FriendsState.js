@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { addFriend, removeFriend } from '../../function';
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
-  // const { userStore } = await getUsers();
   const { users } = loginState;
 
   users.forEach((user, i) => {

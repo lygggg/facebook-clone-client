@@ -1,11 +1,19 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
-import { getUsers } from '../function';
+import { checkSessionExist, getUsers } from '../function';
 
-const callAPI = async (loginState, setLoginState) => {
+const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
   const { userStore } = await getUsers();
-  const { users } = loginState;
+  const { user } = await checkSessionExist();
+
+  setCurrentUserState({
+    ...currentUserState,
+    id: user.id,
+    userName: user.userName,
+    friends: user.friends,
+    profile: user.profile,
+  });
 
   setLoginState({
     ...loginState,
@@ -26,7 +34,7 @@ function FriendsReco({
   const { users } = loginState;
 
   useEffect(() => {
-    callAPI(loginState, setLoginState);
+    callAPI(loginState, setLoginState, currentUserState, setCurrentUserState);
   }, []);
 
   // currentUser의 friends의 friends ID값을 friendsRecoArray 배열에 다 넣어줌
@@ -51,8 +59,8 @@ function FriendsReco({
   friendsRecoArray.sort();
   for (let i = 0; i < friendsRecoArray.length; i += 1) {
     friendsRecoArray[i] === friendsRecoArray[i+1]
-    ? friendsRecoArray[i] = '중복이므로 제거 대상'
-    : ''
+      ? friendsRecoArray[i] = '중복이므로 제거 대상'
+      : '';
   }
   friendsRecoArray = friendsRecoArray.filter(v => v !== '중복이므로 제거 대상');
 
@@ -70,16 +78,17 @@ function FriendsReco({
   };
 
   // users.id를 users.userName으로 변경해주는 함수
-  const changeIdToName = (id, loginState) => {
+  const changeIdToUser = (id, loginState) => {
     const { users } = loginState;
-    let returnName = '';
+    let user = '';
 
     for (let i = 0; i < users.length; i += 1) {
       if (id === users[i].id) {
-        returnName = users[i].userName;
+        user = users[i];
       }
     }
-    return returnName;
+
+    return user;
   };
 
   return (
@@ -97,14 +106,19 @@ function FriendsReco({
       <div>
         {friendsRecoArray.map((v, index) => (
           <div key={index}>
+            <img style={{ width: '8%' }} src={changeIdToUser(v, loginState).profile} alt="" />
             <Link
               to="/otherspage"
               className="post-name"
               type="button"
               onClick={() => findUserById(v)}
             >
-              {changeIdToName(v, loginState)}
+              {changeIdToUser(v, loginState).userName}
             </Link>
+            <br />
+            <span>{changeIdToUser(v, loginState).birth}</span> <br />
+            <span>{changeIdToUser(v, loginState).location}</span> <br />
+            <span>{changeIdToUser(v, loginState).email}</span> <br />
             <br />
           </div>
         ))}
