@@ -1,192 +1,418 @@
-h1 {
-  color: white;
-  background-color:  rgb(65, 65, 194);
-  width: 404px;
-  padding: 10px 10px 10px 10px;
-}
-
 body {
-  background-color: rgb(243, 234, 234);
+  background-color: rgb(235, 227, 232);
+  font-family: inherit;
+  margin: 0 0 0 0
 }
 
-.post {
-  width: 420px;
-  border: 2px solid rgb(189, 189, 218);
-  border-bottom: 0;
-  padding: 0px 1px 0px 0;
-  margin: 5px 0 0 0;
+.main-timeline {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: 100%;
 }
 
-.post-feed {
-  font-size: 11px;
-  background-color: rgb(214, 214, 235);
-  padding: 0px 5px 0px 5px;
-  height: 20px;
+.header {
+  padding: 0 8px;
+  background-color: #3a5daa;
+  border-bottom: 1px solid #29487d;
+  color: #fff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  width: 100%;
+  height: 42px;
 }
 
-.post-edit {
-  font-size: 11px;
-  background-color: rgb(243, 234, 234);
-  margin: 5.5px 0 0 375px;
-  border: 1px solid black
+.logo {
+  width: 25px;
+  /*margin: 10px 8px 0 15px;*/
 }
 
-.post-edit-box {
-  margin: 4px 0 0px 228.55px;
-  height: 30px;
+.search-input {
+  height: 24px;
+  width: 400px;
+  margin-left: 8px;
+  border: 1px solid #3a5daa;
+  border-radius: 3px;
+  position: relative;
 }
 
-.post-edit-complete {
-  font-size: 11px;
-  background-color: rgb(243, 234, 234);
-  margin: 0px 0 3px 375px;
-  border: 1px solid black
+.fa-search {     transform: translate(-100%, -1px); }
+.fa-search:before {
+  background-color: #ffe3e1;
+  color: black;
+  font-size: 12px;
+  padding: 7px;
+  position: relative;
+  border-radius: 3px;
+    }
+
+.header-profile-image {
+  border-radius: 70%;
+  margin: 0 0 0 20%;
+  height: auto;
+  max-width: 30px;
+  max-height: 30px;
 }
 
-.post-remove {
-  font-size: 11px;
-  background-color: rgb(243, 234, 234);
-  margin: -0.5px 0 0 375px;
-  border: 1px solid black
-}
-
-.post-writer {
-  color: rgb(50, 50, 192);
+.header-user-name {
+  color: white;
+  background-color: #3a5daa;
+  border: 1px solid #3a5daa;
   font-weight: bold;
-}
-
-.post-name {
-  background-color: rgb(243, 234, 234);
-  border: 1px solid rgb(243, 234, 234);
-  color: rgb(41, 41, 172);
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.post-contents {
-  padding: 0 12px 20px 20px;
   font-size: 14px;
+  position: relative;
+  margin: 0 30px 0 0;
 }
 
-.post-goodbar1 {
-  font-size: 12px;
-  color: blue;
-}
-.post-goodbar2 {
-  padding: 0 0 0 275px;
-  font-size: 12px;
-}
-.post-goodbar3 {
-  font-size: 12px;
-  padding: 0 0 0 10px;
+.header-home {
+  color: white;
+  background-color: #3a5daa;
+  border: 1px solid #3a5daa;
+  font-weight: bold;
+  font-size: 14px;
+  position: relative;
+  margin: 0 0 0 5px;
 }
 
-.post-button-good {
-  width: 140px;
-  background-color: rgb(214, 214, 235);
-  border: 1px solid rgb(189, 189, 218);
+.search-box {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 12%;
+}
+
+.timeline-post {
+  margin: 60px 0 0 0;
+}
+
+.timeline-about-friends {
+  margin: 60px 0 0 0;
 }
 
 .addpost {
-  font-size: 13px;
-  width: 420px;
-  border: 2px solid rgb(140, 140, 196);
-  padding: 0 1px 5px 0;
+  width: 500px;
+  background-color: white;
+  border: 1px solid white;
   margin: 0 0 17px 0;
+  position: relative;
+  z-index: 5;
 }
 
 .addpost-title {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
-  background-color: rgb(214, 214, 235);
-  padding: 0px 5px 0px 5px;
-  height: 20px;
-}
-
-.addpost-span {
-  font-weight: bold;
-  color: rgb(41, 41, 172);
-  font-size: 15px;
+  color: #525252;
+  background-color: #f8f2f8;
+  padding: 7px 10px 0 9px;
+  height: 28px;
+  border: 1px solid #f0eaf0;
+  margin: -1px -1px 0px -1px;
 }
 
 .addpost-notion {
   font-size: 15px;
-  padding: 0 0 10px 5px; 
+  padding: 15px 0 10px 13px;
 }
 
-.addpost-inputcontents {
-  width: 360px;
-  height: 40px;
-  margin: 0 0 7px 43px;
+.profile-image {
+  border-radius: 70%;
+  height: auto;
+  max-width: 45px;
+  max-height: 45px;
+  width: 10%
 }
 
-.addpost-out {
-  margin: 0 0 0 366px;
-  background-color: rgb(243, 234, 234);
-  border: 1px solid black;
+.addpost-whatdoyouthink {
+  font-weight: bold;
+  color: rgb(41, 41, 172);
+  font-size: 15px;
+  position: relative;
+  left: 7px;
+  bottom: 13px;
 }
+
+.addpost-expressthinking {
+  font-size: 13px;
+  position: relative;
+  left: 65px;
+}
+
+.addpost-textarea {
+  position: relative;
+  left: 65px;
+  top: 5px;
+  width: 366px;
+  height: 80px;
+  margin: 0 0 -7px 0;
+}
+
+.fileupload {
+  font-size: 25px;
+  position: relative;
+  left: 65px;
+}
+
+.addpost-upload-image {
+  width: 15%;
+}
+
+.addpost-submit {
+  background-color: white;
+  border: 1px solid;
+  font-weight: bold;
+  border-radius: 4px;
+  position: relative;
+  left: 400px;
+  bottom: 10px;
+}
+
+.showpost {
+  width: 500px;
+  background-color: white;
+  border: 1px solid white;
+  margin: 0 0 17px 0;
+}
+
+.showpost-feed {
+  font-size: 12px;
+  font-weight: bold;
+  color: #525252;
+  background-color: white;
+  padding: 0px 5px 0px 5px;
+  height: 28px;
+  border-bottom: 1.5px solid #f0eaf0;
+  margin: -1px -1px -1px -1px;
+  padding: 7px 10px 0 9px;
+}
+
+.showpost-writer {
+  font-size: 15px;
+  padding: 15px 0 10px 13px;
+}
+
+.showpost-name {
+  font-weight: bold;
+}
+
+.showpost-edit {
+  position: relative;
+  z-index: 1;
+  left: 359px;
+  bottom: 33px;
+  background-color: #f6f6f6;
+  border: 1px solid white;
+  width: 40px;
+}
+
+.showpost-edit-box {
+  position: relative;
+  left: 334px;
+  bottom: 22px;
+}
+
+.showpost-edit-complete {
+  position: relative;
+  z-index: 2;
+  left: 294.5px;
+  bottom: 83px;
+  background-color: #f6f6f6;
+  border: 1px solid white;
+  width: 40px;
+}
+
+.showpost-remove {
+  position: relative;
+  left: 319px;
+  bottom: 10px;
+  background-color: #f6f6f6;
+  border: 1px solid white;
+  width: 40px;
+}
+
+.showpost-contents {
+  padding: 0 12px 20px 20px;
+  font-size: 14px;
+}
+
+.goodbar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+}
+
+.showpost-goodbar1 {
+  font-size: 12px;
+  color: blue;
+  position: relative;
+  left: 10px
+}
+
+.showpost-goodbar2 {
+  font-size: 12px;
+  position: relative;
+  left: 150px;
+}
+
+.showpost-button-good {
+  width: 166.6px;
+  background-color: white;
+  border-left: none;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  position: relative;
+  bottom: 23px;
+}
+
+.comment {
+  position: relative;
+  bottom: 16px;
+}
+
+.comment-word {
+  font-size: 12px;
+  padding: 0 10px 0 10px;
+}
+
+.comment-input-box {
+  width: 300px;
+  margin: 0 4px 0 0;
+}
+
+.comment-button {
+  background-color: white;
+  border: 1px solid gray;
+  font-size: 12px;
+  position: relative;
+  height: 22px;
+  top: 1px;
+  border-radius: 2px;
+}
+
+.comment-contents {
+  font-size: 13px;
+  position: relative;
+  left: 10px;
+}
+
+.comment-statement {
+  background-color: #f0f0f0;
+  height: 26px;
+  border-radius: 10px;
+  width: max-content;
+  position: relative;
+  bottom: 20px;
+  left: 23px;
+  padding: 0 30px 0 0;
+}
+
+.comment-profile-image {
+  border-radius: 70%;
+  height: auto;
+  max-width: 45px;
+  max-height: 45px;
+  position: relative;
+  top: 5px;
+}
+
+.comment-writer {
+  position: relative;
+  left: 8px;
+  top: 2px;
+  font-weight: bold;
+}
+
+.comment-colon {
+  position: relative;
+  padding: 0 0 0 2px;
+  left: 10px;
+  top: 4px;
+}
+
+.comment-saying {
+  position: relative;
+  left: 20px;
+  width: max-content;
+  top: 4px;
+}
+
+.comment-thumb {
+  font-size: 9px;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 0 3px 0 3px;
+  position: relative;
+  bottom: 22px;
+  left: 31px;
+}
+
+.comment-thumb-count {
+  font-size: 9px;
+  position: relative;
+  bottom: 22px;
+  left: 33px;
+}
+
+.child-contents{
+  position: relative;
+  bottom: 19px;
+  background-color: #f8e3e7;
+  width: max-content;
+  padding: 0 10px 0 0;
+  margin: 0 0 3px 0;
+  border-radius: 6px;
+  left: 41px;
+}
+
+.comment-each {
+  margin: 0 0 -12px 0;
+}
+
+.child-comment {
+  position: relative;
+  bottom: 22px;
+  left: 41px;
+}
+
+.child-comment-input-box {
+  width: 200px;
+  height: 14px;
+}
+
+.child-comment-button {
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid gray;
+  margin: 0 0 0 4px;
+  border-radius: 2px;
+  position: relative;
+  top: 1.2px;
+}
+
+.hidden {
+  display: none;
+}
+/*************************************************/
+
+.search-title {
+  font-size: 25px;
+  background-color: white;
+  color: #4267b2;
+  font-weight: bold;
+  padding: 0px 10px 0px 10px;
+}
+
 
 .image {
   margin: 5px 0px 0px 5px;
 }
 
-.comment {
-  width: 420px;
-  border: 2px solid rgb(189, 189, 218);
-  border-bottom: 1px;
-  padding: 0px 1px 0px 0;
-  margin: -7px 0 0 0;
-}
 
-.comment-datgle {
-  font-size: 12px;
-}
 
-.comment-write {
-  padding: 6px 0 0 5px;
-}
 
-.comment-input {
-  height: 22px;
-  padding: 0 0 5px 0;
-  margin: 0 0 0 5px;
-  background-color: rgb(243, 234, 234);
-  border: 1px solid black;
-}
 
-.comment-contents {
-  padding: 6px 0 0 5px;
-  font-size: 13px;
-}
 
-.comment-thumb {
-  font-size: 9px;
-  margin: 0 0 5px 10px;
-  background-color: rgb(214, 214, 235);
-  border: 1px solid rgb(189, 189, 218);
-  padding: 0 0 0 0;
-}
 
-.comment-thumb-count {
-  font-size: 9px;
-  margin: 0 0 0 1px;
-}
-
-.comment-contents {
-  width: 415px;
-  border: 2px solid rgb(189, 189, 218);
-  border-top: 0px;
-  padding: 3px 1px 0px 5px;
-  margin: -3px 0 0 0;
-}
-
-.child-comment {
-  margin: -6px 0 0 40px;
-}
-
-.child-contents{
-  margin: -4px 0 0 40px;
-}
 
 .login {
   width: 200px;
@@ -261,10 +487,7 @@ body {
   background-color: rgb(243, 234, 234);
 }
 
-.page-header {
-  background-color: rgb(227, 227, 236);
-  border: 1px solid rgb(37, 37, 145);
-}
+
 
 .scrap-border {
   width: 420px;

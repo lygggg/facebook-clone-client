@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { destroySession } from '../../function';
 
 function HomeHeader({
@@ -11,9 +11,7 @@ function HomeHeader({
   const { userName, profile } = currentUserState;
   const history = useHistory();
 
-  const moveToMyPage = () => {
-    history.push('/mypage');
-  };
+  const moveToMyPage = () => history.push('/mypage');
 
   const logoutButtonClicked = async () => {
     await destroySession();
@@ -25,13 +23,15 @@ function HomeHeader({
 
   return (
     <>
-      <h1>Facebook</h1>
-      <img style={{ width: '5%' }} src={profile} alt="" />
-      <span>{userName}{' '}</span>
-      <button className="page-header" type="button">홈</button>{' '}
-      <button className="page-header" type="button" onClick={moveToMyPage}>마이페이지</button>{' '}
-      <button className="page-header" type="button" onClick={logoutButtonClicked}>로그아웃</button>
-      <Link className="friends-recommendation" to="friendsreco">알 수도 있는 사람</Link>
+      <img
+        className="header-profile-image"
+        style={{ width: '5%' }}
+        src={profile}
+        alt=""
+      />
+      <button className="header-user-name" type="button" onClick={moveToMyPage}>{userName}</button>
+      <button className="header-home" type="button">홈</button>
+      <button className="header-home" type="button" onClick={logoutButtonClicked}>로그아웃</button>
       <br />
     </>
   );

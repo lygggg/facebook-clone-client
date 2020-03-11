@@ -12,8 +12,11 @@ function JoinProfileImage({
   const history = useHistory();
 
   const { id } = currentUserState;
-  const onChange = (e) => {
-    setFile(e.target.files[0]);
+
+  const onChange = async (e) => {
+    await setFile(e.target.files[0]);
+    const send = document.getElementById('send');
+    send.click();
   };
 
   const onSubmit = async (e) => {
@@ -40,15 +43,8 @@ function JoinProfileImage({
     <>
       <form onSubmit={onSubmit}>
         <div>
-          <input
-            type="file"
-            onChange={onChange}
-          />
-          <br />
-          <input
-            type="submit"
-            value="선택하기"
-          />
+          <input type="file" onChange={onChange} />
+          <input className="hidden" value="" id="send" type="submit" />
         </div>
         {uploadedFile ? (
           <div>

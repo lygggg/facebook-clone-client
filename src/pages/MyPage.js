@@ -44,19 +44,21 @@ function MyPage({
   }, []);
 
   return (
-    <>
-      <SearchBox
-        loginState={loginState}
-        setLoginState={setLoginState}
-        setSearchState={setSearchState}
-      />
-      <HeaderMyPage
-        loginState={loginState}
-        setLoginState={setLoginState}
-        currentUserState={currentUserState}
-        setCurrentUserState={setCurrentUserState}
-      />
-      <br />
+    <div className="main-header">
+      <div className="header">
+        <SearchBox
+          loginState={loginState}
+          setLoginState={setLoginState}
+          setSearchState={setSearchState}
+        />
+        <HeaderMyPage
+          loginState={loginState}
+          setLoginState={setLoginState}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+        />
+      </div>
+
       <AddPost
         currentUserState={currentUserState}
         postState={postState}
@@ -90,7 +92,7 @@ function MyPage({
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

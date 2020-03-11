@@ -29,7 +29,7 @@ function HomeHeader({
 
   return (
     <>
-      <h1>Facebook</h1>
+
       <img style={{ width: '5%' }} src={profile} alt="" />
       <span>{userName}{' '}</span>
       <button className="page-header" type="button" onClick={moveToTimelinePage}>홈</button>{' '}

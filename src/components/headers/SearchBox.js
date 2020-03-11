@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getUsers } from '../../function';
+import logo from '../../facebooklogo.png';
 
 const callAPI = async (loginState, setLoginState) => {
   const { userStore } = await getUsers();
@@ -34,13 +35,16 @@ function SearchBox({
     history.push('/search');
   };
 
+  const moveToPostPage = () => {
+    history.push('/post');
+  }
+
   return (
-    <>
-      <span>검색</span>
-      <input type="text" role="combobox" onChange={(e) => getUserWriting(e.target.value)} />
-      <button type="button" onClick={searchButtonClicked}>찾기</button>
-      <br />
-    </>
+    <div className="search-box">
+      <img className="logo" src={logo} onClick={moveToPostPage} />
+      <input className="search-input" type="text" onChange={(e) => getUserWriting(e.target.value)} />
+      <i className="fas fa-search" onClick={searchButtonClicked}></i>
+    </div>
   );
 }
 

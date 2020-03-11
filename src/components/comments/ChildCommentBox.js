@@ -21,8 +21,8 @@ function ChildCommentBox({
 
   return (
     <div className="child-comment">
-      └ {userName} : <input type="text" value={temptState} onChange={(e) => setTemptState(e.target.value)} />
-      <button type="button" className="comment-input" onClick={handleAddChildComment}>입력</button>
+      └ {userName} : <input className="child-comment-input-box" type="text" value={temptState} onChange={(e) => setTemptState(e.target.value)} />
+      <button type="button" className="child-comment-button" onClick={handleAddChildComment}>입력</button>
     </div>
   );
 }

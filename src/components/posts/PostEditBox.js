@@ -36,14 +36,14 @@ function PostEditBox({
 
   return (
     <div>
-      <input
-        className="post-edit-box"
+      <textarea
+        className="showpost-edit-box"
         type="text"
         value={temptState}
         onChange={(e) => setEditBox(e.target.value)}
       />
       <button
-        className="post-edit-complete"
+        className="showpost-edit-complete"
         type="button"
         onClick={clickedEditSuccess}
       >

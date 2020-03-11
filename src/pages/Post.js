@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import AddPost from '../components/posts/AddPost';
 import ShowPostHome from '../components/posts/ShowPostHome';
 import HeaderHome from '../components/headers/HeaderHome';
@@ -51,38 +51,49 @@ function Post({
 
   return (
     <>
-      <SearchBox
-        loginState={loginState}
-        setLoginState={setLoginState}
-        setSearchState={setSearchState}
-      />
-      <HeaderHome
-        loginState={loginState}
-        setLoginState={setLoginState}
-        currentUserState={currentUserState}
-        setCurrentUserState={setCurrentUserState}
-      />
-      <br />
-      <AddPost
-        currentUserState={currentUserState}
-        postState={postState}
-        setPostState={setPostState}
-      />
-      <div>
-        {appropriatePost.map((p, index) => (
-          <div key={index}>
-            <ShowPostHome
-              postState={postState}
-              setPostState={setPostState}
-              currentUserState={currentUserState}
-              commentState={commentState}
-              setCommentState={setCommentState}
-              setTopLevelState={setTopLevelState}
-              specificPost={p}
-              index={index}
-            />
+      <div className="header">
+        <SearchBox
+          loginState={loginState}
+          setLoginState={setLoginState}
+          setSearchState={setSearchState}
+        />
+        <HeaderHome
+          loginState={loginState}
+          setLoginState={setLoginState}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+        />
+      </div>
+      <div className="main-timeline">
+        <div>
+          여기 광고
+        </div>
+        <div className="timeline-post">
+          <AddPost
+            currentUserState={currentUserState}
+            postState={postState}
+            setPostState={setPostState}
+          />
+          <div>
+            {appropriatePost.map((p, index) => (
+              <div key={index}>
+                <ShowPostHome
+                  postState={postState}
+                  setPostState={setPostState}
+                  currentUserState={currentUserState}
+                  commentState={commentState}
+                  setCommentState={setCommentState}
+                  setTopLevelState={setTopLevelState}
+                  specificPost={p}
+                  index={index}
+                />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        <div className="timeline-about-friends">
+          <Link to="friendsreco">알 수도 있는 사람</Link>
+        </div>
       </div>
     </>
   );

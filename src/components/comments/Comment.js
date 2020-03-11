@@ -66,28 +66,31 @@ function Comment({
   return (
     <>
       <div className="comment">
-        <div className="comment-write">
-          <span className="comment-datgle">댓글달기 </span>
-          <input
-            type="text"
-            value={temptState}
-            onChange={(e) => setCommentTemptStatement(e.target.value)}
-          />
-          <button
-            className="comment-input"
-            type="button"
-            onClick={() => handleAddComment()}
-          >
-            입력
-          </button>
-        </div>
+        <span className="comment-word">댓글달기</span>
+        <input
+          className="comment-input-box"
+          type="text"
+          value={temptState}
+          onChange={(e) => setCommentTemptStatement(e.target.value)}
+        />
+        <button
+          className="comment-button"
+          type="button"
+          onClick={() => handleAddComment()}
+        >
+          입력
+        </button>
       </div>
       <div className="comment-contents">
         {comment.filter((v) => specificPost.uniqueKey === v.id).map((v, index) =>
-          <div key={`Comment${index}`}>
-            <span className="comment-main">
-              <img className="comment-image" src={profile} alt="" width="3.5%" />
-              {v.writer} : {v.statement}
+          <div className="comment-each" key={`Comment${index}`}>
+            <span>
+              <img className="comment-profile-image" src={profile} alt="" width="3.5%" />
+              <div className="comment-statement">
+                <span className="comment-writer">{v.writer}</span>
+                <span className="comment-colon">:</span>
+                <span className="comment-saying">{v.statement}</span>
+              </div>
             </span>
             <button
               className="comment-thumb"
@@ -118,7 +121,7 @@ function Comment({
             <div>
               {v.childComment.map((k, index) =>
                 <div key={index} className="child-contents">
-                 └ {k.name} : {k.statement}
+                  └ {k.name} :<span> </span>{k.statement}
                 </div>)}
             </div>
           </div>)}
