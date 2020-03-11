@@ -141,7 +141,7 @@ function ShowPostHome({
             type="button"
             onClick={() => handleThumbCount(specificPost)}
           >
-          좋아요
+            좋아요
           </button>
           <button className="showpost-button-good" type="button">댓글</button>
           <button

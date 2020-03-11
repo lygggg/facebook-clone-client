@@ -25,7 +25,6 @@ body {
 
 .logo {
   width: 25px;
-  /*margin: 10px 8px 0 15px;*/
 }
 
 .search-input {
@@ -53,6 +52,7 @@ body {
   height: auto;
   max-width: 30px;
   max-height: 30px;
+  width: 5%;
 }
 
 .header-user-name {
@@ -82,11 +82,11 @@ body {
 }
 
 .timeline-post {
-  margin: 60px 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .timeline-about-friends {
-  margin: 60px 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .addpost {
@@ -392,27 +392,143 @@ body {
 .hidden {
   display: none;
 }
+
 /*************************************************/
 
-.search-title {
-  font-size: 25px;
+.mypage-grid {
+  display: grid;
+  grid-template-rows: 300px 1fr;
+  grid-template-columns: 100%;
+}
+
+.mypage-cover-top {
+  background-color: #1e1e1e;
+  height: 190px;
+  margin: 42px 20% 0 20%;
+  justify-content: center;
+}
+
+.mypage-cover-bottom {
   background-color: white;
-  color: #4267b2;
+  height: 50px;
+  margin: 0 20% 0 20%;
+  justify-content: center;
+}
+
+.mypage-cover-profile-image {
+  border-radius: 70%;
+  height: auto;
+  max-height: 170px;
+  position: relative;
+  left: 23px;
+  top: 55px;
+}
+
+.mypage-cover-username {
+  color: white;
+  font-size: 27px;
   font-weight: bold;
-  padding: 0px 10px 0px 10px;
+  position: relative;
+  left: 50px;
+  top: 5px;
+}
+
+.mypage-cover-word-timeline {
+  background-color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid white;
+  color: #5455ff;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  position: relative;
+  left: 263px;
+  height: 50px;
+  padding: 0 20px 0 20px;
+}
+
+.mypage-cover-word-information {
+  background-color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid white;
+  color: #5455ff;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  position: relative;
+  left: 262px;
+  height: 50px;
+  padding: 0 20px 0 20px;
+}
+
+.mypage-cover-word-friends {
+  background-color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid white;
+  color: #5455ff;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  position: relative;
+  left: 261px;
+  height: 50px;
+  padding: 0 20px 0 20px;
+}
+
+.mypage-cover-word-scrap {
+  background-color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid white;
+  color: #5455ff;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  position: relative;
+  left: 260px;
+  height: 50px;
+  padding: 0 20px 0 20px;
+}
+
+.mypage-timeline-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  margin: 0px 20% 0 17%;
+}
+
+.mypage-side-banner {
+  display: flex;
+  background-color: white;
+  margin-left: auto;
+  margin-right: 14px;
+  width: 358.5px;
+  float: right;
+  height: max-content;
+  padding: 20px;
+}
+
+.fa-globe-americas {
+  font-size: 20px;
+  color: #536aff;
+  padding: 0 10px 10px 0;
+}
+
+.mypage-side-banner-introduce {
+  font-size: 16px;
+}
+
+.mypage-side-banner-utter {
+  border-bottom: 1px solid skyblue;
+  font-size: 13px;
+  padding: 10px 0 10px 0;
+}
+
+.mypage-user-information {
+  margin: 50px 0 0 0;
 }
 
 
-.image {
-  margin: 5px 0px 0px 5px;
-}
-
-
-
-
-
-
-
+/*************************************************/
 
 .login {
   width: 200px;

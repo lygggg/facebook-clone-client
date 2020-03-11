@@ -41,70 +41,80 @@ function ShowPostOthersPage({
   };
 
   return (
-    <div>
-      <div key={index}>
-        <div className="post">
-          <div className="post-feed">
-            {p.name} 님이 게시글을 업로드했습니다.
+    <div key={index}>
+      <div className="showpost">
+        <div className="showpost-feed">
+          {p.name} 님이 게시글을 업로드했습니다.
+        </div>
+        <div>
+          <div className="showpost-writer">
+            <img className="profile-image" src={p.profile} alt="" width="7%" />
+            <span className="showpost-name">
+                {p.name}
+              </span>
             <button
-              className="post-edit"
+              className="showpost-edit"
               type="button"
               onClick={() => handleEditPost(p)}
             >
-            수정
+              수정
             </button>
             {p.isEditButtonClicked
-            ? (
-              <div>
-                <PostEditBox
-                  specificPost={p}
-                  postState={postState}
-                  setPostState={setPostState}
-                  currentUserState={currentUserState}
-                />
-              </div>
-            ) : <></>}
-            <button
-              className="post-remove"
-              type="button"
-              onClick={() => handleRemovePost(p)}
-            >
-            삭제
-            </button>
+              ? (
+                <div>
+                  <PostEditBox
+                    specificPost={p}
+                    postState={postState}
+                    setPostState={setPostState}
+                    currentUserState={currentUserState}
+                  />
+                </div>
+              ) : <></>}
+            {!p.isEditButtonClicked
+              ? (
+                <button
+                  className="showpost-remove"
+                  type="button"
+                  onClick={() => handleRemovePost(p)}
+                >
+                  삭제
+                </button>
+              ) : <></>}
           </div>
-          <div className="post-main">
-            <div className="post-writer">
-              <img className="image" src={p.profile} alt="" width="7%" />
-              <span className="post-name">{p.name}</span>
+          <br />
+          <div className="showpost-contents">{p.contents}</div>
+          <img style={{ width: '100%' }} src={p.image} alt="" />
+          <div className="goodbar-grid">
+            <div>
+              <span className="showpost-goodbar1">좋아요{p.thumbCount.length}개</span>
             </div>
-            <br />
-            <div className="post-contents">{p.contents}</div>
-            <img style={{ width: '100%' }} src={p.image} alt="" />
-            <span className="post-goodbar1">좋아요{p.thumbCount.length}개</span>
-            <span className="post-goodbar2">댓글{p.commentCount}개</span>
-            <span className="post-goodbar3">공유{p.sharingCount}개</span>
-            <br />
-            <button
-              className="post-button-good"
-              type="button"
-              onClick={() => handleThumbCount(p)}
-            >
-            좋아요
-            </button>
-            <button className="post-button-good" type="button">댓글</button>
-            <button className="post-button-good" type="button">스크랩</button>
+            <div>
+              <span className="showpost-goodbar2">댓글{p.commentCount}개</span>
+              <span>{' '}</span>
+              <span className="showpost-goodbar2">공유{p.sharingCount}개</span>
+            </div>
           </div>
+          <br />
+          <button
+            className="showpost-button-good"
+            type="button"
+            onClick={() => handleThumbCount(p)}
+          >
+            좋아요
+          </button>
+          <button className="showpost-button-good" type="button">댓글</button>
+          <button className="showpost-button-good" type="button">스크랩</button>
         </div>
-      </div>
-      <div>
-        <Comment
-          specificPost={p}
-          setPostState={setPostState}
-          postState={postState}
-          currentUserState={currentUserState}
-          commentState={commentState}
-          setCommentState={setCommentState}
-        />
+        <div>
+          <Comment
+            specificPost={p}
+            setPostState={setPostState}
+            postState={postState}
+            currentUserState={currentUserState}
+            commentState={commentState}
+            setCommentState={setCommentState}
+          />
+        </div>
       </div>
     </div>
   );
