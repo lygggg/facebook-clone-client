@@ -47,35 +47,47 @@ function Search({
 
   return (
     <>
-      <SearchBox
-        loginState={loginState}
-        setLoginState={setLoginState}
-        setSearchState={setSearchState}
-      />
-      <HeaderOthersPage
-        loginState={loginState}
-        setLoginState={setLoginState}
-        currentUserState={currentUserState}
-        setCurrentUserState={setCurrentUserState}
-      />
+      <div className="header">
+        <SearchBox
+          loginState={loginState}
+          setLoginState={setLoginState}
+          setSearchState={setSearchState}
+        />
+        <HeaderOthersPage
+          loginState={loginState}
+          setLoginState={setLoginState}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+        />
+      </div>
       <br />
       <br />
-      {searchState.exist
-        ? (
-          searchState.contents.map((v, index) => (
-          <div key={index}>
-            <img style={{ width: '16%' }} src={v.profile} alt="" />
-            <Link
-              to="/otherspage"
-              className="post-name"
-              type="button"
-              onClick={() => findUserById(v.id)}
-            >
-              {v.userName}
-            </Link> <br />
-            <span>{v.location}</span> <br />
-          </div>)))
-        : (<span>해당 유저가 존재하지 않습니다</span>)}
+      <div>
+        <div className="join-following">
+          {searchState.exist
+            ? (
+              searchState.contents.map((v, index) => (
+                <div key={index}>
+                  <label className="join-users">
+                    <img className="join-user-profile" src={v.profile} alt="" />
+                    <div className="join-users-informatrion">
+                      <Link
+                        to="/otherspage"
+                        className="join-users-name"
+                        type="button"
+                        onClick={() => findUserById(v.id)}
+                      >
+                        {v.userName}
+                      </Link>
+                      <div className="join-users-lint">{v.birth}</div>
+                      <div className="join-users-lint">{v.location}</div>
+                      <div className="join-users-lint">{v.email}</div>
+                    </div>
+                  </label>
+                </div>)))
+            : (<span>해당 유저가 존재하지 않습니다</span>)}
+        </div>
+      </div>
     </>
   );
 }

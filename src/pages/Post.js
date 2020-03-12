@@ -29,8 +29,10 @@ function Post({
 }) {
   const { isLoggedIn } = loginState;
   const { id, friends } = currentUserState;
-  const { post } = postState;
-  let appropriatePost = [];
+  const { post: posts } = postState;
+
+  const appropriatePost = posts.filter(post =>
+    post.id === id || friends.includes(post.id));
 
   useEffect(() => {
     callAPI(postState, setPostState);
@@ -38,15 +40,6 @@ function Post({
 
   if (isLoggedIn === false) {
     return <Redirect to="/" />;
-  }
-
-  for (let i = 0; i < post.length; i += 1) {
-    if (post[i].id === id) {
-      appropriatePost.push(post[i]);
-    }
-    if (friends.includes(post[i].id)) {
-      appropriatePost.push(post[i]);
-    }
   }
 
   return (
