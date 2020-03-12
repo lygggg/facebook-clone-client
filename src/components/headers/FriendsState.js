@@ -61,7 +61,6 @@ function FriendsState({
 
   return (
     <>
-      <h3>{name} 님의 타임라인</h3>
       <div>
         {friends.includes(id)
           ? (

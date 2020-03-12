@@ -95,40 +95,45 @@ function FriendsReco({
 
   return (
     <>
-      <SearchBox
-        loginState={loginState}
-        setLoginState={setLoginState}
-        setSearchState={setSearchState}
-      />
-      <HeaderOthersPage
-        loginState={loginState}
-        setLoginState={setLoginState}
-        currentUserState={currentUserState}
-        setCurrentUserState={setCurrentUserState}
-      />
+      <div className="header">
+        <SearchBox
+          loginState={loginState}
+          setLoginState={setLoginState}
+          setSearchState={setSearchState}
+        />
+        <HeaderOthersPage
+          loginState={loginState}
+          setLoginState={setLoginState}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+        />
+      </div>
       <br />
       <br />
-      <br />
-      <h3>알 수도 있는 사람</h3>
+      <div className="maybe-you-know">알 수도 있는 사람</div>
       <div>
-        {friendsRecoArray.map((v, index) => (
-          <div key={index}>
-            <img style={{ width: '8%' }} src={changeIdToUser(v, loginState).profile} alt="" />
-            <Link
-              to="/otherspage"
-              className="post-name"
-              type="button"
-              onClick={() => findUserById(v)}
-            >
-              {changeIdToUser(v, loginState).userName}
-            </Link>
-            <br />
-            <span>{changeIdToUser(v, loginState).birth}</span> <br />
-            <span>{changeIdToUser(v, loginState).location}</span> <br />
-            <span>{changeIdToUser(v, loginState).email}</span> <br />
-            <br />
-          </div>
-        ))}
+        <div className="join-following">
+          {friendsRecoArray.map((v, index) => (
+            <div key={index}>
+              <label className="join-users">
+                <img className="join-user-profile" src={changeIdToUser(v, loginState).profile} alt="" />
+                <div className="join-users-informatrion">
+                  <Link
+                    to="/otherspage"
+                    className="join-users-name"
+                    type="button"
+                    onClick={() => findUserById(v)}
+                  >
+                    {changeIdToUser(v, loginState).userName}
+                  </Link>
+                  <div className="join-users-lint">{changeIdToUser(v, loginState).birth}</div>
+                  <div className="join-users-lint">{changeIdToUser(v, loginState).location}</div>
+                  <div className="join-users-lint">{changeIdToUser(v, loginState).email}</div>
+                </div>
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

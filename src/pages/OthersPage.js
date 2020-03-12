@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import ShowPost from '../components/posts/ShowPost';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
 import FriendsState from '../components/headers/FriendsState';
 import SearchBox from '../components/headers/SearchBox';
 import {checkSessionExist, getUsers} from '../function';
+import PostEditBox from "../components/posts/PostEditBox";
+import Comment from "../components/comments/Comment";
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
   const { user } = await checkSessionExist();
@@ -105,7 +107,11 @@ function OthersPage({
         </div>
         <div className="timeline-post">
           {post.filter((v) => v.id === specificPost.id).length === 0
-            ? <div className="no-post">게시글이 없습니다</div>
+            ? (
+              <div className="showpost">
+                <div className="no-post">게시글이 없습니다.</div>
+              </div>
+            )
             : post.filter((v) => v.id === specificPost.id).map((p, index) => (
               <div key={index}>
                 <ShowPost
