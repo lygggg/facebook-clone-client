@@ -46,20 +46,22 @@ function JoinFollow({
 
   return (
     <>
-      <h1>Facebook 팔로우 하기</h1>
-      <div className="joining-round">
-        <div>
+      <div className="login-header">
+        <span className="login-header-facebook">facebook 팔로우하기</span>
+      </div>
+      <div>
+        <div className="join-following">
           {users.map((v, index) => (
             <div key={index}>
-              <label>
+              <label className="join-users">
                 <input type="checkbox" onChange={() => checkUser(v.id)} />
-                <div>
-                  <img style={{ width: '16%' }} src={v.profile} alt="" />
-                  {v.userName}
-                  <br />
-                  <span>{v.birth}</span> <br />
-                  <span>{v.location}</span> <br />
-                  <span>{v.email}</span> <br />
+                <br />
+                <img className="join-user-profile" src={v.profile} alt="" />
+                <div className="join-users-informatrion">
+                  <div className="join-users-name">{v.userName}</div>
+                  <div className="join-users-lint">{v.birth}</div>
+                  <div className="join-users-lint">{v.location}</div>
+                  <div className="join-users-lint">{v.email}</div>
                 </div>
               </label>
               <br />

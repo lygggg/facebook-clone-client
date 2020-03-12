@@ -76,9 +76,9 @@ export const getUsers = async () => {
 };
 
 // 회원가입
-export const addUser = async (id, pw, userName, birth, location, email) => {
+export const addUser = async (id, pw, userName, birth, location, email, profile) => {
   try {
-    return await apiAddUser(id, pw, userName, birth, location, email);
+    return await apiAddUser(id, pw, userName, birth, location, email, profile);
   } catch (e) {
     console.error(e);
   }

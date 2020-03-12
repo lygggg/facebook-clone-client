@@ -46,8 +46,8 @@ export const getUsers = async () => {
   return data;
 };
 
-export const addUser = async (id, pw, userName, birth, location, email) => {
-  const { data } = await axios.post(LOGIN_URL, { id, pw, userName, birth, location, email });
+export const addUser = async (id, pw, userName, birth, location, email, profile) => {
+  const { data } = await axios.post(LOGIN_URL, { id, pw, userName, birth, location, email, profile });
   return data;
 }
 
