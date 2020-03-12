@@ -547,25 +547,96 @@ body {
 
 /*************************************************/
 
-.login {
-  width: 200px;
-  border: 2px solid rgb(140, 140, 196);
-  padding: 10px 0px 10px 10px;
+.login-header {
+  background-color: #3a5daa;
+  height: 80px;
+  width: 100%;
+}
+
+.login-header-facebook {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  position: relative;
+  top: 16px;
+  left: 18%;
+}
+
+.login-id {
+  float: right;
+  margin: 13px 10px 0 0;
+}
+
+.id-utter {
+  font-size: 13px;
+  color: white;
+  margin: 0 0 0 20px;
+}
+
+.login-pw {
+  float: right;
+  margin: 13px 10px 0 0;
+}
+
+.pw-utter {
+  font-size: 13px;
+  color: white;
+  margin: 0 0 0 6px;
+}
+
+.login-enter {
+  float: right;
+  margin: 0 20% 0 0;
 }
 
 .login-id-box {
-  width: 100px;
+  width: 80px;
   margin: 0 0 0 20px;
 }
 
 .login-pw-box {
-  width: 100px;
+  width: 120px;
   margin: 0 0 0 5.5px;
 }
 
 .login-button {
-  margin: 5px 0 0 120px;
+  background-color: #3a5daa;
+  border: 1px solid blue;
+  color: white;
+  font-weight: bold;
+  margin: 36px 0 0 4px;
 }
+
+.join-router {
+  margin: 0 20% 0 0;
+  float: right;
+  border: 1px solid blue;
+  background-color: rgb(235, 227, 232);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.login-backgrond-utter {
+  color: #3a5daa;
+  font-weight: bold;
+  width: 445px;
+  font-size: 25px;
+  position: relative;
+  left: 18%;
+  top: 60px;
+}
+
+.login-backgrond-image {
+  width: 45%;
+  position: relative;
+  top: 100px;
+  left: 16%;
+}
+
+/*************************************************/
+
+
 
 .join-new {
   width: 412px;
@@ -578,15 +649,6 @@ body {
   margin: 0 0 10px 0;
   font-weight: bold;
   padding: 10px 0 10px;
-}
-
-.join-router {
-  margin: 0 0 0 290px;
-  border: 1px solid blue;
-  background-color: rgb(243, 234, 234);
-  border-top: none;
-  border-left: none;
-  border-right: none;
 }
 
 .join-new-name {
