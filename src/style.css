@@ -49,11 +49,9 @@ body {
 .header-profile-image {
   border-radius: 70%;
   margin: 0 0 0 20%;
-  height: auto;
-  max-width: 30px;
-  max-height: 30px;
-  width: 5%;
-}
+  width: 30px;
+  height: 30px;
+  }
 
 .header-user-name {
   color: white;
@@ -116,10 +114,8 @@ body {
 
 .profile-image {
   border-radius: 70%;
-  height: auto;
-  max-width: 45px;
-  max-height: 45px;
-  width: 10%
+  width: 45px;
+  height: 45px;
 }
 
 .addpost-whatdoyouthink {
@@ -308,9 +304,8 @@ body {
 
 .comment-profile-image {
   border-radius: 70%;
-  height: auto;
-  max-width: 45px;
-  max-height: 45px;
+  width: 17px;
+  height: 17px;
   position: relative;
   top: 5px;
 }
@@ -417,8 +412,8 @@ body {
 
 .mypage-cover-profile-image {
   border-radius: 70%;
-  height: auto;
-  max-height: 170px;
+  height: 170px;
+  width: 170px;
   position: relative;
   left: 23px;
   top: 55px;
@@ -527,6 +522,28 @@ body {
   margin: 50px 0 0 0;
 }
 
+.others-friend-state {
+  position: relative;
+  left: 684px;
+  bottom: 100px;
+  font-size: 14px;
+}
+
+.others-friend-already {
+  background-color: white;
+  border: 1px solid;
+  position: relative;
+  left: 684px;
+  bottom: 100px;
+}
+
+.others-friend-add {
+  background-color: white;
+  border: 1px solid;
+  position: relative;
+  left: 853px;
+  bottom: 100px;
+}
 
 /*************************************************/
 
@@ -603,8 +620,6 @@ body {
   background-color: rgb(243, 234, 234);
 }
 
-
-
 .scrap-border {
   width: 420px;
   border: 2px solid rgb(235, 106, 106);
@@ -624,23 +639,6 @@ body {
   background-color: rgb(241, 168, 168);
   padding: 0px 5px 0px 5px;
   height: 20px;
-}
-
-.others-friend-add {
-  margin: 0 0 10px 373px;
-  background-color: rgb(227, 227, 236);
-  border: 1px solid rgb(37, 37, 145);
-}
-
-.others-friend-already {
-  background-color: rgb(227, 227, 236);
-  border: 1px solid rgb(37, 37, 145);
-  margin: 0 0 10px 0;
-}
-
-.other-friend-contents {
-  font-weight: bold;
-  margin: 0 0 0 184px;
 }
 
 .friends-recommendation {

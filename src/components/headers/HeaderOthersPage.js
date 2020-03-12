@@ -29,12 +29,10 @@ function HomeHeader({
 
   return (
     <>
-
-      <img style={{ width: '5%' }} src={profile} alt="" />
-      <span>{userName}{' '}</span>
-      <button className="page-header" type="button" onClick={moveToTimelinePage}>홈</button>{' '}
-      <button className="page-header" type="button" onClick={moveToMyPage}>마이페이지</button>{' '}
-      <button className="page-header" type="button" onClick={logoutButtonClicked}>로그아웃</button>
+      <img className="header-profile-image" src={profile} alt="" />
+      <button className="header-user-name" onClick={moveToMyPage}>{userName}</button>
+      <button className="header-home" type="button" onClick={moveToTimelinePage}>홈</button>{' '}
+      <button className="header-home" type="button" onClick={logoutButtonClicked}>로그아웃</button>
       <br />
     </>
   );

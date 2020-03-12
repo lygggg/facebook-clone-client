@@ -114,17 +114,17 @@ function MyPage({
             ))}
           </div>
           <div>
-            {scrap.filter((v) => v.id === id).map((p, index) => (
-              <div key={index}>
-                <Scrap
-                  postState={postState}
-                  currentUserState={currentUserState}
-                  setTopLevelState={setTopLevelState}
-                  p={p}
-                  index={index}
-                />
-              </div>
-            ))}
+            {/*{scrap.filter((v) => v.id === id).map((p, index) => (*/}
+            {/*  <div key={index}>*/}
+            {/*    <Scrap*/}
+            {/*      postState={postState}*/}
+            {/*      currentUserState={currentUserState}*/}
+            {/*      setTopLevelState={setTopLevelState}*/}
+            {/*      p={p}*/}
+            {/*      index={index}*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            {/*))}*/}
           </div>
         </div>
       </div>

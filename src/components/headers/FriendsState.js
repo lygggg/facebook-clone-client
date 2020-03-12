@@ -51,11 +51,11 @@ function FriendsState({
 
     users.forEach((user, i) => {
       currentUserState.id === users[i].id
-      ? setCurrentUserState({
+        ? setCurrentUserState({
           ...currentUserState,
           friends: users[i].friends,
         })
-      : user
+        : user;
     });
   };
 
@@ -65,8 +65,8 @@ function FriendsState({
       <div>
         {friends.includes(id)
           ? (
-            <div className="other-friend-contents">
-              <span>{name} 님과 친구입니다</span>{' '}
+            <div>
+              <span className="others-friend-state">{name} 님과 친구입니다</span>{' '}
               <button
                 className="others-friend-already"
                 type="button"
