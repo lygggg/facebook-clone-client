@@ -94,9 +94,9 @@ export const getPosts = async () => {
 };
 
 // 게시글 추가
-export const addPost = async (id, name, contents, profile, imagePath) => {
+export const addPost = async (id, name, contents, profile, imagePath, time) => {
   try {
-    return await apiAddPost(id, name, contents, profile, imagePath);
+    return await apiAddPost(id, name, contents, profile, imagePath, time);
   } catch (e) {
     console.error(e);
   }
@@ -242,4 +242,19 @@ export const openChildCommentBox = (commentState, specificComment) => {
         ? v : { ...v, isChildCommentFunctionOn: true })),
     }
   );
+};
+
+// 현재 시간 가져오는 함수
+export const getCurrentTime = () => {
+  const date = new Date();
+
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+
+  const time = [year, month, day, hour, minute];
+
+  return time;
 };

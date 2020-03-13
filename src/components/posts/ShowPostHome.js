@@ -30,6 +30,7 @@ function ShowPostHome({
   specificPost,
   index,
   loginState,
+  setLoginState,
 }) {
   const { id } = currentUserState;
 
@@ -86,6 +87,9 @@ function ShowPostHome({
         <div>
           <div className="showpost-writer">
             <img className="profile-image" src={specificPost.profile} alt="" width="7%" />
+            <div className="showpost-time">
+              {specificPost.time[0]}년 {specificPost.time[1]}월 {specificPost.time[2]}일　{specificPost.time[3]} : {specificPost.time[4]}
+            </div>
             <Link
               to="/otherspage"
               className="showpost-name"
@@ -125,7 +129,7 @@ function ShowPostHome({
           </div>
           <br />
           <div className="showpost-contents">{specificPost.contents}</div>
-          <img style={{ width: '100%' }} src={specificPost.image} alt="" />
+          <img className="showpost-image" src={specificPost.image} alt="" />
           <div className="goodbar-grid">
             <div>
               <span className="showpost-goodbar1">좋아요{specificPost.thumbCount.length}개</span>
@@ -162,6 +166,7 @@ function ShowPostHome({
             commentState={commentState}
             setCommentState={setCommentState}
             loginState={loginState}
+            setLoginState={setLoginState}
           />
         </div>
       </div>

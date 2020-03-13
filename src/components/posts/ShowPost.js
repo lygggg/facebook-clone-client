@@ -53,6 +53,9 @@ function ShowPostOthersPage({
         <div>
           <div className="showpost-writer">
             <img className="profile-image" src={p.profile} alt="" width="7%" />
+            <div className="showpost-time">
+              {p.time[0]}년 {p.time[1]}월 {p.time[2]}일　{p.time[3]} : {p.time[4]}
+            </div>
             <span className="showpost-name">
               {p.name}
             </span>

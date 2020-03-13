@@ -73,7 +73,7 @@ function Post({
           <a className="advertising-1" href="https://woogod.netlify.com/">
             <img className="advertising1-image" src={advertising1} />
             <div className="advertising-url">
-              <a href="https://woogod.netlify.com/">programmer.co.kr</a>
+              programmer.co.kr
             </div>
             <div className="advertising-statement">
               리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!
@@ -82,7 +82,7 @@ function Post({
           <a className="advertising-2" href="https://woogod.netlify.com/">
             <img className="advertising2-image" src={advertising2} />
             <div className="advertising-url">
-              <a href="https://woogod.netlify.com/">programmer.co.kr</a>
+              programmer.co.kr
             </div>
             <div className="advertising-statement">
               2020 Dev Match
@@ -108,6 +108,7 @@ function Post({
                   specificPost={p}
                   index={index}
                   loginState={loginState}
+                  setLoginState={setLoginState}
                 />
               </div>
             ))}
@@ -120,8 +121,8 @@ function Post({
             <div className="friends-index-line-utter">친구 목록</div>
             <br />
             <div>
-              {friends.map(v =>
-                <div>
+              {friends.map((v, index) =>
+                <div key={index}>
                   <img className="friends-index-line-profile" src={findUserById(v).profile} />
                   <span className="friends-index-line-name">{findUserById(v).userName}</span>
                 </div>
