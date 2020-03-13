@@ -85,16 +85,16 @@ function Login({
     <>
       <div className="login-header">
         <span className="login-header-facebook">facebook</span>
-        <div className="login-enter">
-          <button onClick={loginButtonClicked} className="login-button" type="button">로그인</button>
+        <div className="login-id">
+          <div className="id-utter">아이디</div>
+          <input type="text" className="login-id-box" onChange={(e) => setLoginTemptId(e.target.value)} />
         </div>
         <div className="login-pw">
           <div className="pw-utter">비밀번호</div>
           <input type="password" className="login-pw-box" onChange={(e) => setLoginTemptPw(e.target.value)} />
         </div>
-        <div className="login-id">
-          <div className="id-utter">아이디</div>
-          <input type="text" className="login-id-box" onChange={(e) => setLoginTemptId(e.target.value)} />
+        <div className="login-enter">
+          <button onClick={loginButtonClicked} className="login-button" type="button">로그인</button>
         </div>
       </div>
       <Router>

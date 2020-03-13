@@ -29,6 +29,7 @@ function ShowPostHome({
   setTopLevelState,
   specificPost,
   index,
+  loginState,
 }) {
   const { id } = currentUserState;
 
@@ -160,6 +161,7 @@ function ShowPostHome({
             currentUserState={currentUserState}
             commentState={commentState}
             setCommentState={setCommentState}
+            loginState={loginState}
           />
         </div>
       </div>

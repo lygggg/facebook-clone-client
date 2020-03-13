@@ -37,12 +37,17 @@ function SearchBox({
 
   const moveToPostPage = () => {
     history.push('/post');
-  }
+  };
 
   return (
     <div className="search-box">
       <img className="logo" src={logo} onClick={moveToPostPage} />
-      <input className="search-input" type="text" onChange={(e) => getUserWriting(e.target.value)} />
+      <input
+        className="search-input"
+        type="text"
+        onChange={(e) => getUserWriting(e.target.value)}
+        placeholder="검색"
+      />
       <i className="fas fa-search" onClick={searchButtonClicked}></i>
     </div>
   );

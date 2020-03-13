@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import AddPost from '../components/posts/AddPost';
 import ShowPostOthersPage from '../components/posts/ShowPost';
-import Scrap from '../components/posts/Scrap';
 import HeaderMyPage from '../components/headers/HeaderMyPage';
 import {checkSessionExist, getPosts} from '../function';
 import SearchBox from '../components/headers/SearchBox';
-import {Link} from "react-router-dom";
 
 const callAPI = async (postState, setPostState, currentUserState, setCurrentUserState) => {
   const { user } = await checkSessionExist();
@@ -109,6 +107,8 @@ function MyPage({
                   setCommentState={setCommentState}
                   p={p}
                   index={index}
+                  loginState={loginState}
+                  setLoginState={setLoginState}
                 />
               </div>
             ))}

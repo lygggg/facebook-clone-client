@@ -131,6 +131,7 @@ function FriendsReco({
                   <div className="join-users-lint">{changeIdToUser(v, loginState).email}</div>
                 </div>
               </label>
+              <br />
             </div>
           ))}
         </div>

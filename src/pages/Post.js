@@ -27,12 +27,17 @@ function Post({
   setTopLevelState,
   setSearchState,
 }) {
-  const { isLoggedIn } = loginState;
+  const { isLoggedIn, users } = loginState;
   const { id, friends } = currentUserState;
   const { post: posts } = postState;
 
   const appropriatePost = posts.filter(post =>
     post.id === id || friends.includes(post.id));
+
+  const findUserById = (userID) => {
+    const index = users.findIndex(user => user.id === userID);
+    return users[index];
+  };
 
   useEffect(() => {
     callAPI(postState, setPostState);
@@ -79,13 +84,26 @@ function Post({
                   setTopLevelState={setTopLevelState}
                   specificPost={p}
                   index={index}
+                  loginState={loginState}
                 />
               </div>
             ))}
           </div>
         </div>
-        <div className="timeline-about-friends">
-          <Link to="friendsreco">알 수도 있는 사람</Link>
+        <div className="friends-index">
+          <Link className="frineds-index-line-knowing" to="friendsreco">알 수도 있는 사람</Link>
+          <div className="timeline-about-friends">
+            <div className="friends-index-line-utter">친구 목록</div>
+            <br />
+            <div>
+              {friends.map(v =>
+                <div>
+                  <img className="friends-index-line-profile" src={findUserById(v).profile} />
+                  <span className="friends-index-line-name">{findUserById(v).userName}</span>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>

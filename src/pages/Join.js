@@ -7,7 +7,7 @@ const initialTempt = {
   temptJoiningId: '',
   temptJoiningPw: '',
   temptJoiningName: '',
-  temptJoiningBirth: 'xxxx-xx-xx',
+  temptJoiningBirth: '',
   temptJoiningLocation: '',
   temptJoiningEmail: '',
 };
@@ -98,14 +98,20 @@ function Join({
       alert('아이디 중복을 확인해주세요');
       return;
     }
-
     if (errorState.pw !== '비밀번호가 일치합니다') {
       alert('비밀번호를 다시 확인해주세요');
       return;
     }
-
     if (!temptJoiningId.trim() || !temptJoiningPw.trim() || !temptJoiningName.trim()) {
       alert('모든 항목을 입력해주세요');
+      return;
+    }
+    if (temptJoiningBirth[4] !== '-' || temptJoiningBirth[7] !== '-' || temptJoiningBirth.length !== 10) {
+      alert('생년월일을 형식에 맞게 입력해주세요. YYYY-MM-DD 입니다');
+      return;
+    }
+    if (!file) {
+      alert('프로필 사진을 등록해주세요');
       return;
     }
 
@@ -190,7 +196,7 @@ function Join({
           <span className="join-birth">
             생년월일
           </span>
-          <input className="join-birth-input" type="text" value={temptJoiningBirth} onChange={(e) => setJoinTemptBirth(e.target.value)} />
+          <input className="join-birth-input" type="text" placeholder="YYYY-MM-DD" onChange={(e) => setJoinTemptBirth(e.target.value)} />
         </div>
         <div>
           <span className="join-location">

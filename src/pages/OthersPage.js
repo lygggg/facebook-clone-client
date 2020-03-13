@@ -122,6 +122,8 @@ function OthersPage({
                   setCommentState={setCommentState}
                   p={p}
                   index={index}
+                  loginState={loginState}
+                  setLoginState={setLoginState}
                 />
               </div>
             ))}

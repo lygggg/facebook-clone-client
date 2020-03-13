@@ -1,7 +1,7 @@
 import React from 'react';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-import {plusThumbCount, openPostEditBox, removePost } from '../../function';
+import { plusThumbCount, openPostEditBox, removePost } from '../../function';
 import profile from '../../profile.jpeg';
 
 function ShowPostOthersPage({
@@ -12,13 +12,15 @@ function ShowPostOthersPage({
   setCommentState,
   p,
   index,
+  loginState,
+  setLoginState,
 }) {
   const { id } = currentUserState;
 
   const handleThumbCount = async (specificPost) => {
-    const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id)
+    const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id);
 
-    setPostState({ ...postState, post: [...timeLinePosts.reverse()]});
+    setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
   };
 
   const handleRemovePost = async (specificPost) => {
@@ -44,14 +46,16 @@ function ShowPostOthersPage({
     <div key={index}>
       <div className="showpost">
         <div className="showpost-feed">
-          {p.name} 님이 게시글을 업로드했습니다.
+          {p.name}
+          {' '}
+          님이 게시글을 업로드했습니다.
         </div>
         <div>
           <div className="showpost-writer">
             <img className="profile-image" src={p.profile} alt="" width="7%" />
             <span className="showpost-name">
-                {p.name}
-              </span>
+              {p.name}
+            </span>
             <button
               className="showpost-edit"
               type="button"
@@ -86,12 +90,24 @@ function ShowPostOthersPage({
           <img style={{ width: '100%' }} src={p.image} alt="" />
           <div className="goodbar-grid">
             <div>
-              <span className="showpost-goodbar1">좋아요{p.thumbCount.length}개</span>
+              <span className="showpost-goodbar1">
+                좋아요
+                {p.thumbCount.length}
+                개
+              </span>
             </div>
             <div>
-              <span className="showpost-goodbar2">댓글{p.commentCount}개</span>
+              <span className="showpost-goodbar2">
+                댓글
+                {p.commentCount}
+                개
+              </span>
               <span>{' '}</span>
-              <span className="showpost-goodbar2">공유{p.sharingCount}개</span>
+              <span className="showpost-goodbar2">
+                공유
+                {p.sharingCount}
+                개
+              </span>
             </div>
           </div>
           <br />
@@ -113,6 +129,8 @@ function ShowPostOthersPage({
             currentUserState={currentUserState}
             commentState={commentState}
             setCommentState={setCommentState}
+            loginState={loginState}
+            setLoginState={setLoginState}
           />
         </div>
       </div>

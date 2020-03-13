@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import profile from '../../profile.jpeg';
 import {
   getComments,
   addComment,
   plusCommentCount,
   plusCommentThumbCount,
-  openChildCommentBox,
+  openChildCommentBox, getUsers,
 } from '../../function';
 import ChildCommentBox from './ChildCommentBox';
 
-const callAPI = async (commentState, setCommentState) => {
+const callAPI = async (commentState, setCommentState, loginState, setLoginState) => {
   const { postComments } = await getComments();
+  const { userStore } = await getUsers();
+
+  setLoginState({ ...loginState, users: [...userStore] });
 
   setCommentState({
     ...commentState,
@@ -25,15 +27,17 @@ function Comment({
   currentUserState,
   commentState,
   setCommentState,
+  loginState,
+  setLoginState,
 }) {
   const { comment } = commentState;
   const { userName, id } = currentUserState;
   const { uniqueKey } = specificPost;
+  const { users } = loginState;
   const [temptState, setTemptState] = useState('');
-  const appropriateComment = [];
 
   useEffect(() => {
-    callAPI(commentState, setCommentState);
+    callAPI(commentState, setCommentState, loginState, setLoginState);
   }, []);
 
   const setCommentTemptStatement = (temptState) => {
@@ -85,7 +89,12 @@ function Comment({
         {comment.filter((v) => specificPost.uniqueKey === v.id).map((v, index) =>
           <div className="comment-each" key={`Comment${index}`}>
             <span>
-              <img className="comment-profile-image" src={profile} alt="" width="3.5%" />
+              <img
+                className="comment-profile-image"
+                src={users[users.findIndex(user => user.id === v.writerID)].profile}
+                alt=""
+                width="3.5%"
+              />
               <div className="comment-statement">
                 <span className="comment-writer">{v.writer}</span>
                 <span className="comment-colon">:</span>
