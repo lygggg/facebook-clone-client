@@ -80,6 +80,7 @@ function App() {
             setLoginState={setLoginState}
             commentState={commentState}
             setCommentState={setCommentState}
+            topLevelState={topLevelState}
             setTopLevelState={setTopLevelState}
             setSearchState={setSearchState}
           />

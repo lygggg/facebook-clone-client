@@ -831,19 +831,36 @@ body {
 }
 
 .timeline-about-friends {
-  margin: 39px 0 0 20px;
+  margin: 39px 0 0 0;
   background: white;
   width: 55%;
   height: max-content;
   padding: 0 0 10px 0;
   border-radius: 5px;
+  position: relative;
+  right: 92px;
+  top: 120px;
 }
 
 .frineds-index-line-knowing {
   font-size: 15px;
   font-weight: bold;
   position: relative;
-  left: 33%;
+  left: 29.2%;
+  background-color: white;
+  width: 243px;
+  height: 153px;
+  border-radius: 5px;
+}
+
+.frineds-index-maybe-knowing {
+  margin: 20px 0 0 25px;
+  font-size: 14px;
+}
+
+.frineds-index-maybe-knowing-3man {
+  position: relative;
+  top: 17px;
 }
 
 .friends-index-line-utter {
@@ -871,6 +888,7 @@ body {
   position: relative;
   bottom: 8px;
   left: 5px;
+  font-weight: bold;
 }
 
 .maybe-you-know {
