@@ -105,7 +105,7 @@ function OthersPage({
             </div>
           </div>
         </div>
-        <div className="timeline-post">
+        <div className="timeline-post-mypage">
           {post.filter((v) => v.id === specificPost.id).length === 0
             ? (
               <div className="showpost">

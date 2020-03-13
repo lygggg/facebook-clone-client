@@ -4,16 +4,21 @@ import AddPost from '../components/posts/AddPost';
 import ShowPostHome from '../components/posts/ShowPostHome';
 import HeaderHome from '../components/headers/HeaderHome';
 import SearchBox from '../components/headers/SearchBox';
-import { getPosts } from '../function';
+import {getPosts, getUsers} from '../function';
+import advertising1 from '../advertising.png';
+import advertising2 from '../advertising2.png';
 
-const callAPI = async (postState, setPostState) => {
+const callAPI = async (postState, setPostState, loginState, setLoginState) => {
   const { timeLinePosts } = await getPosts();
+  const { userStore } = await getUsers();
+
+  setLoginState({ ...loginState, users: [...userStore] });
 
   setPostState({
     ...postState,
     post: [...timeLinePosts.reverse()],
   });
-}
+};
 
 function Post({
   postState,
@@ -40,7 +45,7 @@ function Post({
   };
 
   useEffect(() => {
-    callAPI(postState, setPostState);
+    callAPI(postState, setPostState, loginState, setLoginState);
   }, []);
 
   if (isLoggedIn === false) {
@@ -63,8 +68,26 @@ function Post({
         />
       </div>
       <div className="main-timeline">
-        <div>
-          여기 광고
+        <div className="advertising">
+          <div className="advertising-sponsored">Sponsored</div>
+          <a className="advertising-1" href="https://woogod.netlify.com/">
+            <img className="advertising1-image" src={advertising1} />
+            <div className="advertising-url">
+              <a href="https://woogod.netlify.com/">programmer.co.kr</a>
+            </div>
+            <div className="advertising-statement">
+              리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!
+            </div>
+          </a>
+          <a className="advertising-2" href="https://woogod.netlify.com/">
+            <img className="advertising2-image" src={advertising2} />
+            <div className="advertising-url">
+              <a href="https://woogod.netlify.com/">programmer.co.kr</a>
+            </div>
+            <div className="advertising-statement">
+              2020 Dev Match
+            </div>
+          </a>
         </div>
         <div className="timeline-post">
           <AddPost
@@ -92,6 +115,7 @@ function Post({
         </div>
         <div className="friends-index">
           <Link className="frineds-index-line-knowing" to="friendsreco">알 수도 있는 사람</Link>
+          <br />
           <div className="timeline-about-friends">
             <div className="friends-index-line-utter">친구 목록</div>
             <br />

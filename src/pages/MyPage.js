@@ -90,7 +90,7 @@ function MyPage({
             </div>
           </div>
         </div>
-        <div className="timeline-post">
+        <div>
           <AddPost
             currentUserState={currentUserState}
             postState={postState}

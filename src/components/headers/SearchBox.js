@@ -46,7 +46,7 @@ function SearchBox({
         className="search-input"
         type="text"
         onChange={(e) => getUserWriting(e.target.value)}
-        placeholder="검색"
+        placeholder="　검색"
       />
       <i className="fas fa-search" onClick={searchButtonClicked}></i>
     </div>
