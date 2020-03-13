@@ -53,85 +53,92 @@ function Post({
   }
 
   return (
-    <>
-      <div className="header">
-        <SearchBox
-          loginState={loginState}
-          setLoginState={setLoginState}
-          setSearchState={setSearchState}
-        />
-        <HeaderHome
-          loginState={loginState}
-          setLoginState={setLoginState}
-          currentUserState={currentUserState}
-          setCurrentUserState={setCurrentUserState}
-        />
-      </div>
-      <div className="main-timeline">
-        <div className="advertising">
-          <div className="advertising-sponsored">Sponsored</div>
-          <a className="advertising-1" href="https://woogod.netlify.com/">
-            <img className="advertising1-image" src={advertising1} />
-            <div className="advertising-url">
-              programmer.co.kr
-            </div>
-            <div className="advertising-statement">
-              리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!
-            </div>
-          </a>
-          <a className="advertising-2" href="https://woogod.netlify.com/">
-            <img className="advertising2-image" src={advertising2} />
-            <div className="advertising-url">
-              programmer.co.kr
-            </div>
-            <div className="advertising-statement">
-              2020 Dev Match
-            </div>
-          </a>
-        </div>
-        <div className="timeline-post">
-          <AddPost
-            currentUserState={currentUserState}
-            postState={postState}
-            setPostState={setPostState}
-          />
+    <div>
+      {!findUserById(id)
+        ? <h3>페이지를 로딩중입니다...</h3>
+        : (
           <div>
-            {appropriatePost.map((p, index) => (
-              <div key={index}>
-                <ShowPostHome
+            <div className="header">
+              <SearchBox
+                loginState={loginState}
+                setLoginState={setLoginState}
+                setSearchState={setSearchState}
+              />
+              <HeaderHome
+                loginState={loginState}
+                setLoginState={setLoginState}
+                currentUserState={currentUserState}
+                setCurrentUserState={setCurrentUserState}
+              />
+            </div>
+            <div className="main-timeline">
+              <div className="advertising">
+                <div className="advertising-sponsored">Sponsored</div>
+                <a className="advertising-1" href="https://woogod.netlify.com/">
+                  <img className="advertising1-image" src={advertising1} />
+                  <div className="advertising-url">
+                    programmer.co.kr
+                  </div>
+                  <div className="advertising-statement">
+                    리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!
+                  </div>
+                </a>
+                <a className="advertising-2" href="https://woogod.netlify.com/">
+                  <img className="advertising2-image" src={advertising2} />
+                  <div className="advertising-url">
+                    programmer.co.kr
+                  </div>
+                  <div className="advertising-statement">
+                    2020 Dev Match
+                  </div>
+                </a>
+              </div>
+              <div className="timeline-post">
+                <AddPost
+                  currentUserState={currentUserState}
                   postState={postState}
                   setPostState={setPostState}
-                  currentUserState={currentUserState}
-                  commentState={commentState}
-                  setCommentState={setCommentState}
-                  setTopLevelState={setTopLevelState}
-                  specificPost={p}
-                  index={index}
-                  loginState={loginState}
-                  setLoginState={setLoginState}
                 />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="friends-index">
-          <Link className="frineds-index-line-knowing" to="friendsreco">알 수도 있는 사람</Link>
-          <br />
-          <div className="timeline-about-friends">
-            <div className="friends-index-line-utter">친구 목록</div>
-            <br />
-            <div>
-              {friends.map((v, index) =>
-                <div key={index}>
-                  <img className="friends-index-line-profile" src={findUserById(v).profile} />
-                  <span className="friends-index-line-name">{findUserById(v).userName}</span>
+                <div>
+                  {appropriatePost.map((p, index) => (
+                    <div key={index}>
+                      <ShowPostHome
+                        postState={postState}
+                        setPostState={setPostState}
+                        currentUserState={currentUserState}
+                        commentState={commentState}
+                        setCommentState={setCommentState}
+                        setTopLevelState={setTopLevelState}
+                        specificPost={p}
+                        index={index}
+                        loginState={loginState}
+                        setLoginState={setLoginState}
+                      />
+                    </div>
+                  ))}
                 </div>
-              )}
+              </div>
+              <div className="friends-index">
+                <Link className="frineds-index-line-knowing" to="friendsreco">알 수도 있는 사람</Link>
+                <br />
+                <div className="timeline-about-friends">
+                  <div className="friends-index-line-utter">친구 목록</div>
+                  <br />
+                  <div>
+                    {friends.map((v, index) =>
+                      <div key={index}>
+                        <img className="friends-index-line-profile" src={findUserById(v).profile} />
+                        <span className="friends-index-line-name">{findUserById(v).userName}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </>
+        )
+      }
+    </div>
   );
 }
 
