@@ -235,6 +235,7 @@ body {
   background-color: #f6f6f6;
   border: 1px solid white;
   width: 40px;
+  z-index: 1;
 }
 
 .showpost-contents {

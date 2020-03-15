@@ -258,3 +258,6 @@ export const getCurrentTime = () => {
 
   return time;
 };
+
+// id만 가지고 user 객체를 받아오는 함수
+export const findUserById = (users, userID) => users.find(({id}) => userID === id);

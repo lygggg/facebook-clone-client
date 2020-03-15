@@ -68,7 +68,7 @@ function FriendsReco({
   }
 
   // user의 id를 받아와서 topLevelState의 형식에 맞춰서 넣어줌
-  const findUserById = (id) => {
+  const setUserToTopLevelByID = (id) => {
     for (let i = 0; i < users.length; i += 1) {
       if (id === users[i].id) {
         setTopLevelState({
@@ -124,7 +124,7 @@ function FriendsReco({
                       to="/otherspage"
                       className="join-users-name"
                       type="button"
-                      onClick={() => findUserById(v)}
+                      onClick={() => setUserToTopLevelByID(v)}
                     >
                       {changeIdToUser(v, loginState).userName}
                     </Link>
