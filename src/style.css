@@ -946,6 +946,24 @@ body {
 
 /*************************************************/
 
+.chatting {
+  position: relative;
+  z-index: 5;
+  background-color: #f0eef5;
+  bottom: 75px;
+  height: 260px;
+  border: 1px solid gray;
+}
+
+.chatting-input {
+  position: relative;
+  top: 183px;
+}
+
+.chatting-send-button {
+  font-size: 11px;
+}
+
 .scrap-border {
   width: 420px;
   border: 2px solid rgb(235, 106, 106);

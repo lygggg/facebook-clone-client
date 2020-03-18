@@ -1,7 +1,10 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import {findUserById} from "../function";
-import _ from "lodash";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import io from 'socket.io-client';
+import _ from 'lodash';
+import { findUserById } from '../function';
+import Chatting from '../components/Chatting';
+
 
 function FriendsIndex({
   loginState,
@@ -9,10 +12,11 @@ function FriendsIndex({
   topLevelState,
   setTopLevelState,
 }) {
+  const [isChattingOn, setIsChattingOn] = useState(false);
   const { users } = loginState;
   const { id, friends } = currentUserState;
-  let recommandedFriedns = [];
   const SHOWING_FRIENDS_COUNT = 3;
+  let recommandedFriedns = [];
 
   if (friends.length > 0 && users.length > 0) {
     const f = friends.reduce((acc, friendID) => {
@@ -32,7 +36,11 @@ function FriendsIndex({
 
   const moveToOthersPage = (userID) => {
     const user = findUserById(users, userID);
-    setTopLevelState({...topLevelState, id: user.id, userName: user.userName});
+    setTopLevelState({ ...topLevelState, id: user.id, userName: user.userName });
+  };
+
+  const chattingButtonClicked = () => {
+    setIsChattingOn(true);
   };
 
   return (
@@ -56,7 +64,11 @@ function FriendsIndex({
         </div>
       </div>
       <div className="timeline-about-friends">
-        <div className="friends-index-line-utter">친구 목록</div>
+        <div className="friends-index-line-utter">
+          친구
+          {friends.length}
+          명
+        </div>
         <br />
         <div>
           {friends.map((v, index) => (
@@ -70,9 +82,17 @@ function FriendsIndex({
               >
                 {findUserById(users, v).userName}
               </Link>
+              <button onClick={chattingButtonClicked}>○</button>
             </div>
           ))}
         </div>
+        {isChattingOn
+          ? (
+            <Chatting
+              setIsChattingOn={setIsChattingOn}
+            />
+          )
+          : <></>}
       </div>
     </div>
   );
