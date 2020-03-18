@@ -11,6 +11,12 @@ const COMMENTLIKE_URL = 'http://localhost:3000/commentlike';
 const FRIENDS_URL = 'http://localhost:3000/friends';
 const PROFILE_URL = 'http://localhost:3000/profile';
 const UPLOAD_URL = 'http://localhost:3000/upload';
+const SOCKET_URL = 'http://localhost:3000/socket';
+
+export const getUserSocketID = async (userid) => {
+  const { data } = await axios.get(`${SOCKET_URL}/${userid}`)
+  return data;
+};
 
 export const fileUpload = async (formData) => {
   const { data } = await axios.post(UPLOAD_URL, formData, {
@@ -31,13 +37,13 @@ export const checkSessionExist = async () => {
   return data;
 };
 
-export const destroySession = async () => {
-  const { data } = await axios.patch(SESSION_URL);
+export const destroySession = async (userID) => {
+  const { data } = await axios.patch(SESSION_URL, { userID });
   return data;
 };
 
-export const login = async (userID, userPW) => {
-  const { data } = await axios.post(SESSION_URL, { userID, userPW });
+export const login = async (userID, userPW, socketID) => {
+  const { data } = await axios.post(SESSION_URL, { userID, userPW, socketID });
   return data;
 };
 

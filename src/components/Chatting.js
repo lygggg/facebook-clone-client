@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import io from 'socket.io-client';
-
-const socket = io.connect('http://localhost:4000');
 
 function Chatting({
   setIsChattingOn,
+  currentUserState,
+  socket,
+  userSocketID,
+  setUserSocketID,
 }) {
   const [message, setMessage] = useState('');
   const [chattingMessages, setChattingMessages] = useState([]);
 
   useEffect(() => {
     socket.on('hello', (data) => {
-      setChattingMessages((chattingMessages) => [...chattingMessages, `상대: ${data}`]);
+      setChattingMessages((chattingMessages) => [...chattingMessages, `${data.userID} : ${data.message}`]);
     });
   }, []);
 
   const closeChatting = () => {
+    setUserSocketID('');
     setIsChattingOn(false);
   };
 
@@ -24,9 +26,9 @@ function Chatting({
   };
 
   const sendMessage = () => {
-    const { id } = socket;
+    const userID = currentUserState.id;
 
-    socket.emit('chat message', { message, id });
+    socket.emit('chat message', { message, userSocketID, userID });
     setChattingMessages([...chattingMessages, message]);
     setMessage('');
   };

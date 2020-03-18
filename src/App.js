@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import io from 'socket.io-client';
 import Login from './pages/Login';
 import Post from './pages/Post';
 import MyPage from './pages/MyPage';
@@ -13,6 +14,8 @@ import FriendsReco from './pages/FriendsReco';
 import JoinFollow from './pages/JoinFollow';
 import JoinProfileImage from './pages/JoinProfileImage';
 import Search from './pages/Search';
+
+const socket = io.connect('http://localhost:4000');
 
 const currentUser = {
   id: '',
@@ -60,6 +63,7 @@ function App() {
             setCommentState={setCommentState}
             postState={postState}
             setPostState={setPostState}
+            socket={socket}
           />
         </Route>
         <Route path="/join">
@@ -83,6 +87,7 @@ function App() {
             topLevelState={topLevelState}
             setTopLevelState={setTopLevelState}
             setSearchState={setSearchState}
+            socket={socket}
           />
         </Route>
         <Route path="/mypage">

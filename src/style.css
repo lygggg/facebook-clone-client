@@ -947,17 +947,22 @@ body {
 /*************************************************/
 
 .chatting {
-  position: relative;
+  position: fixed;
   z-index: 5;
   background-color: #f0eef5;
-  bottom: 75px;
+  bottom: -5px;
   height: 260px;
-  border: 1px solid gray;
+  border: 1.5px solid blue;
+  width: 220px;
+}
+
+.s {
+  color: blue;
 }
 
 .chatting-input {
-  position: relative;
-  top: 183px;
+  position: fixed;
+  top: 728px;
 }
 
 .chatting-send-button {

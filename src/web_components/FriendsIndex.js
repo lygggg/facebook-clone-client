@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import io from 'socket.io-client';
 import _ from 'lodash';
-import { findUserById } from '../function';
+import {findUserById, getUserSocketID} from '../function';
 import Chatting from '../components/Chatting';
 
 
@@ -11,8 +11,10 @@ function FriendsIndex({
   currentUserState,
   topLevelState,
   setTopLevelState,
+  socket,
 }) {
   const [isChattingOn, setIsChattingOn] = useState(false);
+  const [userSocketID, setUserSocketID] = useState('');
   const { users } = loginState;
   const { id, friends } = currentUserState;
   const SHOWING_FRIENDS_COUNT = 3;
@@ -39,7 +41,9 @@ function FriendsIndex({
     setTopLevelState({ ...topLevelState, id: user.id, userName: user.userName });
   };
 
-  const chattingButtonClicked = () => {
+  const chattingButtonClicked = async (friendID) => {
+    const { userSocketID } = await getUserSocketID(friendID);
+    setUserSocketID(userSocketID);
     setIsChattingOn(true);
   };
 
@@ -82,7 +86,7 @@ function FriendsIndex({
               >
                 {findUserById(users, v).userName}
               </Link>
-              <button onClick={chattingButtonClicked}>○</button>
+              <button onClick={() => chattingButtonClicked(v)}>○</button>
             </div>
           ))}
         </div>
@@ -90,6 +94,10 @@ function FriendsIndex({
           ? (
             <Chatting
               setIsChattingOn={setIsChattingOn}
+              currentUserState={currentUserState}
+              socket={socket}
+              userSocketID={userSocketID}
+              setUserSocketID={setUserSocketID}
             />
           )
           : <></>}

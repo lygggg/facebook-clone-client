@@ -41,6 +41,7 @@ function Login({
   setLoginState,
   currentUserState,
   setCurrentUserState,
+  socket,
 }) {
   const [temptState, setTemptState] = useState(initialTempt);
   const { temptId, temptPw } = temptState;
@@ -58,7 +59,7 @@ function Login({
   };
 
   const loginButtonClicked = async () => {
-    const { user, status } = await login(temptId, temptPw);
+    const { user, status } = await login(temptId, temptPw, socket.id);
 
     if (status === 400) {
       alert('아이디와 비밀번호를 다시 확인해주세요');

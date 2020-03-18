@@ -19,7 +19,17 @@ import {
   checkSessionExist as apiCheckSessionExist,
   addProfileImage as apiAddProfileImage,
   fileUpload as apiFileUpload,
+  getUserSocketID as apiGetUserSocketID,
 } from './apis/service';
+
+// 유저의 socket.id 가져오기
+export const getUserSocketID = async (userID) => {
+  try {
+    return await apiGetUserSocketID(userID);
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 // 파일 업로드
 export const fileUpload = async (formData) => {
@@ -49,18 +59,18 @@ export const checkSessionExist = async () => {
 };
 
 // 세션 제거
-export const destroySession = async () => {
+export const destroySession = async (userID) => {
   try {
-    return await apiDistroySession();
+    return await apiDistroySession(userID);
   } catch (e) {
     console.error(e);
   }
 };
 
 // 로그인
-export const login = async (userID, userPW) => {
+export const login = async (userID, userPW, socketID) => {
   try {
-    return await apiLogin(userID, userPW);
+    return await apiLogin(userID, userPW, socketID);
   } catch (e) {
     console.error(e);
   }
