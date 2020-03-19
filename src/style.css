@@ -829,6 +829,7 @@ body {
   position: fixed;
   right: 17%;
   width: 444px;
+  z-index: 5;
 }
 
 .timeline-about-friends {
@@ -956,8 +957,36 @@ body {
   width: 220px;
 }
 
-.s {
+.chatting-header {
+  background-color: #41a0f5;
+  color: white;
+  font-size: 12px;
+}
+
+.chatting-exit {
+  font-size: 10px;
+  width: 19px;
+  background-color: white;
+  border: 1px solid;
+  position: fixed;
+  right: 351px;
+  top: 500px;
+  height: 17px;
+}
+
+.chatting-message-body {
+  margin: 0 0 -7px 0;
+}
+
+.chatting-partner-name {
   color: blue;
+  font-weight: bold;
+  font-size: 13px;
+  margin: 0 5px 0 3px;
+}
+
+.chatting-message {
+  font-size: 13px;
 }
 
 .chatting-input {
@@ -967,6 +996,18 @@ body {
 
 .chatting-send-button {
   font-size: 11px;
+}
+
+/**************************************************/
+
+.online {
+  background-color: white;
+  border: 1px;
+  color: springgreen;
+  font-size: 19px;
+  position: relative;
+  left: 6px;
+  bottom: 7px;
 }
 
 .scrap-border {

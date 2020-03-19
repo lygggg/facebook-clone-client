@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import io from 'socket.io-client';
 import { getPosts, getUsers, findUserById } from '../function';
 import Header from '../web_components/Header';
 import Advertisement from '../web_components/Advertisement';

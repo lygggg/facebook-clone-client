@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import io from 'socket.io-client';
+import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import _ from 'lodash';
 import {findUserById, getUserSocketID} from '../function';
 import Chatting from '../components/Chatting';
-
 
 function FriendsIndex({
   loginState,
@@ -15,6 +13,7 @@ function FriendsIndex({
 }) {
   const [isChattingOn, setIsChattingOn] = useState(false);
   const [userSocketID, setUserSocketID] = useState('');
+  const [friendID, setFriendID] = useState('');
   const { users } = loginState;
   const { id, friends } = currentUserState;
   const SHOWING_FRIENDS_COUNT = 3;
@@ -42,8 +41,17 @@ function FriendsIndex({
   };
 
   const chattingButtonClicked = async (friendID) => {
-    const { userSocketID } = await getUserSocketID(friendID);
+    const socketID = await getUserSocketID(friendID);
+    console.log('You clicked this socket : ', socketID);
+    if (socketID === 400) {
+      alert(`${findUserById(users, friendID).userName}님은 접속중이 아닙니다`);
+      return;
+    }
+
+    const { userSocketID } = socketID;
+
     setUserSocketID(userSocketID);
+    setFriendID(friendID);
     setIsChattingOn(true);
   };
 
@@ -86,7 +94,11 @@ function FriendsIndex({
               >
                 {findUserById(users, v).userName}
               </Link>
-              <button onClick={() => chattingButtonClicked(v)}>○</button>
+              <span>
+                {findUserById(users, v).online
+                  ? <button className="online" onClick={() => chattingButtonClicked(v)}>●</button>
+                  : <></>}
+              </span>
             </div>
           ))}
         </div>
@@ -98,6 +110,9 @@ function FriendsIndex({
               socket={socket}
               userSocketID={userSocketID}
               setUserSocketID={setUserSocketID}
+              loginState={loginState}
+              friendID={friendID}
+              setFriendID={setFriendID}
             />
           )
           : <></>}

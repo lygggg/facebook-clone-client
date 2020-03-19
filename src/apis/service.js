@@ -14,7 +14,7 @@ const UPLOAD_URL = 'http://localhost:3000/upload';
 const SOCKET_URL = 'http://localhost:3000/socket';
 
 export const getUserSocketID = async (userid) => {
-  const { data } = await axios.get(`${SOCKET_URL}/${userid}`)
+  const { data } = await axios.get(`${SOCKET_URL}/${userid}`);
   return data;
 };
 
