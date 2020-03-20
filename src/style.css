@@ -83,7 +83,7 @@ body {
 
 .timeline-post {
   position: relative;
-  left: 87%;
+  left: 437px;
 }
 
 .addpost {
@@ -827,9 +827,9 @@ body {
 .friends-index {
   display: flex;
   position: fixed;
-  right: 17%;
   width: 444px;
   z-index: 5;
+  left: 820px;
 }
 
 .timeline-about-friends {
@@ -908,7 +908,7 @@ body {
   position: fixed;
   background-color: white;
   width: 243px;
-  left: 12%;
+  left: 183px;
   border-radius: 5px;
 }
 

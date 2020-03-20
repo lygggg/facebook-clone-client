@@ -55,6 +55,11 @@ function FriendsIndex({
     setIsChattingOn(true);
   };
 
+  function x() {
+    const y = getUserSocketID();
+    return y;
+  }
+
   return (
     <div className="friends-index">
       <div className="frineds-index-line-knowing">
@@ -83,8 +88,9 @@ function FriendsIndex({
         </div>
         <br />
         <div>
-          {friends.map((v, index) => (
-            <div key={index}>
+          {friends.map((v, index) => {
+            const user = findUserById(users, v)
+            return (<div key={index}>
               <img className="friends-index-line-profile" src={findUserById(users, v).profile} />
               <Link
                 to="/otherspage"
@@ -92,15 +98,15 @@ function FriendsIndex({
                 type="button"
                 onClick={() => moveToOthersPage(v)}
               >
-                {findUserById(users, v).userName}
+                {user.userName}
               </Link>
               <span>
-                {findUserById(users, v).online
+                {user.online
                   ? <button className="online" onClick={() => chattingButtonClicked(v)}>●</button>
                   : <></>}
               </span>
-            </div>
-          ))}
+            </div>)
+          })}
         </div>
         {isChattingOn
           ? (
