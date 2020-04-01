@@ -63,7 +63,9 @@ export const getPosts = async () => {
 };
 
 export const addPost = async (id, name, contents, profile, imagePath, time) => {
-  const { data } = await axios.post(POSTS_URL, { id, name, contents, profile, imagePath, time });
+  const { data } = await axios.post(POSTS_URL, {
+    id, name, contents, profile, imagePath, time,
+  });
   return data;
 };
 
