@@ -1,5 +1,5 @@
-import advertising1 from "../advertising.png";
-import advertising2 from "../advertising2.png";
+import advertising1 from "../files/advertising.png";
+import advertising2 from "../files/advertising2.png";
 import React from "react";
 
 function Advertisement() {

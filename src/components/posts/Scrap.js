@@ -1,5 +1,5 @@
 import React from 'react';
-import profile from '../../profile.jpeg';
+import profile from '../../files/profile.jpeg';
 
 function Scrap({
   postState,

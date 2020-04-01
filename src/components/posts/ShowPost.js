@@ -2,7 +2,7 @@ import React from 'react';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
 import { plusThumbCount, openPostEditBox, removePost } from '../../function';
-import profile from '../../profile.jpeg';
+import profile from '../../files/profile.jpeg';
 
 function ShowPostOthersPage({
   postState,

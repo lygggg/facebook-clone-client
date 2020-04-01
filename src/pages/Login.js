@@ -11,7 +11,7 @@ import {
   checkSessionExist,
   getUsers,
 } from '../function';
-import background from '../login-background.png';
+import background from '../files/login-background.png';
 
 const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState, history) => {
   const { user } = await checkSessionExist();
