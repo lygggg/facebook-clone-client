@@ -6,10 +6,8 @@ function PostEditBox({
   postState,
   setPostState,
   currentUserState,
-  isEditButtonClicked,
 }) {
   const [temptState, setTemptState] = useState('');
-  const { post } = postState;
   const { id } = currentUserState;
 
   const setEditBox = (temptState) => {

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test AddPost renders well 1`] = `ReactWrapper {}`;
+
+exports[`Snapshot test PostEditBox renders well 1`] = `ReactWrapper {}`;
+
+exports[`Snapshot test ShowPostHome renders well 1`] = `ReactWrapper {}`;
+
+exports[`Snapshot test ShowPostOthersPage renders well 1`] = `ReactWrapper {}`;

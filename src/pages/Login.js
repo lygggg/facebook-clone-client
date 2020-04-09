@@ -24,7 +24,7 @@ const callAPI = async (currentUserState, setCurrentUserState, loginState, setLog
     friends: user.friends,
     profile: user.profile,
   });
-  setLoginState({ ...loginState, users: [...userStore], isLoggedIn: true })
+  setLoginState({ ...loginState, users: [...userStore], isLoggedIn: true });
 
   if (user) {
     history.push('/post');
@@ -104,7 +104,7 @@ function Login({
           className="join-router"
           onClick={MoveToJoiningPage}
         >
-        회원이 아니신가요?
+          회원이 아니신가요?
         </button>
         <Switch>
           <Route path="/join">

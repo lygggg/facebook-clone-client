@@ -36,7 +36,7 @@ function ShowPostHome({
 
   useEffect(() => {
     callAPI(postState, setPostState);
-  }, [postState.scrap]);
+  }, []);
 
   const handleThumbCount = async (specificPost) => {
     const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id)
@@ -56,7 +56,6 @@ function ShowPostHome({
   };
 
   const scrapButtonClicked = async (specificPost) => {
-    const { scrap } = postState;
     const { id, userName } = currentUserState;
     const { name, contents, uniqueKey, profile } = specificPost;
 
