@@ -1,13 +1,17 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 import AddPost from '../../components/posts/AddPost';
 import PostEditBox from "../../components/posts/PostEditBox";
 import ShowPostOthersPage from "../../components/posts/ShowPost";
 import ShowPostHome from "../../components/posts/ShowPostHome";
+import FriendsState from "../../components/headers/FriendsState";
+import HomeHeader from "../../components/headers/HeaderHome";
+import HeaderHome from "../../components/headers/HeaderHome";
 
 describe('Snapshot test', () => {
   let currentUserState;
+  let setCurrentUserState;
   let postState;
   let setPostState;
   let specificPost;
@@ -20,7 +24,8 @@ describe('Snapshot test', () => {
   let index;
 
   beforeEach(() => {
-    currentUserState = { id: 'a'};
+    specificPost = { id: 'a', name: 'a' };
+    currentUserState = { id: 'a', pw: 'a', userName: 'a', friends: [] };
     loginState = { users: [] };
     commentState = { comment: [] };
     index = 100;
@@ -28,6 +33,37 @@ describe('Snapshot test', () => {
       time: [1, 2, 3, 4, 5],
       thumbCount: [],
     };
+  });
+
+  // describe('HomeHeader', () => {
+  //   it('renders well', () => {
+  //     const component = mount(
+  //       <HomeHeader
+  //         loginState={loginState}
+  //         setLoginState={setLoginState}
+  //         currentUserState={currentUserState}
+  //         setCurrentUserState={setCurrentUserState}
+  //       />
+  //     );
+  //
+  //     expect(component).toMatchSnapshot();
+  //   });
+  // });
+
+  describe('FriendsState', () => {
+    it('renders well', () => {
+      const component = mount(
+        <FriendsState
+          specificPost={specificPost}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+          loginState={loginState}
+          setLoginState={setLoginState}
+        />
+      );
+
+      expect(component).toMatchSnapshot();
+    });
   });
 
   /*
@@ -95,18 +131,20 @@ describe('Snapshot test', () => {
   describe('ShowPostHome', () => {
     it('renders well', () => {
       const component = mount(
-        <ShowPostHome
-          postState={postState}
-          setPostState={setPostState}
-          currentUserState={currentUserState}
-          commentState={commentState}
-          setCommentState={setCommentState}
-          setTopLevelState={setTopLevelState}
-          specificPost={p}
-          index={index}
-          loginState={loginState}
-          setLoginState={setLoginState}
-        />
+        <BrowserRouter>
+          <ShowPostHome
+            postState={postState}
+            setPostState={setPostState}
+            currentUserState={currentUserState}
+            commentState={commentState}
+            setCommentState={setCommentState}
+            setTopLevelState={setTopLevelState}
+            specificPost={p}
+            index={index}
+            loginState={loginState}
+            setLoginState={setLoginState}
+          />
+        </BrowserRouter>
       );
 
       expect(component).toMatchSnapshot();

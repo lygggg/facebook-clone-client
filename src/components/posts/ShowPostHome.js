@@ -3,16 +3,10 @@ import { Link } from 'react-router-dom';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
 
-import {
-  removePost,
-  addScrap,
-  getPosts,
-  plusThumbCount,
-  openPostEditBox,
-} from '../../function';
+import func from '../../function';
 
 const callAPI = async (postState, setPostState) => {
-  const { timeLinePosts } = await getPosts();
+  const { timeLinePosts } = await func.getPosts();
 
   setPostState({
     ...postState,
@@ -39,13 +33,13 @@ function ShowPostHome({
   }, []);
 
   const handleThumbCount = async (specificPost) => {
-    const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id)
+    const { timeLinePosts } = await func.plusThumbCount(specificPost.uniqueKey, id)
 
     setPostState({ ...postState, post: [...timeLinePosts.reverse()]});
   };
 
   const handleRemovePost = async (specificPost) => {
-    const { timeLinePosts } = await removePost(specificPost.uniqueKey);
+    const { timeLinePosts } = await func.removePost(specificPost.uniqueKey);
 
     if (specificPost.id === id) {
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
@@ -56,18 +50,12 @@ function ShowPostHome({
   };
 
   const scrapButtonClicked = async (specificPost) => {
-    const { id, userName } = currentUserState;
-    const { name, contents, uniqueKey, profile } = specificPost;
-
-    const { timeLinePosts } = await addScrap(id, userName, name, contents, uniqueKey, profile);
-
-    setPostState({ ...postState, scrap: [...timeLinePosts.reverse()] });
-    alert('스크랩이 완료되었습니다! 마이페이지에서 확인하세요');
+    alert('스크랩이 완료되었습니다');
   };
 
   const handleEditPost = (specificPost) => {
     if (specificPost.id === id) {
-      setPostState(openPostEditBox(postState, specificPost));
+      setPostState(func.openPostEditBox(postState, specificPost));
     } else {
       alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
     }

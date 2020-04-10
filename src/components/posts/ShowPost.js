@@ -1,8 +1,7 @@
 import React from 'react';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-import { plusThumbCount, openPostEditBox, removePost } from '../../function';
-import profile from '../../files/profile.jpeg';
+import func from '../../function';
 
 function ShowPostOthersPage({
   postState,
@@ -18,13 +17,13 @@ function ShowPostOthersPage({
   const { id } = currentUserState;
 
   const handleThumbCount = async (specificPost) => {
-    const { timeLinePosts } = await plusThumbCount(specificPost.uniqueKey, id);
+    const { timeLinePosts } = await func.plusThumbCount(specificPost.uniqueKey, id);
 
     setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
   };
 
   const handleRemovePost = async (specificPost) => {
-    const { timeLinePosts } = await removePost(specificPost.uniqueKey);
+    const { timeLinePosts } = await func.removePost(specificPost.uniqueKey);
 
     if (specificPost.id === id) {
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
@@ -36,7 +35,7 @@ function ShowPostOthersPage({
 
   const handleEditPost = (specificPost) => {
     if (specificPost.id === id) {
-      setPostState(openPostEditBox(postState, specificPost));
+      setPostState(func.openPostEditBox(postState, specificPost));
     } else {
       alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
     }

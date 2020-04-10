@@ -1,20 +1,13 @@
 import React, { useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import ShowPost from '../components/posts/ShowPost';
-import HeaderOthersPage from '../components/headers/HeaderOthersPage';
-import FriendsState from '../components/headers/FriendsState';
-import SearchBox from '../components/headers/SearchBox';
-import { checkSessionExist, getUsers } from '../function';
-import PostEditBox from '../components/posts/PostEditBox';
-import Comment from '../components/comments/Comment';
+import func from '../function';
 import OthersPageTop from "../web_components/OthersPageTop";
 import Header from "../web_components/Header";
 import OthersPageSide from "../web_components/OthersPageSide";
 import OthersPagePost from "../web_components/OthersPagePost";
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
-  const { user } = await checkSessionExist();
-  const { userStore } = await getUsers();
+  const { user } = await func.checkSessionExist();
+  const { userStore } = await func.getUsers();
 
   setLoginState({
     ...loginState,

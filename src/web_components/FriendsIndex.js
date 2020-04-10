@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
-import {findUserById, getUserSocketID} from '../function';
+import func from '../function';
 import Chatting from '../components/Chatting';
 
 function FriendsIndex({
@@ -17,11 +17,11 @@ function FriendsIndex({
   const { users } = loginState;
   const { id, friends } = currentUserState;
   const SHOWING_FRIENDS_COUNT = 3;
-  let recommandedFriedns = [];
+  let recommandedFriends = [];
 
   if (friends.length > 0 && users.length > 0) {
     const f = friends.reduce((acc, friendID) => {
-      const user = findUserById(users, friendID);
+      const user = func.findUserById(users, friendID);
       if (!user) {
         return acc;
       }
@@ -29,22 +29,22 @@ function FriendsIndex({
       return [...acc, ...user.friends];
     }, []);
 
-    recommandedFriedns = _.uniq(f)
+    recommandedFriends = _.uniq(f)
       .filter((it) => id !== it)
       .filter((it) => !friends.includes(it))
       .slice(0, SHOWING_FRIENDS_COUNT);
   }
 
   const moveToOthersPage = (userID) => {
-    const user = findUserById(users, userID);
+    const user = func.findUserById(users, userID);
     setTopLevelState({ ...topLevelState, id: user.id, userName: user.userName });
   };
 
   const chattingButtonClicked = async (friendID) => {
-    const socketID = await getUserSocketID(friendID);
+    const socketID = await func.getUserSocketID(friendID);
     console.log('You clicked this socket : ', socketID);
     if (socketID === 400) {
-      alert(`${findUserById(users, friendID).userName}님은 접속중이 아닙니다`);
+      alert(`${func.findUserById(users, friendID).userName}님은 접속중이 아닙니다`);
       return;
     }
 
@@ -55,26 +55,21 @@ function FriendsIndex({
     setIsChattingOn(true);
   };
 
-  function x() {
-    const y = getUserSocketID();
-    return y;
-  }
-
   return (
     <div className="friends-index">
       <div className="frineds-index-line-knowing">
         <Link className="frineds-index-maybe-knowing" to="friendsreco">알 수도 있는 사람</Link>
         <div className="frineds-index-maybe-knowing-3man">
-          {recommandedFriedns.map((id, index) => (
+          {recommandedFriends.map((id, index) => (
             <div key={index}>
-              <img className="friends-index-line-profile" src={findUserById(users, id).profile} alt="" />
+              <img className="friends-index-line-profile" src={func.findUserById(users, id).profile} alt="" />
               <Link
                 to="/otherspage"
                 className="friends-index-line-name"
                 type="button"
                 onClick={() => moveToOthersPage(id)}
               >
-                {findUserById(users, id).userName}
+                {func.findUserById(users, id).userName}
               </Link>
             </div>
           ))}
@@ -89,9 +84,9 @@ function FriendsIndex({
         <br />
         <div>
           {friends.map((v, index) => {
-            const user = findUserById(users, v)
+            const user = func.findUserById(users, v)
             return (<div key={index}>
-              <img className="friends-index-line-profile" src={findUserById(users, v).profile} />
+              <img className="friends-index-line-profile" src={func.findUserById(users, v).profile} />
               <Link
                 to="/otherspage"
                 className="friends-index-line-name"

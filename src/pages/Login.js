@@ -6,16 +6,12 @@ import {
   useHistory,
 } from 'react-router-dom';
 import Join from './Join';
-import {
-  login,
-  checkSessionExist,
-  getUsers,
-} from '../function';
+import func from '../function';
 import background from '../files/login-background.png';
 
 const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState, history) => {
-  const { user } = await checkSessionExist();
-  const { userStore } = await getUsers();
+  const { user } = await func.checkSessionExist();
+  const { userStore } = await func.getUsers();
 
   setCurrentUserState({
     ...currentUserState,
@@ -59,7 +55,7 @@ function Login({
   };
 
   const loginButtonClicked = async () => {
-    const { user, status } = await login(temptId, temptPw, socket.id);
+    const { user, status } = await func.login(temptId, temptPw, socket.id);
 
     if (status === 400) {
       alert('아이디와 비밀번호를 다시 확인해주세요');

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
-import { addProfileImage, fileUpload } from '../function';
+import func from '../function';
 
 function JoinProfileImage({
   currentUserState,
@@ -24,8 +23,8 @@ function JoinProfileImage({
 
     const formData = new FormData();
     formData.append('file', file);
-    const { fileName, filePath } = await fileUpload(formData);
-    await addProfileImage(id, filePath);
+    const { fileName, filePath } = await func.fileUpload(formData);
+    await func.addProfileImage(id, filePath);
 
     setCurrentUserState({
       ...currentUserState,

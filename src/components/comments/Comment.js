@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {
-  getComments,
-  addComment,
-  plusCommentCount,
-  plusCommentThumbCount,
-  openChildCommentBox, getUsers,
-} from '../../function';
+import func from '../../function';
 import ChildCommentBox from './ChildCommentBox';
 
 const callAPI = async (commentState, setCommentState, loginState, setLoginState) => {
-  const { postComments } = await getComments();
-  const { userStore } = await getUsers();
+  const { postComments } = await func.getComments();
+  const { userStore } = await func.getUsers();
 
   setLoginState({ ...loginState, users: [...userStore] });
 
@@ -46,8 +40,8 @@ function Comment({
 
   const handleAddComment = async () => {
     if (temptState.trim()) {
-      const { postComments } = await addComment(uniqueKey, id, userName, temptState);
-      const { timeLinePosts } = await plusCommentCount(uniqueKey);
+      const { postComments } = await func.addComment(uniqueKey, id, userName, temptState);
+      const { timeLinePosts } = await func.plusCommentCount(uniqueKey);
 
       setCommentState({ ...commentState, comment: [...postComments.reverse()] });
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
@@ -56,7 +50,7 @@ function Comment({
   };
 
   const handleCommentThumbCount = async (specificComment) => {
-    const { postComments } = await plusCommentThumbCount(
+    const { postComments } = await func.plusCommentThumbCount(
       specificComment.uniqueKey,
       currentUserState.id,
     );
@@ -65,7 +59,7 @@ function Comment({
   };
 
   const ChildCommentButtonClicked = (specificComment) => {
-    setCommentState(openChildCommentBox(commentState, specificComment));
+    setCommentState(func.openChildCommentBox(commentState, specificComment));
   };
   return (
     <>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { getUsers } from '../../function';
+import func from '../../function';
 import logo from '../../files/facebooklogo.png';
 
 const callAPI = async (loginState, setLoginState) => {
-  const { userStore } = await getUsers();
+  const { userStore } = await func.getUsers();
 
   setLoginState({ ...loginState, user: [...userStore] });
 };

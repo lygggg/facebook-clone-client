@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { destroySession } from '../../function';
+import func from '../../function';
 
 function Header({
   loginState,
@@ -16,7 +16,7 @@ function Header({
   };
 
   const logoutButtonClicked = async () => {
-    await destroySession(currentUserState.id);
+    await func.destroySession(currentUserState.id);
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
     setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '', profile: '' });
     alert('로그아웃 되었습니다');

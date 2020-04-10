@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { checkSessionExist } from '../function';
+import func from '../function';
 import Header from '../web_components/Header';
 import SearchContents from '../web_components/SearchContents';
 
 const callAPI = async (currentUserState, setCurrentUserState) => {
-  const { user } = await checkSessionExist();
+  const { user } = await func.checkSessionExist();
 
   setCurrentUserState({
     ...currentUserState,

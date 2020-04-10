@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { addFriend } from '../function';
+import func from '../function';
 
 const callAPI = async (setUsers, loginState) => {
   setUsers(
@@ -37,7 +37,7 @@ function JoinFollow({
     await Promise.all(
       users
         .filter((user) => user.checked)
-        .map((user) => addFriend(id, user.id)),
+        .map((user) => func.addFriend(id, user.id)),
     )
 
     alert('회원가입이 완료되었습니다! 다시 로그인 해주세요');

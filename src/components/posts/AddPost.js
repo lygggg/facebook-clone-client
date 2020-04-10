@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {addPost, fileUpload, getCurrentTime} from '../../function';
+import func from '../../function';
 import {Link} from "react-router-dom";
 
 function AddPost({
@@ -18,8 +18,8 @@ function AddPost({
 
   const handleAddPost = async () => {
     if (temptState.trim()) {
-      const time = getCurrentTime();
-      const { timeLinePosts } = await addPost(id, userName, temptState, profile, imagePath, time);
+      const time = func.getCurrentTime();
+      const { timeLinePosts } = await func.addPost(id, userName, temptState, profile, imagePath, time);
 
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
       setTemptState('');
@@ -40,7 +40,7 @@ function AddPost({
     e.preventDefault();
     const formData = new FormData();
     formData.append('file', file);
-    const { filePath } = await fileUpload(formData);
+    const { filePath } = await func.fileUpload(formData);
     setImagePath(filePath);
   };
 

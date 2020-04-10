@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { findUserById } from '../function';
+import func from '../function';
 
 function Chatting({
   setIsChattingOn,
@@ -44,7 +44,7 @@ function Chatting({
   return (
     <div className="chatting">
       <div className="chatting-header">
-        {findUserById(users, friendID).userName}
+        {func.findUserById(users, friendID).userName}
         님 과의 채팅방입니다
       </div>
       <button className="chatting-exit" type="button" onClick={closeChatting}>X</button>
@@ -52,7 +52,7 @@ function Chatting({
         {chattingMessages.map((v, i) => (
           <div key={i}>
             <div className="chatting-message-body">
-              <span className="chatting-partner-name">{findUserById(users, v.id).userName}</span>
+              <span className="chatting-partner-name">{func.findUserById(users, v.id).userName}</span>
               <span className="chatting-message">{v.msg}</span>
             </div>
           </div>

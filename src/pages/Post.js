@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import { getPosts, getUsers, findUserById } from '../function';
+import func from '../function';
 import Header from '../web_components/Header';
 import Advertisement from '../web_components/Advertisement';
 import TimeLinePost from '../web_components/TimeLinePost';
 import FriendsIndex from '../web_components/FriendsIndex';
 
 const callAPI = async (postState, setPostState, loginState, setLoginState) => {
-  const { timeLinePosts } = await getPosts();
-  const { userStore } = await getUsers();
+  const { timeLinePosts } = await func.getPosts();
+  const { userStore } = await func.getUsers();
 
   setLoginState({ ...loginState, users: [...userStore] });
 
@@ -45,7 +45,7 @@ function Post({
 
   return (
     <div>
-      {!findUserById(users, id)
+      {!func.findUserById(users, id)
         ? <h3>페이지를 로딩중입니다...</h3>
         : (
           <div>

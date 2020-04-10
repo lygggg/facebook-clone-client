@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { checkSessionExist, getPosts } from '../function';
+import func from '../function';
 import Header from '../web_components/Header';
 import MyPageTop from '../web_components/MyPageTop';
 import MyPageSide from '../web_components/MyPageSide';
 import MyPagePost from '../web_components/MyPagePost';
 
 const callAPI = async (postState, setPostState, currentUserState, setCurrentUserState) => {
-  const { user } = await checkSessionExist();
-  const { timeLinePosts } = await getPosts();
+  const { user } = await func.checkSessionExist();
+  const { timeLinePosts } = await func.getPosts();
 
   setCurrentUserState({
     ...currentUserState,

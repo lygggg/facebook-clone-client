@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { editPost } from '../../function';
+import func from '../../function';
 
 function PostEditBox({
   specificPost,
@@ -27,7 +27,7 @@ function PostEditBox({
       return;
     }
 
-    const { timeLinePosts } = await editPost(uniqueKey, temptState);
+    const { timeLinePosts } = await func.editPost(uniqueKey, temptState);
     setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
     alert('게시글이 수정되었습니다');
   };

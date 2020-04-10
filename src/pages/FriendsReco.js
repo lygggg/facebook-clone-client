@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
-import { checkSessionExist, getUsers } from '../function';
+import func from '../function';
 import SearchBox from '../components/headers/SearchBox';
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
-  const { userStore } = await getUsers();
-  const { user } = await checkSessionExist();
+  const { userStore } = await func.getUsers();
+  const { user } = await func.checkSessionExist();
 
   setCurrentUserState({
     ...currentUserState,

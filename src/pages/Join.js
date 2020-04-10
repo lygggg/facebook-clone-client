@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import { addUser, fileUpload, getUsers} from '../function';
+import func from '../function';
 
 
 const initialTempt = {
@@ -18,7 +18,7 @@ const errors = {
 };
 
 const callAPI = async (loginState, setLoginState) => {
-  const { userStore } = await getUsers();
+  const { userStore } = await func.getUsers();
 
   setLoginState({ ...loginState, users: [...userStore] });
 };
@@ -115,11 +115,11 @@ function Join({
       return;
     }
 
-    const { userStore } = await getUsers();
+    const { userStore } = await func.getUsers();
 
     setLoginState({ ...loginState, users: [...userStore] });
 
-    await addUser(
+    await func.addUser(
       temptJoiningId,
       temptJoiningPw,
       temptJoiningName,
@@ -151,7 +151,7 @@ function Join({
 
     const formData = new FormData();
     formData.append('file', file);
-    const { fileName, filePath } = await fileUpload(formData);
+    const { fileName, filePath } = await func.fileUpload(formData);
 
     setUploadedFile({ fileName, filePath });
   };

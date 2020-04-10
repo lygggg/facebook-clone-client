@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addChildComment } from '../../function';
+import func from '../../function';
 
 function ChildCommentBox({
   commentState,
@@ -13,7 +13,7 @@ function ChildCommentBox({
 
   const handleAddChildComment = async () => {
     if (temptState.trim()) {
-      const { postComments } = await addChildComment(uniqueKey , temptState, id, userName);
+      const { postComments } = await func.addChildComment(uniqueKey , temptState, id, userName);
 
       setCommentState({ ...commentState, comment: [...postComments.reverse()]});
     }

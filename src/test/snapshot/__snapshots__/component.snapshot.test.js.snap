@@ -2,6 +2,8 @@
 
 exports[`Snapshot test AddPost renders well 1`] = `ReactWrapper {}`;
 
+exports[`Snapshot test FriendsState renders well 1`] = `ReactWrapper {}`;
+
 exports[`Snapshot test PostEditBox renders well 1`] = `ReactWrapper {}`;
 
 exports[`Snapshot test ShowPostHome renders well 1`] = `ReactWrapper {}`;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { addFriend, removeFriend, findUserById } from '../../function';
+import func from '../../function';
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
   const { users } = loginState;
@@ -30,7 +30,7 @@ function FriendsState({
   }, [loginState]);
 
   const friendAddButtonClicked = async () => {
-    const { userStore } = await addFriend(currentUserState.id, id);
+    const { userStore } = await func.addFriend(currentUserState.id, id);
 
     setLoginState({ ...loginState, users: [...userStore] });
 
@@ -45,7 +45,7 @@ function FriendsState({
   };
 
   const friendRemoveButtonClicked = async () => {
-    const { userStore } = await removeFriend(currentUserState.id, id);
+    const { userStore } = await func.removeFriend(currentUserState.id, id);
 
     setLoginState({ ...loginState, users: [...userStore] });
 
@@ -65,7 +65,7 @@ function FriendsState({
         {friends.includes(id)
           ? (
             <div>
-              <span className="others-friend-state">{findUserById(users, id).userName} 님과 친구입니다</span>{' '}
+              <span className="others-friend-state">{func.findUserById(users, id).userName} 님과 친구입니다</span>{' '}
               <button
                 className="others-friend-already"
                 type="button"
