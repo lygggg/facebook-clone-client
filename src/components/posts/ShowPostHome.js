@@ -50,7 +50,7 @@ function ShowPostHome({
   };
 
   const scrapButtonClicked = async (specificPost) => {
-    alert('스크랩이 완료되었습니다');
+    alert('스크랩이 완료되었습니다! 마이페이지에서 확인하세요');
   };
 
   const handleEditPost = (specificPost) => {

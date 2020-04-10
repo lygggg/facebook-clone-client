@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import func from '../../function';
 
-function HomeHeader({
+function OtherspageHeader({
   loginState,
   setLoginState,
   currentUserState,
@@ -38,4 +38,4 @@ function HomeHeader({
   );
 }
 
-export default HomeHeader;
+export default OtherspageHeader;

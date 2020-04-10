@@ -1,11 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot test AddPost renders well 1`] = `ReactWrapper {}`;
+exports[`Snapshot test AddPost renders well 1`] = `ShallowWrapper {}`;
 
-exports[`Snapshot test FriendsState renders well 1`] = `ReactWrapper {}`;
+exports[`Snapshot test Chatting renders well 1`] = `ShallowWrapper {}`;
 
-exports[`Snapshot test PostEditBox renders well 1`] = `ReactWrapper {}`;
+exports[`Snapshot test ChildCommentBox renders well 1`] = `ShallowWrapper {}`;
 
-exports[`Snapshot test ShowPostHome renders well 1`] = `ReactWrapper {}`;
+exports[`Snapshot test Comment renders well 1`] = `ShallowWrapper {}`;
 
-exports[`Snapshot test ShowPostOthersPage renders well 1`] = `ReactWrapper {}`;
+exports[`Snapshot test FriendsState renders well 1`] = `ShallowWrapper {}`;
+
+exports[`Snapshot test HeaderOthersPage renders well 1`] = `ShallowWrapper {}`;
+
+exports[`Snapshot test HomeHeader renders well 1`] = `ShallowWrapper {}`;
+
+exports[`Snapshot test MyPageHeader renders well 1`] = `ShallowWrapper {}`;
+
+exports[`Snapshot test OtherspageHeader renders well 1`] = `ShallowWrapper {}`;
+
+exports[`Snapshot test PostEditBox renders well 1`] = `ShallowWrapper {}`;
+
+exports[`Snapshot test SearchBox renders well 1`] = `ShallowWrapper {}`;
+
+exports[`Snapshot test ShowPostHome renders well 1`] = `ShallowWrapper {}`;
+
+exports[`Snapshot test ShowPostOthersPage renders well 1`] = `ShallowWrapper {}`;

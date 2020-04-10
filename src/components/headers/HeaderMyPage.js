@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import func from '../../function';
 
-function Header({
+function MyPageHeader({
   loginState,
   setLoginState,
   currentUserState,
@@ -34,4 +34,4 @@ function Header({
   );
 }
 
-export default Header;
+export default MyPageHeader;
