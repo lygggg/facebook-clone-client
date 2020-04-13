@@ -32,7 +32,7 @@ function FriendsReco({
   setSearchState,
 }) {
   let friendsRecoArray = [];
-  const { friends, id } = currentUserState;
+  const { friends } = currentUserState;
   const { users } = loginState;
 
   useEffect(() => {
