@@ -10,6 +10,7 @@ body {
   grid-template-rows: 100%;
   position: relative;
   top: 60px;
+  /*display: flex;*/
 }
 
 .header {

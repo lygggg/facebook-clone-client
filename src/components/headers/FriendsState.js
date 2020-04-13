@@ -21,7 +21,7 @@ function FriendsState({
   loginState,
   setLoginState,
 }) {
-  const { id, name } = specificPost;
+  const { id } = specificPost;
   const { friends } = currentUserState;
   const { users } = loginState;
 

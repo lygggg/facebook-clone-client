@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import func from '../../function';
-import {Link} from "react-router-dom";
 
 function AddPost({
   currentUserState,
