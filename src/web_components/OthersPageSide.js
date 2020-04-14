@@ -13,7 +13,7 @@ function OthersPageSide({
         <i className="fas fa-globe-americas" />
         <span className="mypage-side-banner-introduce">소개</span>
         <div className="mypage-side-banner-utter">
-          _______________________________________________
+          ______________________________________________
         </div>
         <div className="mypage-user-information">
           <i className="fas fa-birthday-cake" />
