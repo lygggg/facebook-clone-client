@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import ChildCommentBox from "../../components/comments/ChildCommentBox";
 
 describe('ChildCommentBox', () => {
@@ -19,7 +19,7 @@ describe('ChildCommentBox', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <ChildCommentBox
         commentState={commentState}
         setCommentState={setCommentState}

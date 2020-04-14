@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import {BrowserRouter} from "react-router-dom";
 import SearchBox from "../../components/headers/SearchBox";
 
@@ -8,8 +8,14 @@ describe('SearchBox', () => {
   let setLoginState;
   let setSearchState;
 
+  beforeEach(() => {
+    loginState = {
+      users: [],
+    }
+  })
+
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <BrowserRouter>
         <SearchBox
           loginState={loginState}
@@ -20,5 +26,6 @@ describe('SearchBox', () => {
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.find('input')).toBeDefined();
   });
 });

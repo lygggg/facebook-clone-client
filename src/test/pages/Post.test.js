@@ -1,6 +1,7 @@
 import Post from "../../pages/Post";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
+import {BrowserRouter} from "react-router-dom";
 
 describe('Post', () => {
   let currentUserState;
@@ -18,28 +19,37 @@ describe('Post', () => {
 
   beforeEach(() => {
     postState = { post: [] };
-    loginState = { users: [], isLoggedIn: true };
-    currentUserState = { id: 'Random_ID' };
+    loginState = { users: [{ id: 'Random_ID' }], isLoggedIn: true };
+    currentUserState = {
+      id: 'Random_ID',
+      friends: [],
+    };
   });
 
   it('renders well', () => {
-    const component = shallow(
-      <Post
-        postState={postState}
-        setPostState={setPostState}
-        currentUserState={currentUserState}
-        setCurrentUserState={setCurrentUserState}
-        loginState={loginState}
-        setLoginState={setLoginState}
-        commentState={commentState}
-        setCommentState={setCommentState}
-        topLevelState={topLevelState}
-        setTopLevelState={setTopLevelState}
-        setSearchState={setSearchState}
-        socket={socket}
-      />
+    const component = render(
+      <BrowserRouter>
+        <Post
+          postState={postState}
+          setPostState={setPostState}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+          loginState={loginState}
+          setLoginState={setLoginState}
+          commentState={commentState}
+          setCommentState={setCommentState}
+          topLevelState={topLevelState}
+          setTopLevelState={setTopLevelState}
+          setSearchState={setSearchState}
+          socket={socket}
+        />
+      </BrowserRouter>
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('게시물 만들기');
+    expect(component.text()).toMatch('무슨 생각을 하고 계신가요?');
+    expect(component.text()).toMatch('게시');
+
   });
 });

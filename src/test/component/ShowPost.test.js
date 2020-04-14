@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import ShowPostOthersPage from "../../components/posts/ShowPost";
 
 describe('ShowPostOthersPage', () => {
@@ -16,16 +16,20 @@ describe('ShowPostOthersPage', () => {
   beforeEach(() => {
     currentUserState = {
       id: 'Random_ID',
+      userName: 'Woomin'
     };
+    loginState = { users: [] };
     p = {
+      uniqueKey: 999,
       name: 'Woomin',
       time: [2020, 4, 21, 5, 16],
       thumbCount: [],
     };
+    commentState = { comment: [] };
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <ShowPostOthersPage
         postState={postState}
         setPostState={setPostState}

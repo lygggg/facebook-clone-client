@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import {BrowserRouter} from "react-router-dom";
 import HomeHeader from "../../components/headers/HeaderHome";
 
@@ -9,8 +9,15 @@ describe('HomeHeader', () => {
   let currentUserState;
   let setCurrentUserState;
 
+  beforeEach(() => {
+    currentUserState = {
+      userName: 'Woomin',
+      profile: 'path',
+    };
+  });
+
   it('renders well', () => {
-    const components = shallow(
+    const component = render(
       <BrowserRouter>
         <HomeHeader
           loginState={loginState}
@@ -21,6 +28,9 @@ describe('HomeHeader', () => {
       </BrowserRouter>
     )
 
-    expect(components).toMatchSnapshot();
-  })
+    expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('Woomin');
+    expect(component.text()).toMatch('홈');
+    expect(component.text()).toMatch('로그아웃');
+  });
 })

@@ -1,6 +1,6 @@
 import Login from "../../pages/Login";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
 import {BrowserRouter} from "react-router-dom";
 
 describe('Login', () => {
@@ -15,7 +15,7 @@ describe('Login', () => {
   let socket;
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <BrowserRouter>
         <Login
           loginState={loginState}
@@ -32,5 +32,9 @@ describe('Login', () => {
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('아이디');
+    expect(component.text()).toMatch('비밀번호');
+    expect(component.text()).toMatch('회원이 아니신가요?');
+    expect(component.text()).toMatch('Facebook');
   });
 });

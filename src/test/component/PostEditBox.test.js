@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import PostEditBox from "../../components/posts/PostEditBox";
 
 describe('PostEditBox', () => {
@@ -13,7 +13,7 @@ describe('PostEditBox', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <PostEditBox
         specificPost={specificPost}
         postState={postState}

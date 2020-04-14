@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import AddPost from "../../components/posts/AddPost";
 
 describe('AddPost', () => {
@@ -12,7 +12,7 @@ describe('AddPost', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <AddPost
         currentUserState={currentUserState}
         postState={postState}

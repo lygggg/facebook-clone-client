@@ -1,6 +1,6 @@
 import OthersPageSide from "../../web_components/OthersPageSide";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
 
 describe('OthersPageSide', () => {
   let loginState;
@@ -23,7 +23,7 @@ describe('OthersPageSide', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <OthersPageSide
         loginState={loginState}
         specificPost={specificPost}
@@ -31,5 +31,9 @@ describe('OthersPageSide', () => {
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('소개');
+    expect(component.text()).toMatch('1996-04-21');
+    expect(component.text()).toMatch('대한민국');
+    expect(component.text()).toMatch('dal96k@hanmail.net');
   });
 });

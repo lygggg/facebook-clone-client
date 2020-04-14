@@ -1,6 +1,6 @@
 import JoinFollow from "../../pages/JoinFollow";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
 
 describe('JoinFollow', () => {
   let currentUserState;
@@ -15,7 +15,7 @@ describe('JoinFollow', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <JoinFollow
         loginState={loginState}
         setLoginState={setLoginState}
@@ -27,5 +27,6 @@ describe('JoinFollow', () => {
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('facebook 팔로우하기');
   });
 });

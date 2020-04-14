@@ -1,6 +1,7 @@
 import OthersPage from "../../pages/OthersPage";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
+import {BrowserRouter} from "react-router-dom";
 
 describe('OthersPage', () => {
   let currentUserState;
@@ -15,26 +16,43 @@ describe('OthersPage', () => {
   let setSearchState;
 
   beforeEach(() => {
+    loginState = {
+      users: [
+        {
+          id: 'Random_ID'
+        }
+      ]
+    };
+    topLevelState = { id: 'Random_ID' };
+    currentUserState = {
+      id: 'Random_ID_2',
+      friends: ['Random_ID_3'],
+    };
     postState = { post: [] };
-    loginState = { users: [] };
   });
 
   it('renders well', () => {
-    const component = shallow(
-      <OthersPage
-        specificPost={topLevelState}
-        loginState={loginState}
-        setLoginState={setLoginState}
-        currentUserState={currentUserState}
-        setCurrentUserState={setCurrentUserState}
-        postState={postState}
-        setPostState={setPostState}
-        commentState={commentState}
-        setCommentState={setCommentState}
-        setSearchState={setSearchState}
-      />
+    const component = render(
+      <BrowserRouter>
+        <OthersPage
+          specificPost={topLevelState}
+          loginState={loginState}
+          setLoginState={setLoginState}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+          postState={postState}
+          setPostState={setPostState}
+          commentState={commentState}
+          setCommentState={setCommentState}
+          setSearchState={setSearchState}
+        />
+      </BrowserRouter>
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('타임라인');
+    expect(component.text()).toMatch('정보');
+    expect(component.text()).toMatch('친구');
+    expect(component.text()).toMatch('팔로우');
   });
 });

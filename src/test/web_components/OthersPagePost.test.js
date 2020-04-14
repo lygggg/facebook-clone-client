@@ -1,6 +1,6 @@
 import OthersPagePost from "../../web_components/OthersPagePost";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
 
 describe('OthersPagePost', () => {
   let loginState;
@@ -17,7 +17,7 @@ describe('OthersPagePost', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <OthersPagePost
         postState={postState}
         setPostState={setPostState}
@@ -31,5 +31,6 @@ describe('OthersPagePost', () => {
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toBe('게시글이 없습니다.');
   });
 });

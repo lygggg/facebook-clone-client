@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import Chatting from "../../components/Chatting";
 
 describe('Snapshot test', () => {
@@ -20,7 +20,7 @@ describe('Snapshot test', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <Chatting
         setIsChattingOn={setIsChattingOn}
         currentUserState={currentUserState}

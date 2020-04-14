@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import Comment from "../../components/comments/Comment";
 
 describe('Comment', () => {
@@ -30,7 +30,7 @@ describe('Comment', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <Comment
         specificPost={p}
         setPostState={setPostState}

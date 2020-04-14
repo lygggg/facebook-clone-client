@@ -1,6 +1,6 @@
 import MyPagePost from "../../web_components/MyPagePost";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
 
 describe('MyPagePost', () => {
   let loginState;
@@ -17,7 +17,7 @@ describe('MyPagePost', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <MyPagePost
         currentUserState={currentUserState}
         postState={postState}
@@ -30,5 +30,8 @@ describe('MyPagePost', () => {
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('게시물 만들기');
+    expect(component.text()).toMatch('무슨 생각을 하고 계신가요?');
+    expect(component.text()).toMatch('게시');
   });
 });

@@ -35,7 +35,6 @@ function OthersPage({
   setCommentState,
   setSearchState,
 }) {
-  const { post } = postState;
   const { users } = loginState;
   const index = users.findIndex((user) => user.id === specificPost.id);
 

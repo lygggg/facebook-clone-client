@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import {render} from "enzyme";
 import FriendsState from "../../components/headers/FriendsState";
 
 describe('FriendsState', () => {
@@ -15,14 +15,17 @@ describe('FriendsState', () => {
       id: 'Random_ID',
       name: 'Eunjoo'
     };
-    currentUserState = {
-      id: 'Random_ID_2',
-      pw: 'Random_Password',
-      userName: 'Woomin',
-      friends: []
-    };
     loginState = {
-      users: [ { id: 'Random_ID_2' }]
+      users: [
+        {
+          id: 'Random_ID',
+          userName: 'Eunjoo',
+        },
+        {
+          id: 'Random_ID_2',
+          userName: 'Woomin',
+        }
+      ]
     };
     p = {
       time: [2020, 4, 21, 5, 16],
@@ -30,18 +33,57 @@ describe('FriendsState', () => {
     };
   });
 
-  it('renders well', () => {
-    const component = shallow(
-      <FriendsState
-        specificPost={specificPost}
-        currentUserState={currentUserState}
-        setCurrentUserState={setCurrentUserState}
-        loginState={loginState}
-        setLoginState={setLoginState}
-      />
-    );
+  describe('with not yet friend', () => {
+    beforeEach(() => {
+      currentUserState = {
+        id: 'Random_ID_2',
+        pw: 'Random_Password',
+        userName: 'Woomin',
+        friends: []
+      };
+    });
 
-    expect(component).toMatchSnapshot();
-    expect(component.find('.others-friend-add').text()).toBe('팔로우');
+    it('renders 팔로우', ()=> {
+      const component = render(
+        <FriendsState
+          specificPost={specificPost}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+          loginState={loginState}
+          setLoginState={setLoginState}
+        />
+      );
+
+      expect(component).toMatchSnapshot();
+      expect(component.text()).toMatch('팔로우');
+    });
   });
+
+  describe('with already friend', () => {
+    beforeEach(() => {
+      currentUserState = {
+        id: 'Random_ID_2',
+        pw: 'Random_Password',
+        userName: 'Woomin',
+        friends: ['Random_ID']
+      };
+    });
+
+    it('renders 팔로우 해제', ()=> {
+      const component = render(
+        <FriendsState
+          specificPost={specificPost}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+          loginState={loginState}
+          setLoginState={setLoginState}
+        />
+      );
+
+      expect(component).toMatchSnapshot();
+      expect(component.text()).toMatch('Eunjoo 님과 친구입니다');
+      expect(component.text()).toMatch('팔로우 해제');
+    });
+  });
+
 });

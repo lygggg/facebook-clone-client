@@ -1,6 +1,7 @@
 import OthersPageTop from "../../web_components/OthersPageTop";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
+import {BrowserRouter} from "react-router-dom";
 
 describe('OthersPageTop', () => {
   let loginState;
@@ -24,16 +25,22 @@ describe('OthersPageTop', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
-      <OthersPageTop
-        specificPost={specificPost}
-        currentUserState={currentUserState}
-        setCurrentUserState={setCurrentUserState}
-        loginState={loginState}
-        setLoginState={setLoginState}
-      />
+    const component = render(
+      <BrowserRouter>
+        <OthersPageTop
+          specificPost={specificPost}
+          currentUserState={currentUserState}
+          setCurrentUserState={setCurrentUserState}
+          loginState={loginState}
+          setLoginState={setLoginState}
+        />
+      </BrowserRouter>
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('Woomin');
+    expect(component.text()).toMatch('타임라인');
+    expect(component.text()).toMatch('정보');
+    expect(component.text()).toMatch('친구');
   });
 });

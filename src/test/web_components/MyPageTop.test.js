@@ -1,6 +1,6 @@
 import MyPageTop from "../../web_components/MyPageTop";
 import React from "react";
-import {shallow} from 'enzyme';
+import {render} from 'enzyme';
 
 describe('MyPageTop', () => {
   let currentUserState;
@@ -14,12 +14,16 @@ describe('MyPageTop', () => {
   });
 
   it('renders well', () => {
-    const component = shallow(
+    const component = render(
       <MyPageTop
         currentUserState={currentUserState}
       />
     );
 
     expect(component).toMatchSnapshot();
+    expect(component.text()).toMatch('타임라인');
+    expect(component.text()).toMatch('정보');
+    expect(component.text()).toMatch('친구');
+    expect(component.text()).toMatch('스크랩');
   });
 });
