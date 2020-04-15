@@ -1,17 +1,20 @@
 import axios from 'axios';
 
+const SERVER_URL = 'https://woomin-facebook.herokuapp.com';
+// const SERVER_URL = 'http://localhost:3000';
+
 const SESSION_URL = '/session';
-const LOGIN_URL = 'http://localhost:3000/login';
-const POSTS_URL = 'http://localhost:3000/posts';
-const SCRAPS_URL = 'http://localhost:3000/scraps';
-const COMMENTS_URL = 'http://localhost:3000/comments';
-const CHILDCOMMENTS_URL = 'http://localhost:3000/childcomments';
-const LIKE_URL = 'http://localhost:3000/like';
-const COMMENTLIKE_URL = 'http://localhost:3000/commentlike';
-const FRIENDS_URL = 'http://localhost:3000/friends';
-const PROFILE_URL = 'http://localhost:3000/profile';
-const UPLOAD_URL = 'http://localhost:3000/upload';
-const SOCKET_URL = 'http://localhost:3000/socket';
+const LOGIN_URL = `${SERVER_URL}/login`;
+const POSTS_URL = `${SERVER_URL}/posts`;
+const SCRAPS_URL = `${SERVER_URL}/scraps`;
+const COMMENTS_URL = `${SERVER_URL}/comments`;
+const CHILDCOMMENTS_URL = `${SERVER_URL}/childcomments`;
+const LIKE_URL = `${SERVER_URL}/like`;
+const COMMENTLIKE_URL = `${SERVER_URL}/commentlike`;
+const FRIENDS_URL = `${SERVER_URL}/friends`;
+const PROFILE_URL = `${SERVER_URL}/profile`;
+const UPLOAD_URL = `${SERVER_URL}/upload`;
+const SOCKET_URL = `${SERVER_URL}/socket`;
 
 export const getUserSocketID = async (userid) => {
   const { data } = await axios.get(`${SOCKET_URL}/${userid}`);
