@@ -3,7 +3,7 @@ import axios from 'axios';
 const SERVER_URL = 'https://woomin-facebook.herokuapp.com';
 // const SERVER_URL = 'http://localhost:3000';
 
-const SESSION_URL = '/session';
+const SESSION_URL = `/${SERVER_URL}session`;
 const LOGIN_URL = `${SERVER_URL}/login`;
 const POSTS_URL = `${SERVER_URL}/posts`;
 const SCRAPS_URL = `${SERVER_URL}/scraps`;
