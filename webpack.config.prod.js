@@ -30,7 +30,7 @@ module.exports = {
     historyApiFallback: true,
     proxy: [{
       context: ['/session'],
-      target: 'https://woomin-facebook.herokuapp.com/',
+      target: 'https://woomin-facebook.herokuapp.com',
     }],
   },
   plugins: [
