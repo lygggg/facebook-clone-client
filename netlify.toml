@@ -1,6 +1,3 @@
-[build]
-base = "/"
-
 [[redirects]]
   from = "/session"
   to = "https://woomin-facebook.herokuapp.com/session"
