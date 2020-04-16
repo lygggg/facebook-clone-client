@@ -17,6 +17,9 @@ const testing = async () => {
   console.log(userStore);
   alert(userStore);
 }
+const alerting = () => {
+  alert('alert!');
+}
 /* ------------------------------------------------------- */
 
 const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState, history) => {
@@ -54,6 +57,7 @@ function Login({
   const history = useHistory();
 
   useEffect(() => {
+    alerting();
     callAPI(currentUserState, setCurrentUserState, loginState, setLoginState, history);
     testing();
   }, []);
