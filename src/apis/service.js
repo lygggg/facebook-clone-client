@@ -6,7 +6,6 @@ const SERVER_URL = 'https://woomin-facebook.herokuapp.com';
 const SESSION_URL = `/session`;
 const LOGIN_URL = `${SERVER_URL}/login`;
 const POSTS_URL = `${SERVER_URL}/posts`;
-const SCRAPS_URL = `${SERVER_URL}/scraps`;
 const COMMENTS_URL = `${SERVER_URL}/comments`;
 const CHILDCOMMENTS_URL = `${SERVER_URL}/childcomments`;
 const LIKE_URL = `${SERVER_URL}/like`;
@@ -79,11 +78,6 @@ export const removePost = async (uniqueKey) => {
 
 export const editPost = async (uniqueKey, updatedContents) => {
   const { data } = await axios.patch(POSTS_URL, { uniqueKey, updatedContents });
-  return data;
-};
-
-export const addScrap = async (whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey, profile) => {
-  const { data } = await axios.post(SCRAPS_URL, { whoScrapedByID, whoScrapedByName, whoWritePostByName, ScrapedPostContents, uniqueKey, profile });
   return data;
 };
 
