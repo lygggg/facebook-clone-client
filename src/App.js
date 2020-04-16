@@ -15,6 +15,21 @@ import JoinFollow from './pages/JoinFollow';
 import JoinProfileImage from './pages/JoinProfileImage';
 import Search from './pages/Search';
 
+
+/* 서버와 연결이 되는데 프록시 때문에 문제가 발생하는 것인지
+확인해보기 위한 것입니다. */
+/* ------------------------------------------------------- */
+import func from './function';
+const testing = async () => {
+  const { userStore } =  await func.getUsers();
+  console.log(userStore);
+  alert(userStore);
+}
+testing();
+
+/* ------------------------------------------------------- */
+
+
 // const socket = io.connect('http://localhost:4000');
 const socket = io.connect('https://woomin-facebook.herokuapp.com');
 
