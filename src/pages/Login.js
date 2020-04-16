@@ -9,19 +9,6 @@ import Join from './Join';
 import func from '../function';
 import background from '../files/login-background.png';
 
-/* 서버와 연결이 되는데 프록시 때문에 문제가 발생하는 것인지
-확인해보기 위한 것입니다. */
-/* ------------------------------------------------------- */
-const testing = async () => {
-  const { userStore } =  await func.getUsers();
-  console.log(userStore);
-  alert(userStore);
-}
-const alerting = () => {
-  alert('alert!');
-}
-/* ------------------------------------------------------- */
-
 const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState, history) => {
   const { user } = await func.checkSessionExist();
   const { userStore } = await func.getUsers();
@@ -57,9 +44,7 @@ function Login({
   const history = useHistory();
 
   useEffect(() => {
-    alerting();
     callAPI(currentUserState, setCurrentUserState, loginState, setLoginState, history);
-    testing();
   }, []);
 
   const setLoginTemptId = (temptId) => {
