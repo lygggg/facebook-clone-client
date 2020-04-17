@@ -10,5 +10,3 @@
   status = 200
   force = true
   headers = {X-From = "Netlify"}
-
-frontend.com/api/session
