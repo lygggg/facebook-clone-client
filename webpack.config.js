@@ -31,6 +31,7 @@ module.exports = {
     proxy: [{
       context: ['/session'],
       target: 'https://woomin-facebook.herokuapp.com',
+      changeOrigin: true,
     }],
   },
   plugins: [
