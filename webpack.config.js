@@ -28,6 +28,7 @@ module.exports = {
   devServer: {
     inline: true,
     historyApiFallback: true,
+    contentBase: './',
     proxy: [{
       context: ['/session'],
       target: 'https://woomin-facebook.herokuapp.com',
