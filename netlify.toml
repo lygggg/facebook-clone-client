@@ -5,7 +5,7 @@
   skip_processing = false
 
 [[redirects]]
-  from = "https://woominsbook.netlify.app/session"
+  from = "/session"
   to = "https://woomin-facebook.herokuapp.com/session"
   status = 200
   force = true
