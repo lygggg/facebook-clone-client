@@ -2,7 +2,7 @@
   base = ""
 
 [[redirects]]
-  from = "/session"
+  from = "https://woominsbook.netlify.app/session"
   to = "https://woomin-facebook.herokuapp.com/session"
   status = 200
   force = true
