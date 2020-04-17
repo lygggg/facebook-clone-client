@@ -2,8 +2,7 @@ import axios from 'axios';
 
 const SERVER_URL = 'https://woomin-facebook.herokuapp.com';
 
-// const SESSION_URL = 'https://woominsbook.netlify.app/session';
-const SESSION_URL = 'https://woomin-facebook.herokuapp.com/session';
+const SESSION_URL = 'https://woominsbook.netlify.app/session';
 const LOGIN_URL = `${SERVER_URL}/login`;
 const POSTS_URL = `${SERVER_URL}/posts`;
 const COMMENTS_URL = `${SERVER_URL}/comments`;
