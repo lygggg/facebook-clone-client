@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/session"
-  to = "https://woomin-facebook.herokuapp.com/session"
+  to = "https://woomin-facebook.herokuapp.com"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
