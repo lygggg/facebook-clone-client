@@ -1,5 +1,5 @@
 [build]
-  base = ""
+  base = "dist"
 
 [build.processing]
   skip_processing = false
