@@ -1,5 +1,5 @@
 [build]
-  base = "dist"
+  base = "/"
 
 [build.processing]
   skip_processing = false
@@ -8,5 +8,5 @@
   from = "/session"
   to = "https://woomin-facebook.herokuapp.com/session"
   status = 200
-  force = false
+  force = true
   headers = {X-From = "Netlify"}
