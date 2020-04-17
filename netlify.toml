@@ -8,5 +8,5 @@
   from = "/session"
   to = "https://woomin-facebook.herokuapp.com/session"
   status = 200
-  force = true
+  force = false
   headers = {X-From = "Netlify"}
