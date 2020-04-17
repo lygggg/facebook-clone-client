@@ -29,7 +29,7 @@ module.exports = {
     inline: true,
     historyApiFallback: true,
     proxy: [{
-      context: ['/session'],
+      context: ['https://woominsbook.netlify.app/session'],
       target: 'https://woomin-facebook.herokuapp.com',
     }],
   },
