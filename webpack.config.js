@@ -5,8 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve( __dirname, 'dist/'),
-    filename: 'main.js',
-    publicPath: '/',
+    filename: 'main.js?[hash]'
   },
   module: {
     rules: [
@@ -20,7 +19,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(jpeg|png)$/,
+        test: /\.(jpe?g|png)$/,
         use: 'file-loader',
       },
     ],
