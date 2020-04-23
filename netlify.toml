@@ -1,9 +1,0 @@
-[build]
-  base = "dist"
-
-[[redirects]]
-  from = "/session"
-  to = "https://woomin-facebook.herokuapp.com/session"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}

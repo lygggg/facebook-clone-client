@@ -32,15 +32,17 @@ function AddPost({
   const onChange = async (e) => {
     await setFile(e.target.files[0]);
     const send = document.getElementById('send');
+
     send.click();
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('woomin-facebook', file);
     const { filePath } = await func.fileUpload(formData);
-    setImagePath(filePath);
+    setImagePath(filePath.url);
   };
 
   return (
@@ -55,11 +57,11 @@ function AddPost({
       </div>
       <div className="addpost-expressthinking">생각을 게시글로 표현 해주세요</div>
       <textarea className="addpost-textarea" type="text" value={temptState} onChange={(e) => setPostTemptContents(e.target.value)} />
-      <form onSubmit={onSubmit}>
+      <form enctype="multipart/form-data" onSubmit={onSubmit}>
         <div>
           <label className="fileupload">
             <i className="far fa-image"></i>
-            <input className="hidden" type="file" onChange={onChange} />
+            <input className="hidden" type="file" name="woomin-facebook" onChange={onChange} />
             <input className="hidden" value="" id="send" type="submit" />
           </label>
         </div>

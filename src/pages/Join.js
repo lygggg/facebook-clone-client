@@ -33,8 +33,7 @@ function Join({
   const [errorState, setErrorState] = useState(errors);
   const [joinProfileImage, setJoinProfileImageState] = useState(false);
   const [file, setFile] = useState('');
-  const [uploadedFile, setUploadedFile] = useState({});
-  const { id } = currentUserState;
+  const [uploadedFile, setUploadedFile] = useState('');
   const { users } = loginState;
   const {
     temptJoiningId,
@@ -126,7 +125,7 @@ function Join({
       temptJoiningBirth,
       temptJoiningLocation,
       temptJoiningEmail,
-      uploadedFile.filePath,
+      uploadedFile,
     );
     setCurrentUserState({
       ...currentUserState,
@@ -143,6 +142,7 @@ function Join({
   const onChange = async (e) => {
     await setFile(e.target.files[0]);
     const send = document.getElementById('send');
+
     send.click();
   };
 
@@ -150,10 +150,9 @@ function Join({
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('file', file);
-    const { fileName, filePath } = await func.fileUpload(formData);
-
-    setUploadedFile({ fileName, filePath });
+    formData.append('woomin-facebook', file);
+    const { filePath } = await func.fileUpload(formData);
+    setUploadedFile(filePath.url);
   };
 
   if (joinProfileImage === true) {
@@ -216,14 +215,14 @@ function Join({
             <div>
               <label>
                 <i className="far fa-image"></i>
-                <input className="hidden" type="file" onChange={onChange} />
+                <input className="hidden" type="file" name="woomin-facebook" onChange={onChange} />
                 <input className="hidden" value="" id="send" type="submit" />
               </label>
             </div>
             {uploadedFile ? (
               <div>
                 <div>
-                  <img style={{ width: '10%' }} src={uploadedFile.filePath} alt="" />
+                  <img style={{ width: '10%' }} src={uploadedFile} alt="" />
                 </div>
               </div>
             ) : null}

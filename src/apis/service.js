@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { serverURL} from "../config";
 
-const SERVER_URL = 'https://woomin-facebook.herokuapp.com';
+const SERVER_URL = `${serverURL}:7000`;
 
-const SESSION_URL = 'https://woominsbook.netlify.app/session';
+const SESSION_URL = `${SERVER_URL}/session`;
 const LOGIN_URL = `${SERVER_URL}/login`;
 const POSTS_URL = `${SERVER_URL}/posts`;
 const COMMENTS_URL = `${SERVER_URL}/comments`;

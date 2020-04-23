@@ -17,7 +17,6 @@ function Chatting({
 
   useEffect(() => {
     socket.on('hello', (data) => {
-      console.log('Message : ', data.message);
       setChattingMessages((chattingMessages) =>
         [...chattingMessages, { id: data.userID, msg: data.message }]);
     });

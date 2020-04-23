@@ -15,7 +15,9 @@ import JoinFollow from './pages/JoinFollow';
 import JoinProfileImage from './pages/JoinProfileImage';
 import Search from './pages/Search';
 
-const socket = io.connect('https://woomin-facebook.herokuapp.com:11111');
+const socket = io("http://localhost:4000", {
+  path: '/socketio',
+});
 
 const currentUser = {
   id: '',
