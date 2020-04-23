@@ -15,7 +15,7 @@ import JoinFollow from './pages/JoinFollow';
 import JoinProfileImage from './pages/JoinProfileImage';
 import Search from './pages/Search';
 
-const socket = io("http://localhost:4000", {
+const socket = io("http://ec2-13-209-47-198.ap-northeast-2.compute.amazonaws.com:4000", {
   path: '/socketio',
 });
 

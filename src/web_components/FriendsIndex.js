@@ -42,7 +42,7 @@ function FriendsIndex({
 
   const chattingButtonClicked = async (friendID) => {
     const socketID = await func.getUserSocketID(friendID);
-    console.log('You clicked this socket : ', socketID);
+
     if (socketID === 400) {
       alert(`${func.findUserById(users, friendID).userName}님은 접속중이 아닙니다`);
       return;
