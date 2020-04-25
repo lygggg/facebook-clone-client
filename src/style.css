@@ -1038,3 +1038,12 @@ body {
   color: #3a5baa;
   margin: 30px 0px 30px 40px;
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 200px;
+  color: #3a5baa;
+}

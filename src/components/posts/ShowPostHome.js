@@ -40,9 +40,8 @@ function ShowPostHome({
   };
 
   const handleRemovePost = async (specificPost) => {
-    const { timeLinePosts } = await func.removePost(specificPost.uniqueKey);
-
     if (specificPost.id === id) {
+      const { timeLinePosts } = await func.removePost(specificPost.uniqueKey);
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
       await Swal.fire('', '게시글이 삭제되었습니다', 'success');
     } else {

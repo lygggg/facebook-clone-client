@@ -46,7 +46,7 @@ function Post({
   return (
     <div>
       {!func.findUserById(users, id)
-        ? <h3>페이지를 로딩중입니다...</h3>
+        ? <h2 className='loading'>페이지를 로딩중입니다...</h2>
         : (
           <div>
             <Header
