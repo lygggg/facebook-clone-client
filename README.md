@@ -1,7 +1,7 @@
 # Facebook
 
 웹 사이트 URL : http://woomin-facebook.s3-website.ap-northeast-2.amazonaws.com  
-테스트 유저) ID: test / PW: test 
+테스트 유저 ⇒ 아이디: test / 비밀번호: test 
 
 <br />
 <br />
