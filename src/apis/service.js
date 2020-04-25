@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { serverURL} from "../config";
+import { serverURL } from "../config";
 
 const SERVER_URL = `${serverURL}:7000`;
 
@@ -45,7 +45,22 @@ export const destroySession = async (userID) => {
 };
 
 export const login = async (userID, userPW, socketID) => {
-  const { data } = await axios.post(SESSION_URL, { userID, userPW, socketID });
+  const axios2 = axios.create({
+    withCredentials: true,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://woomin-facebook.s3-website.ap-northeast-2.amazonaws.com',
+    },
+  })
+  // const { data } = await axios.post(
+  //   SESSION_URL,
+  //   { userID, userPW, socketID },
+  //   { withCredentials: true, crossDomain: true },
+  // );
+  const { data } = await axios2.post(
+    SESSION_URL,
+    { userID, userPW, socketID },
+  );
+
   return data;
 };
 

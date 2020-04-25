@@ -1,27 +1,27 @@
-import advertising1 from "../files/advertising.png";
-import advertising2 from "../files/advertising2.png";
+import advertising2 from "../files/blackmetal.jpeg";
+import advertising1 from "../files/newyorktimes.jpeg";
 import React from "react";
 
 function Advertisement() {
   return (
     <div className="advertising">
       <div className="advertising-sponsored">Sponsored</div>
-      <a className="advertising-1" href="https://woogod.netlify.com/">
+      <a className="advertising-1" href="https://woogod.netlify.app/">
         <img className="advertising1-image" src={advertising1} />
         <div className="advertising-url">
-          programmer.co.kr
+          newyorktimes.com
         </div>
         <div className="advertising-statement">
-          리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!
+          The New York Times - Breaking News, World News, Carrying News
         </div>
       </a>
-      <a className="advertising-2" href="https://woogod.netlify.com/">
+      <a className="advertising-2" href="https://woogod.netlify.app/">
         <img className="advertising2-image" src={advertising2} />
         <div className="advertising-url">
-          programmer.co.kr
+          archbootique.com
         </div>
         <div className="advertising-statement">
-          2020 Dev Match
+          2020 Job Seminar
         </div>
       </a>
     </div>

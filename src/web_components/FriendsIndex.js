@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import _ from 'lodash';
 import func from '../function';
 import Chatting from '../components/Chatting';
+import Swal from "sweetalert2";
 
 function FriendsIndex({
   loginState,
@@ -44,7 +45,7 @@ function FriendsIndex({
     const socketID = await func.getUserSocketID(friendID);
 
     if (socketID === 400) {
-      alert(`${func.findUserById(users, friendID).userName}님은 접속중이 아닙니다`);
+      await Swal.fire('', `${func.findUserById(users, friendID).userName}님은 접속중이 아닙니다`, 'error');
       return;
     }
 

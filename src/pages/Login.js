@@ -8,6 +8,7 @@ import {
 import Join from './Join';
 import func from '../function';
 import background from '../files/login-background.png';
+import Swal from "sweetalert2";
 
 const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState, history) => {
   const { user } = await func.checkSessionExist();
@@ -58,7 +59,7 @@ function Login({
     const { user, status } = await func.login(temptId, temptPw, socket.id);
 
     if (status === 400) {
-      alert('아이디와 비밀번호를 다시 확인해주세요');
+      await Swal.fire('', '아이디 혹은 비밀번호가 일치하지 않습니다', 'error');
       return;
     }
 

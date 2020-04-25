@@ -2,6 +2,7 @@ import React from 'react';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
 import func from '../../function';
+import Swal from "sweetalert2";
 
 function ShowPostOthersPage({
   postState,
@@ -27,9 +28,9 @@ function ShowPostOthersPage({
 
     if (specificPost.id === id) {
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
-      alert('해당 게시글이 삭제되었습니다');
+      await Swal.fire('', '게시글이 삭제되었습니다', 'success');
     } else {
-      alert('게시글은 해당 작성자만 삭제할 수 있습니다');
+      await Swal.fire('', '게시글은 해당 작성자만 삭제할 수 있습니다', 'error');
     }
   };
 
@@ -37,7 +38,7 @@ function ShowPostOthersPage({
     if (specificPost.id === id) {
       setPostState(func.openPostEditBox(postState, specificPost));
     } else {
-      alert('게시글의 수정은 해당 작성자만 할 수 있습니다');
+      Swal.fire('', '게시글은 해당 작성자만 수정할 수 있습니다', 'error');
     }
   };
 

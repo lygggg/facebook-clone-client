@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import func from '../function';
+import Swal from "sweetalert2";
 
 const callAPI = async (setUsers, loginState) => {
   setUsers(
@@ -40,7 +41,7 @@ function JoinFollow({
         .map((user) => func.addFriend(id, user.id)),
     )
 
-    alert('회원가입이 완료되었습니다! 다시 로그인 해주세요');
+    await Swal.fire('회원가입 완료', '다시 로그인 해주세요', 'success');
     location.href = '/';
   };
 

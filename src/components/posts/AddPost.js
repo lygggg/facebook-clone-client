@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import func from '../../function';
+import Swal from "sweetalert2";
 
 function AddPost({
   currentUserState,
@@ -23,7 +24,7 @@ function AddPost({
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
       setTemptState('');
     } else {
-      alert('내용을 입력해주세요');
+      await Swal.fire('', '내용을 입력해주세요', 'error');
     }
 
     setImagePath('');

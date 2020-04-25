@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import func from '../../function';
+import Swal from "sweetalert2";
 
 function OtherspageHeader({
   loginState,
@@ -23,7 +24,7 @@ function OtherspageHeader({
     await func.destroySession(currentUserState.id);
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
     setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '', profile: '' });
-    alert('로그아웃 되었습니다');
+    await Swal.fire('', '로그아웃 되었습니다', 'success');
     history.push('/');
   };
 

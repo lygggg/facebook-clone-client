@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import func from '../function';
+import Swal from "sweetalert2";
 
 
 const initialTempt = {
@@ -94,23 +95,23 @@ function Join({
 
   const handleMoveNext = async () => {
     if (errorState.id !== '사용할 수 있습니다') {
-      alert('아이디 중복을 확인해주세요');
+      await Swal.fire('', '아이디 중복을 확인해주세요', 'error');
       return;
     }
     if (errorState.pw !== '비밀번호가 일치합니다') {
-      alert('비밀번호를 다시 확인해주세요');
+      await Swal.fire('', '비밀번호를 다시 확인해주세요', 'error');
       return;
     }
     if (!temptJoiningId.trim() || !temptJoiningPw.trim() || !temptJoiningName.trim()) {
-      alert('모든 항목을 입력해주세요');
+      await Swal.fire('', '모든 항복을 입력해주세요', 'error');
       return;
     }
     if (temptJoiningBirth[4] !== '-' || temptJoiningBirth[7] !== '-' || temptJoiningBirth.length !== 10) {
-      alert('생년월일을 형식에 맞게 입력해주세요. YYYY-MM-DD 입니다');
+      await Swal.fire('', '생년월일을 형식에 맞게 입력해주세요', 'error');
       return;
     }
     if (!file) {
-      alert('프로필 사진을 등록해주세요');
+      await Swal.fire('', '프로필 사진을 등록해주세요', 'error');
       return;
     }
 
