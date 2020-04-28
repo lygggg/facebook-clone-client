@@ -4,8 +4,10 @@ import OthersPageTop from "../web_components/OthersPageTop";
 import Header from "../web_components/Header";
 import OthersPageSide from "../web_components/OthersPageSide";
 import OthersPagePost from "../web_components/OthersPagePost";
+import toTop from "../components/toTop";
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
+  toTop();
   const { user } = await func.checkSessionExist();
   const { userStore } = await func.getUsers();
 

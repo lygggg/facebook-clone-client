@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import HeaderOthersPage from '../components/headers/HeaderOthersPage';
 import func from '../function';
 import SearchBox from '../components/headers/SearchBox';
+import toTop from "../components/toTop";
 
 const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
+  toTop();
   const { userStore } = await func.getUsers();
   const { user } = await func.checkSessionExist();
 

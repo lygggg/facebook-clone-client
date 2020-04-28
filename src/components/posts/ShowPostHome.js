@@ -4,8 +4,10 @@ import Comment from '../comments/Comment';
 import func from '../../function';
 import Swal from "sweetalert2";
 import ModalBox from "../modal";
+import toTop from "../toTop";
 
 const callAPI = async (postState, setPostState) => {
+  toTop();
   const { timeLinePosts } = await func.getPosts();
 
   setPostState({

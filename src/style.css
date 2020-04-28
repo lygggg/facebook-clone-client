@@ -1,6 +1,11 @@
+@font-face {
+  font-family: "Lato-Regular";
+  src: local(※), url("Lato-Regular.ttf") format("truetype");
+}
+
 body {
+  font-family: "Lato-Regular";
   background-color: rgb(235, 227, 232);
-  font-family: inherit;
   margin: 0 0 0 0
 }
 
@@ -255,6 +260,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100%;
+  margin: 0 0 6px 0;
 }
 
 .showpost-goodbar1 {
@@ -553,7 +559,7 @@ body {
 
 .others-friend-state {
   position: relative;
-  left: 684px;
+  left: 762px;
   bottom: 37px;
   font-size: 14px;
 }
@@ -562,7 +568,7 @@ body {
   background-color: white;
   border: 1px solid;
   position: relative;
-  left: 684px;
+  left: 766px;
   bottom: 37px;
 }
 
@@ -570,7 +576,7 @@ body {
   background-color: white;
   border: 1px solid;
   position: relative;
-  left: 853px;
+  left: 931px;
   bottom: 37px;
 }
 
@@ -825,7 +831,8 @@ body {
 /*************************************************/
 
 .friends-index {
-  margin: 50px 0px 0px 12px;
+  position: fixed;
+  margin: 50px 0 0 1019px;
   width: 223px;
 }
 

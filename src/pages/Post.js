@@ -5,8 +5,10 @@ import Header from '../web_components/Header';
 import Advertisement from '../web_components/Advertisement';
 import TimeLinePost from '../web_components/TimeLinePost';
 import FriendsIndex from '../web_components/FriendsIndex';
+import toTop from "../components/toTop";
 
 const callAPI = async (postState, setPostState, loginState, setLoginState) => {
+  toTop();
   const { timeLinePosts } = await func.getPosts();
   const { userStore } = await func.getUsers();
 
