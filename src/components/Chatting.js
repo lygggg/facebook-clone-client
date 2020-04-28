@@ -42,11 +42,13 @@ function Chatting({
 
   return (
     <div className="chatting">
-      <div className="chatting-header">
-        {func.findUserById(users, friendID).userName}
-        님 과의 채팅방입니다
+      <div className="chatting-flex">
+        <div className="chatting-header">
+          {func.findUserById(users, friendID).userName}
+          님 과의 채팅방입니다
+        </div>
+        <button className="chatting-exit" type="button" onClick={closeChatting}>X</button>
       </div>
-      <button className="chatting-exit" type="button" onClick={closeChatting}>X</button>
       <div>
         {chattingMessages.map((v, i) => (
           <div key={i}>
@@ -58,7 +60,7 @@ function Chatting({
         ))}
       </div>
       <div className="chatting-input">
-        <input type="text" value={message} onChange={(e) => getUserInputMessage(e.target.value)} />
+        <input type="text" className="chatting-input-text" value={message} onChange={(e) => getUserInputMessage(e.target.value)} />
         <button type="button" className="chatting-send-button" onClick={sendMessage}>전송</button>
       </div>
     </div>

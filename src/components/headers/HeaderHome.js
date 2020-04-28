@@ -23,13 +23,13 @@ function HomeHeader({
   };
 
   return (
-    <>
+    <div className="header-user">
       <img className="header-profile-image" src={profile} alt="" />
       <button className="header-user-name" type="button" onClick={moveToMyPage}>{userName}</button>
       <button className="header-home" type="button">홈</button>
       <button className="header-home" type="button" onClick={logoutButtonClicked}>로그아웃</button>
       <br />
-    </>
+    </div>
   );
 }
 

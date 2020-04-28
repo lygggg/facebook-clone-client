@@ -15,7 +15,7 @@ function MyPagePost({
   const { id } = currentUserState;
 
   return (
-    <div>
+    <div className="mypage-post">
       <AddPost
         currentUserState={currentUserState}
         postState={postState}

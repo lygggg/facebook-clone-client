@@ -3,7 +3,7 @@ import { serverURL } from "../config";
 
 const SERVER_URL = `${serverURL}:7000`;
 
-const SESSION_URL = `${SERVER_URL}/session`;
+const SESSION_URL = `/session`;
 const LOGIN_URL = `${SERVER_URL}/login`;
 const POSTS_URL = `${SERVER_URL}/posts`;
 const COMMENTS_URL = `${SERVER_URL}/comments`;
@@ -45,18 +45,14 @@ export const destroySession = async (userID) => {
 };
 
 export const login = async (userID, userPW, socketID) => {
-  const axios2 = axios.create({
-    withCredentials: true,
-    headers: {
-      'Access-Control-Allow-Origin': 'http://woomin-facebook.s3-website.ap-northeast-2.amazonaws.com',
-    },
-  })
-  // const { data } = await axios.post(
-  //   SESSION_URL,
-  //   { userID, userPW, socketID },
-  //   { withCredentials: true, crossDomain: true },
-  // );
-  const { data } = await axios2.post(
+  // const axios = axios.create({
+  //   withCredentials: true,
+  //   headers: {
+  //     'Access-Control-Allow-Origin': 'http://woomin-facebook.s3-website.ap-northeast-2.amazonaws.com',
+  //   },
+  // })
+
+  const { data } = await axios.post(
     SESSION_URL,
     { userID, userPW, socketID },
   );

@@ -83,35 +83,39 @@ function Login({
     <>
       <div className="login-header">
         <span className="login-header-facebook">facebook</span>
-        <div className="login-id">
-          <div className="id-utter">아이디</div>
-          <input type="text" className="login-id-box" onChange={(e) => setLoginTemptId(e.target.value)} />
-        </div>
-        <div className="login-pw">
-          <div className="pw-utter">비밀번호</div>
-          <input type="password" className="login-pw-box" onChange={(e) => setLoginTemptPw(e.target.value)} />
-        </div>
-        <div className="login-enter">
-          <button onClick={loginButtonClicked} className="login-button" type="button">로그인</button>
+        <div className="login-carrier">
+          <div className="login-semi-carrier">
+            <div className="login-id">
+              <div className="id-utter">아이디</div>
+              <input type="text" className="login-id-box" onChange={(e) => setLoginTemptId(e.target.value)} />
+            </div>
+            <div className="login-pw">
+              <div className="pw-utter">비밀번호</div>
+              <input type="password" className="login-pw-box" onChange={(e) => setLoginTemptPw(e.target.value)} />
+            </div>
+            <div className="login-enter">
+              <button onClick={loginButtonClicked} className="login-button" type="button">로그인</button>
+            </div>
+          </div>
+          <Router>
+            <button
+              to="/join"
+              className="join-router"
+              onClick={MoveToJoiningPage}
+            >
+              회원이 아니신가요?
+            </button>
+            <Switch>
+              <Route path="/join">
+                <Join
+                  loginState={loginState}
+                  setLoginState={setLoginState}
+                />
+              </Route>
+            </Switch>
+          </Router>
         </div>
       </div>
-      <Router>
-        <button
-          to="/join"
-          className="join-router"
-          onClick={MoveToJoiningPage}
-        >
-          회원이 아니신가요?
-        </button>
-        <Switch>
-          <Route path="/join">
-            <Join
-              loginState={loginState}
-              setLoginState={setLoginState}
-            />
-          </Route>
-        </Switch>
-      </Router>
       <div className="login-backgrond-utter">
         Facebook에서 전세계에 있는 친구, 가족, 지인들과 함께 이야기를 나눠 보세요
       </div>

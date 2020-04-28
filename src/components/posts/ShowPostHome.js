@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Comment from '../comments/Comment';
 import PostEditBox from './PostEditBox';
-
 import func from '../../function';
 import Swal from "sweetalert2";
+import ModalBox from "../modal";
 
 const callAPI = async (postState, setPostState) => {
   const { timeLinePosts } = await func.getPosts();
@@ -85,34 +85,12 @@ function ShowPostHome({
             >
               {specificPost.name}
             </Link>
-            <button
-              className="showpost-edit"
-              type="button"
-              onClick={() => handleEditPost(specificPost)}
-            >
-              수정
-            </button>
-            {specificPost.isEditButtonClicked
-              ? (
-                <div>
-                  <PostEditBox
-                    specificPost={specificPost}
-                    postState={postState}
-                    setPostState={setPostState}
-                    currentUserState={currentUserState}
-                  />
-                </div>
-              ) : <></>}
-            {!specificPost.isEditButtonClicked
-              ? (
-                <button
-                  className="showpost-remove"
-                  type="button"
-                  onClick={() => handleRemovePost(specificPost)}
-                >
-                  삭제
-                </button>
-              ) : <></>}
+            <ModalBox
+              specificPost={specificPost}
+              postState={postState}
+              setPostState={setPostState}
+              currentUserState={currentUserState}
+            />
           </div>
           <br />
           <div className="showpost-contents">{specificPost.contents}</div>
