@@ -67,7 +67,7 @@ function ModalBox({
           <div className="modal-text">게시글 설정하기</div>
           <i className="far fa-window-close" onClick={closeModalBox}></i>
         </label>
-        <textarea className="modal-textarea" onChange={e => handleUserWrite(e.target.value)} />
+        <textarea placeholder="수정 사항을 입력해주세요..." className="modal-textarea" onChange={e => handleUserWrite(e.target.value)} />
         <button className="modal-update-button" onClick={updatePost}>업데이트</button>
         <button className="modal-remove-button" onClick={removePost}>게시글 삭제</button>
       </Modal>

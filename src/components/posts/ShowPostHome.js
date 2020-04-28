@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Comment from '../comments/Comment';
-import PostEditBox from './PostEditBox';
 import func from '../../function';
 import Swal from "sweetalert2";
 import ModalBox from "../modal";
@@ -34,31 +33,18 @@ function ShowPostHome({
   }, []);
 
   const handleThumbCount = async (specificPost) => {
+    if (specificPost.thumbCount.includes(id)) {
+      await Swal.fire('', '이미 좋아하셨습니다', 'success');
+      return;
+    }
+
     const { timeLinePosts } = await func.plusThumbCount(specificPost.uniqueKey, id)
 
     setPostState({ ...postState, post: [...timeLinePosts.reverse()]});
   };
 
-  const handleRemovePost = async (specificPost) => {
-    if (specificPost.id === id) {
-      const { timeLinePosts } = await func.removePost(specificPost.uniqueKey);
-      setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
-      await Swal.fire('', '게시글이 삭제되었습니다', 'success');
-    } else {
-      await Swal.fire('', '게시글은 해당 작성자만 삭제할 수 있습니다', 'error');
-    }
-  };
-
-  const scrapButtonClicked = async (specificPost) => {
+  const scrapButtonClicked = async () => {
     await Swal.fire('', '스크랩이 완료되었습니다', 'success');
-  };
-
-  const handleEditPost = (specificPost) => {
-    if (specificPost.id === id) {
-      setPostState(func.openPostEditBox(postState, specificPost));
-    } else {
-      Swal.fire('', '게시글은 해당 작성자만 수정할 수 있습니다', 'error');
-    }
   };
 
   const postUserNameClicked = (specificPost) => {
@@ -92,7 +78,6 @@ function ShowPostHome({
               currentUserState={currentUserState}
             />
           </div>
-          <br />
           <div className="showpost-contents">{specificPost.contents}</div>
           <img className="showpost-image" src={specificPost.image} alt="" />
           <div className="goodbar-grid">
@@ -106,13 +91,25 @@ function ShowPostHome({
             </div>
           </div>
           <br />
-          <button
-            className="showpost-button-good"
-            type="button"
-            onClick={() => handleThumbCount(specificPost)}
-          >
-            좋아요
-          </button>
+          <span>
+            {
+              specificPost.thumbCount.includes(id)
+              ? <button
+                  className="showpost-button-good-already"
+                  type="button"
+                  onClick={() => handleThumbCount(specificPost)}
+                >
+                  좋아요
+                </button>
+                : <button
+                  className="showpost-button-good"
+                  type="button"
+                  onClick={() => handleThumbCount(specificPost)}
+                >
+                  좋아요
+                </button>
+            }
+          </span>
           <button className="showpost-button-good" type="button">댓글</button>
           <button
             className="showpost-button-good"

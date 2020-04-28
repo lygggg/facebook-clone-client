@@ -279,6 +279,20 @@ body {
   border-bottom: 1px solid gray;
   position: relative;
   bottom: 23px;
+  font-weight: bold;
+}
+
+.showpost-button-good-already {
+  width: 166.6px;
+  background-color: #214ebac7;
+  color: white;
+  font-weight: bold;
+  border-left: none;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  position: relative;
+  bottom: 23px;
 }
 
 .comment {
@@ -535,10 +549,6 @@ body {
 
 .mypage-user-information {
   margin: 50px 0 0 0;
-}
-
-.mypage-post {
-  margin: 0 0 0 12px;
 }
 
 .others-friend-state {
@@ -1090,21 +1100,21 @@ body {
 }
 
 .modal-update-button {
-  background-color: white;
+  background-color: #3a5baa;
   border: 1px solid;
   width: 363px;
   margin: 0px 4px 0 4px;
   font-size: 19px;
   font-weight: bold;
-  color: #3a5baa;
+  color: white;
 }
 
 .modal-remove-button {
-  background-color: white;
+  background-color: #790303;
   border: 1px solid;
   width: 363px;
   margin: 4px 4px 0 4px;
   font-size: 19px;
   font-weight: bold;
-  color: red;
+  color: white;
 }

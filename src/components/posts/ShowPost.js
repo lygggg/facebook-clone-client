@@ -1,8 +1,7 @@
 import React from 'react';
 import Comment from '../comments/Comment';
-import PostEditBox from './PostEditBox';
 import func from '../../function';
-import Swal from "sweetalert2";
+import ModalBox from "../modal";
 
 function ShowPostOthersPage({
   postState,
@@ -23,25 +22,6 @@ function ShowPostOthersPage({
     setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
   };
 
-  const handleRemovePost = async (specificPost) => {
-    const { timeLinePosts } = await func.removePost(specificPost.uniqueKey);
-
-    if (specificPost.id === id) {
-      setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
-      await Swal.fire('', '게시글이 삭제되었습니다', 'success');
-    } else {
-      await Swal.fire('', '게시글은 해당 작성자만 삭제할 수 있습니다', 'error');
-    }
-  };
-
-  const handleEditPost = (specificPost) => {
-    if (specificPost.id === id) {
-      setPostState(func.openPostEditBox(postState, specificPost));
-    } else {
-      Swal.fire('', '게시글은 해당 작성자만 수정할 수 있습니다', 'error');
-    }
-  };
-
   return (
     <div key={index}>
       <div className="showpost">
@@ -59,34 +39,12 @@ function ShowPostOthersPage({
             <span className="showpost-name">
               {p.name}
             </span>
-            <button
-              className="showpost-edit"
-              type="button"
-              onClick={() => handleEditPost(p)}
-            >
-              수정
-            </button>
-            {p.isEditButtonClicked
-              ? (
-                <div>
-                  <PostEditBox
-                    specificPost={p}
-                    postState={postState}
-                    setPostState={setPostState}
-                    currentUserState={currentUserState}
-                  />
-                </div>
-              ) : <></>}
-            {!p.isEditButtonClicked
-              ? (
-                <button
-                  className="showpost-remove"
-                  type="button"
-                  onClick={() => handleRemovePost(p)}
-                >
-                  삭제
-                </button>
-              ) : <></>}
+            <ModalBox
+              specificPost={p}
+              postState={postState}
+              setPostState={setPostState}
+              currentUserState={currentUserState}
+            />
           </div>
           <br />
           <div className="showpost-contents">{p.contents}</div>
