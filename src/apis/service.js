@@ -55,6 +55,7 @@ export const login = async (userID, userPW, socketID) => {
   const { data } = await axios.post(
     SESSION_URL,
     { userID, userPW, socketID },
+    { withCredentials: true }
   );
 
   return data;

@@ -75,6 +75,12 @@ function Login({
     history.push('/post');
   };
 
+  const loginEnterClicked = async (key) => {
+    if (key === 'Enter') {
+      await loginButtonClicked();
+    }
+  }
+
   const MoveToJoiningPage = () => {
     history.push('/join');
   };
@@ -91,7 +97,12 @@ function Login({
             </div>
             <div className="login-pw">
               <div className="pw-utter">비밀번호</div>
-              <input type="password" className="login-pw-box" onChange={(e) => setLoginTemptPw(e.target.value)} />
+              <input
+                type="password"
+                className="login-pw-box"
+                onChange={(e) => setLoginTemptPw(e.target.value)}
+                onKeyPress={(e) => loginEnterClicked(e.key)}
+              />
             </div>
             <div className="login-enter">
               <button onClick={loginButtonClicked} className="login-button" type="button">로그인</button>
