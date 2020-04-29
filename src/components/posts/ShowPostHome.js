@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Comment from '../comments/Comment';
 import func from '../../function';
 import Swal from "sweetalert2";
-import ModalBox from "../modal";
+import ModalBox from "../modals/modal";
 import toTop from "../toTop";
 
 const callAPI = async (postState, setPostState) => {

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Swal from "sweetalert2";
-import func from "../function";
+import func from "../../function";
+import ModalBox from "./modal";
 
 Modal.setAppElement('body');
 
-function ModalBox({
+function SelectModal({
   specificPost,
   postState,
   setPostState,
-  currentUserState,
+  currentUserState
 }) {
   const [open, setOpen] = useState(false);
-  const [updatedContents, setUpdatedContents] = useState('');
   const { id } = currentUserState;
 
   const openModalBox = async () => {
@@ -26,24 +26,6 @@ function ModalBox({
 
   const closeModalBox = () => {
     setOpen(false);
-  };
-
-  const handleUserWrite = (write) => {
-    setUpdatedContents(write);
-  };
-
-  const updatePost = async () => {
-    const { uniqueKey } = specificPost;
-
-    if (!updatedContents.trim()) {
-      await Swal.fire('', '수정사항을 입력해주세요', 'error');
-      return;
-    }
-
-    const { timeLinePosts } = await func.editPost(uniqueKey, updatedContents);
-    setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
-    setOpen(false);
-    await Swal.fire('', '게시글이 수정되었습니다', 'success');
   };
 
   const removePost = async () => {
@@ -63,16 +45,17 @@ function ModalBox({
         contentLabel="CRUD"
         className="modal"
       >
-        <label className="modal-top">
-          <div className="modal-text">게시글 설정하기</div>
-          <i className="far fa-window-close" onClick={closeModalBox}></i>
-        </label>
-        <textarea placeholder="수정 사항을 입력해주세요..." className="modal-textarea" onChange={e => handleUserWrite(e.target.value)} />
-        <button className="modal-update-button" onClick={updatePost}>업데이트</button>
+        <ModalBox
+          specificPost={specificPost}
+          postState={postState}
+          setPostState={setPostState}
+          currentUserState={currentUserState}
+        />
         <button className="modal-remove-button" onClick={removePost}>게시글 삭제</button>
+        <button className="modal-close-button" onClick={closeModalBox}>닫기</button>
       </Modal>
     </div>
   );
 }
 
-export default ModalBox;
+export default SelectModal;

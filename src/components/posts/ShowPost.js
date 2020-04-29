@@ -1,7 +1,7 @@
 import React from 'react';
 import Comment from '../comments/Comment';
 import func from '../../function';
-import ModalBox from "../modal";
+import ModalBox from "../modals/modal";
 
 function ShowPostOthersPage({
   postState,
