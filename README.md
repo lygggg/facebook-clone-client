@@ -16,6 +16,14 @@ Facebook을 클론 코딩한 프로젝트입니다.
 <br />
 <br />
 
+## 실행방법
+
+- SNS project-facebook frontend clone
+- npm start
+- SNS project-facebook api clone
+- npm start
+
+
 ## 웹 사이트 화면
 
 |                 로그인                |               가입하기                |
