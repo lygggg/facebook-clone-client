@@ -42,6 +42,7 @@ function ModalBox({
 
     const { timeLinePosts } = await func.editPost(uniqueKey, updatedContents);
     setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
+    setUpdatedContents('');
     setOpen(false);
     await Swal.fire('', '게시글이 수정되었습니다', 'success');
   };

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import func from '../../function';
 
-const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
+const updateFollowing = (loginState, setLoginState, currentUserState, setCurrentUserState) => {
   const { users } = loginState;
 
   users.forEach((user, i) => {
@@ -25,8 +25,8 @@ function FriendsState({
   const { friends } = currentUserState;
   const { users } = loginState;
 
-  useEffect(() => {
-    callAPI(loginState, setLoginState, currentUserState, setCurrentUserState);
+  useEffect( () => {
+    updateFollowing(loginState, setLoginState, currentUserState, setCurrentUserState);
   }, [loginState]);
 
   const friendAddButtonClicked = async () => {
@@ -71,7 +71,7 @@ function FriendsState({
                 type="button"
                 onClick={friendRemoveButtonClicked}
               >
-              팔로우 해제
+                팔로우 해제
               </button>
             </div>
           ) : (
@@ -80,7 +80,7 @@ function FriendsState({
               type="button"
               onClick={friendAddButtonClicked}
             >
-            팔로우
+              팔로우
             </button>
           )}
       </div>

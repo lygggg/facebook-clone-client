@@ -202,13 +202,13 @@ function Join({
           <span className="join-location">
             거주지
           </span>
-          <input type="text" onChange={(e) => setJoinTemptLocation(e.target.value)} />
+          <input type="text" className="join-location-input" onChange={(e) => setJoinTemptLocation(e.target.value)} />
         </div>
         <div>
           <span className="join-email">
             이메일
           </span>
-          <input type="email" onChange={(e) => setJoinTemptEmail(e.target.value)} />
+          <input type="email" className="join-email-input" onChange={(e) => setJoinTemptEmail(e.target.value)} />
         </div>
         <div>
           <div className="join-upload-profile-image">프로필 사진 추가</div>

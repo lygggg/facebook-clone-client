@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import func from '../../function';
 import ChildCommentBox from './ChildCommentBox';
 
-const callAPI = async (commentState, setCommentState, loginState, setLoginState) => {
+const getDataFromServer = async (commentState, setCommentState, loginState, setLoginState) => {
   const { postComments } = await func.getComments();
   const { userStore } = await func.getUsers();
 
@@ -28,24 +28,24 @@ function Comment({
   const { userName, id } = currentUserState;
   const { uniqueKey } = specificPost;
   const { users } = loginState;
-  const [temptState, setTemptState] = useState('');
+  const [userWriting, setUserWriting] = useState('');
 
   useEffect(() => {
-    callAPI(commentState, setCommentState, loginState, setLoginState);
+    getDataFromServer(commentState, setCommentState, loginState, setLoginState);
   }, []);
 
-  const setCommentTemptStatement = (temptState) => {
-    setTemptState(temptState);
+  const setCommentTemptStatement = (userWriting) => {
+    setUserWriting(userWriting);
   };
 
   const handleAddComment = async () => {
-    if (temptState.trim()) {
-      const { postComments } = await func.addComment(uniqueKey, id, userName, temptState);
+    if (userWriting.trim()) {
+      const { postComments } = await func.addComment(uniqueKey, id, userName, userWriting);
       const { timeLinePosts } = await func.plusCommentCount(uniqueKey);
 
       setCommentState({ ...commentState, comment: [...postComments.reverse()] });
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
-      setTemptState('');
+      setUserWriting('');
     }
   };
 
@@ -68,7 +68,7 @@ function Comment({
         <input
           className="comment-input-box"
           type="text"
-          value={temptState}
+          value={userWriting}
           onChange={(e) => setCommentTemptStatement(e.target.value)}
         />
         <button

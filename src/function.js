@@ -1,29 +1,47 @@
 import {
+  checkSessionExist as apiCheckSessionExist,
+  login as apiLogin,
+  destroySession as apiDistroySession,
+} from "./apis/session";
+import {
   getUsers as apiGetUsers,
   addUser as apiAddUser,
+} from "./apis/login";
+import {
   getPosts as apiGetPosts,
   addPost as apiAddPost,
   removePost as apiRemovePost,
   editPost as apiEditPost,
-  plusThumbCount as apiPlusThumbCount,
+} from "./apis/posts";
+import {
   getComments as apiGetComments,
   addComment as apiAddComment,
   plusCommentCount as apiPlusCommentCount,
-  plusCommentThumbCount as apiPlusCommentThumbCount,
+} from "./apis/comments";
+import {
   addChildComment as apiAddChildComment,
+} from "./apis/childcomments";
+import {
+  plusThumbCount as apiPlusThumbCount,
+} from "./apis/like";
+import {
+  plusCommentThumbCount as apiPlusCommentThumbCount,
+} from "./apis/commentlike";
+import {
   addFriend as apiAddFriend,
   removeFriend as apiRemoveFriend,
-  login as apiLogin,
-  destroySession as apiDistroySession,
-  checkSessionExist as apiCheckSessionExist,
+} from "./apis/friends";
+import {
   addProfileImage as apiAddProfileImage,
+} from "./apis/profile";
+import {
   fileUpload as apiFileUpload,
+} from "./apis/upload";
+import {
   getUserSocketID as apiGetUserSocketID,
-} from './apis/service';
-
+} from './apis/socket';
 
 const func = {
-
   // 유저의 socket.id 가져오기
   async getUserSocketID(userID) {
     try {
@@ -203,11 +221,6 @@ const func = {
       console.error(e);
     }
   },
-
-  /*
-  ---------------------------------------------------------------
-  여기부터는 Frontend 함수들 ↓
-  */
 
   // 게시글 수정"창"을 여는 함수
   openPostEditBox(postState, specificPost) {
