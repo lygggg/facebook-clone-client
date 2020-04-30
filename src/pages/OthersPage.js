@@ -6,8 +6,9 @@ import OthersPageSide from "../web_components/OthersPageSide";
 import OthersPagePost from "../web_components/OthersPagePost";
 import toTop from "../components/toTop";
 
-const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
+const getUserDataFromServer = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
   toTop();
+
   const { user } = await func.checkSessionExist();
   const { userStore } = await func.getUsers();
 
@@ -41,7 +42,7 @@ function OthersPage({
   const index = users.findIndex((user) => user.id === specificPost.id);
 
   useEffect(() => {
-    callAPI(loginState, setLoginState, currentUserState, setCurrentUserState);
+    getUserDataFromServer(loginState, setLoginState, currentUserState, setCurrentUserState);
   }, []);
 
   return (

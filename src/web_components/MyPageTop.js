@@ -7,7 +7,7 @@ function MyPageTop({
   return (
     <div className="mypage-cover">
       <div className="mypage-cover-top">
-        <img className="mypage-cover-profile-image" src={currentUserState.profile} />
+        <img className="mypage-cover-profile-image" src={currentUserState.profile} alt="" />
         <span className="mypage-cover-username">{currentUserState.userName}</span>
       </div>
       <div className="mypage-cover-bottom">

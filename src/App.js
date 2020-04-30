@@ -14,45 +14,19 @@ import FriendsReco from './pages/FriendsReco';
 import JoinFollow from './pages/JoinFollow';
 import JoinProfileImage from './pages/JoinProfileImage';
 import Search from './pages/Search';
+import initial from "./initial";
 
-// const socket = io("http://ec2-13-209-47-198.ap-northeast-2.compute.amazonaws.com:4000", {
-//   path: '/socketio',
-// });
-const socket = 100;
-
-const currentUser = {
-  id: '',
-  pw: '',
-  userName: '',
-  friends: [],
-};
-
-const initialLogin = {
-  users: [],
-  isLoggedIn: false,
-};
-
-const initialPost = {
-  post: [],
-  scrap: [],
-};
-
-const initialComment = {
-  comment: [],
-};
-
-const initialSearch = {
-  contents: [],
-  exist: false,
-}
+const socket = io("http://ec2-13-209-47-198.ap-northeast-2.compute.amazonaws.com:4000", {
+  path: '/socketio',
+});
 
 function App() {
   const [topLevelState, setTopLevelState] = useState('');
-  const [searchState, setSearchState] = useState(initialSearch);
-  const [loginState, setLoginState] = useState(initialLogin);
-  const [currentUserState, setCurrentUserState] = useState(currentUser);
-  const [postState, setPostState] = useState(initialPost);
-  const [commentState, setCommentState] = useState(initialComment);
+  const [searchState, setSearchState] = useState(initial.search);
+  const [loginState, setLoginState] = useState(initial.login);
+  const [currentUserState, setCurrentUserState] = useState(initial.currentUser);
+  const [postState, setPostState] = useState(initial.post);
+  const [commentState, setCommentState] = useState(initial.comment);
 
   return (
     <Router>

@@ -20,6 +20,7 @@ function MyPageHeader({
     await func.destroySession(currentUserState.id);
     setLoginState({ ...loginState, isLoggedIn: false, temptId: '', temptPw: '' });
     setCurrentUserState({ ...currentUserState, id: '', pw: '', userName: '', profile: '' });
+
     await Swal.fire('', '로그아웃 되었습니다', 'success');
     history.push('/');
   };

@@ -77,17 +77,12 @@ function FriendsIndex({
         </div>
       </div>
       <div className="timeline-about-friends">
-        <div className="friends-index-line-utter">
-          친구
-          {friends.length}
-          명
-        </div>
-        <br />
+        <div className="friends-index-line-utter">친구{friends.length}명</div><br />
         <div>
           {friends.map((v, index) => {
             const user = func.findUserById(users, v)
             return (<div key={index}>
-              <img className="friends-index-line-profile" src={func.findUserById(users, v).profile} />
+              <img className="friends-index-line-profile" src={func.findUserById(users, v).profile} alt="" />
               <Link
                 to="/otherspage"
                 className="friends-index-line-name"

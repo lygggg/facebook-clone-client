@@ -8,17 +8,17 @@ function PostEditBox({
   setPostState,
   currentUserState,
 }) {
-  const [temptState, setTemptState] = useState('');
+  const [userInput, setUserInput] = useState('');
   const { id } = currentUserState;
 
-  const setEditBox = (temptState) => {
-    setTemptState(temptState);
+  const setEditBox = (userInput) => {
+    setUserInput(userInput);
   };
 
   const clickedEditSuccess = async () => {
     const { uniqueKey } = specificPost;
 
-    if (!temptState.trim()) {
+    if (!userInput.trim()) {
       await Swal.fire('', '수정사항을 입력해주세요', 'error');
       return;
     }
@@ -28,8 +28,9 @@ function PostEditBox({
       return;
     }
 
-    const { timeLinePosts } = await func.editPost(uniqueKey, temptState);
+    const { timeLinePosts } = await func.editPost(uniqueKey, userInput);
     setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
+
     await Swal.fire('', '게시글이 수정되었습니다', 'success');
   };
 
@@ -38,7 +39,7 @@ function PostEditBox({
       <textarea
         className="showpost-edit-box"
         type="text"
-        value={temptState}
+        value={userInput}
         onChange={(e) => setEditBox(e.target.value)}
       />
       <button

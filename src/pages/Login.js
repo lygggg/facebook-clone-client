@@ -10,7 +10,7 @@ import func from '../function';
 import background from '../files/login-background.png';
 import Swal from "sweetalert2";
 
-const callAPI = async (currentUserState, setCurrentUserState, loginState, setLoginState, history) => {
+const getUserDataFromServer = async (currentUserState, setCurrentUserState, loginState, setLoginState, history) => {
   const { user } = await func.checkSessionExist();
   const { userStore } = await func.getUsers();
 
@@ -45,7 +45,7 @@ function Login({
   const history = useHistory();
 
   useEffect(() => {
-    callAPI(currentUserState, setCurrentUserState, loginState, setLoginState, history);
+    getUserDataFromServer(currentUserState, setCurrentUserState, loginState, setLoginState, history);
   }, []);
 
   const setLoginTemptId = (temptId) => {
@@ -70,8 +70,8 @@ function Login({
       friends: user.friends,
       profile: user.profile,
     });
-
     setLoginState({ ...loginState, isLoggedIn: true });
+
     history.push('/post');
   };
 
@@ -109,11 +109,7 @@ function Login({
             </div>
           </div>
           <Router>
-            <button
-              to="/join"
-              className="join-router"
-              onClick={MoveToJoiningPage}
-            >
+            <button to="/join" className="join-router" onClick={MoveToJoiningPage}>
               회원이 아니신가요?
             </button>
             <Switch>
@@ -130,7 +126,7 @@ function Login({
       <div className="login-backgrond-utter">
         Facebook에서 전세계에 있는 친구, 가족, 지인들과 함께 이야기를 나눠 보세요
       </div>
-      <img className="login-backgrond-image" src={background} />
+      <img className="login-backgrond-image" src={background} alt="" />
     </>
   );
 }

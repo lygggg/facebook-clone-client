@@ -6,7 +6,7 @@ import MyPageSide from '../web_components/MyPageSide';
 import MyPagePost from '../web_components/MyPagePost';
 import toTop from "../components/toTop";
 
-const callAPI = async (postState, setPostState, currentUserState, setCurrentUserState) => {
+const getPostDataFromServer = async (postState, setPostState, currentUserState, setCurrentUserState) => {
   toTop();
 
   const { user } = await func.checkSessionExist();
@@ -41,7 +41,7 @@ function MyPage({
   setSearchState,
 }) {
   useEffect(() => {
-    callAPI(postState, setPostState, currentUserState, setCurrentUserState);
+    getPostDataFromServer(postState, setPostState, currentUserState, setCurrentUserState);
   }, []);
 
   return (

@@ -3,7 +3,7 @@ import func from '../function';
 import Header from '../web_components/Header';
 import SearchContents from '../web_components/SearchContents';
 
-const callAPI = async (currentUserState, setCurrentUserState) => {
+const checkSessionExist = async (currentUserState, setCurrentUserState) => {
   const { user } = await func.checkSessionExist();
 
   setCurrentUserState({
@@ -26,7 +26,7 @@ function Search({
   setCurrentUserState,
 }) {
   useEffect(() => {
-    callAPI(currentUserState, setCurrentUserState);
+    checkSessionExist(currentUserState, setCurrentUserState);
   }, []);
 
   return (

@@ -7,22 +7,14 @@ function Advertisement() {
     <div className="advertising">
       <div className="advertising-sponsored">Sponsored</div>
       <a className="advertising-1" href="https://woogod.netlify.app/">
-        <img className="advertising1-image" src={advertising1} />
-        <div className="advertising-url">
-          newyorktimes.com
-        </div>
-        <div className="advertising-statement">
-          The New York Times - Breaking News, World News, Carrying News
-        </div>
+        <img className="advertising1-image" src={advertising1} alt="광고"/>
+        <div className="advertising-url">newyorktimes.com</div>
+        <div className="advertising-statement">The New York Times - Breaking News, World News, Carrying News</div>
       </a>
       <a className="advertising-2" href="https://woogod.netlify.app/">
-        <img className="advertising2-image" src={advertising2} />
-        <div className="advertising-url">
-          archbootique.com
-        </div>
-        <div className="advertising-statement">
-          2020 Job Seminar
-        </div>
+        <img className="advertising2-image" src={advertising2} alt="광고"/>
+        <div className="advertising-url">archbootique.com</div>
+        <div className="advertising-statement">2020 Job Seminar</div>
       </a>
     </div>
   );

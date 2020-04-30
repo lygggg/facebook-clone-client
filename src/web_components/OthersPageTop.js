@@ -15,7 +15,7 @@ function OthersPageTop({
   return (
     <div className="mypage-cover">
       <div className="mypage-cover-top">
-        <img className="mypage-cover-profile-image" src={users[index].profile} />
+        <img className="mypage-cover-profile-image" src={users[index].profile} alt="" />
         <span className="mypage-cover-username">{users[index].userName}</span>
       </div>
       <div className="mypage-cover-bottom">

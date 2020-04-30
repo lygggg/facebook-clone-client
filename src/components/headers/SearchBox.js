@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import func from '../../function';
 import logo from '../../files/facebooklogo.png';
 
-const callAPI = async (loginState, setLoginState) => {
+const getUserDataFromServer = async (loginState, setLoginState) => {
   const { userStore } = await func.getUsers();
 
   setLoginState({ ...loginState, user: [...userStore] });
@@ -19,7 +19,7 @@ function SearchBox({
   const { users } = loginState;
 
   useEffect(() => {
-    callAPI(loginState, setLoginState);
+    getUserDataFromServer(loginState, setLoginState);
   }, []);
 
   const getUserWriting = (writing) => {
@@ -41,14 +41,14 @@ function SearchBox({
 
   return (
     <div className="search-box">
-      <img className="logo" src={logo} onClick={moveToPostPage} />
+      <img className="logo" src={logo} onClick={moveToPostPage} alt="" />
       <input
         className="search-input"
         type="text"
         onChange={(e) => getUserWriting(e.target.value)}
         placeholder="　검색"
       />
-      <i className="fas fa-search" onClick={searchButtonClicked}></i>
+      <i className="fas fa-search" onClick={searchButtonClicked} />
     </div>
   );
 }

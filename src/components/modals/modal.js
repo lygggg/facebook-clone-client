@@ -42,6 +42,7 @@ function ModalBox({
 
     const { timeLinePosts } = await func.editPost(uniqueKey, updatedContents);
     setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
+
     setUpdatedContents('');
     setOpen(false);
     await Swal.fire('', '게시글이 수정되었습니다', 'success');
@@ -50,6 +51,7 @@ function ModalBox({
   const removePost = async () => {
     const { timeLinePosts } = await func.removePost(specificPost.uniqueKey);
     setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
+
     setOpen(false);
     await Swal.fire('', '게시글이 삭제되었습니다', 'success');
   }
@@ -66,7 +68,7 @@ function ModalBox({
       >
         <label className="modal-top">
           <div className="modal-text">게시글 설정하기</div>
-          <i className="far fa-window-close" onClick={closeModalBox}></i>
+          <i className="far fa-window-close" onClick={closeModalBox} />
         </label>
         <div className="modal-main">
           <img className="modal-profile-image" src={specificPost.profile} alt="" width="7%" />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import func from '../function';
 import Swal from "sweetalert2";
 
-const callAPI = async (setUsers, loginState) => {
+const setUserStatus = (setUsers, loginState) => {
   setUsers(
     loginState.users.map(user => ({
       ...user,
@@ -19,7 +19,7 @@ function JoinFollow({
   const { id } = currentUserState;
 
   useEffect(() =>{
-    callAPI(setUsers, loginState);
+    setUserStatus(setUsers, loginState);
   }, []);
 
   const checkUser = (userID) => {

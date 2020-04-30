@@ -5,8 +5,9 @@ import func from '../function';
 import SearchBox from '../components/headers/SearchBox';
 import toTop from "../components/toTop";
 
-const callAPI = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
+const getUserDataFromServer = async (loginState, setLoginState, currentUserState, setCurrentUserState) => {
   toTop();
+
   const { userStore } = await func.getUsers();
   const { user } = await func.checkSessionExist();
 
@@ -38,62 +39,45 @@ function FriendsReco({
   const { users } = loginState;
 
   useEffect(() => {
-    callAPI(loginState, setLoginState, currentUserState, setCurrentUserState);
+    getUserDataFromServer(loginState, setLoginState, currentUserState, setCurrentUserState);
   }, []);
 
   if (friends.length > 0 && users.length > 0) {
-    // currentUser의 friends의 friends ID값을 friendsRecoArray 배열에 다 넣어줌
-    for (let i = 0; i < friends.length; i++) {
+    friends.forEach((_, i) => {
       const index = users.findIndex(user => user.id === friends[i]);
       friendsRecoArray = [...friendsRecoArray, ...users[index].friends];
-    }
+    });
 
-    // 친구추천에서 중복되는 유저 제거
-    friendsRecoArray.sort();
-    for (let i = 0; i < friendsRecoArray.length; i += 1) {
-      friendsRecoArray[i] === friendsRecoArray[i+1]
-        ? friendsRecoArray[i] = '중복이므로 제거 대상'
-        : '';
-    }
-    friendsRecoArray = friendsRecoArray.filter(v => v !== '중복이므로 제거 대상');
+    friendsRecoArray = friendsRecoArray.sort().map((friend, i) => {
+      return friend === friendsRecoArray[i + 1] ? false : friend;
+    }).filter(friend => friend !== false);
 
-    // 친구추천에서 currentUser의 아이디는 지워줌
     friendsRecoArray.includes(currentUserState.id)
     && friendsRecoArray.splice(friendsRecoArray.indexOf(currentUserState.id), 1)
 
-    // 친구추천에서 currentUser와 이미 친구인 사람은 지워줌
-    for (let i = 0; i < friends.length; i += 1) {
-      if (friendsRecoArray.includes(friends[i])) {
-        friendsRecoArray.splice(friendsRecoArray.indexOf(friends[i]), 1);
+    friends.forEach((friend, i) => {
+      if (friendsRecoArray.includes(friend)) {
+        friendsRecoArray.splice(friendsRecoArray.indexOf(friend), 1);
       }
-    }
+    });
   }
 
-  // user의 id를 받아와서 topLevelState의 형식에 맞춰서 넣어줌
   const setUserToTopLevelByID = (id) => {
-    for (let i = 0; i < users.length; i += 1) {
-      if (id === users[i].id) {
+    users.forEach(user => {
+      if (id === user.id) {
         setTopLevelState({
           ...topLevelState,
-          id: users[i].id,
-          name: users[i].userName,
+          id: user.id,
+          name: user.userName,
         });
       }
-    }
+    });
   };
 
-  // users.id를 users.userName으로 변경해주는 함수
   const changeIdToUser = (id, loginState) => {
     const { users } = loginState;
-    let user = '';
 
-    for (let i = 0; i < users.length; i += 1) {
-      if (id === users[i].id) {
-        user = users[i];
-      }
-    }
-
-    return user;
+    return users.find(user => user.id === id);
   };
 
   return (

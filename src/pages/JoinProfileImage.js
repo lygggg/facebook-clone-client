@@ -9,16 +9,15 @@ function JoinProfileImage({
   const [file, setFile] = useState('');
   const [uploadedFile, setUploadedFile] = useState({});
   const history = useHistory();
-
   const { id } = currentUserState;
 
-  const onChange = async (e) => {
+  const fileInput = async (e) => {
     await setFile(e.target.files[0]);
     const send = document.getElementById('send');
     send.click();
   };
 
-  const onSubmit = async (e) => {
+  const sendFile = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -37,12 +36,11 @@ function JoinProfileImage({
     history.push('/joinfollow');
   };
 
-
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={sendFile}>
         <div>
-          <input type="file" onChange={onChange} />
+          <input type="file" onChange={fileInput} />
           <input className="hidden" value="" id="send" type="submit" />
         </div>
         {uploadedFile ? (
@@ -53,9 +51,7 @@ function JoinProfileImage({
           </div>
         ) : null}
       </form>
-      <button onClick={moveNextPage}>
-        다음
-      </button>
+      <button onClick={moveNextPage}>다음</button>
     </>
   );
 }

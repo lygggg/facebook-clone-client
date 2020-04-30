@@ -31,6 +31,7 @@ function SelectModal({
   const removePost = async () => {
     const { timeLinePosts } = await func.removePost(specificPost.uniqueKey);
     setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
+
     setOpen(false);
     await Swal.fire('', '게시글이 삭제되었습니다', 'success');
   }

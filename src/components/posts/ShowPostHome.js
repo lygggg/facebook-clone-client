@@ -6,10 +6,10 @@ import Swal from "sweetalert2";
 import ModalBox from "../modals/modal";
 import toTop from "../toTop";
 
-const callAPI = async (postState, setPostState) => {
+const getPostDataFromServer = async (postState, setPostState) => {
   toTop();
-  const { timeLinePosts } = await func.getPosts();
 
+  const { timeLinePosts } = await func.getPosts();
   setPostState({
     ...postState,
     post: [...timeLinePosts.reverse()],
@@ -31,7 +31,7 @@ function ShowPostHome({
   const { id } = currentUserState;
 
   useEffect(() => {
-    callAPI(postState, setPostState);
+    getPostDataFromServer(postState, setPostState);
   }, []);
 
   const handleThumbCount = async (specificPost) => {
@@ -41,7 +41,6 @@ function ShowPostHome({
     }
 
     const { timeLinePosts } = await func.plusThumbCount(specificPost.uniqueKey, id)
-
     setPostState({ ...postState, post: [...timeLinePosts.reverse()]});
   };
 
@@ -56,9 +55,7 @@ function ShowPostHome({
   return (
     <div key={index}>
       <div className="showpost">
-        <div className="showpost-feed">
-          {specificPost.name} 님이 게시글을 업로드했습니다.
-        </div>
+        <div className="showpost-feed">{specificPost.name} 님이 게시글을 업로드했습니다.</div>
         <div>
           <div className="showpost-writer">
             <img className="profile-image" src={specificPost.profile} alt="" width="7%" />

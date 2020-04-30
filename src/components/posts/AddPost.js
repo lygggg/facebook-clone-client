@@ -7,22 +7,22 @@ function AddPost({
   postState,
   setPostState,
 }) {
-  const [temptState, setTemptState] = useState('');
+  const [userWriting, setUserWriting] = useState('');
   const [file, setFile] = useState('');
   const [imagePath, setImagePath] = useState('');
   const { userName, id, profile } = currentUserState;
 
-  const setPostTemptContents = (temptState) => {
-    setTemptState(temptState);
+  const saveUserWriting = (userWriting) => {
+    setUserWriting(userWriting);
   };
 
-  const handleAddPost = async () => {
-    if (temptState.trim()) {
+  const addPostButtonClicked = async () => {
+    if (userWriting.trim()) {
       const time = func.getCurrentTime();
-      const { timeLinePosts } = await func.addPost(id, userName, temptState, profile, imagePath, time);
+      const { timeLinePosts } = await func.addPost(id, userName, userWriting, profile, imagePath, time);
 
       setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
-      setTemptState('');
+      setUserWriting('');
     } else {
       await Swal.fire('', '내용을 입력해주세요', 'error');
     }
@@ -30,14 +30,14 @@ function AddPost({
     setImagePath('');
   };
 
-  const onChange = async (e) => {
+  const fileInput = async (e) => {
     await setFile(e.target.files[0]);
     const send = document.getElementById('send');
 
     send.click();
   };
 
-  const onSubmit = async (e) => {
+  const sendFile = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -57,12 +57,15 @@ function AddPost({
         </span>
       </div>
       <div className="addpost-expressthinking">생각을 게시글로 표현 해주세요</div>
-      <textarea className="addpost-textarea" type="text" value={temptState} onChange={(e) => setPostTemptContents(e.target.value)} />
-      <form enctype="multipart/form-data" onSubmit={onSubmit}>
+      <textarea
+        className="addpost-textarea"
+        value={userWriting}
+        onChange={(e) => saveUserWriting(e.target.value)} />
+      <form onSubmit={sendFile}>
         <div>
           <label className="fileupload">
-            <i className="far fa-image"></i>
-            <input className="hidden" type="file" name="woomin-facebook" onChange={onChange} />
+            <i className="far fa-image"/>
+            <input className="hidden" type="file" name="woomin-facebook" onChange={fileInput} />
             <input className="hidden" value="" id="send" type="submit" />
           </label>
         </div>
@@ -74,7 +77,7 @@ function AddPost({
           </div>
         ) : null}
       </form>
-      <button className="addpost-submit" type="submit" onClick={handleAddPost}>게시</button>
+      <button className="addpost-submit" type="submit" onClick={addPostButtonClicked}>게시</button>
     </div>
   );
 }
