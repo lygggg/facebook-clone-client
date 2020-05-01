@@ -14,6 +14,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
+              "alt": "",
               "class": "mypage-cover-profile-image",
               "src": "path",
             },
@@ -50,10 +51,12 @@ initialize {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "alt": undefined,
               "class": undefined,
               "src": undefined,
             },
             "x-attribsPrefix": Object {
+              "alt": undefined,
               "class": undefined,
               "src": undefined,
             },
@@ -77,6 +80,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
+                "alt": "",
                 "class": "mypage-cover-profile-image",
                 "src": "path",
               },
@@ -88,10 +92,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -921,6 +927,7 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
+                "alt": "",
                 "class": "mypage-cover-profile-image",
                 "src": "path",
               },
@@ -957,10 +964,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -984,6 +993,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "alt": "",
                   "class": "mypage-cover-profile-image",
                   "src": "path",
                 },
@@ -995,10 +1005,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },

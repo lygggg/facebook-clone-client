@@ -14,6 +14,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
+              "alt": "",
               "class": "logo",
               "src": "[object Object]",
             },
@@ -65,10 +66,12 @@ initialize {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "alt": undefined,
               "class": undefined,
               "src": undefined,
             },
             "x-attribsPrefix": Object {
+              "alt": undefined,
               "class": undefined,
               "src": undefined,
             },
@@ -103,6 +106,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
+                "alt": "",
                 "class": "logo",
                 "src": "[object Object]",
               },
@@ -114,10 +118,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -156,6 +162,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "alt": "",
                   "class": "logo",
                   "src": "[object Object]",
                 },
@@ -167,10 +174,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
@@ -200,14 +209,753 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "alt": "",
-            "class": "header-profile-image",
-            "src": "path",
+            "class": "header-user",
           },
-          "children": Array [],
-          "name": "img",
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "alt": "",
+                "class": "header-profile-image",
+                "src": "path",
+              },
+              "children": Array [],
+              "name": "img",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "header-user-name",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Woomin",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "header-home",
+                    "type": "button",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "홈",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "header-home",
+                      "type": "button",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "로그아웃",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {},
+                      "children": Array [],
+                      "name": "br",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "type": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "type": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "alt": undefined,
+                "class": undefined,
+                "src": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "alt": undefined,
+                "class": undefined,
+                "src": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "header-user-name",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "data": "Woomin",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "header-home",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "홈",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "header-home",
+                    "type": "button",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "로그아웃",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {},
+                    "children": Array [],
+                    "name": "br",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "alt": "",
+                  "class": "header-profile-image",
+                  "src": "path",
+                },
+                "children": Array [],
+                "name": "img",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "alt": undefined,
+                  "class": undefined,
+                  "src": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "alt": undefined,
+                  "class": undefined,
+                  "src": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "header-home",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "data": "홈",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "header-home",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "로그아웃",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {},
+                  "children": Array [],
+                  "name": "br",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {},
+                  "x-attribsPrefix": Object {},
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "header-user-name",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Woomin",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "alt": "",
+                    "class": "header-profile-image",
+                    "src": "path",
+                  },
+                  "children": Array [],
+                  "name": "img",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "alt": undefined,
+                    "class": undefined,
+                    "src": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "alt": undefined,
+                    "class": undefined,
+                    "src": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "header-home",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "data": "로그아웃",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "br",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "header-home",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "홈",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "header-user-name",
+                    "type": "button",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Woomin",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "alt": "",
+                      "class": "header-profile-image",
+                      "src": "path",
+                    },
+                    "children": Array [],
+                    "name": "img",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "alt": undefined,
+                      "class": undefined,
+                      "src": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "alt": undefined,
+                      "class": undefined,
+                      "src": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "br",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "header-home",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "로그아웃",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "header-home",
+                    "type": "button",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "홈",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "header-user-name",
+                      "type": "button",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Woomin",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "alt": "",
+                        "class": "header-profile-image",
+                        "src": "path",
+                      },
+                      "children": Array [],
+                      "name": "img",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "type": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "type": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Object {
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "header-user",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "alt": "",
+              "class": "header-profile-image",
+              "src": "path",
+            },
+            "children": Array [],
+            "name": "img",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "header-user-name",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "data": "Woomin",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "header-home",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "홈",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "header-home",
+                    "type": "button",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "로그아웃",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {},
+                    "children": Array [],
+                    "name": "br",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "alt": undefined,
+              "class": undefined,
+              "src": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "alt": undefined,
+              "class": undefined,
+              "src": undefined,
+            },
+          },
+          Object {
             "attribs": Object {
               "class": "header-user-name",
               "type": "button",
@@ -292,7 +1040,30 @@ initialize {
               },
             },
             "parent": [Circular],
-            "prev": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "alt": "",
+                "class": "header-profile-image",
+                "src": "path",
+              },
+              "children": Array [],
+              "name": "img",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "alt": undefined,
+                "class": undefined,
+                "src": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "alt": undefined,
+                "class": undefined,
+                "src": undefined,
+              },
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -303,56 +1074,7 @@ initialize {
               "type": undefined,
             },
           },
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "alt": undefined,
-            "class": undefined,
-            "src": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "alt": undefined,
-            "class": undefined,
-            "src": undefined,
-          },
-        },
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-      Object {
-        "attribs": Object {
-          "alt": "",
-          "class": "header-profile-image",
-          "src": "path",
-        },
-        "children": Array [],
-        "name": "img",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {
-            "class": "header-user-name",
-            "type": "button",
-          },
-          "children": Array [
-            Object {
-              "data": "Woomin",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "button",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Object {
+          Object {
             "attribs": Object {
               "class": "header-home",
               "type": "button",
@@ -409,7 +1131,58 @@ initialize {
               },
             },
             "parent": [Circular],
-            "prev": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "header-user-name",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "data": "Woomin",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "alt": "",
+                  "class": "header-profile-image",
+                  "src": "path",
+                },
+                "children": Array [],
+                "name": "img",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "alt": undefined,
+                  "class": undefined,
+                  "src": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "alt": undefined,
+                  "class": undefined,
+                  "src": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -420,18 +1193,248 @@ initialize {
               "type": undefined,
             },
           },
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "type": undefined,
+          Object {
+            "attribs": Object {
+              "class": "header-home",
+              "type": "button",
+            },
+            "children": Array [
+              Object {
+                "data": "로그아웃",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "br",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "header-home",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "data": "홈",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "header-user-name",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Woomin",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "alt": "",
+                    "class": "header-profile-image",
+                    "src": "path",
+                  },
+                  "children": Array [],
+                  "name": "img",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "alt": undefined,
+                    "class": undefined,
+                    "src": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "alt": undefined,
+                    "class": undefined,
+                    "src": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "type": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "type": undefined,
+            },
           },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "type": undefined,
+          Object {
+            "attribs": Object {},
+            "children": Array [],
+            "name": "br",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "header-home",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "data": "로그아웃",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "header-home",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "홈",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "header-user-name",
+                    "type": "button",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Woomin",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "alt": "",
+                      "class": "header-profile-image",
+                      "src": "path",
+                    },
+                    "children": Array [],
+                    "name": "img",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "alt": undefined,
+                      "class": undefined,
+                      "src": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "alt": undefined,
+                      "class": undefined,
+                      "src": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
           },
-        },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
@@ -440,6 +1443,7 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
+                "alt": "",
                 "class": "logo",
                 "src": "[object Object]",
               },
@@ -491,10 +1495,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -529,6 +1535,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "alt": "",
                   "class": "logo",
                   "src": "[object Object]",
                 },
@@ -540,10 +1547,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
@@ -582,6 +1591,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
+                    "alt": "",
                     "class": "logo",
                     "src": "[object Object]",
                   },
@@ -593,10 +1603,12 @@ initialize {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
@@ -637,1295 +1649,11 @@ initialize {
         },
         "type": "tag",
         "x-attribsNamespace": Object {
-          "alt": undefined,
           "class": undefined,
-          "src": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "alt": undefined,
-          "class": undefined,
-          "src": undefined,
-        },
-      },
-      Object {
-        "attribs": Object {
-          "class": "header-user-name",
-          "type": "button",
-        },
-        "children": Array [
-          Object {
-            "data": "Woomin",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "text",
-          },
-        ],
-        "name": "button",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {
-            "class": "header-home",
-            "type": "button",
-          },
-          "children": Array [
-            Object {
-              "data": "홈",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "button",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Object {
-            "attribs": Object {
-              "class": "header-home",
-              "type": "button",
-            },
-            "children": Array [
-              Object {
-                "data": "로그아웃",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "button",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Object {
-              "attribs": Object {},
-              "children": Array [],
-              "name": "br",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "tag",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-            "parent": [Circular],
-            "prev": [Circular],
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-              "type": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-              "type": undefined,
-            },
-          },
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-        },
-        "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "alt": "",
-            "class": "header-profile-image",
-            "src": "path",
-          },
-          "children": Array [],
-          "name": "img",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": Object {
-            "attribs": Object {
-              "class": "search-box",
-            },
-            "children": Array [
-              Object {
-                "attribs": Object {
-                  "class": "logo",
-                  "src": "[object Object]",
-                },
-                "children": Array [],
-                "name": "img",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Object {
-                  "attribs": Object {
-                    "class": "search-input",
-                    "placeholder": "　검색",
-                    "type": "text",
-                  },
-                  "children": Array [],
-                  "name": "input",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Object {
-                    "attribs": Object {
-                      "class": "fas fa-search",
-                    },
-                    "children": Array [],
-                    "name": "i",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "placeholder": undefined,
-                    "type": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "placeholder": undefined,
-                    "type": undefined,
-                  },
-                },
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                  "src": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                  "src": undefined,
-                },
-              },
-              Object {
-                "attribs": Object {
-                  "class": "search-input",
-                  "placeholder": "　검색",
-                  "type": "text",
-                },
-                "children": Array [],
-                "name": "input",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Object {
-                  "attribs": Object {
-                    "class": "fas fa-search",
-                  },
-                  "children": Array [],
-                  "name": "i",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "parent": [Circular],
-                "prev": Object {
-                  "attribs": Object {
-                    "class": "logo",
-                    "src": "[object Object]",
-                  },
-                  "children": Array [],
-                  "name": "img",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "src": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "src": undefined,
-                  },
-                },
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                  "placeholder": undefined,
-                  "type": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                  "placeholder": undefined,
-                  "type": undefined,
-                },
-              },
-              Object {
-                "attribs": Object {
-                  "class": "fas fa-search",
-                },
-                "children": Array [],
-                "name": "i",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Object {
-                  "attribs": Object {
-                    "class": "search-input",
-                    "placeholder": "　검색",
-                    "type": "text",
-                  },
-                  "children": Array [],
-                  "name": "input",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": Object {
-                    "attribs": Object {
-                      "class": "logo",
-                      "src": "[object Object]",
-                    },
-                    "children": Array [],
-                    "name": "img",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "src": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "src": undefined,
-                    },
-                  },
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "placeholder": undefined,
-                    "type": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "placeholder": undefined,
-                    "type": undefined,
-                  },
-                },
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-            ],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": [Circular],
-            "parent": [Circular],
-            "prev": null,
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-            },
-          },
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "alt": undefined,
-            "class": undefined,
-            "src": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "alt": undefined,
-            "class": undefined,
-            "src": undefined,
-          },
-        },
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-          "type": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
-          "type": undefined,
         },
-      },
-      Object {
-        "attribs": Object {
-          "class": "header-home",
-          "type": "button",
-        },
-        "children": Array [
-          Object {
-            "data": "홈",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "text",
-          },
-        ],
-        "name": "button",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {
-            "class": "header-home",
-            "type": "button",
-          },
-          "children": Array [
-            Object {
-              "data": "로그아웃",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "button",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Object {
-            "attribs": Object {},
-            "children": Array [],
-            "name": "br",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": [Circular],
-            "type": "tag",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-        },
-        "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "class": "header-user-name",
-            "type": "button",
-          },
-          "children": Array [
-            Object {
-              "data": "Woomin",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "button",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": Object {
-            "attribs": Object {
-              "alt": "",
-              "class": "header-profile-image",
-              "src": "path",
-            },
-            "children": Array [],
-            "name": "img",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": [Circular],
-            "parent": [Circular],
-            "prev": Object {
-              "attribs": Object {
-                "class": "search-box",
-              },
-              "children": Array [
-                Object {
-                  "attribs": Object {
-                    "class": "logo",
-                    "src": "[object Object]",
-                  },
-                  "children": Array [],
-                  "name": "img",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Object {
-                    "attribs": Object {
-                      "class": "search-input",
-                      "placeholder": "　검색",
-                      "type": "text",
-                    },
-                    "children": Array [],
-                    "name": "input",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Object {
-                      "attribs": Object {
-                        "class": "fas fa-search",
-                      },
-                      "children": Array [],
-                      "name": "i",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "placeholder": undefined,
-                      "type": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "placeholder": undefined,
-                      "type": undefined,
-                    },
-                  },
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "src": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "src": undefined,
-                  },
-                },
-                Object {
-                  "attribs": Object {
-                    "class": "search-input",
-                    "placeholder": "　검색",
-                    "type": "text",
-                  },
-                  "children": Array [],
-                  "name": "input",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Object {
-                    "attribs": Object {
-                      "class": "fas fa-search",
-                    },
-                    "children": Array [],
-                    "name": "i",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "parent": [Circular],
-                  "prev": Object {
-                    "attribs": Object {
-                      "class": "logo",
-                      "src": "[object Object]",
-                    },
-                    "children": Array [],
-                    "name": "img",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "src": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "src": undefined,
-                    },
-                  },
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "placeholder": undefined,
-                    "type": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "placeholder": undefined,
-                    "type": undefined,
-                  },
-                },
-                Object {
-                  "attribs": Object {
-                    "class": "fas fa-search",
-                  },
-                  "children": Array [],
-                  "name": "i",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Object {
-                    "attribs": Object {
-                      "class": "search-input",
-                      "placeholder": "　검색",
-                      "type": "text",
-                    },
-                    "children": Array [],
-                    "name": "input",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": Object {
-                      "attribs": Object {
-                        "class": "logo",
-                        "src": "[object Object]",
-                      },
-                      "children": Array [],
-                      "name": "img",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "src": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "src": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "placeholder": undefined,
-                      "type": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "placeholder": undefined,
-                      "type": undefined,
-                    },
-                  },
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "alt": undefined,
-              "class": undefined,
-              "src": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "alt": undefined,
-              "class": undefined,
-              "src": undefined,
-            },
-          },
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-        },
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-          "type": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-          "type": undefined,
-        },
-      },
-      Object {
-        "attribs": Object {
-          "class": "header-home",
-          "type": "button",
-        },
-        "children": Array [
-          Object {
-            "data": "로그아웃",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "text",
-          },
-        ],
-        "name": "button",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {},
-          "children": Array [],
-          "name": "br",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {},
-          "x-attribsPrefix": Object {},
-        },
-        "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "class": "header-home",
-            "type": "button",
-          },
-          "children": Array [
-            Object {
-              "data": "홈",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "button",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": Object {
-            "attribs": Object {
-              "class": "header-user-name",
-              "type": "button",
-            },
-            "children": Array [
-              Object {
-                "data": "Woomin",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "button",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": [Circular],
-            "parent": [Circular],
-            "prev": Object {
-              "attribs": Object {
-                "alt": "",
-                "class": "header-profile-image",
-                "src": "path",
-              },
-              "children": Array [],
-              "name": "img",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": Object {
-                "attribs": Object {
-                  "class": "search-box",
-                },
-                "children": Array [
-                  Object {
-                    "attribs": Object {
-                      "class": "logo",
-                      "src": "[object Object]",
-                    },
-                    "children": Array [],
-                    "name": "img",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Object {
-                      "attribs": Object {
-                        "class": "search-input",
-                        "placeholder": "　검색",
-                        "type": "text",
-                      },
-                      "children": Array [],
-                      "name": "input",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Object {
-                        "attribs": Object {
-                          "class": "fas fa-search",
-                        },
-                        "children": Array [],
-                        "name": "i",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "placeholder": undefined,
-                        "type": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "placeholder": undefined,
-                        "type": undefined,
-                      },
-                    },
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "src": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "src": undefined,
-                    },
-                  },
-                  Object {
-                    "attribs": Object {
-                      "class": "search-input",
-                      "placeholder": "　검색",
-                      "type": "text",
-                    },
-                    "children": Array [],
-                    "name": "input",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Object {
-                      "attribs": Object {
-                        "class": "fas fa-search",
-                      },
-                      "children": Array [],
-                      "name": "i",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "parent": [Circular],
-                    "prev": Object {
-                      "attribs": Object {
-                        "class": "logo",
-                        "src": "[object Object]",
-                      },
-                      "children": Array [],
-                      "name": "img",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "src": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "src": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "placeholder": undefined,
-                      "type": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "placeholder": undefined,
-                      "type": undefined,
-                    },
-                  },
-                  Object {
-                    "attribs": Object {
-                      "class": "fas fa-search",
-                    },
-                    "children": Array [],
-                    "name": "i",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Object {
-                      "attribs": Object {
-                        "class": "search-input",
-                        "placeholder": "　검색",
-                        "type": "text",
-                      },
-                      "children": Array [],
-                      "name": "input",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": Object {
-                        "attribs": Object {
-                          "class": "logo",
-                          "src": "[object Object]",
-                        },
-                        "children": Array [],
-                        "name": "img",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                          "src": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                          "src": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "placeholder": undefined,
-                        "type": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "placeholder": undefined,
-                        "type": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "alt": undefined,
-                "class": undefined,
-                "src": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "alt": undefined,
-                "class": undefined,
-                "src": undefined,
-              },
-            },
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-              "type": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-              "type": undefined,
-            },
-          },
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-        },
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-          "type": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-          "type": undefined,
-        },
-      },
-      Object {
-        "attribs": Object {},
-        "children": Array [],
-        "name": "br",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "class": "header-home",
-            "type": "button",
-          },
-          "children": Array [
-            Object {
-              "data": "로그아웃",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "button",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": Object {
-            "attribs": Object {
-              "class": "header-home",
-              "type": "button",
-            },
-            "children": Array [
-              Object {
-                "data": "홈",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "button",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": [Circular],
-            "parent": [Circular],
-            "prev": Object {
-              "attribs": Object {
-                "class": "header-user-name",
-                "type": "button",
-              },
-              "children": Array [
-                Object {
-                  "data": "Woomin",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "button",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": Object {
-                "attribs": Object {
-                  "alt": "",
-                  "class": "header-profile-image",
-                  "src": "path",
-                },
-                "children": Array [],
-                "name": "img",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": Object {
-                  "attribs": Object {
-                    "class": "search-box",
-                  },
-                  "children": Array [
-                    Object {
-                      "attribs": Object {
-                        "class": "logo",
-                        "src": "[object Object]",
-                      },
-                      "children": Array [],
-                      "name": "img",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Object {
-                        "attribs": Object {
-                          "class": "search-input",
-                          "placeholder": "　검색",
-                          "type": "text",
-                        },
-                        "children": Array [],
-                        "name": "input",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": Object {
-                          "attribs": Object {
-                            "class": "fas fa-search",
-                          },
-                          "children": Array [],
-                          "name": "i",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": [Circular],
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
-                        },
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                          "placeholder": undefined,
-                          "type": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                          "placeholder": undefined,
-                          "type": undefined,
-                        },
-                      },
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "src": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "src": undefined,
-                      },
-                    },
-                    Object {
-                      "attribs": Object {
-                        "class": "search-input",
-                        "placeholder": "　검색",
-                        "type": "text",
-                      },
-                      "children": Array [],
-                      "name": "input",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Object {
-                        "attribs": Object {
-                          "class": "fas fa-search",
-                        },
-                        "children": Array [],
-                        "name": "i",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "parent": [Circular],
-                      "prev": Object {
-                        "attribs": Object {
-                          "class": "logo",
-                          "src": "[object Object]",
-                        },
-                        "children": Array [],
-                        "name": "img",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                          "src": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                          "src": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "placeholder": undefined,
-                        "type": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "placeholder": undefined,
-                        "type": undefined,
-                      },
-                    },
-                    Object {
-                      "attribs": Object {
-                        "class": "fas fa-search",
-                      },
-                      "children": Array [],
-                      "name": "i",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": Object {
-                        "attribs": Object {
-                          "class": "search-input",
-                          "placeholder": "　검색",
-                          "type": "text",
-                        },
-                        "children": Array [],
-                        "name": "input",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": Object {
-                          "attribs": Object {
-                            "class": "logo",
-                            "src": "[object Object]",
-                          },
-                          "children": Array [],
-                          "name": "img",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": [Circular],
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                            "src": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                            "src": undefined,
-                          },
-                        },
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                          "placeholder": undefined,
-                          "type": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                          "placeholder": undefined,
-                          "type": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "alt": undefined,
-                  "class": undefined,
-                  "src": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "alt": undefined,
-                  "class": undefined,
-                  "src": undefined,
-                },
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-                "type": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-                "type": undefined,
-              },
-            },
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-              "type": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-              "type": undefined,
-            },
-          },
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-        },
-        "type": "tag",
-        "x-attribsNamespace": Object {},
-        "x-attribsPrefix": Object {},
       },
     ],
     "name": "div",

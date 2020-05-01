@@ -140,7 +140,6 @@ initialize {
             "next": Object {
               "attribs": Object {
                 "class": "addpost-textarea",
-                "type": "text",
               },
               "children": Array [],
               "name": "textarea",
@@ -166,6 +165,7 @@ initialize {
                             "next": Object {
                               "attribs": Object {
                                 "class": "hidden",
+                                "name": "woomin-facebook",
                                 "type": "file",
                               },
                               "children": Array [],
@@ -203,10 +203,12 @@ initialize {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "name": undefined,
                                 "type": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "name": undefined,
                                 "type": undefined,
                               },
                             },
@@ -223,6 +225,7 @@ initialize {
                           Object {
                             "attribs": Object {
                               "class": "hidden",
+                              "name": "woomin-facebook",
                               "type": "file",
                             },
                             "children": Array [],
@@ -277,10 +280,12 @@ initialize {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "name": undefined,
                               "type": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "name": undefined,
                               "type": undefined,
                             },
                           },
@@ -299,6 +304,7 @@ initialize {
                             "prev": Object {
                               "attribs": Object {
                                 "class": "hidden",
+                                "name": "woomin-facebook",
                                 "type": "file",
                               },
                               "children": Array [],
@@ -327,10 +333,12 @@ initialize {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "name": undefined,
                                 "type": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "name": undefined,
                                 "type": undefined,
                               },
                             },
@@ -415,11 +423,9 @@ initialize {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
-                "type": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
-                "type": undefined,
               },
             },
             "parent": [Circular],
@@ -570,7 +576,6 @@ initialize {
           "next": Object {
             "attribs": Object {
               "class": "addpost-textarea",
-              "type": "text",
             },
             "children": Array [],
             "name": "textarea",
@@ -596,6 +601,7 @@ initialize {
                           "next": Object {
                             "attribs": Object {
                               "class": "hidden",
+                              "name": "woomin-facebook",
                               "type": "file",
                             },
                             "children": Array [],
@@ -633,10 +639,12 @@ initialize {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "name": undefined,
                               "type": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "name": undefined,
                               "type": undefined,
                             },
                           },
@@ -653,6 +661,7 @@ initialize {
                         Object {
                           "attribs": Object {
                             "class": "hidden",
+                            "name": "woomin-facebook",
                             "type": "file",
                           },
                           "children": Array [],
@@ -707,10 +716,12 @@ initialize {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "name": undefined,
                             "type": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "name": undefined,
                             "type": undefined,
                           },
                         },
@@ -729,6 +740,7 @@ initialize {
                           "prev": Object {
                             "attribs": Object {
                               "class": "hidden",
+                              "name": "woomin-facebook",
                               "type": "file",
                             },
                             "children": Array [],
@@ -757,10 +769,12 @@ initialize {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "name": undefined,
                               "type": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "name": undefined,
                               "type": undefined,
                             },
                           },
@@ -845,11 +859,9 @@ initialize {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
-              "type": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
-              "type": undefined,
             },
           },
           "parent": [Circular],
@@ -915,7 +927,6 @@ initialize {
         "next": Object {
           "attribs": Object {
             "class": "addpost-textarea",
-            "type": "text",
           },
           "children": Array [],
           "name": "textarea",
@@ -941,6 +952,7 @@ initialize {
                         "next": Object {
                           "attribs": Object {
                             "class": "hidden",
+                            "name": "woomin-facebook",
                             "type": "file",
                           },
                           "children": Array [],
@@ -978,10 +990,12 @@ initialize {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "name": undefined,
                             "type": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "name": undefined,
                             "type": undefined,
                           },
                         },
@@ -998,6 +1012,7 @@ initialize {
                       Object {
                         "attribs": Object {
                           "class": "hidden",
+                          "name": "woomin-facebook",
                           "type": "file",
                         },
                         "children": Array [],
@@ -1052,10 +1067,12 @@ initialize {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                       },
@@ -1074,6 +1091,7 @@ initialize {
                         "prev": Object {
                           "attribs": Object {
                             "class": "hidden",
+                            "name": "woomin-facebook",
                             "type": "file",
                           },
                           "children": Array [],
@@ -1102,10 +1120,12 @@ initialize {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "name": undefined,
                             "type": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "name": undefined,
                             "type": undefined,
                           },
                         },
@@ -1190,11 +1210,9 @@ initialize {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
-            "type": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
-            "type": undefined,
           },
         },
         "parent": [Circular],
@@ -1345,7 +1363,6 @@ initialize {
       Object {
         "attribs": Object {
           "class": "addpost-textarea",
-          "type": "text",
         },
         "children": Array [],
         "name": "textarea",
@@ -1371,6 +1388,7 @@ initialize {
                       "next": Object {
                         "attribs": Object {
                           "class": "hidden",
+                          "name": "woomin-facebook",
                           "type": "file",
                         },
                         "children": Array [],
@@ -1408,10 +1426,12 @@ initialize {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                       },
@@ -1428,6 +1448,7 @@ initialize {
                     Object {
                       "attribs": Object {
                         "class": "hidden",
+                        "name": "woomin-facebook",
                         "type": "file",
                       },
                       "children": Array [],
@@ -1482,10 +1503,12 @@ initialize {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "name": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "name": undefined,
                         "type": undefined,
                       },
                     },
@@ -1504,6 +1527,7 @@ initialize {
                       "prev": Object {
                         "attribs": Object {
                           "class": "hidden",
+                          "name": "woomin-facebook",
                           "type": "file",
                         },
                         "children": Array [],
@@ -1532,10 +1556,12 @@ initialize {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                       },
@@ -1780,11 +1806,9 @@ initialize {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
-          "type": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
-          "type": undefined,
         },
       },
       Object {
@@ -1808,6 +1832,7 @@ initialize {
                     "next": Object {
                       "attribs": Object {
                         "class": "hidden",
+                        "name": "woomin-facebook",
                         "type": "file",
                       },
                       "children": Array [],
@@ -1845,10 +1870,12 @@ initialize {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "name": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "name": undefined,
                         "type": undefined,
                       },
                     },
@@ -1865,6 +1892,7 @@ initialize {
                   Object {
                     "attribs": Object {
                       "class": "hidden",
+                      "name": "woomin-facebook",
                       "type": "file",
                     },
                     "children": Array [],
@@ -1919,10 +1947,12 @@ initialize {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "name": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "name": undefined,
                       "type": undefined,
                     },
                   },
@@ -1941,6 +1971,7 @@ initialize {
                     "prev": Object {
                       "attribs": Object {
                         "class": "hidden",
+                        "name": "woomin-facebook",
                         "type": "file",
                       },
                       "children": Array [],
@@ -1969,10 +2000,12 @@ initialize {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "name": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "name": undefined,
                         "type": undefined,
                       },
                     },
@@ -2050,7 +2083,6 @@ initialize {
         "prev": Object {
           "attribs": Object {
             "class": "addpost-textarea",
-            "type": "text",
           },
           "children": Array [],
           "name": "textarea",
@@ -2221,11 +2253,9 @@ initialize {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
-            "type": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
-            "type": undefined,
           },
         },
         "type": "tag",
@@ -2271,6 +2301,7 @@ initialize {
                       "next": Object {
                         "attribs": Object {
                           "class": "hidden",
+                          "name": "woomin-facebook",
                           "type": "file",
                         },
                         "children": Array [],
@@ -2308,10 +2339,12 @@ initialize {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                       },
@@ -2328,6 +2361,7 @@ initialize {
                     Object {
                       "attribs": Object {
                         "class": "hidden",
+                        "name": "woomin-facebook",
                         "type": "file",
                       },
                       "children": Array [],
@@ -2382,10 +2416,12 @@ initialize {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "name": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "name": undefined,
                         "type": undefined,
                       },
                     },
@@ -2404,6 +2440,7 @@ initialize {
                       "prev": Object {
                         "attribs": Object {
                           "class": "hidden",
+                          "name": "woomin-facebook",
                           "type": "file",
                         },
                         "children": Array [],
@@ -2432,10 +2469,12 @@ initialize {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "name": undefined,
                           "type": undefined,
                         },
                       },
@@ -2485,7 +2524,6 @@ initialize {
           "prev": Object {
             "attribs": Object {
               "class": "addpost-textarea",
-              "type": "text",
             },
             "children": Array [],
             "name": "textarea",
@@ -2656,11 +2694,9 @@ initialize {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
-              "type": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
-              "type": undefined,
             },
           },
           "type": "tag",

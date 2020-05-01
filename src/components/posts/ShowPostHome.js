@@ -40,8 +40,8 @@ function ShowPostHome({
       return;
     }
 
-    const { timeLinePosts } = await func.plusThumbCount(specificPost.uniqueKey, id)
-    setPostState({ ...postState, post: [...timeLinePosts.reverse()]});
+    const { timeLinePosts } = await func.plusThumbCount(specificPost.uniqueKey, id);
+    setPostState({ ...postState, post: [...timeLinePosts.reverse()] });
   };
 
   const scrapButtonClicked = async () => {

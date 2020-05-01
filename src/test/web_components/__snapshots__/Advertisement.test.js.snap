@@ -25,11 +25,12 @@ initialize {
         "next": Object {
           "attribs": Object {
             "class": "advertising-1",
-            "href": "https://woogod.netlify.com/",
+            "href": "https://woogod.netlify.app/",
           },
           "children": Array [
             Object {
               "attribs": Object {
+                "alt": "광고",
                 "class": "advertising1-image",
                 "src": "[object Object]",
               },
@@ -42,7 +43,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "programmer.co.kr",
+                    "data": "newyorktimes.com",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -57,7 +58,7 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                      "data": "The New York Times - Breaking News, World News, Carrying News",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
@@ -91,10 +92,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -105,7 +108,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "programmer.co.kr",
+                  "data": "newyorktimes.com",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -120,7 +123,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                    "data": "The New York Times - Breaking News, World News, Carrying News",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -143,6 +146,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "alt": "광고",
                   "class": "advertising1-image",
                   "src": "[object Object]",
                 },
@@ -154,10 +158,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
@@ -176,7 +182,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                  "data": "The New York Times - Breaking News, World News, Carrying News",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -193,7 +199,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "programmer.co.kr",
+                    "data": "newyorktimes.com",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -206,6 +212,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
+                    "alt": "광고",
                     "class": "advertising1-image",
                     "src": "[object Object]",
                   },
@@ -217,10 +224,12 @@ initialize {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
@@ -247,11 +256,12 @@ initialize {
           "next": Object {
             "attribs": Object {
               "class": "advertising-2",
-              "href": "https://woogod.netlify.com/",
+              "href": "https://woogod.netlify.app/",
             },
             "children": Array [
               Object {
                 "attribs": Object {
+                  "alt": "광고",
                   "class": "advertising2-image",
                   "src": "[object Object]",
                 },
@@ -264,7 +274,7 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "programmer.co.kr",
+                      "data": "archbootique.com",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
@@ -279,7 +289,7 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "data": "2020 Dev Match",
+                        "data": "2020 Job Seminar",
                         "next": null,
                         "parent": [Circular],
                         "prev": null,
@@ -313,10 +323,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
@@ -327,7 +339,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "programmer.co.kr",
+                    "data": "archbootique.com",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -342,7 +354,7 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "2020 Dev Match",
+                      "data": "2020 Job Seminar",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
@@ -365,6 +377,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
+                    "alt": "광고",
                     "class": "advertising2-image",
                     "src": "[object Object]",
                   },
@@ -376,10 +389,12 @@ initialize {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
@@ -398,7 +413,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "2020 Dev Match",
+                    "data": "2020 Job Seminar",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -415,7 +430,7 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "programmer.co.kr",
+                      "data": "archbootique.com",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
@@ -428,6 +443,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
+                      "alt": "광고",
                       "class": "advertising2-image",
                       "src": "[object Object]",
                     },
@@ -439,10 +455,12 @@ initialize {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "alt": undefined,
                       "class": undefined,
                       "src": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "alt": undefined,
                       "class": undefined,
                       "src": undefined,
                     },
@@ -504,11 +522,12 @@ initialize {
       Object {
         "attribs": Object {
           "class": "advertising-1",
-          "href": "https://woogod.netlify.com/",
+          "href": "https://woogod.netlify.app/",
         },
         "children": Array [
           Object {
             "attribs": Object {
+              "alt": "광고",
               "class": "advertising1-image",
               "src": "[object Object]",
             },
@@ -521,7 +540,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "programmer.co.kr",
+                  "data": "newyorktimes.com",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -536,7 +555,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                    "data": "The New York Times - Breaking News, World News, Carrying News",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -570,10 +589,12 @@ initialize {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "alt": undefined,
               "class": undefined,
               "src": undefined,
             },
             "x-attribsPrefix": Object {
+              "alt": undefined,
               "class": undefined,
               "src": undefined,
             },
@@ -584,7 +605,7 @@ initialize {
             },
             "children": Array [
               Object {
-                "data": "programmer.co.kr",
+                "data": "newyorktimes.com",
                 "next": null,
                 "parent": [Circular],
                 "prev": null,
@@ -599,7 +620,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                  "data": "The New York Times - Breaking News, World News, Carrying News",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -622,6 +643,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
+                "alt": "광고",
                 "class": "advertising1-image",
                 "src": "[object Object]",
               },
@@ -633,10 +655,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -655,7 +679,7 @@ initialize {
             },
             "children": Array [
               Object {
-                "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                "data": "The New York Times - Breaking News, World News, Carrying News",
                 "next": null,
                 "parent": [Circular],
                 "prev": null,
@@ -672,7 +696,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "programmer.co.kr",
+                  "data": "newyorktimes.com",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -685,6 +709,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "alt": "광고",
                   "class": "advertising1-image",
                   "src": "[object Object]",
                 },
@@ -696,10 +721,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
@@ -726,11 +753,12 @@ initialize {
         "next": Object {
           "attribs": Object {
             "class": "advertising-2",
-            "href": "https://woogod.netlify.com/",
+            "href": "https://woogod.netlify.app/",
           },
           "children": Array [
             Object {
               "attribs": Object {
+                "alt": "광고",
                 "class": "advertising2-image",
                 "src": "[object Object]",
               },
@@ -743,7 +771,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "programmer.co.kr",
+                    "data": "archbootique.com",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -758,7 +786,7 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "2020 Dev Match",
+                      "data": "2020 Job Seminar",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
@@ -792,10 +820,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -806,7 +836,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "programmer.co.kr",
+                  "data": "archbootique.com",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -821,7 +851,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "2020 Dev Match",
+                    "data": "2020 Job Seminar",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -844,6 +874,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "alt": "광고",
                   "class": "advertising2-image",
                   "src": "[object Object]",
                 },
@@ -855,10 +886,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
@@ -877,7 +910,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "2020 Dev Match",
+                  "data": "2020 Job Seminar",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -894,7 +927,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "programmer.co.kr",
+                    "data": "archbootique.com",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -907,6 +940,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
+                    "alt": "광고",
                     "class": "advertising2-image",
                     "src": "[object Object]",
                   },
@@ -918,10 +952,12 @@ initialize {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
@@ -998,11 +1034,12 @@ initialize {
       Object {
         "attribs": Object {
           "class": "advertising-2",
-          "href": "https://woogod.netlify.com/",
+          "href": "https://woogod.netlify.app/",
         },
         "children": Array [
           Object {
             "attribs": Object {
+              "alt": "광고",
               "class": "advertising2-image",
               "src": "[object Object]",
             },
@@ -1015,7 +1052,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "programmer.co.kr",
+                  "data": "archbootique.com",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -1030,7 +1067,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "2020 Dev Match",
+                    "data": "2020 Job Seminar",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -1064,10 +1101,12 @@ initialize {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "alt": undefined,
               "class": undefined,
               "src": undefined,
             },
             "x-attribsPrefix": Object {
+              "alt": undefined,
               "class": undefined,
               "src": undefined,
             },
@@ -1078,7 +1117,7 @@ initialize {
             },
             "children": Array [
               Object {
-                "data": "programmer.co.kr",
+                "data": "archbootique.com",
                 "next": null,
                 "parent": [Circular],
                 "prev": null,
@@ -1093,7 +1132,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "2020 Dev Match",
+                  "data": "2020 Job Seminar",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -1116,6 +1155,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
+                "alt": "광고",
                 "class": "advertising2-image",
                 "src": "[object Object]",
               },
@@ -1127,10 +1167,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -1149,7 +1191,7 @@ initialize {
             },
             "children": Array [
               Object {
-                "data": "2020 Dev Match",
+                "data": "2020 Job Seminar",
                 "next": null,
                 "parent": [Circular],
                 "prev": null,
@@ -1166,7 +1208,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "programmer.co.kr",
+                  "data": "archbootique.com",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -1179,6 +1221,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "alt": "광고",
                   "class": "advertising2-image",
                   "src": "[object Object]",
                 },
@@ -1190,10 +1233,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
@@ -1222,11 +1267,12 @@ initialize {
         "prev": Object {
           "attribs": Object {
             "class": "advertising-1",
-            "href": "https://woogod.netlify.com/",
+            "href": "https://woogod.netlify.app/",
           },
           "children": Array [
             Object {
               "attribs": Object {
+                "alt": "광고",
                 "class": "advertising1-image",
                 "src": "[object Object]",
               },
@@ -1239,7 +1285,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "programmer.co.kr",
+                    "data": "newyorktimes.com",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -1254,7 +1300,7 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                      "data": "The New York Times - Breaking News, World News, Carrying News",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
@@ -1288,10 +1334,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "class": undefined,
                 "src": undefined,
               },
@@ -1302,7 +1350,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "programmer.co.kr",
+                  "data": "newyorktimes.com",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -1317,7 +1365,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                    "data": "The New York Times - Breaking News, World News, Carrying News",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -1340,6 +1388,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "alt": "광고",
                   "class": "advertising1-image",
                   "src": "[object Object]",
                 },
@@ -1351,10 +1400,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "class": undefined,
                   "src": undefined,
                 },
@@ -1373,7 +1424,7 @@ initialize {
               },
               "children": Array [
                 Object {
-                  "data": "리액트 핵 선배들이 알려주는 실무 꿀팁 가득한 스터디!",
+                  "data": "The New York Times - Breaking News, World News, Carrying News",
                   "next": null,
                   "parent": [Circular],
                   "prev": null,
@@ -1390,7 +1441,7 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "programmer.co.kr",
+                    "data": "newyorktimes.com",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
@@ -1403,6 +1454,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
+                    "alt": "광고",
                     "class": "advertising1-image",
                     "src": "[object Object]",
                   },
@@ -1414,10 +1466,12 @@ initialize {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "alt": undefined,
                     "class": undefined,
                     "src": undefined,
                   },

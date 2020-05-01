@@ -1,10 +1,8 @@
 # Facebook
 
 웹 사이트 URL : http://woomin-facebook.s3-website.ap-northeast-2.amazonaws.com  
-테스트 유저 ⇒ 아이디: test / 비밀번호: test 
+테스트 유저 ⇒ 아이디: test / 비밀번호: test
 
-<br />
-<br />
 <br />
 
 ## 프로젝트 소개
@@ -13,21 +11,29 @@
 Facebook을 클론 코딩한 프로젝트입니다.
 
 <br />
-<br />
-<br />
 
 ## 실행방법
 
 ```javascript
-SNS project-facebook frontend clone
+// FrontEnd
+$ git clone git@github.com:Woomin-Jeon/SNS-project-Frontend.git
+$ npm install
 $ npm start
 
-SNS project-facebook api clone
+// Api
+$ git clone git@github.com:Woomin-Jeon/SNS-project-API.git
+$ npm install
 $ npm start
 ```
 
 <br />
-<br />
+
+## 테스트
+
+```javascript
+$ npm test
+```
+
 <br />
 
 ## 웹 사이트 화면
@@ -49,14 +55,12 @@ $ npm start
 | <img src="./src/files/knowingman.png" > | <img src="./src/files/follow.png" > |
 
 <br />
-<br />
-<br />
 
 ## 구현한 기능
 
 - 로그인 / 로그아웃  
 - 회원가입 및 팔로잉  
-- 게시글 업로드(사진) / 수정 / 삭제  
+ - 게시글 업로드(사진) / 수정 / 삭제  
 - 게시글에 대한 좋아요와 댓글, 대댓글  
 - 친구 목록  
 - 친구 추천  
@@ -64,12 +68,10 @@ $ npm start
 - 유저 페이지 / 마이 페이지  
 
 <br />
-<br />
-<br />
 
 ## 사용 기술
 
-| **[프론트엔드]** |                |
+| **FrontEnd** |                |
 | ---------------- | -------------- |
 | **ReactJS**      | UI 라이브러리  |
 | **React-Router** | 라우팅         |
@@ -77,7 +79,7 @@ $ npm start
 | **Axios**        | API 요청       |
 <br />
 
-| **[백엔드]**     |                |
+| **BackEnd**     |                |
 | ---------------- | -------------- |
 | **Express**      | API 라이브러리 |
 | **MongoDB**      | DataBase       |
@@ -85,14 +87,12 @@ $ npm start
 | **Winston**      | 에러 로깅      |
 <br />
 
-| **[테스트]**     |                  |
+| **Test**     |                  |
 | ---------------- | ---------------- |
 | **Jest**         | Unit test        |
 | **Supertest**    | Integration test |
 | **Enzyme**       | React component test |
 
-<br />
-<br />
 <br />
 
 ## 배포
@@ -105,8 +105,6 @@ $ npm start
 | **MongoDB**      | Atlas   |
 | **이미지 파일**  | AWS S3  |
 
-<br />
-<br />
 <br />
 
 ## 프로젝트를 통해 알게된 것

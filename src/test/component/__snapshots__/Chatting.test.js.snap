@@ -9,149 +9,99 @@ initialize {
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "chatting-header",
+          "class": "chatting-flex",
         },
         "children": Array [
           Object {
-            "data": "Woomin님 과의 채팅방입니다",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "text",
-          },
-        ],
-        "name": "div",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {
-            "class": "chatting-exit",
-            "type": "button",
-          },
-          "children": Array [
-            Object {
-              "data": "X",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
+            "attribs": Object {
+              "class": "chatting-header",
             },
-          ],
-          "name": "button",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Object {
-            "attribs": Object {},
-            "children": Array [],
+            "children": Array [
+              Object {
+                "data": "Woomin님 과의 채팅방입니다",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "chatting-input",
+                "class": "chatting-exit",
+                "type": "button",
               },
               "children": Array [
                 Object {
-                  "attribs": Object {
-                    "type": "text",
-                    "value": "",
-                  },
-                  "children": Array [],
-                  "name": "input",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Object {
-                    "attribs": Object {
-                      "class": "chatting-send-button",
-                      "type": "button",
-                    },
-                    "children": Array [
-                      Object {
-                        "data": "전송",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "button",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "type": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "type": undefined,
-                    },
-                  },
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "type": undefined,
-                    "value": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "type": undefined,
-                    "value": undefined,
-                  },
-                },
-                Object {
-                  "attribs": Object {
-                    "class": "chatting-send-button",
-                    "type": "button",
-                  },
-                  "children": Array [
-                    Object {
-                      "data": "전송",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "button",
-                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "data": "X",
                   "next": null,
                   "parent": [Circular],
-                  "prev": Object {
-                    "attribs": Object {
-                      "type": "text",
-                      "value": "",
-                    },
-                    "children": Array [],
-                    "name": "input",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "type": undefined,
-                      "value": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "type": undefined,
-                      "value": undefined,
-                    },
-                  },
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "type": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "type": undefined,
-                  },
+                  "prev": null,
+                  "type": "text",
                 },
               ],
-              "name": "div",
+              "name": "button",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
               "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "chatting-exit",
+              "type": "button",
+            },
+            "children": Array [
+              Object {
+                "data": "X",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "chatting-header",
+              },
+              "children": Array [
+                Object {
+                  "data": "Woomin님 과의 채팅방입니다",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -160,49 +110,18 @@ initialize {
                 "class": undefined,
               },
             },
-            "parent": [Circular],
-            "prev": [Circular],
             "type": "tag",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "type": undefined,
-          },
-        },
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-      Object {
-        "attribs": Object {
-          "class": "chatting-exit",
-          "type": "button",
-        },
-        "children": Array [
-          Object {
-            "data": "X",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "text",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "type": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "type": undefined,
+            },
           },
         ],
-        "name": "button",
+        "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {},
@@ -216,6 +135,7 @@ initialize {
             "children": Array [
               Object {
                 "attribs": Object {
+                  "class": "chatting-input-text",
                   "type": "text",
                   "value": "",
                 },
@@ -255,10 +175,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "class": undefined,
                   "type": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "class": undefined,
                   "type": undefined,
                   "value": undefined,
                 },
@@ -283,6 +205,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
+                    "class": "chatting-input-text",
                     "type": "text",
                     "value": "",
                   },
@@ -294,10 +217,12 @@ initialize {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "class": undefined,
                     "type": undefined,
                     "value": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "class": undefined,
                     "type": undefined,
                     "value": undefined,
                   },
@@ -333,40 +258,13 @@ initialize {
           "x-attribsPrefix": Object {},
         },
         "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "class": "chatting-header",
-          },
-          "children": Array [
-            Object {
-              "data": "Woomin님 과의 채팅방입니다",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": null,
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
-        },
+        "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
-          "type": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
-          "type": undefined,
         },
       },
       Object {
@@ -381,6 +279,7 @@ initialize {
           "children": Array [
             Object {
               "attribs": Object {
+                "class": "chatting-input-text",
                 "type": "text",
                 "value": "",
               },
@@ -420,10 +319,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "class": undefined,
                 "type": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
+                "class": undefined,
                 "type": undefined,
                 "value": undefined,
               },
@@ -448,6 +349,7 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
+                  "class": "chatting-input-text",
                   "type": "text",
                   "value": "",
                 },
@@ -459,10 +361,12 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "class": undefined,
                   "type": undefined,
                   "value": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "class": undefined,
                   "type": undefined,
                   "value": undefined,
                 },
@@ -494,56 +398,129 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "chatting-exit",
-            "type": "button",
+            "class": "chatting-flex",
           },
           "children": Array [
             Object {
-              "data": "X",
-              "next": null,
+              "attribs": Object {
+                "class": "chatting-header",
+              },
+              "children": Array [
+                Object {
+                  "data": "Woomin님 과의 채팅방입니다",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "chatting-exit",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "X",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+              },
               "parent": [Circular],
               "prev": null,
-              "type": "text",
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "chatting-exit",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "data": "X",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "chatting-header",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Woomin님 과의 채팅방입니다",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "type": undefined,
+              },
             },
           ],
-          "name": "button",
+          "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": [Circular],
           "parent": [Circular],
-          "prev": Object {
-            "attribs": Object {
-              "class": "chatting-header",
-            },
-            "children": Array [
-              Object {
-                "data": "Woomin님 과의 채팅방입니다",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": [Circular],
-            "parent": [Circular],
-            "prev": null,
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-            },
-          },
+          "prev": null,
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
-            "type": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
-            "type": undefined,
           },
         },
         "type": "tag",
@@ -557,6 +534,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
+              "class": "chatting-input-text",
               "type": "text",
               "value": "",
             },
@@ -596,10 +574,12 @@ initialize {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "class": undefined,
               "type": undefined,
               "value": undefined,
             },
             "x-attribsPrefix": Object {
+              "class": undefined,
               "type": undefined,
               "value": undefined,
             },
@@ -624,6 +604,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
+                "class": "chatting-input-text",
                 "type": "text",
                 "value": "",
               },
@@ -635,10 +616,12 @@ initialize {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "class": undefined,
                 "type": undefined,
                 "value": undefined,
               },
               "x-attribsPrefix": Object {
+                "class": undefined,
                 "type": undefined,
                 "value": undefined,
               },
@@ -667,56 +650,129 @@ initialize {
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "chatting-exit",
-              "type": "button",
+              "class": "chatting-flex",
             },
             "children": Array [
               Object {
-                "data": "X",
-                "next": null,
+                "attribs": Object {
+                  "class": "chatting-header",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Woomin님 과의 채팅방입니다",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "chatting-exit",
+                    "type": "button",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "X",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "type": undefined,
+                  },
+                },
                 "parent": [Circular],
                 "prev": null,
-                "type": "text",
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "class": "chatting-exit",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "data": "X",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "chatting-header",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Woomin님 과의 채팅방입니다",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "type": undefined,
+                },
               },
             ],
-            "name": "button",
+            "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": [Circular],
             "parent": [Circular],
-            "prev": Object {
-              "attribs": Object {
-                "class": "chatting-header",
-              },
-              "children": Array [
-                Object {
-                  "data": "Woomin님 과의 채팅방입니다",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
+            "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
-              "type": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
-              "type": undefined,
             },
           },
           "type": "tag",
