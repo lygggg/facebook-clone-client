@@ -14,13 +14,17 @@ Facebook을 클론 코딩한 프로젝트입니다.
 
 ## 실행방법
 
+FrontEnd
+
 ```javascript
-// FrontEnd
 $ git clone git@github.com:Woomin-Jeon/SNS-project-Frontend.git
 $ npm install
 $ npm start
+```
 
-// Api
+Api ([README here](https://github.com/Woomin-Jeon/SNS-project-API))
+
+```javascript
 $ git clone git@github.com:Woomin-Jeon/SNS-project-API.git
 $ npm install
 $ npm start
@@ -60,7 +64,7 @@ $ npm test
 
 - 로그인 / 로그아웃  
 - 회원가입 및 팔로잉  
- - 게시글 업로드(사진) / 수정 / 삭제  
+- 게시글 업로드(사진) / 수정 / 삭제  
 - 게시글에 대한 좋아요와 댓글, 대댓글  
 - 친구 목록  
 - 친구 추천  
