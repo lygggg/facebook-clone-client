@@ -44,19 +44,19 @@ $ npm test
 
 |                 로그인                |               가입하기                |
 | :-----------------------------------: | :-----------------------------------: |
-| <img src="./src/files/login.png" >    | <img src="./src/files/signup.png" >   |
+| <img src="./screenshot/login.png" >    | <img src="./screenshot/signup.png" >   |
 
 |               타임라인                |                타임라인               |
 | :-----------------------------------: | :-----------------------------------: |
-| <img src="./src/files/timeline.png" > | <img src="./src/files/comment.png" >  |
+| <img src="./screenshot/timeline.png" > | <img src="./screenshot/comment.png" >  |
 
 |                1:1 채팅               |               유저 페이지             |
 | :-----------------------------------: | :-----------------------------------: |
-| <img src="./src/files/chatting.png" > | <img src="./src/files/userpage.png" > |
+| <img src="./screenshot/chatting.png" > | <img src="./screenshot/userpage.png" > |
 
 |               친구 추천               |                 팔로잉                |
 | :-----------------------------------: | :-----------------------------------: |
-| <img src="./src/files/knowingman.png" > | <img src="./src/files/follow.png" > |
+| <img src="./screenshot/knowingman.png" > | <img src="./screenshot/follow.png" > |
 
 <br />
 
