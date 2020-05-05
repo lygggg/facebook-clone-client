@@ -35,6 +35,12 @@ function SearchBox({
     history.push('/search');
   };
 
+  const searchEnterPressed = async (key) => {
+    if (key === 'Enter') {
+      await searchButtonClicked();
+    }
+  }
+
   const moveToPostPage = () => {
     history.push('/post');
   };
@@ -47,6 +53,7 @@ function SearchBox({
         type="text"
         onChange={(e) => getUserWriting(e.target.value)}
         placeholder="　검색"
+        onKeyPress={(e) => searchEnterPressed(e.key)}
       />
       <i className="fas fa-search" onClick={searchButtonClicked} />
     </div>

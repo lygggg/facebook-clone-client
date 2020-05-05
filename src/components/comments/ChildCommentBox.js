@@ -19,9 +19,21 @@ function ChildCommentBox({
     }
   };
 
+  const childCommentEnterPressed = async (key) => {
+    if (key === 'Enter') {
+      await handleAddChildComment();
+    }
+  }
+
   return (
     <div className="child-comment">
-      └ {userName} : <input className="child-comment-input-box" type="text" value={temptState} onChange={(e) => setTemptState(e.target.value)} />
+      └ {userName} : <input
+        className="child-comment-input-box"
+        type="text"
+        value={temptState}
+        onChange={(e) => setTemptState(e.target.value)}
+        onKeyPress={(e) => childCommentEnterPressed(e.key)}
+      />
       <button type="button" className="child-comment-button" onClick={handleAddChildComment}>입력</button>
     </div>
   );

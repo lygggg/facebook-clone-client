@@ -52,7 +52,26 @@ function ShowPostOthersPage({
             </div>
           </div>
           <br />
-          <button className="showpost-button-good" onClick={() => clickThumbCount(p)}>좋아요</button>
+          <span>
+            {
+              p.thumbCount.includes(id)
+                ? <button
+                  className="showpost-button-good-already"
+                  type="button"
+                  onClick={() => clickThumbCount(p)}
+                >
+                  좋아요
+                </button>
+                : <button
+                  className="showpost-button-good"
+                  type="button"
+                  onClick={() => clickThumbCount(p)}
+                >
+                  좋아요
+                </button>
+            }
+          </span>
+          {/*<button className="showpost-button-good" onClick={() => clickThumbCount(p)}>좋아요</button>*/}
           <button className="showpost-button-good" type="button">댓글</button>
           <button className="showpost-button-good" type="button">스크랩</button>
         </div>

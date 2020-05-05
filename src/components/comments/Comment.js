@@ -49,6 +49,12 @@ function Comment({
     }
   };
 
+  const commentEnterPressed = async (key) => {
+    if (key === 'Enter') {
+      await handleAddComment();
+    }
+  }
+
   const handleCommentThumbCount = async (specificComment) => {
     const { postComments } = await func.plusCommentThumbCount(
       specificComment.uniqueKey,
@@ -70,6 +76,7 @@ function Comment({
           type="text"
           value={userWriting}
           onChange={(e) => setCommentTemptStatement(e.target.value)}
+          onKeyPress={(e) => commentEnterPressed(e.key)}
         />
         <button
           className="comment-button"

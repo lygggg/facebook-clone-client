@@ -75,7 +75,7 @@ function Login({
     history.push('/post');
   };
 
-  const loginEnterClicked = async (key) => {
+  const loginEnterPressed = async (key) => {
     if (key === 'Enter') {
       await loginButtonClicked();
     }
@@ -101,7 +101,7 @@ function Login({
                 type="password"
                 className="login-pw-box"
                 onChange={(e) => setLoginTemptPw(e.target.value)}
-                onKeyPress={(e) => loginEnterClicked(e.key)}
+                onKeyPress={(e) => loginEnterPressed(e.key)}
               />
             </div>
             <div className="login-enter">
