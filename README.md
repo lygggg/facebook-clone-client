@@ -1,6 +1,6 @@
 # Facebook
 
-웹 사이트 URL : http://woomin-facebook.s3-website.ap-northeast-2.amazonaws.com  
+웹 사이트 URL : http://woomin-facebook.com
 테스트 유저 ⇒ 아이디: test / 비밀번호: test
 
 <br />
@@ -8,24 +8,24 @@
 ## 프로젝트 소개
 
 2020.02.02 ~ 2020.04.21  
-Facebook을 클론 코딩한 프로젝트입니다.
+Facebook을 클론 코딩하면서 JavaScript 와 React, Express(NodeJS), HTTP 와 Web 전반에 대해서 학습한 프로젝트입니다. 전반적인 웹 애플리케이션의 개발 과정을 습득하고, Docker 와 클라우드를 이용한 배포 과정도 체험했습니다. 또한 API Test coverage 100% 를 달성하는 과정에서 책에서 봤던 설계의 중요성을 몸소 느낀 프로젝트입니다.
 
 <br />
 
-## 실행방법
+## 프로젝트 실행 방법
 
 FrontEnd
 
 ```javascript
-$ git clone git@github.com:Woomin-Jeon/SNS-project-Frontend.git
+$ git clone git@github.com:Woomin-Jeon/facebook-clone-client.git
 $ npm install
 $ npm start
 ```
 
-Api ([README here](https://github.com/Woomin-Jeon/SNS-project-API))
+Api ([README here](https://github.com/Woomin-Jeon/facebook-clone-server))
 
 ```javascript
-$ git clone git@github.com:Woomin-Jeon/SNS-project-API.git
+$ git clone git@github.com:Woomin-Jeon/facebook-clone-server.git
 $ npm install
 $ npm start
 ```
@@ -64,7 +64,7 @@ $ npm test
 
 - 로그인 / 로그아웃  
 - 회원가입 및 팔로잉  
-- 게시글 업로드(사진) / 수정 / 삭제  
+- 게시글 불러오기 / 업로드(사진) / 수정 / 삭제  
 - 게시글에 대한 좋아요와 댓글, 대댓글  
 - 친구 목록  
 - 친구 추천  
