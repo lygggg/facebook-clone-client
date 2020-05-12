@@ -39,6 +39,14 @@ $ npm test
 ```
 
 <br />
+<br />
+
+## 프로젝트 서비스 구성도
+
+<img src="./screenshot/아키텍처.png" />
+
+<br />
+<br />
 
 ## 웹 사이트 화면
 
